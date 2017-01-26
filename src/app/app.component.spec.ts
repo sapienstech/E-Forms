@@ -1,8 +1,14 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
 import { MaterialModule } from '@angular/material';
+import {
+  SchemaFormModule,
+  DefaultWidgetRegistry,
+  WidgetRegistry
+} from 'angular2-schema-form';
+import {AppComponent} from './app.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -11,6 +17,8 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [
+        RouterTestingModule,
+        SchemaFormModule,
         MaterialModule.forRoot()
         ]
     });
