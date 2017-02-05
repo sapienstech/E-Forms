@@ -1,12 +1,10 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MaterialComponent} from './examples/material/material.component';
 import {EditorComponent} from './editor/editor.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/editor', pathMatch: 'full' },
-  { path: 'editor',  component: EditorComponent },
-  { path: 'material',     component: MaterialComponent }
+  { path: 'editor',  component: EditorComponent }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
