@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "ft_1":{"type":"string", "description":"fact type string"},
+    "ft_2":{"type":"boolean", "description":"fact type boolean"},
+    "ft_3":{"type":"number", "description":"fact type number"},
+    "ft_4": {
+      "type": "string",
+      "widget": "select",
+      "oneOf": [ {
+        "enum": ["L1"],
+        "description": "Yes"
+      }, {
+        "enum": ["L2"],
+        "description": "Maybe"
+      },{
+        "enum": ["L3"],
+        "description": "No"
+      }]
+    }
+  },
+
+  "required": [""],
+  "fieldsets": [{
+    "fields": ["ft_1","ft_2","ft_3","ft_4"],
+    "title": "section 1"
+  }]
+
+}

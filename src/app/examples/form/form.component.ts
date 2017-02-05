@@ -9,6 +9,6 @@ export class FormComponent {
   schema: any ;
 
   constructor() {
-    this.schema = require('./sampleschema.json');
+    this.schema = require('./config-examples/form-schema-1.json');
   }
 }

@@ -1,11 +1,11 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {FormComponent} from './examples/form/form.component';
 import {MaterialComponent} from './examples/material/material.component';
+import {EditorComponent} from './editor/editor.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/form', pathMatch: 'full' },
-  { path: 'form',  component: FormComponent },
+  { path: '', redirectTo: '/editor', pathMatch: 'full' },
+  { path: 'editor',  component: EditorComponent },
   { path: 'material',     component: MaterialComponent }
 ];
 @NgModule({
