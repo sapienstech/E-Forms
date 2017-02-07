@@ -1,5 +1,10 @@
- machine:
-   node:
-      version: 4.3.0
-   post:
+machine:
+  node:
+    version: 7
+
+dependencies:
+  pre:
     - npm install -g npm
+    - rm -rf node_modules
+  post:
+    - npm list --depth 0 || true
