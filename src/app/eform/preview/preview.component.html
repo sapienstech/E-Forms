@@ -1,0 +1,13 @@
+<div>
+  <div class="file-chooser-section">
+    <h4>Select form metadata file</h4>
+    <div class="fileUpload btn btn-primary">
+      <span>Upload</span>
+      <input type="file" (change)="fileSelected($event)" class="upload">
+    </div>
+  </div>
+  <div>
+    <ef-form  *ngIf="schema" [metadata]="schema" (onChange)="val=$event.value"></ef-form>
+  </div>
+
+</div>
