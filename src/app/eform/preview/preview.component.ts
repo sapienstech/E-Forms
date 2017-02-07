@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {UtilsService} from '../../services/utils.service';
 
 @Component({
   selector: 'ef-form-preview',
@@ -8,20 +9,19 @@ import {Component} from '@angular/core';
 export class PreviewComponent {
   schema: any ;
 
-  fileSelected(data){
-    let file : any= data.currentTarget.files[0];
-      var reader = new FileReader();
-      reader.addEventListener('load', (result) => {
-        this.schema = this.parseJsonFile(result);
-      });
-      //necessary for CD
-      this.schema = null;
-      reader.readAsText(file);
+  constructor(private utilsService:UtilsService){
+
   }
 
-  private parseJsonFile(result) {
-    var target: any = result.target.result;
-    return JSON.parse(target);
+  fileSelected(data){
+    //necessary for CD
+    this.schema = null;
+    this.utilsService.parseFileToObject(data.currentTarget.files[0]).subscribe((result=>{
+      this.schema = result;
+    }));
+
+
   }
+
 
 }
