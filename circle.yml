@@ -1,9 +1,9 @@
- machine:
-   node:
-      version: 7
-   post:
-    - npm install -g npm
+machine:
+  node:
+    version: 7
 
 dependencies:
-   post:
+  pre:
+    - npm install -g npm
+  post:
     - npm list --depth 0
