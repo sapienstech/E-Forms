@@ -2,13 +2,11 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { MaterialModule } from '@angular/material';
-import {
-  SchemaFormModule,
-  DefaultWidgetRegistry,
-  WidgetRegistry
-} from 'angular2-schema-form';
 import {AppComponent} from './app.component';
-import {RouterTestingModule} from '@angular/router/testing';
+import {HttpModule} from '@angular/http';
+import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {EformModule} from './eform/eform.module';
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -17,9 +15,11 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [
-        RouterTestingModule,
-        SchemaFormModule,
-        MaterialModule.forRoot()
+        EformModule,
+        MaterialModule.forRoot(),
+        BrowserModule,
+        FormsModule,
+        HttpModule
         ]
     });
     TestBed.compileComponents();
