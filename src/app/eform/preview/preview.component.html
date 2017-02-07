@@ -5,12 +5,9 @@
       <span>Upload</span>
       <input type="file" (change)="fileSelected($event)" class="upload">
     </div>
-
   </div>
-
-
   <div>
-    <sf-form  *ngIf="schema" [schema]="schema" [validators]="validators" (onChange)="val=$event.value"></sf-form>
+    <ef-form  *ngIf="schema" [metadata]="schema" (onChange)="val=$event.value"></ef-form>
   </div>
 
 </div>

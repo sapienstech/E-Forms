@@ -1,11 +1,11 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'form',
-  templateUrl: 'editor.component.html',
-  styleUrls: ['editor.component.less']
+  selector: 'ef-form-preview',
+  templateUrl: 'preview.component.html',
+  styleUrls: ['preview.component.less']
 })
-export class EditorComponent {
+export class PreviewComponent {
   schema: any ;
 
   fileSelected(data){
@@ -23,6 +23,5 @@ export class EditorComponent {
     var target: any = result.target.result;
     return JSON.parse(target);
   }
-
 
 }
