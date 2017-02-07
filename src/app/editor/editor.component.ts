@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectorRef, Component} from '@angular/core';
 
 @Component({
   selector: 'form',
@@ -8,22 +8,20 @@ import { Component } from '@angular/core';
 export class EditorComponent {
   schema: any ;
 
-  constructor() {
-
-  }
-
-
   fileSelected(data){
     let file : any= data.currentTarget.files[0];
       var reader = new FileReader();
       reader.addEventListener('load', (result) => {
-        var target:any = result.target;
-        var decodedString = String.fromCharCode.apply(null, new Uint8Array(target.result));
-        this.schema = JSON.parse(decodedString);
+        this.schema = this.parseJsonFile(result);
       });
-      reader.readAsArrayBuffer(file);
+      //necessary for CD
+      this.schema = null;
+      reader.readAsText(file);
+  }
 
-
+  private parseJsonFile(result) {
+    var target: any = result.target.result;
+    return JSON.parse(target);
   }
 
 

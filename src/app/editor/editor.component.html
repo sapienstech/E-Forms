@@ -1,10 +1,16 @@
 <div>
   <div class="file-chooser-section">
     <h4>Select form metadata file</h4>
-    <input type="file" (change)="fileSelected($event)">
+    <div class="fileUpload btn btn-primary">
+      <span>Upload</span>
+      <input type="file" (change)="fileSelected($event)" class="upload">
+    </div>
+
   </div>
 
+
   <div>
-    <sf-form class="col-md-6" *ngIf="schema" [schema]="schema" [validators]="validators" (onChange)="val=$event.value"></sf-form>
+    <sf-form  *ngIf="schema" [schema]="schema" [validators]="validators" (onChange)="val=$event.value"></sf-form>
   </div>
+
 </div>
