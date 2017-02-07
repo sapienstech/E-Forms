@@ -7,4 +7,4 @@ dependencies:
     - npm install -g npm
     - rm -rf node_modules
   post:
-    - npm list --depth 0
+    - npm list --depth 0 || true
