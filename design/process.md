@@ -42,13 +42,13 @@ A configuration file will contain a list of available processes:
 
 Each process object will include:
 
-- name - descriptive name
+- title - descriptive name
 - description - optional description that defines additional details
 - steps - list of steps and their associated flows
 
 ```json
 {
-    "name": "Simple Process",
+    "title": "Simple Process",
     "description": "A simple process for documentation",
     "steps": []
 }
