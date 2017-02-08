@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
-import { ControllerModule } from './controller/controller.module';
-import { EformModule } from './eform/eform.module';
+import { DashboardModule } from './dashboard';
+import { ControllerModule } from './controller';
+import { EformModule } from './eform';
+
+import { AppRouterModule } from './app-router.module';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
     imports: [
         BrowserModule,
-        FormsModule,
-        HttpModule,
-
         MaterialModule.forRoot(),
 
+        AppRouterModule,
+        DashboardModule,
         ControllerModule,
         EformModule
     ],
