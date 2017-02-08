@@ -1,0 +1,87 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "http://sapiens.com/e-forms/process-schema.json",
+    "title": "Process Configuration Schema",
+    "description": "Describes the valid values for a process configuration file",
+    "type": "object",
+    "properties": {
+        "processes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/process"
+            },
+            "minItems": 1
+        }
+    },
+    "definitions": {
+        "process": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "steps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/step"
+                    },
+                    "minItems": 1
+                }
+            },
+            "required": [
+                "title",
+                "steps"
+            ],
+            "additionalProperties": false
+        },
+        "step": {
+            "type": "object",
+            "properties": {
+                "flow": {
+                    "type": "string",
+                    "title": "flow identifier",
+                    "description": "The identifier of the flow associated with this step"
+                },
+                "type": {
+                    "type": "string",
+                    "title": "step type",
+                    "description": "The type of interaction for this step",
+                    "default": "execute",
+                    "oneOf": [
+                        {
+                            "enum": [
+                                "ui"
+                            ],
+                            "description": "Display a form to collect input"
+                        },
+                        {
+                            "enum": [
+                                "execute"
+                            ],
+                            "description": "Execute the flow and wait for results (default)"
+                        },
+                        {
+                            "enum": [
+                                "async"
+                            ],
+                            "description": "Execute the flow without waiting for results"
+                        }
+                    ]
+                },
+                "validation": {
+                    "type": "boolean",
+                    "title": "validation step indicator",
+                    "description": "Indicates that this step executes a validation flow",
+                    "default": false
+                }
+            },
+            "required": [
+                "flow"
+            ],
+            "additionalProperties": false
+        }
+    }
+}
