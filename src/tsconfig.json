@@ -7,8 +7,6 @@
             "dom"
         ],
         "moduleResolution": "node",
-        "noEmitHelpers": true,
-        "importHelpers": true,
         "baseUrl": "",
         "outDir": "../dist/out-tsc",
         "mapRoot": "./",
