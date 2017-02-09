@@ -11,7 +11,7 @@ import {CollapsibleWidget} from '../widgets/collapsable/collapsable.widget';
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {UtilsService} from '../services/utils.service';
-import {ManifestTransformerService} from '../services/manifest-transformer';
+import {ManifestTransformerService} from '../services/manifest-transformer.service';
 
 @NgModule({
     imports: [  BrowserModule,FormsModule,AccordionModule,SchemaFormModule],

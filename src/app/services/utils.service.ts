@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
+import {PARSE_ERROR} from '../types/constants';
 
 @Injectable()
 export class UtilsService {
@@ -13,7 +14,14 @@ export class UtilsService {
 
       var reader = new FileReader();
       reader.addEventListener('load', (result) => {
-        observer.next( this.parseJsonFile(result));
+        try {
+          let json = this.parseJsonFile(result);
+          observer.next(json);
+        }
+        catch (er){
+          observer.error(PARSE_ERROR);
+        }
+
       });
       reader.readAsText(file);
     })
