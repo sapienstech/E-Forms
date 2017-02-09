@@ -11,13 +11,14 @@ import {CollapsibleWidget} from '../widgets/collapsable/collapsable.widget';
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {UtilsService} from '../services/utils.service';
+import {ManifestTransformerService} from '../services/manifest-transformer';
 
 @NgModule({
     imports: [  BrowserModule,FormsModule,AccordionModule,SchemaFormModule],
     exports:[EformComponent,PreviewComponent],
     declarations: [EformComponent,PreviewComponent,CollapsibleWidget],
   entryComponents: [CollapsibleWidget],
-  providers: [{provide: WidgetRegistry, useClass: DefaultWidgetRegistry},UtilsService]
+  providers: [ManifestTransformerService,{provide: WidgetRegistry, useClass: DefaultWidgetRegistry},UtilsService]
 })
 export class EformModule {
   constructor(widgetRegistry: WidgetRegistry) {

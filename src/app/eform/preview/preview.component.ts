@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {UtilsService} from '../../services/utils.service';
+import {ManifestTransformerService} from '../../services/manifest-transformer';
 
 @Component({
   selector: 'ef-form-preview',
@@ -9,7 +10,7 @@ import {UtilsService} from '../../services/utils.service';
 export class PreviewComponent {
   schema: any ;
 
-  constructor(private utilsService:UtilsService){
+  constructor(private utilsService:UtilsService,private manifestTransformerService:ManifestTransformerService){
 
   }
 
@@ -17,6 +18,7 @@ export class PreviewComponent {
     //necessary for CD
     this.schema = null;
     this.utilsService.parseFileToObject(data.currentTarget.files[0]).subscribe((result=>{
+      let x = this.manifestTransformerService.transformToFormSchema(result);
       this.schema = result;
     }));
 
