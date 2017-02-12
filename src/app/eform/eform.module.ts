@@ -13,9 +13,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {UtilsService} from '../services/utils.service';
 import {ManifestTransformerService} from '../services/manifest-transformer.service';
 import {MaterialModule} from '@angular/material';
+import {EformRouterModule} from './eform-router.module';
 
 @NgModule({
-    imports: [  BrowserModule,FormsModule,AccordionModule,SchemaFormModule,MaterialModule.forRoot()],
+    imports: [ EformRouterModule, BrowserModule,FormsModule,AccordionModule,SchemaFormModule,MaterialModule.forRoot()],
     exports:[EformComponent,PreviewComponent],
     declarations: [EformComponent,PreviewComponent,CollapsibleWidget],
   entryComponents: [CollapsibleWidget],

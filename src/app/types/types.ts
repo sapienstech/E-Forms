@@ -7,7 +7,7 @@ export class FactType{
   "isConclusion": boolean;
   "isList": boolean;
   "factTypeDefinition": number;
-  validValues:any[];
+  validValues:any;
 }
 
 export class Group{
