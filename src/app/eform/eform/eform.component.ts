@@ -13,6 +13,7 @@ export class EformComponent implements OnChanges {
 
   @Input() metadata: any;
   @Input() layout: any;
+  @Input() model: any;
   private schema:any;
 
   @Output() onChange = new EventEmitter<{value: any}>();
