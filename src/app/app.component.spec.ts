@@ -1,34 +1,24 @@
-/* tslint:disable:no-unused-variable */
-
 import { TestBed, async } from '@angular/core/testing';
-import { MaterialModule } from '@angular/material';
-import {AppComponent} from './app.component';
-import {HttpModule} from '@angular/http';
-import {FormsModule} from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
-import {EformModule} from './eform/eform.module';
+import { RouterTestingModule } from '@angular/router/testing';
+
+import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-      imports: [
-        EformModule,
-        MaterialModule.forRoot(),
-        BrowserModule,
-        FormsModule,
-        HttpModule
-        ]
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [
+                RouterTestingModule
+            ],
+            declarations: [
+                AppComponent
+            ]
+        });
+        TestBed.compileComponents();
     });
-    TestBed.compileComponents();
-  });
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-
+    it('should create the app', async(() => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const app = fixture.debugElement.componentInstance;
+        expect(app).toBeTruthy();
+    }));
 });

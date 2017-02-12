@@ -1,25 +1,30 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import {MaterialModule} from '@angular/material';
-import {AppComponent} from './app.component';
-import {EformModule} from './eform/eform.module';
+import { NgModule } from '@angular/core';
+
+import { BrowserModule } from '@angular/platform-browser';
+import { MaterialModule } from '@angular/material';
+
+import { DashboardModule } from './dashboard';
+import { ControllerModule } from './controller';
+import { EformModule } from './eform';
+
+import { AppRouterModule } from './app-router.module';
+
+import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    EformModule,
-    MaterialModule.forRoot(),
-    BrowserModule,
-    FormsModule,
-    HttpModule
-  ],
+    imports: [
+        BrowserModule,
+        MaterialModule.forRoot(),
 
-  bootstrap: [AppComponent]
+        AppRouterModule,
+        DashboardModule,
+        ControllerModule,
+        EformModule
+    ],
+
+    declarations: [
+        AppComponent
+    ],
+    bootstrap: [AppComponent]
 })
-export class AppModule {
-
-}
+export class AppModule { }
