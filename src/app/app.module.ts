@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { MaterialModule } from '@angular/material';
 
 import { DashboardModule } from './dashboard';
 import { ControllerModule } from './controller';
@@ -14,7 +13,6 @@ import { AppComponent } from './app.component';
 @NgModule({
     imports: [
         BrowserModule,
-        MaterialModule.forRoot(),
 
         AppRouterModule,
         DashboardModule,
