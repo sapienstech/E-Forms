@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {UtilsService} from '../../services/utils.service';
-import {ManifestTransformerService} from '../../services/manifest-transformer.service';
+import {ManifestTransformerService} from '../../services/manifest-transformer/manifest-transformer.service';
 import {PARSE_ERROR} from '../../types/constants';
 
 @Component({
