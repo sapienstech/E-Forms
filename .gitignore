@@ -14,8 +14,7 @@
 .c9/
 *.launch
 .settings/
-**/*.css
-src/app/**/*.js
+
 
 # IDE - VSCode
 .vscode/*

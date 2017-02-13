@@ -1,5 +1,5 @@
 
-export class FactType{
+export interface FactType{
   name : string;
   modelMapping:string;
   dataType:string;
@@ -10,19 +10,19 @@ export class FactType{
   validValues:any;
 }
 
-export class Group{
+export interface Group{
   groups:Group[];
   factType :FactType[];
 }
 
-export class Asset{
+export interface Asset{
   group:Group;
   assetType:string;
   asset:Asset[];
   name:string;
 }
 
-export class Manifest{
+export interface Manifest{
   asset:Asset[];
 }
 

@@ -13,7 +13,8 @@ export class PreviewComponent {
   model:any = {};
   error:string;
 
-  constructor(private utilsService:UtilsService,private manifestTransformerService:ManifestTransformerService){
+  constructor(private utilsService:UtilsService,
+              private manifestTransformerService:ManifestTransformerService){
 
       }
 

@@ -5,7 +5,7 @@ import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
     template:
         `
       <div>
-        <sf-form  *ngIf="schema" [schema]="schema"  (onChange)="dataChanged($event)" [validators]="validators" (onChange)="val=$event.value"></sf-form>
+        <sf-form  *ngIf="schema" [schema]="schema"  (onChange)="dataChanged($event)" ></sf-form>
       </div>
         `
 })
