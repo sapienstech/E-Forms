@@ -1,13 +1,16 @@
 <div>
-  <div class="file-chooser-section">
-    <h4>Select form metadata file</h4>
-    <div class="fileUpload btn btn-primary">
-      <span>Upload</span>
-      <input type="file" (change)="fileSelected($event)" class="upload">
+  <div class="file-choosers">
+    <div class="file-chooser-section">
+      <h4>Select manifest file</h4>
+      <div class="fileUpload btn btn-info"  >
+        <span>Upload</span>
+        <input type="file" (change)="manifestFileSelected($event)" class="upload">
+      </div>
     </div>
+    <h3>{{error}}</h3>
   </div>
   <div>
-    <ef-form  *ngIf="schema" [metadata]="schema" (onChange)="val=$event.value"></ef-form>
+    <ef-form #eform  *ngIf="schema" [metadata]="schema" [model]="model" (onChange)="val=$event.value"></ef-form>
   </div>
 
 </div>
