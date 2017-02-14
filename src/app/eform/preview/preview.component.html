@@ -1,17 +1,10 @@
 <div>
   <div class="file-choosers">
     <div class="file-chooser-section">
-      <h4>Select manifest file</h4>
+      <h4>Select manifest and layout files</h4>
       <div class="fileUpload btn btn-info"  >
         <span>Upload</span>
-        <input type="file" (change)="manifestFileSelected($event)" class="upload">
-      </div>
-    </div>
-    <div class="file-chooser-section">
-      <h4>Select layout file</h4>
-      <div class="fileUpload btn btn-info"  >
-        <span>Upload</span>
-        <input type="file" (change)="layoutFileSelected($event)" class="upload">
+        <input type="file" (change)="filesSelected($event)" class="upload" multiple>
       </div>
     </div>
 
