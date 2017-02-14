@@ -11,7 +11,7 @@ import { CollapsibleWidget } from '../widgets/collapsable/collapsable.widget';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { UtilsService } from '../services/utils.service';
-import { ManifestTransformerService } from '../services/manifest-transformer.service';
+import { ManifestTransformerService } from '../services/manifest-transformer/manifest-transformer.service';
 import { MaterialModule } from '@angular/material';
 import { EformRouterModule } from './eform-router.module';
 
