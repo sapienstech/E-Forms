@@ -21,7 +21,7 @@ export class UtilsService {
     }
 
     private parseJsonFile(result) {
-        const target: any = result.target.result;
+        let target: any = result.target.result;
         return JSON.parse(target);
     }
 }
