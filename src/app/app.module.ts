@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { DashboardModule } from './dashboard';
+import { ConfigModule } from './config';
 import { ControllerModule } from './controller';
 import { EformModule } from './eform';
 
@@ -16,6 +17,7 @@ import { AppComponent } from './app.component';
 
         AppRouterModule,
         DashboardModule,
+        ConfigModule,
         ControllerModule,
         EformModule
     ],
