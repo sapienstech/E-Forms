@@ -3,9 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { ControllerRouterModule } from './controller-router.module';
 
+import { ControllerState } from './controller-state';
 import { ControllerService } from './controller.service';
-
-import { ProcessSelectionComponent } from './process-selection/';
+import { FlowExecutorService } from './flow-executor.service';
+import {
+    StepStrategy,
+    UiStepStrategy,
+    AsyncStepStrategy,
+    StepStrategiesService
+} from './step-strategies';
 
 @NgModule({
     imports: [
@@ -14,10 +20,12 @@ import { ProcessSelectionComponent } from './process-selection/';
         ControllerRouterModule
     ],
     providers: [
+        ControllerState,
+        FlowExecutorService,
+        { provide: StepStrategy, multi: true, useClass: UiStepStrategy },
+        { provide: StepStrategy, multi: true, useClass: AsyncStepStrategy },
+        StepStrategiesService,
         ControllerService
-    ],
-    declarations: [
-        ProcessSelectionComponent
     ]
 })
 export class ControllerModule { }

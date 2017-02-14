@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ControllerService, ProcessInfo } from '../controller.service';
+import { ProcessConfig } from '../../config';
+import { ControllerService } from '../controller.service';
 
 @Component({
     selector: 'ef-process-selection',
@@ -8,16 +9,27 @@ import { ControllerService, ProcessInfo } from '../controller.service';
     styleUrls: ['./process-selection.component.less']
 })
 export class ProcessSelectionComponent implements OnInit {
-    processes: ProcessInfo[];
+    processes: ProcessConfig[];
+    error: boolean;
 
     constructor(private controller: ControllerService) {
     }
 
     ngOnInit() {
-        this.processes = this.controller.getProcesses();
+        this.controller.getProcesses()
+            .subscribe(processes => {
+                this.processes = processes;
+            });
     }
 
-    execute(process: ProcessInfo) {
-        console.log(process.title);
+    execute(process: ProcessConfig) {
+        if (this.validateProcess(process)) {
+            this.controller.select(process);
+        }
+    }
+
+    private validateProcess(process: ProcessConfig) {
+        this.error = !process.steps || process.steps.length === 0;
+        return !this.error;
     }
 }

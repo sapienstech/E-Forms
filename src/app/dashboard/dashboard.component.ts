@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
             {
                 title: 'Run Process',
                 description: 'Select a process and start running it.',
-                link: 'process'
+                link: 'select-process'
             }
         ];
     }
