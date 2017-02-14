@@ -4,8 +4,11 @@ export interface ProcessConfig {
     steps: StepConfig[];
 }
 
+export type StepType = 'ui' | 'execute' | 'async';
+
 export interface StepConfig {
     flow: string;
-    type?: 'ui' | 'execute' | 'async';
+    type?: StepType;
+    title?: string;
     validation?: boolean;
 }
