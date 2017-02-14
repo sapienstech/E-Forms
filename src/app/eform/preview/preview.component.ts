@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {UtilsService} from '../../services/utils.service';
-import {ManifestTransformerService} from '../../services/manifest-transformer.service';
+import {TransformationService} from '../../services/transformation.service';
 import {PARSE_ERROR} from '../../types/constants';
+import { FormSchema } from '../../types/types';
 
 @Component({
   selector: 'ef-form-preview',
@@ -9,20 +10,24 @@ import {PARSE_ERROR} from '../../types/constants';
   styleUrls: ['preview.component.less']
 })
 export class PreviewComponent {
-  schema: any ;
+  schema: FormSchema ;
   model:any = {};
   error:string;
+  layout:any;
 
   constructor(private utilsService:UtilsService,
-              private manifestTransformerService:ManifestTransformerService){
-
-      }
-
-  manifestFileSelected(data){
-    this.parseSelectedFileToForm(data);
+              private manifestTransformerService:TransformationService) {
   }
 
-  parseSelectedFileToForm(data:any) {
+  layoutFileSelected(data:any){
+    this.utilsService.parseFileToObject(data.currentTarget.files[0]).subscribe(result => {
+      this.layout = result;
+    });
+
+  }
+
+
+ manifestFileSelected(data:any) {
     //necessary for CD
     this.schema = null;
     this.utilsService.parseFileToObject(data.currentTarget.files[0]).subscribe(result => {

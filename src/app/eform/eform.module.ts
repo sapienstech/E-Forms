@@ -11,7 +11,7 @@ import { CollapsibleWidget } from '../widgets/collapsable/collapsable.widget';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { UtilsService } from '../services/utils.service';
-import { ManifestTransformerService } from '../services/manifest-transformer.service';
+import { TransformationService } from '../services/transformation.service';
 import { MaterialModule } from '@angular/material';
 import { EformRouterModule } from './eform-router.module';
 
@@ -20,7 +20,7 @@ import { EformRouterModule } from './eform-router.module';
   exports: [EformComponent, PreviewComponent],
   declarations: [EformComponent, PreviewComponent, CollapsibleWidget],
   entryComponents: [CollapsibleWidget],
-  providers: [ManifestTransformerService, {provide: WidgetRegistry, useClass: DefaultWidgetRegistry}, UtilsService]
+  providers: [TransformationService, {provide: WidgetRegistry, useClass: DefaultWidgetRegistry}, UtilsService]
 })
 export class EformModule {
   constructor(widgetRegistry: WidgetRegistry) {

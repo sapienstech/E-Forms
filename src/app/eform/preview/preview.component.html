@@ -7,10 +7,18 @@
         <input type="file" (change)="manifestFileSelected($event)" class="upload">
       </div>
     </div>
+    <div class="file-chooser-section">
+      <h4>Select layout file</h4>
+      <div class="fileUpload btn btn-info"  >
+        <span>Upload</span>
+        <input type="file" (change)="layoutFileSelected($event)" class="upload">
+      </div>
+    </div>
+
     <h3>{{error}}</h3>
   </div>
   <div>
-    <ef-form #eform  *ngIf="schema" [metadata]="schema" [model]="model" (onChange)="val=$event.value"></ef-form>
+    <ef-form #eform  *ngIf="schema" [metadata]="schema" [layout]="layout" [model]="model" ></ef-form>
   </div>
 
 </div>

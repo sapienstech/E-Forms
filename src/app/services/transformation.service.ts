@@ -1,9 +1,30 @@
 import {Injectable} from '@angular/core';
-import {Asset, FormElement, FormSchema, Manifest} from '../types/types';
+import { Asset, Dependency, FormElement, FormLayout, FormSchema, Manifest } from '../types/types';
 
 
 @Injectable()
-export class ManifestTransformerService {
+export class TransformationService {
+
+  public mergeLayoutWithSchema(metadata: FormSchema, layout: FormLayout) {
+    metadata.fieldsets = layout.sections;
+    metadata.required = layout.requiredElements;
+    if(layout.collapsible)  metadata.widget = 'collapsible';
+    layout.dependencies.forEach((dp : Dependency )=>{
+      if(metadata.properties[dp.source]){
+        metadata.properties[dp.source].visibleIf = {};
+        metadata.properties[dp.source].visibleIf[dp.target] = [dp.value];
+      }
+    });
+    let fields : string[] = layout.sections.map(s=>s.fields).reduce((a,b)=>{return a.concat(b)});
+    let missingSectionedFields = [];
+    Object.keys(metadata.properties).forEach(prop=>{
+      if(fields.indexOf(prop)<0){
+        missingSectionedFields.push(prop);
+      }
+    });
+    metadata.fieldsets.push({title:'leftovers',fields:missingSectionedFields});
+    return metadata;
+  }
 
   public transformToFormSchema(manifest: Manifest): FormSchema {
     let form: FormSchema = new FormSchema();
