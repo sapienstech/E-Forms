@@ -1,8 +1,8 @@
-<h1>Select a Process</h1>
+<h2>Select a Process</h2>
 
-<md-nav-list>
-    <md-list-item *ngFor="let process of processes" (click)="execute(process)">
-        <h3 md-line>{{ process.title }}</h3>
-        <p md-line>{{ process.description }}</p>
-    </md-list-item>
-</md-nav-list>
+<ul>
+    <li *ngFor="let process of processes" (click)="execute(process)">
+        <h3>{{ process.title }}</h3>
+        <p>{{ process.description }}</p>
+    </li>
+</ul>

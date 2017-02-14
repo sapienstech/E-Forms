@@ -9,18 +9,18 @@ import {PARSE_ERROR} from '../../types/constants';
   styleUrls: ['preview.component.less']
 })
 export class PreviewComponent {
-  schema: any ;
-  model:any = {};
-  error:string;
+    schema: any;
+    model: any = {};
+    error: string;
 
-  constructor(private utilsService:UtilsService,
-              private manifestTransformerService:ManifestTransformerService){
+    constructor(private utilsService: UtilsService,
+        private manifestTransformerService: ManifestTransformerService) {
 
-      }
+    }
 
-  manifestFileSelected(data){
-    this.parseSelectedFileToForm(data);
-  }
+    manifestFileSelected(data) {
+        this.parseSelectedFileToForm(data);
+    }
 
   parseSelectedFileToForm(data:any) {
     //necessary for CD

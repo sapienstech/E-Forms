@@ -1,6 +1,4 @@
-<div class="dashboard-cards">
-    <md-card *ngFor="let view of views" [routerLink]="[view.link]">
-        <md-card-title>{{ view.title }}</md-card-title>
-        <md-card-content>{{ view.description }}</md-card-content>
-    </md-card>
+<div *ngFor="let view of views" [routerLink]="[view.link]">
+    <h3>{{ view.title }}</h3>
+    <p>{{ view.description }}</p>
 </div>
