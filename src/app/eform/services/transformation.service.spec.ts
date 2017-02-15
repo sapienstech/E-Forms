@@ -2,6 +2,206 @@ import { FormLayout, FormSchema, Manifest } from '../../types/types';
 import { TransformationService } from './transformation.service';
 
 describe('Transformation Service', () => {
+
+    const manifest: Manifest = <Manifest> {
+        'asset': [
+            {
+                'asset': [
+                    {
+                        'group': {
+                            'factType': [
+                                {
+                                    'validValues': {
+                                        'value': [
+                                            '1',
+                                            '2',
+                                            '3',
+                                            '4',
+                                            '5'
+                                        ]
+                                    },
+                                    'name': 'ListAmount',
+                                    'modelMapping': 'ListAmount',
+                                    'dataType': 'AMOUNT',
+                                    'isPersistent': true,
+                                    'isConclusion': false,
+                                    'isList': true,
+                                    'factTypeDefinition': 1016685
+                                },
+                                {
+                                    'name': 'conc3',
+                                    'modelMapping': 'conc3',
+                                    'dataType': 'INDICATOR',
+                                    'isPersistent': true,
+                                    'isConclusion': true,
+                                    'isList': false,
+                                    'factTypeDefinition': 1016173
+                                },
+                                {
+                                    'name': 'cond3',
+                                    'modelMapping': 'cond3',
+                                    'dataType': 'DATE',
+                                    'isPersistent': true,
+                                    'isConclusion': false,
+                                    'isList': false,
+                                    'factTypeDefinition': 1016188
+                                }
+                            ],
+                            'name': 'Root'
+                        },
+                        'assetType': 'DECISION',
+                        'name': 'Determine conc3 (View: Base)',
+                        'view': 'Base',
+                        'version': '1.0',
+                        'conclusion': 'conc3'
+                    }
+                ],
+                'group': {
+                    'factType': [
+                        {
+                            'name': 'ListAmount',
+                            'modelMapping': 'ListAmount',
+                            'dataType': 'AMOUNT',
+                            'isPersistent': true,
+                            'isConclusion': false,
+                            'isList': true,
+                            'factTypeDefinition': 1016685
+                        },
+                        {
+                            'name': 'conc3',
+                            'modelMapping': 'conc3',
+                            'dataType': 'TEXT',
+                            'isPersistent': false,
+                            'isConclusion': true,
+                            'isList': false,
+                            'factTypeDefinition': 1016173
+                        },
+                        {
+                            'name': 'cond3',
+                            'modelMapping': 'cond3',
+                            'dataType': 'DATE',
+                            'isPersistent': true,
+                            'isConclusion': false,
+                            'isList': false,
+                            'factTypeDefinition': 1016188
+                        },
+                        {
+                            'name': 'conc4',
+                            'modelMapping': 'conc4',
+                            'dataType': 'INDICATOR',
+                            'isPersistent': true,
+                            'isConclusion': true,
+                            'isList': false,
+                            'factTypeDefinition': 1016226
+                        },
+                        {
+                            'name': 'cond4',
+                            'modelMapping': 'cond4',
+                            'dataType': 'TEXT',
+                            'isPersistent': true,
+                            'isConclusion': false,
+                            'isList': false,
+                            'factTypeDefinition': 1016241
+                        },
+                        {
+                            'validValues': {
+                                'value': [
+                                    '1',
+                                    '2',
+                                    '3'
+                                ]
+                            },
+                            'name': 'conclusion number 1',
+                            'modelMapping': 'conc1',
+                            'dataType': 'TEXT',
+                            'isPersistent': true,
+                            'isConclusion': true,
+                            'isList': false,
+                            'factTypeDefinition': 1016111
+                        },
+                        {
+                            'name': 'cond1',
+                            'modelMapping': 'cond1',
+                            'dataType': 'TEXT',
+                            'isPersistent': true,
+                            'isConclusion': false,
+                            'isList': false,
+                            'factTypeDefinition': 1016126
+                        },
+                        {
+                            'name': 'conc2',
+                            'modelMapping': 'conc2',
+                            'dataType': 'TEXT',
+                            'isPersistent': true,
+                            'isConclusion': true,
+                            'isList': false,
+                            'factTypeDefinition': 1016142
+                        },
+                        {
+                            'name': 'condition 2',
+                            'modelMapping': 'cond2',
+                            'dataType': 'TEXT',
+                            'isPersistent': true,
+                            'isConclusion': false,
+                            'isList': false,
+                            'factTypeDefinition': 1016157
+                        },
+                        {
+                            'name': 'testOutput2',
+                            'modelMapping': 'testOutput2',
+                            'dataType': 'TEXT',
+                            'isPersistent': true,
+                            'isConclusion': false,
+                            'isList': false,
+                            'factTypeDefinition': 1021064
+                        },
+                        {
+                            'name': 'testOutput1',
+                            'modelMapping': 'testOutput1',
+                            'dataType': 'TEXT',
+                            'isPersistent': true,
+                            'isConclusion': false,
+                            'isList': false,
+                            'factTypeDefinition': 1021053
+                        }
+                    ],
+                    'name': 'Root'
+                },
+                'assetType': 'FLOW',
+                'name': 'Test-1.0',
+                'version': '1.0'
+            }
+        ],
+        'executionModelHash': 'bc776b36d503cea5f1353bdbc67347b0',
+        'release': 'Sample Release',
+        'tag': 'test3',
+        'conclusion': 'Test'
+    };
+
+    const layout: FormLayout = <FormLayout> {
+        'fieldsets': [{
+            'title': 'title1',
+            'fields': ['ft_1', 'ft_2']
+        }],
+        'collapsible': true,
+        'required': ['ft_1'],
+        'dependencies': [{
+            'fields': ['ft_1'],
+            'dependentOn': 'ft_2',
+            'value': 'X'
+        }]
+    }
+
+    const formMetaData: FormSchema = <FormSchema> {
+        'type': 'object',
+        'properties': {
+            'ft_1': {'type': 'string', 'description': 'fact type 1'},
+            'ft_2': {'type': 'string', 'description': 'fact type 2'},
+            'ft_3': {'type': 'integer', 'description': 'fact type 3'},
+            'ft_6': {'type': 'string', 'format': 'date', 'description': 'fact type date'}
+        }
+    }
+
     let service: TransformationService;
 
     beforeEach(() => {
@@ -65,7 +265,7 @@ describe('Transformation Service', () => {
         });
 
         it('should create fieldSet for each section declared', () => {
-            expect(form.fieldsets.length).toBe(layout.sections.length);
+            expect(form.fieldsets.length).toBe(layout.fieldsets.length);
         });
 
         it('should add collapsible widget when in the layout collapsible field is true', () => {
@@ -73,7 +273,7 @@ describe('Transformation Service', () => {
         });
 
         it('should add required fields as declared in the layout', () => {
-            expect(form.required.length).toBe(layout.requiredElements.length);
+            expect(form.required.length).toBe(layout.required.length);
         });
 
         it('should add visibleIf field on every source field declared in the layout dependencies array', () => {
@@ -84,202 +284,5 @@ describe('Transformation Service', () => {
 
 });
 
-const manifest: Manifest = <Manifest> {
-    'asset': [
-        {
-            'asset': [
-                {
-                    'group': {
-                        'factType': [
-                            {
-                                'validValues': {
-                                    'value': [
-                                        '1',
-                                        '2',
-                                        '3',
-                                        '4',
-                                        '5'
-                                    ]
-                                },
-                                'name': 'ListAmount',
-                                'modelMapping': 'ListAmount',
-                                'dataType': 'AMOUNT',
-                                'isPersistent': true,
-                                'isConclusion': false,
-                                'isList': true,
-                                'factTypeDefinition': 1016685
-                            },
-                            {
-                                'name': 'conc3',
-                                'modelMapping': 'conc3',
-                                'dataType': 'INDICATOR',
-                                'isPersistent': true,
-                                'isConclusion': true,
-                                'isList': false,
-                                'factTypeDefinition': 1016173
-                            },
-                            {
-                                'name': 'cond3',
-                                'modelMapping': 'cond3',
-                                'dataType': 'DATE',
-                                'isPersistent': true,
-                                'isConclusion': false,
-                                'isList': false,
-                                'factTypeDefinition': 1016188
-                            }
-                        ],
-                        'name': 'Root'
-                    },
-                    'assetType': 'DECISION',
-                    'name': 'Determine conc3 (View: Base)',
-                    'view': 'Base',
-                    'version': '1.0',
-                    'conclusion': 'conc3'
-                }
-            ],
-            'group': {
-                'factType': [
-                    {
-                        'name': 'ListAmount',
-                        'modelMapping': 'ListAmount',
-                        'dataType': 'AMOUNT',
-                        'isPersistent': true,
-                        'isConclusion': false,
-                        'isList': true,
-                        'factTypeDefinition': 1016685
-                    },
-                    {
-                        'name': 'conc3',
-                        'modelMapping': 'conc3',
-                        'dataType': 'TEXT',
-                        'isPersistent': false,
-                        'isConclusion': true,
-                        'isList': false,
-                        'factTypeDefinition': 1016173
-                    },
-                    {
-                        'name': 'cond3',
-                        'modelMapping': 'cond3',
-                        'dataType': 'DATE',
-                        'isPersistent': true,
-                        'isConclusion': false,
-                        'isList': false,
-                        'factTypeDefinition': 1016188
-                    },
-                    {
-                        'name': 'conc4',
-                        'modelMapping': 'conc4',
-                        'dataType': 'INDICATOR',
-                        'isPersistent': true,
-                        'isConclusion': true,
-                        'isList': false,
-                        'factTypeDefinition': 1016226
-                    },
-                    {
-                        'name': 'cond4',
-                        'modelMapping': 'cond4',
-                        'dataType': 'TEXT',
-                        'isPersistent': true,
-                        'isConclusion': false,
-                        'isList': false,
-                        'factTypeDefinition': 1016241
-                    },
-                    {
-                        'validValues': {
-                            'value': [
-                                '1',
-                                '2',
-                                '3'
-                            ]
-                        },
-                        'name': 'conclusion number 1',
-                        'modelMapping': 'conc1',
-                        'dataType': 'TEXT',
-                        'isPersistent': true,
-                        'isConclusion': true,
-                        'isList': false,
-                        'factTypeDefinition': 1016111
-                    },
-                    {
-                        'name': 'cond1',
-                        'modelMapping': 'cond1',
-                        'dataType': 'TEXT',
-                        'isPersistent': true,
-                        'isConclusion': false,
-                        'isList': false,
-                        'factTypeDefinition': 1016126
-                    },
-                    {
-                        'name': 'conc2',
-                        'modelMapping': 'conc2',
-                        'dataType': 'TEXT',
-                        'isPersistent': true,
-                        'isConclusion': true,
-                        'isList': false,
-                        'factTypeDefinition': 1016142
-                    },
-                    {
-                        'name': 'condition 2',
-                        'modelMapping': 'cond2',
-                        'dataType': 'TEXT',
-                        'isPersistent': true,
-                        'isConclusion': false,
-                        'isList': false,
-                        'factTypeDefinition': 1016157
-                    },
-                    {
-                        'name': 'testOutput2',
-                        'modelMapping': 'testOutput2',
-                        'dataType': 'TEXT',
-                        'isPersistent': true,
-                        'isConclusion': false,
-                        'isList': false,
-                        'factTypeDefinition': 1021064
-                    },
-                    {
-                        'name': 'testOutput1',
-                        'modelMapping': 'testOutput1',
-                        'dataType': 'TEXT',
-                        'isPersistent': true,
-                        'isConclusion': false,
-                        'isList': false,
-                        'factTypeDefinition': 1021053
-                    }
-                ],
-                'name': 'Root'
-            },
-            'assetType': 'FLOW',
-            'name': 'Test-1.0',
-            'version': '1.0'
-        }
-    ],
-    'executionModelHash': 'bc776b36d503cea5f1353bdbc67347b0',
-    'release': 'Sample Release',
-    'tag': 'test3',
-    'conclusion': 'Test'
-};
 
-const layout: FormLayout = <FormLayout> {
-    'sections': [{
-        'title': 'title1',
-        'fields': ['ft_1', 'ft_2']
-    }],
-    'collapsible': true,
-    'requiredElements': ['ft_1'],
-    'dependencies': [{
-        'source': 'ft_1',
-        'target': 'ft_2',
-        'value': 'X'
-    }]
-}
-
-const formMetaData: FormSchema = <FormSchema> {
-    'type': 'object',
-    'properties': {
-        'ft_1': {'type': 'string', 'description': 'fact type 1'},
-        'ft_2': {'type': 'string', 'description': 'fact type 2'},
-        'ft_3': {'type': 'integer', 'description': 'fact type 3'},
-        'ft_6': {'type': 'string', 'format': 'date', 'description': 'fact type date'}
-    }
-}
 

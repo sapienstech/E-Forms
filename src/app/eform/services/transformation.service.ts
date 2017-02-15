@@ -7,10 +7,11 @@ export class TransformationService {
 
     public mergeLayoutWithSchema(metadata: FormSchema, layout: FormLayout) : FormSchema {
         if(!layout) return metadata;
-        metadata.required = layout.requiredElements;
+
+        metadata.required = layout.required;
         if (layout.collapsible) metadata.widget = 'collapsible';
         this.buildElementDependencies(layout.dependencies,metadata);
-        metadata.fieldsets = layout.sections;
+        metadata.fieldsets = layout.fieldsets;
         this.moveAllUnSectionedFiledsToLastSection(layout, metadata);
         return metadata;
     }
@@ -113,7 +114,7 @@ export class TransformationService {
     }
 
     private moveAllUnSectionedFiledsToLastSection(layout: FormLayout, metadata: FormSchema) {
-        let fields: string[] = layout.sections.map(s => s.fields).reduce((a, b) => {
+        let fields: string[] = layout.fieldsets.map(s => s.fields).reduce((a, b) => {
             return a.concat(b)
         });
         let missingSectionedFields = [];
@@ -127,10 +128,13 @@ export class TransformationService {
 
     private buildElementDependencies(dependencies: Dependency[],metadata : FormElement) {
         dependencies.forEach((dp: Dependency) => {
-            if (metadata.properties[dp.source]) {
-                metadata.properties[dp.source].visibleIf = {};
-                metadata.properties[dp.source].visibleIf[dp.target] = [dp.value];
-            }
+            dp.fields.forEach(field=>{
+                if (metadata.properties[field]) {
+                    metadata.properties[field].visibleIf = {};
+                    metadata.properties[field].visibleIf[dp.dependentOn] = [dp.value];
+                }
+            });
+
         });
     }
 

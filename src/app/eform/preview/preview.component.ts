@@ -10,27 +10,40 @@ import { FormSchema } from '../../types/types';
     styleUrls: ['preview.component.less']
 })
 export class PreviewComponent {
-    schema: FormSchema;
+
     model: any = {};
     error: string;
-    layout: any;
+
+    schema: FormSchema;
+    layout:any;
+    metadata :any;
 
     constructor(private utilsService: UtilsService,
-                private manifestTransformerService: TransformationService) {
+                private transformerService: TransformationService) {
+    }
+
+    generateForm(){
+        this.schema = this.transformerService.mergeLayoutWithSchema(this.metadata, this.layout);
     }
 
     layoutFileSelected(data: any) {
-        this.utilsService.parseFileToObject(data).subscribe(result => {
+        let file = data.currentTarget.files[0];
+        if(!file) return;
+        this.utilsService.parseFileToObject(file).subscribe(result => {
             this.layout = result;
         });
     }
 
     manifestFileSelected(data: any) {
-        this.utilsService.parseFileToObject(data).subscribe(result => {
+        this.schema = null;
+        this.layout = null;
+        let file = data.currentTarget.files[0];
+        if(!file) return;
+        this.utilsService.parseFileToObject(file).subscribe(result => {
             try {
                 this.error = '';
-                let formSchema = this.manifestTransformerService.transformToFormSchema(result);
-                this.schema = formSchema;
+                let formSchema = this.transformerService.transformToFormSchema(result);
+                this.metadata= formSchema;
             }
             catch (er) {
                 this.error = PARSE_ERROR;
@@ -39,24 +52,6 @@ export class PreviewComponent {
         }, error => {
             this.error = error;
         });
-    }
-
-    filesSelected(data: any) {
-        //necessary for CD
-        this.schema = null;
-        if(data.currentTarget.files.length == 1){
-            //if the user selected only one file, it has to be form metadata
-            this.layout = null;
-        }
-
-        for (let file of data.currentTarget.files) {
-            if (file.name.search('layout') > -1) {
-                this.layoutFileSelected(file);
-            }
-            else {
-                this.manifestFileSelected(file);
-            }
-        }
     }
 
 }

@@ -26,15 +26,15 @@ export interface Manifest {
 }
 
 export class FormLayout {
-  sections: FieldSet[];
+  fieldsets: FieldSet[];
   collapsible:boolean;
-  requiredElements:string[];
-  dependencies: any[];
+  required:string[];
+  dependencies: Dependency[];
 }
 
 export class Dependency{
-  source:string;
-  target:string;
+  fields:string[];
+  dependentOn:string;
   value:any;
 }
 
