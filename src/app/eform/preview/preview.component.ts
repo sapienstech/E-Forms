@@ -1,43 +1,57 @@
-import {Component} from '@angular/core';
-import {UtilsService} from '../../services/utils.service';
-import {ManifestTransformerService} from '../../services/manifest-transformer/manifest-transformer.service';
-import {PARSE_ERROR} from '../../types/constants';
+import { Component } from '@angular/core';
+import { UtilsService } from '../../services/utils.service';
+import { TransformationService } from '../services/transformation.service';
+import { PARSE_ERROR } from '../../types/constants';
+import { FormSchema } from '../../types/types';
 
 @Component({
-  selector: 'ef-form-preview',
-  templateUrl: 'preview.component.html',
-  styleUrls: ['preview.component.less']
+    selector: 'ef-form-preview',
+    templateUrl: 'preview.component.html',
+    styleUrls: ['preview.component.less']
 })
 export class PreviewComponent {
-    schema: any;
+
     model: any = {};
     error: string;
 
+    schema: FormSchema;
+    layout:any;
+    metadata :any;
+
     constructor(private utilsService: UtilsService,
-        private manifestTransformerService: ManifestTransformerService) {
-
+                private transformerService: TransformationService) {
     }
 
-    manifestFileSelected(data) {
-        this.parseSelectedFileToForm(data);
+    generateForm(){
+        this.schema = this.transformerService.mergeLayoutWithSchema(this.metadata, this.layout);
     }
 
-  parseSelectedFileToForm(data:any) {
-    //necessary for CD
-    this.schema = null;
-    this.utilsService.parseFileToObject(data.currentTarget.files[0]).subscribe(result => {
-      try {
-        this.error = '';
-        let formSchema = this.manifestTransformerService.transformToFormSchema(result);
-        this.schema = formSchema;
-      }
-      catch (er) {
-        this.error = PARSE_ERROR;
-      }
+    layoutFileSelected(data: any) {
+        let file = data.currentTarget.files[0];
+        if(!file) return;
+        this.utilsService.parseFileToObject(file).subscribe(result => {
+            this.layout = result;
+        });
+    }
 
-    },error=>{
-      this.error = error;
-    });
-  }
+    manifestFileSelected(data: any) {
+        this.schema = null;
+        this.layout = null;
+        let file = data.currentTarget.files[0];
+        if(!file) return;
+        this.utilsService.parseFileToObject(file).subscribe(result => {
+            try {
+                this.error = '';
+                let formSchema = this.transformerService.transformToFormSchema(result);
+                this.metadata= formSchema;
+            }
+            catch (er) {
+                this.error = PARSE_ERROR;
+            }
+
+        }, error => {
+            this.error = error;
+        });
+    }
 
 }
