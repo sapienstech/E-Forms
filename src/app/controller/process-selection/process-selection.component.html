@@ -1,8 +1,17 @@
-<h1>Select a Process</h1>
+<h2>Select a Process</h2>
 
-<md-nav-list>
-    <md-list-item *ngFor="let process of processes" (click)="execute(process)">
-        <h3 md-line>{{ process.title }}</h3>
-        <p md-line>{{ process.description }}</p>
-    </md-list-item>
-</md-nav-list>
+<div class="alert alert-danger alert-dismissible"
+     [class.error]="error">
+    <button type="button"
+            class="close"
+            (click)="error = false">&times;</button>
+    The selected process is missing steps and therefore invalid.
+</div>
+
+<ul>
+    <li *ngFor="let process of processes"
+        (click)="execute(process)">
+        <h3>{{ process.title }}</h3>
+        <p>{{ process.description }}</p>
+    </li>
+</ul>

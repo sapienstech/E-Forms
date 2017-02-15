@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AccordionModule } from 'ngx-accordion';
 import {
     SchemaFormModule,
@@ -8,9 +8,10 @@ import {
     WidgetRegistry
 } from 'angular2-schema-form/src';
 
-import { EformRouterModule } from './eform-router.module';
-
 import { UtilsService } from '../services/utils.service';
+import { ManifestTransformerService } from '../services/manifest-transformer/manifest-transformer.service';
+
+import { EformRouterModule } from './eform-router.module';
 
 import { EformComponent } from './eform/eform.component';
 import { PreviewComponent } from './preview/preview.component';
@@ -26,8 +27,7 @@ import { CollapsibleWidget } from '../widgets/collapsable/collapsable.widget';
         EformRouterModule
     ],
     exports: [
-        EformComponent,
-        PreviewComponent
+        EformComponent
     ],
     declarations: [
         EformComponent,
@@ -36,6 +36,7 @@ import { CollapsibleWidget } from '../widgets/collapsable/collapsable.widget';
     ],
     entryComponents: [CollapsibleWidget],
     providers: [
+        ManifestTransformerService,
         { provide: WidgetRegistry, useClass: DefaultWidgetRegistry },
         UtilsService
     ]
