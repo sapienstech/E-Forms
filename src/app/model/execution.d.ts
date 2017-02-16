@@ -4,7 +4,7 @@ export interface ExecutionInput {
     };
     executionInput: {
         rootGroup: {
-            IoGroupInstances: { IsFactTypes: IoFactType[] }[];
+            IoGroupInstances: { IoFactTypes: IoFactType[] }[];
         };
     };
     executionConfiguration: undefined;
