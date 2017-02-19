@@ -9,7 +9,7 @@ import {
 } from 'angular2-schema-form/src';
 
 import { UtilsService } from '../services/utils.service';
-import { ManifestTransformerService } from '../services/manifest-transformer/manifest-transformer.service';
+import { TransformationService } from './services/transformation.service';
 
 import { EformRouterModule } from './eform-router.module';
 
@@ -36,7 +36,7 @@ import { CollapsibleWidget } from '../widgets/collapsable/collapsable.widget';
     ],
     entryComponents: [CollapsibleWidget],
     providers: [
-        ManifestTransformerService,
+        TransformationService,
         { provide: WidgetRegistry, useClass: DefaultWidgetRegistry },
         UtilsService
     ]
