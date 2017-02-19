@@ -25,7 +25,7 @@ export interface ArtifactKey {
 
 export interface IoFactType {
     factTypeName: string;
-    values: string[];
+    values?: string[];
     isConclusionValues: boolean;
     rowHits?;
 }

@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 
 import {
-    Asset,
-    Dependency,
-    FactType,
-    FormElement,
-    FormLayout,
+    JsonSchemaType,
+
+    FormProperty,
     FormSchema,
-    Manifest
-} from '../types/types';
+
+    FormLayout,
+    Dependency,
+
+    Manifest,
+    FactType
+} from '../model';
 
 @Injectable()
 export class TransformationService {
-
-    public mergeLayoutWithSchema(metadata: FormSchema, layout: FormLayout): FormSchema {
+    mergeLayoutWithSchema(metadata: FormSchema, layout: FormLayout): FormSchema {
         if (!layout) {
             return metadata;
         }
@@ -31,45 +33,59 @@ export class TransformationService {
         return metadata;
     }
 
-    public transformToFormSchema(manifest: Manifest): FormSchema {
-        let formProperties = new FormElement();
-        // support main flow only
-        let mainAsset: Asset = manifest.asset[0];
-        if (mainAsset.assetType === 'FLOW') {
-            let factTypes = mainAsset.group.factType;
-            for (let factType of factTypes) {
-                if (factType.isPersistent === false) {
-                    continue;
-                }
-
-                formProperties[factType.modelMapping] = this.createNewFormElement(factType);
-                if (factType.isList) {
-                    formProperties[factType.modelMapping].type = 'array';
-                    formProperties[factType.modelMapping].items = this.createElementListItems(factType);
-                }
-                if (factType.validValues) {
-                    formProperties[factType.modelMapping].widget = 'select';
-                    formProperties[factType.modelMapping].oneOf = this.createElementsValidValues(factType);
-                }
-            }
-            let form = this.createFormSchema(formProperties, mainAsset.name);
-            return form;
-        } else {
-            throw Error('This is not valid Decision Flow manifest file');
+    transformToFormSchema(manifest: Manifest): FormSchema {
+        let flow = manifest.asset[0];
+        if (!flow || flow.assetType !== 'FLOW') {
+            throw new Error('Invalid manifest');
         }
-    }
 
-    private createFormSchema(formProperties: FormElement, formName: string): FormSchema {
-        let form: FormSchema = new FormSchema();
-        form.properties = formProperties;
-        form.fieldsets = [];
-        form.required = [];
-        form.fieldsets.push({ title: formName, fields: Object.keys(formProperties) });
-        form.type = 'object';
+        let form: FormSchema = {
+            type: 'object',
+            properties: {},
+            required: [],
+            fieldsets: [{
+                title: flow.name,
+                fields: []
+            }]
+        };
+
+        flow.group.factType
+            .filter(ft => ft.isPersistent !== false)
+            .forEach(ft => {
+                let property = this.convertProperty(ft);
+
+                if (ft.isList) {
+                    property.type = 'array';
+                    property.items = this.convertProperty(ft);
+                }
+
+                form.properties[ft.modelMapping] = property;
+                form.fieldsets[0].fields.push(ft.modelMapping);
+            });
+
         return form;
     }
 
-    private createElementsValidValues(factType: FactType): Array<any> {
+    private convertProperty(factType: FactType) {
+        let property: FormProperty = {
+            description: factType.name,
+            type: this.convertDataType(factType.dataType)
+        };
+
+        if (factType.dataType === 'DATE' || factType.dataType === 'DATE_TIME') {
+            property.format = 'date';
+            property.widget = 'date';
+        }
+
+        if (factType.validValues) {
+            property.widget = 'select';
+            property.oneOf = this.convertValidValues(factType);
+        }
+
+        return property;
+    }
+
+    private convertValidValues(factType: FactType): Array<any> {
         return factType.validValues.value
             .map((value, index) => {
                 return {
@@ -79,37 +95,8 @@ export class TransformationService {
             });
     }
 
-    private createElementListItems(factType: FactType): FormElement {
-        let items = new FormElement();
-        items.type = this.convertDataTypeToElementType(factType.dataType);
-        items.description = factType.name;
-        return items;
-    }
-
-    private createNewFormElement(factType: FactType): FormElement {
-        let formElement = new FormElement();
-        formElement.description = factType.name;
-        let type = this.convertDataTypeToElementType(factType.dataType);
-        if (type === 'date') {
-            formElement.type = 'string';
-            formElement.format = 'date';
-            formElement.widget = 'date';
-        } else {
-            formElement.type = type;
-        }
-        return formElement;
-    }
-
-    private convertDataTypeToElementType(dataType: string) {
+    private convertDataType(dataType: string): JsonSchemaType {
         switch (dataType) {
-            case 'TEXT':
-            case 'CODE':
-            case 'IDENTIFIER':
-            case 'NAME':
-            case 'TEXT':
-            case 'ENUMERATOR':
-                return 'string';
-
             case 'AMOUNT':
             case 'NUMERIC':
             case 'PERCENT':
@@ -126,15 +113,21 @@ export class TransformationService {
 
             case 'DATE':
             case 'DATE_TIME':
-                return 'date';
+            case 'TEXT':
+            case 'CODE':
+            case 'IDENTIFIER':
+            case 'NAME':
+            case 'TEXT':
+            case 'ENUMERATOR':
+                return 'string';
         }
-        return 'string';
 
+        return 'string';
     }
 
     private moveAllUnSectionedFiledsToLastSection(layout: FormLayout, metadata: FormSchema) {
         let fields: string[] = layout.fieldsets.map(s => s.fields).reduce((a, b) => {
-            return a.concat(b)
+            return a.concat(b);
         });
         let missingSectionedFields = [];
         Object.keys(metadata.properties).forEach(prop => {
@@ -145,12 +138,13 @@ export class TransformationService {
         metadata.fieldsets.push({ title: 'Others', fields: missingSectionedFields });
     }
 
-    private buildElementDependencies(dependencies: Dependency[], metadata: FormElement) {
+    private buildElementDependencies(dependencies: Dependency[], metadata: FormProperty) {
         dependencies.forEach((dp: Dependency) => {
             dp.fields.forEach(field => {
                 if (metadata.properties[field]) {
-                    metadata.properties[field].visibleIf = {};
-                    metadata.properties[field].visibleIf[dp.dependentOn] = [dp.value];
+                    metadata.properties[field].visibleIf = {
+                        [dp.dependentOn]: [dp.value]
+                    };
                 }
             });
         });

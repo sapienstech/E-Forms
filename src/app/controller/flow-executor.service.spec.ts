@@ -9,13 +9,12 @@ describe('Flow Executor Service', () => {
         service = new FlowExecutorService(null);
     });
 
-
     it('should transform form inputs to DE execution inputs', () => {
-        let formInputs = {value:{
-            cond1:'1',
-            cond2:'2',
-            cond4:'4'
-        }};
+        let formInputs = {
+                cond1: '1',
+                cond2: '2',
+                cond4: '4'
+            };
 
         let deInputs = {
             executableKey: {
@@ -27,38 +26,38 @@ describe('Flow Executor Service', () => {
                 }
             },
             executionInput: {
-                "rootGroup": {
-                    "IoGroupInstances": [
+                'rootGroup': {
+                    'IoGroupInstances': [
                         {
-                            "IoFactTypes": [
+                            'IoFactTypes': [
                                 {
-                                    "values": [
-                                        "1"
+                                    'values': [
+                                        '1'
                                     ],
-                                    "factTypeName": "cond1",
-                                    "isConclusionValues": false
+                                    'factTypeName': 'cond1',
+                                    'isConclusionValues': false
                                 }
                             ]
                         },
                         {
-                            "IoFactTypes": [
+                            'IoFactTypes': [
                                 {
-                                    "values": [
-                                        "2"
+                                    'values': [
+                                        '2'
                                     ],
-                                    "factTypeName": "cond2",
-                                    "isConclusionValues": false
+                                    'factTypeName': 'cond2',
+                                    'isConclusionValues': false
                                 }
                             ]
                         },
                         {
-                            "IoFactTypes": [
+                            'IoFactTypes': [
                                 {
-                                    "values": [
-                                        "4"
+                                    'values': [
+                                        '4'
                                     ],
-                                    "factTypeName": "cond4",
-                                    "isConclusionValues": false
+                                    'factTypeName': 'cond4',
+                                    'isConclusionValues': false
                                 }
                             ]
                         }
@@ -67,174 +66,174 @@ describe('Flow Executor Service', () => {
             },
             executionConfiguration: null
         };
-        let ei = service.transformFormInputsToDEExecutionInputs('flow1',formInputs);
-        let equal = _.isEqual(ei,deInputs);
+        let ei = service.transformExecutionInput('flow1', formInputs);
+        let equal = _.isEqual(ei, deInputs);
         expect(equal).toBeTruthy();
     });
 
 
     it('should transform from DE Execution results to form inputs', () => {
         let executionResults = {
-            "executionResults": [
+            'executionResults': [
                 {
-                    "conclusion": {
-                        "values": [
-                            "1"
+                    'conclusion': {
+                        'values': [
+                            '1'
                         ],
-                        "factTypeName": "conc1",
-                        "rowHit": [
+                        'factTypeName': 'conc1',
+                        'rowHit': [
                             {
-                                "rowId": "1016259",
-                                "message": [
+                                'rowId': '1016259',
+                                'message': [
                                     {
-                                        "category": "Informational",
-                                        "text": "this is an informational message"
+                                        'category': 'Informational',
+                                        'text': 'this is an informational message'
                                     },
                                     {
-                                        "category": "Critical",
-                                        "text": "this is a critical message"
+                                        'category': 'Critical',
+                                        'text': 'this is a critical message'
                                     }
                                 ],
-                                "rowHash": "13c0e0782d1fb08d670f188abee16457"
+                                'rowHash': '13c0e0782d1fb08d670f188abee16457'
                             }
                         ],
-                        "isConclusionValues": true
+                        'isConclusionValues': true
                     },
-                    "trace": {
-                        "IoGroupInstances": [
+                    'trace': {
+                        'IoGroupInstances': [
                             {
-                                "IoFactType": [
+                                'IoFactType': [
                                     {
-                                        "values": [
-                                            "1"
+                                        'values': [
+                                            '1'
                                         ],
-                                        "factTypeName": "cond1",
-                                        "isConclusionValues": false
+                                        'factTypeName': 'cond1',
+                                        'isConclusionValues': false
                                     },
                                     {
-                                        "values": [
-                                            "1"
+                                        'values': [
+                                            '1'
                                         ],
-                                        "factTypeName": "conc1",
-                                        "rowHit": [
+                                        'factTypeName': 'conc1',
+                                        'rowHit': [
                                             {
-                                                "rowId": "1016259",
-                                                "message": [
+                                                'rowId': '1016259',
+                                                'message': [
                                                     {
-                                                        "category": "Informational",
-                                                        "text": "this is an informational message"
+                                                        'category': 'Informational',
+                                                        'text': 'this is an informational message'
                                                     },
                                                     {
-                                                        "category": "Critical",
-                                                        "text": "this is a critical message"
+                                                        'category': 'Critical',
+                                                        'text': 'this is a critical message'
                                                     }
                                                 ],
-                                                "rowHash": "13c0e0782d1fb08d670f188abee16457"
+                                                'rowHash': '13c0e0782d1fb08d670f188abee16457'
                                             }
                                         ],
-                                        "isConclusionValues": true
+                                        'isConclusionValues': true
                                     }
                                 ],
-                                "IoFactTypes": [
+                                'IoFactTypes': [
                                     {
-                                        "values": [
-                                            "1"
+                                        'values': [
+                                            '1'
                                         ],
-                                        "factTypeName": "cond1",
-                                        "isConclusionValues": false
+                                        'factTypeName': 'cond1',
+                                        'isConclusionValues': false
                                     },
                                     {
-                                        "values": [
-                                            "1"
+                                        'values': [
+                                            '1'
                                         ],
-                                        "factTypeName": "conc1",
-                                        "rowHit": [
+                                        'factTypeName': 'conc1',
+                                        'rowHit': [
                                             {
-                                                "rowId": "1016259",
-                                                "message": [
+                                                'rowId': '1016259',
+                                                'message': [
                                                     {
-                                                        "category": "Informational",
-                                                        "text": "this is an informational message"
+                                                        'category': 'Informational',
+                                                        'text': 'this is an informational message'
                                                     },
                                                     {
-                                                        "category": "Critical",
-                                                        "text": "this is a critical message"
+                                                        'category': 'Critical',
+                                                        'text': 'this is a critical message'
                                                     }
                                                 ],
-                                                "rowHash": "13c0e0782d1fb08d670f188abee16457"
+                                                'rowHash': '13c0e0782d1fb08d670f188abee16457'
                                             }
                                         ],
-                                        "isConclusionValues": true
+                                        'isConclusionValues': true
                                     }
                                 ]
                             },
                             {},
                             {}
                         ],
-                        "IoGroupInstance": [
+                        'IoGroupInstance': [
                             {
-                                "IoFactType": [
+                                'IoFactType': [
                                     {
-                                        "values": [
-                                            "1"
+                                        'values': [
+                                            '1'
                                         ],
-                                        "factTypeName": "cond1",
-                                        "isConclusionValues": false
+                                        'factTypeName': 'cond1',
+                                        'isConclusionValues': false
                                     },
                                     {
-                                        "values": [
-                                            "1"
+                                        'values': [
+                                            '1'
                                         ],
-                                        "factTypeName": "conc1",
-                                        "rowHit": [
+                                        'factTypeName': 'conc1',
+                                        'rowHit': [
                                             {
-                                                "rowId": "1016259",
-                                                "message": [
+                                                'rowId': '1016259',
+                                                'message': [
                                                     {
-                                                        "category": "Informational",
-                                                        "text": "this is an informational message"
+                                                        'category': 'Informational',
+                                                        'text': 'this is an informational message'
                                                     },
                                                     {
-                                                        "category": "Critical",
-                                                        "text": "this is a critical message"
+                                                        'category': 'Critical',
+                                                        'text': 'this is a critical message'
                                                     }
                                                 ],
-                                                "rowHash": "13c0e0782d1fb08d670f188abee16457"
+                                                'rowHash': '13c0e0782d1fb08d670f188abee16457'
                                             }
                                         ],
-                                        "isConclusionValues": true
+                                        'isConclusionValues': true
                                     }
                                 ],
-                                "IoFactTypes": [
+                                'IoFactTypes': [
                                     {
-                                        "values": [
-                                            "1"
+                                        'values': [
+                                            '1'
                                         ],
-                                        "factTypeName": "cond1",
-                                        "isConclusionValues": false
+                                        'factTypeName': 'cond1',
+                                        'isConclusionValues': false
                                     },
                                     {
-                                        "values": [
-                                            "1"
+                                        'values': [
+                                            '1'
                                         ],
-                                        "factTypeName": "conc1",
-                                        "rowHit": [
+                                        'factTypeName': 'conc1',
+                                        'rowHit': [
                                             {
-                                                "rowId": "1016259",
-                                                "message": [
+                                                'rowId': '1016259',
+                                                'message': [
                                                     {
-                                                        "category": "Informational",
-                                                        "text": "this is an informational message"
+                                                        'category': 'Informational',
+                                                        'text': 'this is an informational message'
                                                     },
                                                     {
-                                                        "category": "Critical",
-                                                        "text": "this is a critical message"
+                                                        'category': 'Critical',
+                                                        'text': 'this is a critical message'
                                                     }
                                                 ],
-                                                "rowHash": "13c0e0782d1fb08d670f188abee16457"
+                                                'rowHash': '13c0e0782d1fb08d670f188abee16457'
                                             }
                                         ],
-                                        "isConclusionValues": true
+                                        'isConclusionValues': true
                                     }
                                 ]
                             },
@@ -242,62 +241,62 @@ describe('Flow Executor Service', () => {
                             {}
                         ]
                     },
-                    "executedVersion": "1.0",
-                    "executedViewName": "Base",
-                    "idInFlow": "TaskNode_0_4"
+                    'executedVersion': '1.0',
+                    'executedViewName': 'Base',
+                    'idInFlow': 'TaskNode_0_4'
                 },
                 {
-                    "conclusion": {
-                        "factTypeName": "conc2",
-                        "isConclusionValues": false
+                    'conclusion': {
+                        'factTypeName': 'conc2',
+                        'isConclusionValues': false
                     },
-                    "trace": {
-                        "IoGroupInstances": [
+                    'trace': {
+                        'IoGroupInstances': [
                             {
-                                "IoFactType": [
+                                'IoFactType': [
                                     {
-                                        "factTypeName": "cond2",
-                                        "isConclusionValues": false
+                                        'factTypeName': 'cond2',
+                                        'isConclusionValues': false
                                     },
                                     {
-                                        "factTypeName": "conc2",
-                                        "isConclusionValues": false
+                                        'factTypeName': 'conc2',
+                                        'isConclusionValues': false
                                     }
                                 ],
-                                "IoFactTypes": [
+                                'IoFactTypes': [
                                     {
-                                        "factTypeName": "cond2",
-                                        "isConclusionValues": false
+                                        'factTypeName': 'cond2',
+                                        'isConclusionValues': false
                                     },
                                     {
-                                        "factTypeName": "conc2",
-                                        "isConclusionValues": false
+                                        'factTypeName': 'conc2',
+                                        'isConclusionValues': false
                                     }
                                 ]
                             },
                             {},
                             {}
                         ],
-                        "IoGroupInstance": [
+                        'IoGroupInstance': [
                             {
-                                "IoFactType": [
+                                'IoFactType': [
                                     {
-                                        "factTypeName": "cond2",
-                                        "isConclusionValues": false
+                                        'factTypeName': 'cond2',
+                                        'isConclusionValues': false
                                     },
                                     {
-                                        "factTypeName": "conc2",
-                                        "isConclusionValues": false
+                                        'factTypeName': 'conc2',
+                                        'isConclusionValues': false
                                     }
                                 ],
-                                "IoFactTypes": [
+                                'IoFactTypes': [
                                     {
-                                        "factTypeName": "cond2",
-                                        "isConclusionValues": false
+                                        'factTypeName': 'cond2',
+                                        'isConclusionValues': false
                                     },
                                     {
-                                        "factTypeName": "conc2",
-                                        "isConclusionValues": false
+                                        'factTypeName': 'conc2',
+                                        'isConclusionValues': false
                                     }
                                 ]
                             },
@@ -305,384 +304,385 @@ describe('Flow Executor Service', () => {
                             {}
                         ]
                     },
-                    "executedVersion": "1.0",
-                    "executedViewName": "Base",
-                    "idInFlow": "TaskNode_0_5"
+                    'executedVersion': '1.0',
+                    'executedViewName': 'Base',
+                    'idInFlow': 'TaskNode_0_5'
                 }
             ],
-            "trace": {
-                "IoGroupInstances": [
+            'trace': {
+                'IoGroupInstances': [
                     {
-                        "IoFactType": [
+                        'IoFactType': [
                             {
-                                "factTypeName": "ListAmount",
-                                "isConclusionValues": false
+                                'factTypeName': 'ListAmount',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "cond4",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond4',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "testOutput2",
-                                "isConclusionValues": false
+                                'factTypeName': 'testOutput2',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "conc2",
-                                "isConclusionValues": false
+                                'factTypeName': 'conc2',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "conc4",
-                                "isConclusionValues": false
+                                'factTypeName': 'conc4',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "cond2",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond2',
+                                'isConclusionValues': false
                             },
                             {
-                                "values": [
-                                    "1"
+                                'values': [
+                                    '1'
                                 ],
-                                "factTypeName": "cond1",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond1',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "testOutput1",
-                                "isConclusionValues": false
+                                'factTypeName': 'testOutput1',
+                                'isConclusionValues': false
                             },
                             {
-                                "values": [
-                                    "1"
+                                'values': [
+                                    '1'
                                 ],
-                                "factTypeName": "conc1",
-                                "rowHit": [
+                                'factTypeName': 'conc1',
+                                'rowHit': [
                                     {
-                                        "rowId": "1016259",
-                                        "message": [
+                                        'rowId': '1016259',
+                                        'message': [
                                             {
-                                                "category": "Informational",
-                                                "text": "this is an informational message"
+                                                'category': 'Informational',
+                                                'text': 'this is an informational message'
                                             },
                                             {
-                                                "category": "Critical",
-                                                "text": "this is a critical message"
+                                                'category': 'Critical',
+                                                'text': 'this is a critical message'
                                             }
                                         ],
-                                        "rowHash": "13c0e0782d1fb08d670f188abee16457"
+                                        'rowHash': '13c0e0782d1fb08d670f188abee16457'
                                     }
                                 ],
-                                "isConclusionValues": true
+                                'isConclusionValues': true
                             },
                             {
-                                "factTypeName": "cond3",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond3',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "conc3",
-                                "isConclusionValues": false
+                                'factTypeName': 'conc3',
+                                'isConclusionValues': false
                             }
                         ],
-                        "IoFactTypes": [
+                        'IoFactTypes': [
                             {
-                                "factTypeName": "ListAmount",
-                                "isConclusionValues": false
+                                'factTypeName': 'ListAmount',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "cond4",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond4',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "testOutput2",
-                                "isConclusionValues": false
+                                'factTypeName': 'testOutput2',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "conc2",
-                                "isConclusionValues": false
+                                'factTypeName': 'conc2',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "conc4",
-                                "isConclusionValues": false
+                                'factTypeName': 'conc4',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "cond2",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond2',
+                                'isConclusionValues': false
                             },
                             {
-                                "values": [
-                                    "1"
+                                'values': [
+                                    '1'
                                 ],
-                                "factTypeName": "cond1",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond1',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "testOutput1",
-                                "isConclusionValues": false
+                                'factTypeName': 'testOutput1',
+                                'isConclusionValues': false
                             },
                             {
-                                "values": [
-                                    "1"
+                                'values': [
+                                    '1'
                                 ],
-                                "factTypeName": "conc1",
-                                "rowHit": [
+                                'factTypeName': 'conc1',
+                                'rowHit': [
                                     {
-                                        "rowId": "1016259",
-                                        "message": [
+                                        'rowId': '1016259',
+                                        'message': [
                                             {
-                                                "category": "Informational",
-                                                "text": "this is an informational message"
+                                                'category': 'Informational',
+                                                'text': 'this is an informational message'
                                             },
                                             {
-                                                "category": "Critical",
-                                                "text": "this is a critical message"
+                                                'category': 'Critical',
+                                                'text': 'this is a critical message'
                                             }
                                         ],
-                                        "rowHash": "13c0e0782d1fb08d670f188abee16457"
+                                        'rowHash': '13c0e0782d1fb08d670f188abee16457'
                                     }
                                 ],
-                                "isConclusionValues": true
+                                'isConclusionValues': true
                             },
                             {
-                                "factTypeName": "cond3",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond3',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "conc3",
-                                "isConclusionValues": false
+                                'factTypeName': 'conc3',
+                                'isConclusionValues': false
                             }
                         ]
                     },
                     {
-                        "IoFactType": [
+                        'IoFactType': [
                             {
-                                "values": [
-                                    "2"
+                                'values': [
+                                    '2'
                                 ],
-                                "factTypeName": "cond2",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond2',
+                                'isConclusionValues': false
                             }
                         ],
-                        "IoFactTypes": [
+                        'IoFactTypes': [
                             {
-                                "values": [
-                                    "2"
+                                'values': [
+                                    '2'
                                 ],
-                                "factTypeName": "cond2",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond2',
+                                'isConclusionValues': false
                             }
                         ]
                     },
                     {
-                        "IoFactType": [
+                        'IoFactType': [
                             {
-                                "values": [
-                                    "4"
+                                'values': [
+                                    '4'
                                 ],
-                                "factTypeName": "cond4",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond4',
+                                'isConclusionValues': false
                             }
                         ],
-                        "IoFactTypes": [
+                        'IoFactTypes': [
                             {
-                                "values": [
-                                    "4"
+                                'values': [
+                                    '4'
                                 ],
-                                "factTypeName": "cond4",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond4',
+                                'isConclusionValues': false
                             }
                         ]
                     }
                 ],
-                "IoGroupInstance": [
+                'IoGroupInstance': [
                     {
-                        "IoFactType": [
+                        'IoFactType': [
                             {
-                                "factTypeName": "ListAmount",
-                                "isConclusionValues": false
+                                'factTypeName': 'ListAmount',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "cond4",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond4',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "testOutput2",
-                                "isConclusionValues": false
+                                'factTypeName': 'testOutput2',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "conc2",
-                                "isConclusionValues": false
+                                'factTypeName': 'conc2',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "conc4",
-                                "isConclusionValues": false
+                                'factTypeName': 'conc4',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "cond2",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond2',
+                                'isConclusionValues': false
                             },
                             {
-                                "values": [
-                                    "1"
+                                'values': [
+                                    '1'
                                 ],
-                                "factTypeName": "cond1",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond1',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "testOutput1",
-                                "isConclusionValues": false
+                                'factTypeName': 'testOutput1',
+                                'isConclusionValues': false
                             },
                             {
-                                "values": [
-                                    "1"
+                                'values': [
+                                    '1'
                                 ],
-                                "factTypeName": "conc1",
-                                "rowHit": [
+                                'factTypeName': 'conc1',
+                                'rowHit': [
                                     {
-                                        "rowId": "1016259",
-                                        "message": [
+                                        'rowId': '1016259',
+                                        'message': [
                                             {
-                                                "category": "Informational",
-                                                "text": "this is an informational message"
+                                                'category': 'Informational',
+                                                'text': 'this is an informational message'
                                             },
                                             {
-                                                "category": "Critical",
-                                                "text": "this is a critical message"
+                                                'category': 'Critical',
+                                                'text': 'this is a critical message'
                                             }
                                         ],
-                                        "rowHash": "13c0e0782d1fb08d670f188abee16457"
+                                        'rowHash': '13c0e0782d1fb08d670f188abee16457'
                                     }
                                 ],
-                                "isConclusionValues": true
+                                'isConclusionValues': true
                             },
                             {
-                                "factTypeName": "cond3",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond3',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "conc3",
-                                "isConclusionValues": false
+                                'factTypeName': 'conc3',
+                                'isConclusionValues': false
                             }
                         ],
-                        "IoFactTypes": [
+                        'IoFactTypes': [
                             {
-                                "factTypeName": "ListAmount",
-                                "isConclusionValues": false
+                                'factTypeName': 'ListAmount',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "cond4",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond4',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "testOutput2",
-                                "isConclusionValues": false
+                                'factTypeName': 'testOutput2',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "conc2",
-                                "isConclusionValues": false
+                                'factTypeName': 'conc2',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "conc4",
-                                "isConclusionValues": false
+                                'factTypeName': 'conc4',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "cond2",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond2',
+                                'isConclusionValues': false
                             },
                             {
-                                "values": [
-                                    "1"
+                                'values': [
+                                    '1'
                                 ],
-                                "factTypeName": "cond1",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond1',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "testOutput1",
-                                "isConclusionValues": false
+                                'factTypeName': 'testOutput1',
+                                'isConclusionValues': false
                             },
                             {
-                                "values": [
-                                    "1"
+                                'values': [
+                                    '1'
                                 ],
-                                "factTypeName": "conc1",
-                                "rowHit": [
+                                'factTypeName': 'conc1',
+                                'rowHit': [
                                     {
-                                        "rowId": "1016259",
-                                        "message": [
+                                        'rowId': '1016259',
+                                        'message': [
                                             {
-                                                "category": "Informational",
-                                                "text": "this is an informational message"
+                                                'category': 'Informational',
+                                                'text': 'this is an informational message'
                                             },
                                             {
-                                                "category": "Critical",
-                                                "text": "this is a critical message"
+                                                'category': 'Critical',
+                                                'text': 'this is a critical message'
                                             }
                                         ],
-                                        "rowHash": "13c0e0782d1fb08d670f188abee16457"
+                                        'rowHash': '13c0e0782d1fb08d670f188abee16457'
                                     }
                                 ],
-                                "isConclusionValues": true
+                                'isConclusionValues': true
                             },
                             {
-                                "factTypeName": "cond3",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond3',
+                                'isConclusionValues': false
                             },
                             {
-                                "factTypeName": "conc3",
-                                "isConclusionValues": false
+                                'factTypeName': 'conc3',
+                                'isConclusionValues': false
                             }
                         ]
                     },
                     {
-                        "IoFactType": [
+                        'IoFactType': [
                             {
-                                "values": [
-                                    "2"
+                                'values': [
+                                    '2'
                                 ],
-                                "factTypeName": "cond2",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond2',
+                                'isConclusionValues': false
                             }
                         ],
-                        "IoFactTypes": [
+                        'IoFactTypes': [
                             {
-                                "values": [
-                                    "2"
+                                'values': [
+                                    '2'
                                 ],
-                                "factTypeName": "cond2",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond2',
+                                'isConclusionValues': false
                             }
                         ]
                     },
                     {
-                        "IoFactType": [
+                        'IoFactType': [
                             {
-                                "values": [
-                                    "4"
+                                'values': [
+                                    '4'
                                 ],
-                                "factTypeName": "cond4",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond4',
+                                'isConclusionValues': false
                             }
                         ],
-                        "IoFactTypes": [
+                        'IoFactTypes': [
                             {
-                                "values": [
-                                    "4"
+                                'values': [
+                                    '4'
                                 ],
-                                "factTypeName": "cond4",
-                                "isConclusionValues": false
+                                'factTypeName': 'cond4',
+                                'isConclusionValues': false
                             }
                         ]
                     }
                 ]
             },
-            "profileStopWatch": [
+            'profileStopWatch': [
                 {
-                    "operation": "Execute Flow (Execution Manager)",
-                    "elapsedTime": 4
+                    'operation': 'Execute Flow (Execution Manager)',
+                    'elapsedTime': 4
                 }
             ],
-            "executedVersion": "1.0"
+            'executedVersion': '1.0'
         };
-        let formInputs = {conc1: '1'};
-        let ei = service.transformDEExecutionResultsToFormInputs(executionResults);
-        let equal = _.isEqual(ei,formInputs);
+
+        let formInputs = { conc1: '1' };
+        let ei = service.transformExecutionResult(executionResults);
+        let equal = _.isEqual(ei, formInputs);
         expect(equal).toBeTruthy();
     });
 

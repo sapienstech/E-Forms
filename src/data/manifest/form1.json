@@ -1,36 +1,30 @@
 {
-  "asset": [
-    {
-
-      "group": {
-        "factType": [
-          {
-            "name": "Policy ID",
-            "modelMapping": "Policy",
-            "dataType": "TEXT",
-            "isPersistent": true,
-            "isConclusion": false,
-            "isList": true,
-            "factTypeDefinition": 1016685
-          }
-        ],
-        "name": "Root"
-      },
-      "assetType": "FLOW",
-      "name": "Test-1.0",
-      "version": "1.0"
-    }
-  ],
-  "MessageCategory": [
-    {
-      "name": "Informational"
-    },
-    {
-      "name": "Critical"
-    }
-  ],
-  "executionModelHash": "bc776b36d503cea5f1353bdbc67347b0",
-  "release": "Sample Release",
-  "tag": "test3",
-  "conclusion": "Test"
+    "asset": [{
+        "group": {
+            "factType": [{
+                "name": "Policy ID",
+                "modelMapping": "Policy",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1016685
+            }],
+            "name": "Root"
+        },
+        "assetType": "FLOW",
+        "name": "Test-1.0",
+        "version": "1.0"
+    }],
+    "MessageCategory": [{
+            "name": "Informational"
+        },
+        {
+            "name": "Critical"
+        }
+    ],
+    "executionModelHash": "bc776b36d503cea5f1353bdbc67347b0",
+    "release": "Sample Release",
+    "tag": "test3",
+    "conclusion": "Test"
 }

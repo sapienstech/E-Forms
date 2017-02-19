@@ -4,7 +4,7 @@ import { UtilsService } from '../../services/utils.service';
 import { TransformationService } from '../../config';
 
 import { PARSE_ERROR } from '../../types/constants';
-import { FormSchema } from '../../types/types';
+import { FormSchema } from '../../model';
 
 @Component({
     selector: 'ef-form-preview',

@@ -190,7 +190,7 @@ describe('Transformation Service', () => {
             'dependentOn': 'ft_2',
             'value': 'X'
         }]
-    }
+    };
 
     const formMetaData: FormSchema = <FormSchema>{
         'type': 'object',
@@ -200,7 +200,7 @@ describe('Transformation Service', () => {
             'ft_3': { 'type': 'integer', 'description': 'fact type 3' },
             'ft_6': { 'type': 'string', 'format': 'date', 'description': 'fact type date' }
         }
-    }
+    };
 
     let service: TransformationService;
 
@@ -210,6 +210,7 @@ describe('Transformation Service', () => {
 
     describe('When transforming manifest to form schema element', () => {
         let form: FormSchema;
+
         beforeEach(() => {
             form = service.transformToFormSchema(manifest);
         });

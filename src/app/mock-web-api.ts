@@ -41,6 +41,15 @@ const PROCESSES = [
             flow: '3000',
             title: 'Flow 3 - Step 3'
         }]
+    },
+    {
+        title: 'Process 3',
+        description: 'Process 3 Description',
+        steps: [{
+            type: 'ui',
+            flow: '1000',
+            title: 'Flow 1 - Step 1'
+        }]
     }
 ];
 

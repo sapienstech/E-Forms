@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { ExecutionInput, ArtifactKey } from '../model/execution';
+import { ExecutionInput, ArtifactKey, ExecutionResult } from '../model/execution';
 
 @Injectable()
 export class FlowExecutorService {
     constructor(private http: Http) {
     }
 
-    execute(flowId: string, input) {
-        let executionInputs = this.transformFormInputsToDEExecutionInputs(flowId, input);
+    execute(flowId: string, data: any) {
+        let executionInputs = this.transformExecutionInput(flowId, data);
+
         return this.http.post(`/flow/${ flowId }`, executionInputs)
-            .map(r => this.transformDEExecutionResultsToFormInputs(r));
+            .map(response => response.json() as ExecutionResult)
+            .map(result => this.transformExecutionResult(result));
     }
 
-    transformFormInputsToDEExecutionInputs(flowId: string, input) {
+    transformExecutionInput(flowId: string, data: any) {
         let artifactKey: ArtifactKey = {
             name: flowId,
             releaseName: undefined,
@@ -28,13 +30,13 @@ export class FlowExecutorService {
             },
             executionInput: {
                 rootGroup: {
-                    IoGroupInstances: Object.keys(input.value)
+                    IoGroupInstances: Object.keys(data)
                         .map(key => {
                             return {
                                 IoFactTypes: [
                                     {
                                         factTypeName: key,
-                                        values: [input.value[key]],
+                                        values: [data[key]],
                                         isConclusionValues: false
                                     }
                                 ]
@@ -48,10 +50,13 @@ export class FlowExecutorService {
         return result;
     }
 
-    public transformDEExecutionResultsToFormInputs(flowResults) {
+    public transformExecutionResult(executionResult: ExecutionResult) {
         let results = {};
 
-        for (let result of flowResults.executionResults) {
+        // TODO: Handle validation messages
+        // TODO: Handle list value
+
+        for (let result of executionResult.executionResults) {
             if (result.conclusion.values) {
                 results[result.conclusion.factTypeName] = result.conclusion.values.join(',');
             }
