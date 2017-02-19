@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+
 import { ExecutionInput, ArtifactKey } from '../model/execution';
 
 @Injectable()
@@ -8,25 +9,12 @@ export class FlowExecutorService {
     }
 
     execute(flowId: string, input) {
-        // TODO: Prepare JSON input
         let executionInputs = this.transformFormInputsToDEExecutionInputs(flowId, input);
-        return this.http.post(`/flow/${ flowId }`, executionInputs);
-        // TODO: Parse JSON output
+        return this.http.post(`/flow/${ flowId }`, executionInputs)
+            .map(r => this.transformDEExecutionResultsToFormInputs(r));
     }
 
     transformFormInputsToDEExecutionInputs(flowId: string, input) {
-        // let inputFields = Object.keys(input.value);
-        // let ioWrapper = [];
-        // let executionInput = { rootGroup: { IoGroupInstances: ioWrapper } };
-        // for (let field of inputFields) {
-        //     let ft = <IoFactType>{};
-        //     ft.factTypeName = field;
-        //     ft.values = [input.value[field]];
-        //     ft.isConclusionValues = false;
-        //     ioWrapper.push({ IoFactTypes: [ft] });
-        // }
-        // return executionInput;
-
         let artifactKey: ArtifactKey = {
             name: flowId,
             releaseName: undefined,
@@ -40,13 +28,13 @@ export class FlowExecutorService {
             },
             executionInput: {
                 rootGroup: {
-                    IoGroupInstances: Object.keys(input)
+                    IoGroupInstances: Object.keys(input.value)
                         .map(key => {
                             return {
                                 IoFactTypes: [
                                     {
                                         factTypeName: key,
-                                        values: [input[key]],
+                                        values: [input.value[key]],
                                         isConclusionValues: false
                                     }
                                 ]
@@ -60,9 +48,15 @@ export class FlowExecutorService {
         return result;
     }
 
-    // transformDEExecutionResultsToFormInputs(executionResults) {
-    //     for (let result of executionResults) {
+    public transformDEExecutionResultsToFormInputs(flowResults) {
+        let results = {};
 
-    //     }
-    // }
+        for (let result of flowResults.executionResults) {
+            if (result.conclusion.values) {
+                results[result.conclusion.factTypeName] = result.conclusion.values.join(',');
+            }
+        }
+
+        return results;
+    }
 }
