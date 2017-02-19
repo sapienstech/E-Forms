@@ -3,21 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscriber } from 'rxjs/Subscriber';
 
-import { ConfigService, ProcessConfig } from '../config';
+import { /* ConfigService, */ ProcessConfig } from '../config';
 import { ControllerState } from './controller-state';
 import { StepStrategiesService } from './step-strategies';
 
 @Injectable()
 export class ControllerService {
     constructor(
-        private config: ConfigService,
+        // private config: ConfigService,
         private controllerState: ControllerState,
         private strategies: StepStrategiesService
     ) {
-    }
-
-    getProcesses() {
-        return this.config.getProcessConfig();
     }
 
     select(process: ProcessConfig) {
@@ -38,7 +34,7 @@ export class ControllerService {
         }
     }
 
-    private internalExecute(input?, subscriber?: Subscriber) {
+    private internalExecute(input?, subscriber?: Subscriber<void>) {
         // Merge in the data from the UI
         this.controllerState.update(input);
 
