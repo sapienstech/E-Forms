@@ -16,46 +16,58 @@ describe('Flow Executor Service', () => {
             cond2:'2',
             cond4:'4'
         }};
+
         let deInputs = {
-            "rootGroup":{
-                "IoGroupInstances": [
-                    {
-                        "IoFactTypes": [
-                            {
-                                "values": [
-                                    "1"
-                                ],
-                                "factTypeName": "cond1",
-                                "isConclusionValues": false
-                            }
-                        ]
-                    },
-                    {
-                        "IoFactTypes": [
-                            {
-                                "values": [
-                                    "2"
-                                ],
-                                "factTypeName": "cond2",
-                                "isConclusionValues": false
-                            }
-                        ]
-                    },
-                    {
-                        "IoFactTypes": [
-                            {
-                                "values": [
-                                    "4"
-                                ],
-                                "factTypeName": "cond4",
-                                "isConclusionValues": false
-                            }
-                        ]
-                    }
-                ]
-            }
+            executableKey: {
+                artifactKey: {
+                    name: 'flow1',
+                    releaseName: undefined,
+                    tagName: undefined,
+                    artifactType: 'FLOW'
+                }
+            },
+            executionInput: {
+                "rootGroup": {
+                    "IoGroupInstances": [
+                        {
+                            "IoFactTypes": [
+                                {
+                                    "values": [
+                                        "1"
+                                    ],
+                                    "factTypeName": "cond1",
+                                    "isConclusionValues": false
+                                }
+                            ]
+                        },
+                        {
+                            "IoFactTypes": [
+                                {
+                                    "values": [
+                                        "2"
+                                    ],
+                                    "factTypeName": "cond2",
+                                    "isConclusionValues": false
+                                }
+                            ]
+                        },
+                        {
+                            "IoFactTypes": [
+                                {
+                                    "values": [
+                                        "4"
+                                    ],
+                                    "factTypeName": "cond4",
+                                    "isConclusionValues": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            executionConfiguration: null
         };
-        let ei = service.transformFormInputsToDEExecutionInputs(formInputs);
+        let ei = service.transformFormInputsToDEExecutionInputs('flow1',formInputs);
         let equal = _.isEqual(ei,deInputs);
         expect(equal).toBeTruthy();
     });

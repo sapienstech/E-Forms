@@ -15,17 +15,6 @@ export class FlowExecutorService {
     }
 
     transformFormInputsToDEExecutionInputs(flowId: string, input) {
-        // let inputFields = Object.keys(input.value);
-        // let ioWrapper = [];
-        // let executionInput = { rootGroup: { IoGroupInstances: ioWrapper } };
-        // for (let field of inputFields) {
-        //     let ft = <IoFactType>{};
-        //     ft.factTypeName = field;
-        //     ft.values = [input.value[field]];
-        //     ft.isConclusionValues = false;
-        //     ioWrapper.push({ IoFactTypes: [ft] });
-        // }
-        // return executionInput;
 
         let artifactKey: ArtifactKey = {
             name: flowId,
@@ -40,13 +29,13 @@ export class FlowExecutorService {
             },
             executionInput: {
                 rootGroup: {
-                    IoGroupInstances: Object.keys(input)
+                    IoGroupInstances: Object.keys(input.value)
                         .map(key => {
                             return {
                                 IoFactTypes: [
                                     {
                                         factTypeName: key,
-                                        values: [input[key]],
+                                        values: [input.value[key]],
                                         isConclusionValues: false
                                     }
                                 ]
@@ -65,7 +54,7 @@ export class FlowExecutorService {
 
         for (let result of flowResults.executionResults) {
             if (result.conclusion.values) {
-                results[result.conclusion.factTypeName] = result.conclusion.values;
+                results[result.conclusion.factTypeName] = result.conclusion.values.join(',');
             }
         }
 

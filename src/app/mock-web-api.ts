@@ -37,8 +37,11 @@ const PROCESSES = [
     }
 ];
 
-const EXECUTION_RESULTS = {
-};
+const EXECUTION_RESULTS = [
+    {flow:'1000',result: require('../data/execution-result/result1.json')},
+    {flow:'2000',result: require('../data/execution-result/result2.json')},
+    {flow:'3000',result: require('../data/execution-result/result3.json')}
+];
 
 export class MockWebApi extends InMemoryDbService {
     private responseInterceptor: ResponseInterceptor;
