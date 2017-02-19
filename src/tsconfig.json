@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "module": "es6",
+        "module": "es2015",
         "lib": [
-            "es6",
+            "es2015",
             "dom"
         ],
         "moduleResolution": "node",
+
         "baseUrl": "",
         "outDir": "../dist/out-tsc",
         "mapRoot": "./",
@@ -14,9 +15,11 @@
         "typeRoots": [
             "../node_modules/@types"
         ],
+
         "newLine": "LF",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+
         "alwaysStrict": true,
         "noImplicitThis": true,
         "noImplicitReturns": true,
@@ -24,5 +27,6 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         "forceConsistentCasingInFileNames": true
-    }
+    },
+    "compileOnSave": false
 }
