@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProcessSelectionComponent } from './process-selection.component';
 
 const routes: Routes = [
-    { path: '/select-process', component: ProcessSelectionComponent }
+    { path: 'select-process', component: ProcessSelectionComponent }
 ];
 
 @NgModule({
