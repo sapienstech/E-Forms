@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 
-import { /* ConfigService, */ ProcessConfig } from '../config';
+import { ConfigService, ProcessConfig } from '../config';
 import { ControllerState } from './controller-state';
 import { StepStrategiesService } from './step-strategies';
 
@@ -19,9 +20,10 @@ const EmptyExecuteSubscriber: ExecuteSubscriber = {
 @Injectable()
 export class ControllerService {
     constructor(
-        // private config: ConfigService,
+        private config: ConfigService,
         private controllerState: ControllerState,
-        private strategies: StepStrategiesService
+        private strategies: StepStrategiesService,
+        private router: Router
     ) {
     }
 
@@ -30,17 +32,27 @@ export class ControllerService {
         this.selectStrategy();
     }
 
-    execute(input?) {
+    execute(data?): Observable<void> {
         return Observable.create(subscriber => {
-            this.internalExecute(input, subscriber);
+            this.internalExecute(subscriber, data);
         });
     }
 
     private selectStrategy() {
-        let strategy = this.findStrategy();
-        if (!strategy.enter()) {
-            this.internalExecute(EmptyExecuteSubscriber);
+        if (!this.controllerState.proceed()) {
+            this.router.navigateByUrl('/process/end');
+            return;
         }
+
+        this.config.getManifest(this.controllerState.step.flow)
+            .subscribe(manifest => {
+                this.controllerState.step.formSchema = manifest;
+
+                let strategy = this.findStrategy();
+                if (!strategy.enter()) {
+                    this.internalExecute(EmptyExecuteSubscriber);
+                }
+            });
     }
 
     private internalExecute(subscriber: ExecuteSubscriber, data?) {
@@ -48,14 +60,16 @@ export class ControllerService {
         this.controllerState.update(data);
 
         let strategy = this.findStrategy();
-        strategy.execute(this.controllerState)
-            .subscribe(result => {
+        strategy.execute(this.controllerState).subscribe(
+            result => {
                 subscriber.complete();
 
                 // Merge in the data from the execution
                 this.controllerState.update(result);
                 this.selectStrategy();
-            }, error => subscriber.error(error));
+            },
+            error => subscriber.error(error)
+        );
     }
 
     private findStrategy() {

@@ -1,18 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { FormSchema } from '../../model';
 
 import { ControllerState } from '../controller-state';
+import { ControllerService } from '../controller.service';
 
 @Component({
     templateUrl: './process-step.component.html',
     styleUrls: ['./process-step.component.less']
 })
-export class ProcessStepComponent implements OnInit {
-    step: number;
+export class ProcessStepComponent {
+    step: string;
+    schema: FormSchema;
+    input: any;
 
-    constructor(private state: ControllerState) {
+    output: any;
+
+    constructor(
+        private state: ControllerState,
+        private controllerService: ControllerService
+    ) {
         this.step = this.state.step.title;
+        this.schema = this.state.step.formSchema;
+        this.input = this.state.data;
     }
 
-    ngOnInit() {
+    execute() {
+        this.controllerService.execute(this.output)
+            .subscribe(undefined, error => {
+                console.log(error);
+            });
     }
 }

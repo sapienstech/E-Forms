@@ -1,11 +1,17 @@
-export class ControllerState {
-    private _step;
+import { FormSchema } from '../model';
+import { ProcessConfig, StepConfig } from '../config';
 
-    process;
+export interface ControllerStep extends StepConfig {
+    formSchema?: FormSchema;
+}
+
+export class ControllerState {
+    private _step: ControllerStep;
+
+    process: ProcessConfig;
     currentStep: number;
 
-    lastOutput;
-    input;
+    data;
 
     get active() {
         return !!this.process;
@@ -15,38 +21,31 @@ export class ControllerState {
         return this._step;
     }
 
-    initialize(process) {
+    initialize(process: ProcessConfig) {
         this.process = process;
-        this.currentStep = 0;
-
-        this.updateStep();
+        this.data = {};
+        this.currentStep = -1;
     }
 
-    update(lastOutput) {
+    update(data) {
+        this.data = Object.assign(this.data, data);
+    }
+
+    proceed() {
         this.currentStep += 1;
         if (this.currentStep >= this.process.steps.length) {
             this.clear();
-            return;
+            return false;
         }
 
-        this.updateStep();
-
-        this.lastOutput = lastOutput;
-        this.input = this.mergeOutput(lastOutput);
-    }
-
-    private updateStep() {
         this._step = this.process.steps[this.currentStep];
+        return true;
     }
 
     private clear() {
         this.process = undefined;
         this.currentStep = undefined;
-        this.lastOutput = undefined;
-        this.input = undefined;
-    }
-
-    private mergeOutput(output) {
-        return output;
+        this.data = undefined;
+        this._step = undefined;
     }
 }

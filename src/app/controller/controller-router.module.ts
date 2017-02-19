@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { RouterModule, Routes } from '@angular/router';
+
+import { SchemaFormModule } from 'angular2-schema-form/src';
 
 import { ProcessRouteGuard } from './process-router.guard';
 
@@ -26,7 +27,9 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+
+        SchemaFormModule
     ],
     providers: [
         ProcessRouteGuard
