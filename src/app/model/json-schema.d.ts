@@ -22,9 +22,9 @@
  * SOFTWARE.
  */
 
-type JsonSchemaType = 'string' | 'number' | 'integer' | 'object' | 'array';
+export type JsonSchemaType = 'string' | 'number' | 'integer' | 'object' | 'array';
 
-interface JsonSchema {
+export interface JsonSchema {
     $ref?: string;
     /////////////////////////////////////////////////
     // Schema Metadata

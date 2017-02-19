@@ -17,7 +17,9 @@ export abstract class StepStrategy {
     /**
      * Optional logic to perform when selecting this strategy.
      */
-    enter() { }
+    enter() {
+        return false;
+    }
 
     /**
      * The logic to perform once input is available.
@@ -34,7 +36,7 @@ export abstract class StepStrategy {
      * @returns a cold observable
      */
     protected executeFlow(state: ControllerState) {
-        return this.flowExecutor.execute(state.step.flow, state.input);
+        return this.flowExecutor.execute(state.step.flow, state.data);
     }
 
     /**

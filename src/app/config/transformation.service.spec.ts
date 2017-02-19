@@ -1,9 +1,9 @@
-import { FormLayout, FormSchema, Manifest } from '../../types/types';
+import { FormLayout, FormSchema, Manifest } from '../types/types';
 import { TransformationService } from './transformation.service';
 
 describe('Transformation Service', () => {
 
-    const manifest: Manifest = <Manifest> {
+    const manifest: Manifest = <Manifest>{
         'asset': [
             {
                 'asset': [
@@ -178,7 +178,7 @@ describe('Transformation Service', () => {
         'conclusion': 'Test'
     };
 
-    const layout: FormLayout = <FormLayout> {
+    const layout: FormLayout = <FormLayout>{
         'fieldsets': [{
             'title': 'title1',
             'fields': ['ft_1', 'ft_2']
@@ -192,13 +192,13 @@ describe('Transformation Service', () => {
         }]
     }
 
-    const formMetaData: FormSchema = <FormSchema> {
+    const formMetaData: FormSchema = <FormSchema>{
         'type': 'object',
         'properties': {
-            'ft_1': {'type': 'string', 'description': 'fact type 1'},
-            'ft_2': {'type': 'string', 'description': 'fact type 2'},
-            'ft_3': {'type': 'integer', 'description': 'fact type 3'},
-            'ft_6': {'type': 'string', 'format': 'date', 'description': 'fact type date'}
+            'ft_1': { 'type': 'string', 'description': 'fact type 1' },
+            'ft_2': { 'type': 'string', 'description': 'fact type 2' },
+            'ft_3': { 'type': 'integer', 'description': 'fact type 3' },
+            'ft_6': { 'type': 'string', 'format': 'date', 'description': 'fact type date' }
         }
     }
 

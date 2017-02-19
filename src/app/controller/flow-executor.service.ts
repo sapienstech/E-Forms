@@ -15,7 +15,6 @@ export class FlowExecutorService {
     }
 
     transformFormInputsToDEExecutionInputs(flowId: string, input) {
-
         let artifactKey: ArtifactKey = {
             name: flowId,
             releaseName: undefined,
