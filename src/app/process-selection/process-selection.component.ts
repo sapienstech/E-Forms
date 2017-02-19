@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProcessConfig } from '../../config';
-import { ControllerService } from '../controller.service';
+import { ConfigService, ProcessConfig } from '../config';
+import { ControllerService } from '../controller';
 
 @Component({
     selector: 'ef-process-selection',
@@ -12,11 +12,13 @@ export class ProcessSelectionComponent implements OnInit {
     processes: ProcessConfig[];
     error: boolean;
 
-    constructor(private controller: ControllerService) {
+    constructor(
+        private configService: ConfigService,
+        private controller: ControllerService) {
     }
 
     ngOnInit() {
-        this.controller.getProcesses()
+        this.configService.getProcessConfig()
             .subscribe(processes => {
                 this.processes = processes;
             });

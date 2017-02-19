@@ -5,13 +5,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ProcessRouteGuard } from './process-router.guard';
 
-import { ProcessSelectionComponent } from './process-selection';
 import { ProcessStepComponent } from './process-step';
 import { ProcessCompleteComponent } from './process-complete';
 import { ProcessInvalidComponent } from './process-invalid';
 
 const routes: Routes = [
-    { path: 'select-process', component: ProcessSelectionComponent },
     {
         path: 'process',
         canActivate: [
@@ -34,7 +32,6 @@ const routes: Routes = [
         ProcessRouteGuard
     ],
     declarations: [
-        ProcessSelectionComponent,
         ProcessStepComponent,
         ProcessCompleteComponent,
         ProcessInvalidComponent

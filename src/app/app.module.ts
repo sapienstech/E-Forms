@@ -6,6 +6,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { DashboardModule } from './dashboard';
 import { ConfigModule } from './config';
+import { ProcessSelectionModule } from './process-selection';
 import { ControllerModule } from './controller';
 import { EformModule } from './eform';
 
@@ -25,6 +26,7 @@ import { AppComponent } from './app.component';
         AppRouterModule,
         DashboardModule,
         ConfigModule,
+        ProcessSelectionModule,
         ControllerModule,
         EformModule
     ],
