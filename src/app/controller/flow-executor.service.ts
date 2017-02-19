@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { ExecutionInput, IoFactType } from '../model/execution';
+import { IoFactType } from '../model/execution';
 
 @Injectable()
 export class FlowExecutorService {
@@ -8,11 +8,8 @@ export class FlowExecutorService {
     }
 
     execute(flowId: string, input) {
-
-        // TODO: Prepare JSON input
         let executionInputs = this.transformFormInputsToDEExecutionInputs(input);
-        return this.http.post(`/flow/${ flowId }`, input);
-        // TODO: Parse JSON output
+        return this.http.post(`/flow/${ flowId }`, executionInputs).map(r=>this.transformDEExecutionResultsToFormInputs(r));
     }
 
     public transformFormInputsToDEExecutionInputs(input) {
@@ -29,9 +26,12 @@ export class FlowExecutorService {
         return executionInput;
     }
 
-    public transformDEExecutionResultsToFormInputs(executionResults){
-        for(let result of executionResults){
-
+    public transformDEExecutionResultsToFormInputs(flowResults){
+        let results = {};
+        for(let result of flowResults.executionResults){
+                if(result.conclusion.values)
+                    results[result.conclusion.factTypeName] = result.conclusion.values.join(',');
         }
+        return results;
     }
 }

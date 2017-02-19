@@ -9,8 +9,10 @@ import {
 
 import { ExecutionInput } from './model';
 
-const FLOWS = [
-    { id: '123', data: {} }
+const FLOW_MANIFESTS = [
+    { id: '1000', data: require('../data/manifest/form1.json') },
+    { id: '2000', data: require('../data/manifest/form2.json') },
+    { id: '3000', data: require('../data/manifest/form3.json') },
 ];
 
 const PROCESSES = [
@@ -20,8 +22,16 @@ const PROCESSES = [
         description: 'Process 2 Description',
         steps: [
             {
-                flow: 'flow1',
+                flow: '1000',
                 title: 'Flow 1 - Step 1'
+            },
+            {
+                flow: '2000',
+                title: 'Flow 2 - Step 2'
+            },
+            {
+                flow: '3000',
+                title: 'Flow 3 - Step 3'
             }
         ]
     }
@@ -44,7 +54,7 @@ export class MockWebApi extends InMemoryDbService {
 
     createDb() {
         return {
-            flows: FLOWS,
+            flowManifests: FLOW_MANIFESTS,
             process: PROCESSES
         };
     }

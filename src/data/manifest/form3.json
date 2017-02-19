@@ -1,0 +1,831 @@
+{
+  "asset": [
+    {
+      "asset": [
+        {
+          "group": {
+            "factType": [
+              {
+                "name": "Previous Zip-5",
+                "modelMapping": "PreviousZip5",
+                "dataType": "CODE",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014512
+              },
+              {
+                "validRanges": {
+                  "range": [
+                    "0.0-100.0"
+                  ]
+                },
+                "name": "Insured Majority Stockholder",
+                "modelMapping": "InsuredMajorityStockholder",
+                "dataType": "PERCENT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014383
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "A",
+                    "B",
+                    "C",
+                    "D"
+                  ]
+                },
+                "name": "Policy Grade",
+                "modelMapping": "PolicyGrade",
+                "dataType": "CODE",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014447
+              },
+              {
+                "name": "Previous Occupied Square Footage",
+                "modelMapping": "PreviousOccupiedSquareFootage",
+                "dataType": "NUMERIC",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014504
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "No",
+                    "Yes"
+                  ]
+                },
+                "name": "Insured Major Ownership Change",
+                "modelMapping": "InsuredMajorOwnershipChange",
+                "dataType": "INDICATOR",
+                "isPersistent": false,
+                "isConclusion": true,
+                "isList": false,
+                "factTypeDefinition": 1014375
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "0",
+                    "10",
+                    "15",
+                    "20",
+                    "25",
+                    "5"
+                  ]
+                },
+                "name": "Policy Discount",
+                "modelMapping": "PolicyDiscount",
+                "dataType": "PERCENT",
+                "isPersistent": false,
+                "isConclusion": true,
+                "isList": false,
+                "factTypeDefinition": 1014439
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "Changed",
+                    "Not Changed"
+                  ]
+                },
+                "name": "Insured CEO Change",
+                "modelMapping": "InsuredCEOChange",
+                "dataType": "INDICATOR",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014335
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F"
+                  ]
+                },
+                "name": "Location State Category",
+                "modelMapping": "LocationStateCategory",
+                "dataType": "CODE",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014399
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "Automatic Renewal Process",
+                    "Manual Renewal Process"
+                  ]
+                },
+                "name": "Policy Renewal Method",
+                "modelMapping": "PolicyRenewalMethod",
+                "dataType": "INDICATOR",
+                "isPersistent": false,
+                "isConclusion": true,
+                "isList": false,
+                "factTypeDefinition": 1014463
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "Off",
+                    "On"
+                  ]
+                },
+                "name": "Policy Manual Underwriting Indicator",
+                "modelMapping": "PolicyManualUnderwritingIndicator",
+                "dataType": "INDICATOR",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014455
+              },
+              {
+                "validRanges": {
+                  "range": [
+                    "0.0-100.0"
+                  ]
+                },
+                "name": "Insured Minority Stockholder",
+                "modelMapping": "InsuredMinorityStockholder",
+                "dataType": "PERCENT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014391
+              },
+              {
+                "validRanges": {
+                  "range": [
+                    "0.0-100.0"
+                  ]
+                },
+                "name": "Insured Board Change",
+                "modelMapping": "InsuredBoardChange",
+                "dataType": "PERCENT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014327
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "No",
+                    "Yes"
+                  ]
+                },
+                "name": "Policy Tier Within Bounds",
+                "modelMapping": "PolicyTierWithinBounds",
+                "dataType": "INDICATOR",
+                "isPersistent": true,
+                "isConclusion": true,
+                "isList": false,
+                "factTypeDefinition": 1014480
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "A",
+                    "B"
+                  ]
+                },
+                "name": "Package Grade",
+                "modelMapping": "PackageGrade",
+                "dataType": "CODE",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014415
+              },
+              {
+                "name": "Insured Location Occupied Square Footage",
+                "modelMapping": "InsuredLocationOccupiedSquareFootage",
+                "dataType": "NUMERIC",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014351
+              },
+              {
+                "validRanges": {
+                  "range": [
+                    "0-3"
+                  ]
+                },
+                "name": "Policy Tier",
+                "modelMapping": "PolicyTier",
+                "dataType": "NUMERIC",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014472
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "Multi-Unit",
+                    "Single Unit"
+                  ]
+                },
+                "name": "Insured Location Construction",
+                "modelMapping": "InsuredLocationConstruction",
+                "dataType": "INDICATOR",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014343
+              },
+              {
+                "validRanges": {
+                  "range": [
+                    "0.0-100.0"
+                  ]
+                },
+                "name": "Package Discount",
+                "modelMapping": "PackageDiscount",
+                "dataType": "PERCENT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014407
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "Multi-Unit",
+                    "Single Unit"
+                  ]
+                },
+                "name": "Previous Construction",
+                "modelMapping": "PreviousConstruction",
+                "dataType": "INDICATOR",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014496
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "No",
+                    "Yes"
+                  ]
+                },
+                "name": "Policy Discontinued Agent",
+                "modelMapping": "PolicyDiscontinuedAgent",
+                "dataType": "INDICATOR",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014431
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "No",
+                    "Yes"
+                  ]
+                },
+                "name": "Insured Major Location Change",
+                "modelMapping": "InsuredMajorLocationChange",
+                "dataType": "INDICATOR",
+                "isPersistent": false,
+                "isConclusion": true,
+                "isList": false,
+                "factTypeDefinition": 1014367
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "Acceptable",
+                    "Unacceptable"
+                  ]
+                },
+                "name": "Policy Underwriting Risk",
+                "modelMapping": "PolicyUnderwritingRisk",
+                "dataType": "INDICATOR",
+                "isPersistent": false,
+                "isConclusion": true,
+                "isList": false,
+                "factTypeDefinition": 1014488
+              },
+              {
+                "validRanges": {
+                  "range": [
+                    "1.0-null"
+                  ]
+                },
+                "name": "Policy Annual Premium",
+                "modelMapping": "PolicyAnnualPremium",
+                "dataType": "AMOUNT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014423
+              },
+              {
+                "name": "Insured Location Zip-5",
+                "modelMapping": "InsuredLocationZip5",
+                "dataType": "CODE",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1014359
+              }
+            ],
+            "name": "Root"
+          },
+          "assetType": "DECISION",
+          "name": "Determine Policy Renewal Method (View: Base)",
+          "view": "Base",
+          "version": "1.0",
+          "conclusion": "PolicyRenewalMethod"
+        },
+        {
+          "group": {
+            "factType": [
+              {
+                "name": "Execute",
+                "modelMapping": "Execute",
+                "dataType": "TEXT",
+                "isPersistent": false,
+                "isConclusion": true,
+                "isList": false,
+                "factTypeDefinition": 1023320
+              },
+              {
+                "name": "what is your age",
+                "modelMapping": "whatIsYourAge",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1023335
+              },
+              {
+                "name": "born date",
+                "modelMapping": "bornDate",
+                "dataType": "DATE",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1023362
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "no",
+                    "yes"
+                  ]
+                },
+                "name": "have kids",
+                "modelMapping": "haveKids",
+                "dataType": "INDICATOR",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1023345
+              }
+            ],
+            "name": "Root"
+          },
+          "assetType": "DECISION",
+          "name": "Assess Execute (View: Base)",
+          "view": "Base",
+          "version": "1.0",
+          "conclusion": "Execute"
+        }
+      ],
+      "group": {
+        "factType": [
+          {
+            "name": "Previous Zip-5",
+            "modelMapping": "PreviousZip5",
+            "dataType": "CODE",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014512
+          },
+          {
+            "validRanges": {
+              "range": [
+                "0.0-100.0"
+              ]
+            },
+            "name": "Insured Majority Stockholder",
+            "modelMapping": "InsuredMajorityStockholder",
+            "dataType": "PERCENT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014383
+          },
+          {
+            "validValues": {
+              "value": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ]
+            },
+            "name": "Policy Grade",
+            "modelMapping": "PolicyGrade",
+            "dataType": "CODE",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014447
+          },
+          {
+            "name": "Previous Occupied Square Footage",
+            "modelMapping": "PreviousOccupiedSquareFootage",
+            "dataType": "NUMERIC",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014504
+          },
+          {
+            "validValues": {
+              "value": [
+                "No",
+                "Yes"
+              ]
+            },
+            "name": "Insured Major Ownership Change",
+            "modelMapping": "InsuredMajorOwnershipChange",
+            "dataType": "INDICATOR",
+            "isPersistent": false,
+            "isConclusion": true,
+            "isList": false,
+            "factTypeDefinition": 1014375
+          },
+          {
+            "validValues": {
+              "value": [
+                "0",
+                "10",
+                "15",
+                "20",
+                "25",
+                "5"
+              ]
+            },
+            "name": "Policy Discount",
+            "modelMapping": "PolicyDiscount",
+            "dataType": "PERCENT",
+            "isPersistent": false,
+            "isConclusion": true,
+            "isList": false,
+            "factTypeDefinition": 1014439
+          },
+          {
+            "validValues": {
+              "value": [
+                "Changed",
+                "Not Changed"
+              ]
+            },
+            "name": "Insured CEO Change",
+            "modelMapping": "InsuredCEOChange",
+            "dataType": "INDICATOR",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014335
+          },
+          {
+            "validValues": {
+              "value": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F"
+              ]
+            },
+            "name": "Location State Category",
+            "modelMapping": "LocationStateCategory",
+            "dataType": "CODE",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014399
+          },
+          {
+            "validValues": {
+              "value": [
+                "Automatic Renewal Process",
+                "Manual Renewal Process"
+              ]
+            },
+            "name": "Policy Renewal Method",
+            "modelMapping": "PolicyRenewalMethod",
+            "dataType": "INDICATOR",
+            "isPersistent": false,
+            "isConclusion": true,
+            "isList": false,
+            "factTypeDefinition": 1014463
+          },
+          {
+            "validValues": {
+              "value": [
+                "Off",
+                "On"
+              ]
+            },
+            "name": "Policy Manual Underwriting Indicator",
+            "modelMapping": "PolicyManualUnderwritingIndicator",
+            "dataType": "INDICATOR",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014455
+          },
+          {
+            "validRanges": {
+              "range": [
+                "0.0-100.0"
+              ]
+            },
+            "name": "Insured Minority Stockholder",
+            "modelMapping": "InsuredMinorityStockholder",
+            "dataType": "PERCENT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014391
+          },
+          {
+            "validRanges": {
+              "range": [
+                "0.0-100.0"
+              ]
+            },
+            "name": "Insured Board Change",
+            "modelMapping": "InsuredBoardChange",
+            "dataType": "PERCENT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014327
+          },
+          {
+            "validValues": {
+              "value": [
+                "No",
+                "Yes"
+              ]
+            },
+            "name": "Policy Tier Within Bounds",
+            "modelMapping": "PolicyTierWithinBounds",
+            "dataType": "INDICATOR",
+            "isPersistent": true,
+            "isConclusion": true,
+            "isList": false,
+            "factTypeDefinition": 1014480
+          },
+          {
+            "validValues": {
+              "value": [
+                "A",
+                "B"
+              ]
+            },
+            "name": "Package Grade",
+            "modelMapping": "PackageGrade",
+            "dataType": "CODE",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014415
+          },
+          {
+            "name": "Insured Location Occupied Square Footage",
+            "modelMapping": "InsuredLocationOccupiedSquareFootage",
+            "dataType": "NUMERIC",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014351
+          },
+          {
+            "validRanges": {
+              "range": [
+                "0-3"
+              ]
+            },
+            "name": "Policy Tier",
+            "modelMapping": "PolicyTier",
+            "dataType": "NUMERIC",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014472
+          },
+          {
+            "validValues": {
+              "value": [
+                "Multi-Unit",
+                "Single Unit"
+              ]
+            },
+            "name": "Insured Location Construction",
+            "modelMapping": "InsuredLocationConstruction",
+            "dataType": "INDICATOR",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014343
+          },
+          {
+            "validRanges": {
+              "range": [
+                "0.0-100.0"
+              ]
+            },
+            "name": "Package Discount",
+            "modelMapping": "PackageDiscount",
+            "dataType": "PERCENT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014407
+          },
+          {
+            "validValues": {
+              "value": [
+                "Multi-Unit",
+                "Single Unit"
+              ]
+            },
+            "name": "Previous Construction",
+            "modelMapping": "PreviousConstruction",
+            "dataType": "INDICATOR",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014496
+          },
+          {
+            "validValues": {
+              "value": [
+                "No",
+                "Yes"
+              ]
+            },
+            "name": "Policy Discontinued Agent",
+            "modelMapping": "PolicyDiscontinuedAgent",
+            "dataType": "INDICATOR",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014431
+          },
+          {
+            "validValues": {
+              "value": [
+                "No",
+                "Yes"
+              ]
+            },
+            "name": "Insured Major Location Change",
+            "modelMapping": "InsuredMajorLocationChange",
+            "dataType": "INDICATOR",
+            "isPersistent": false,
+            "isConclusion": true,
+            "isList": false,
+            "factTypeDefinition": 1014367
+          },
+          {
+            "validValues": {
+              "value": [
+                "Acceptable",
+                "Unacceptable"
+              ]
+            },
+            "name": "Policy Underwriting Risk",
+            "modelMapping": "PolicyUnderwritingRisk",
+            "dataType": "INDICATOR",
+            "isPersistent": false,
+            "isConclusion": true,
+            "isList": false,
+            "factTypeDefinition": 1014488
+          },
+          {
+            "validRanges": {
+              "range": [
+                "1.0-null"
+              ]
+            },
+            "name": "Policy Annual Premium",
+            "modelMapping": "PolicyAnnualPremium",
+            "dataType": "AMOUNT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014423
+          },
+          {
+            "name": "Insured Location Zip-5",
+            "modelMapping": "InsuredLocationZip5",
+            "dataType": "CODE",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014359
+          },
+          {
+            "name": "Execute",
+            "modelMapping": "Execute",
+            "dataType": "TEXT",
+            "isPersistent": false,
+            "isConclusion": true,
+            "isList": false,
+            "factTypeDefinition": 1023320
+          },
+          {
+            "name": "what is your age",
+            "modelMapping": "whatIsYourAge",
+            "dataType": "TEXT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1023335
+          },
+          {
+            "name": "born date",
+            "modelMapping": "bornDate",
+            "dataType": "DATE",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1023362
+          },
+          {
+            "validValues": {
+              "value": [
+                "no",
+                "yes"
+              ]
+            },
+            "name": "have kids",
+            "modelMapping": "haveKids",
+            "dataType": "INDICATOR",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1023345
+          },
+          {
+            "validValues": {
+              "value": [
+                "No",
+                "Yes"
+              ]
+            },
+            "name": "Hurricane Zoning Change",
+            "modelMapping": "HurricaneZoningChange",
+            "dataType": "INDICATOR",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1014319
+          }
+        ],
+        "name": "Root"
+      },
+      "assetType": "FLOW",
+      "name": "dmm123-1.0",
+      "version": "1.0"
+    }
+  ],
+  "MessageCategory": [
+    {
+      "name": "Informational"
+    },
+    {
+      "name": "Critical"
+    }
+  ],
+  "executionModelHash": "1a86b3a6ae486de5d0077a74e30bf117",
+  "release": "project1",
+  "tag": "Assess_Execute_flow_SNAPSHOT",
+  "conclusion": "123"
+}
