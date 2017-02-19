@@ -1,30 +1,48 @@
 import { NgModule } from '@angular/core';
-import { EformComponent } from './eform/eform.component';
-import { PreviewComponent } from './preview/preview.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AccordionModule } from 'ngx-accordion';
 import {
-  SchemaFormModule,
-  DefaultWidgetRegistry,
-  WidgetRegistry
+    SchemaFormModule,
+    DefaultWidgetRegistry,
+    WidgetRegistry
 } from 'angular2-schema-form/src';
-import { CollapsibleWidget } from '../widgets/collapsable/collapsable.widget';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+
 import { UtilsService } from '../services/utils.service';
-import { TransformationService } from './services/transformation.service';
-import { MaterialModule } from '@angular/material';
+import { ManifestTransformerService } from '../services/manifest-transformer/manifest-transformer.service';
+
 import { EformRouterModule } from './eform-router.module';
 
+import { EformComponent } from './eform/eform.component';
+import { PreviewComponent } from './preview/preview.component';
+import { CollapsibleWidget } from '../widgets/collapsable/collapsable.widget';
+
 @NgModule({
-  imports: [EformRouterModule, BrowserModule, FormsModule, AccordionModule, SchemaFormModule, MaterialModule.forRoot()],
-  exports: [EformComponent, PreviewComponent],
-  declarations: [EformComponent, PreviewComponent, CollapsibleWidget],
-  entryComponents: [CollapsibleWidget],
-  providers: [TransformationService, {provide: WidgetRegistry, useClass: DefaultWidgetRegistry}, UtilsService]
+    imports: [
+        CommonModule,
+        FormsModule,
+        AccordionModule,
+        SchemaFormModule,
+
+        EformRouterModule
+    ],
+    exports: [
+        EformComponent
+    ],
+    declarations: [
+        EformComponent,
+        PreviewComponent,
+        CollapsibleWidget
+    ],
+    entryComponents: [CollapsibleWidget],
+    providers: [
+        ManifestTransformerService,
+        { provide: WidgetRegistry, useClass: DefaultWidgetRegistry },
+        UtilsService
+    ]
 })
 export class EformModule {
-  constructor(widgetRegistry: WidgetRegistry) {
-    widgetRegistry.register('collapsible', CollapsibleWidget)
-  }
+    constructor(widgetRegistry: WidgetRegistry) {
+        widgetRegistry.register('collapsible', CollapsibleWidget);
+    }
 }
-
