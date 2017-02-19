@@ -1,0 +1,13 @@
+{
+	"fieldsets": [{
+		"title": "title1",
+		"fields": ["haveKids", "bornDate","whatIsYourAge"]
+	}],
+	"collapsible": true,
+	"required": ["whatIsYourAge"],
+	"dependencies": [{
+		"fields": ["haveKids","bornDate"],
+		"dependentOn": "whatIsYourAge",
+		"value": "33"
+	}]
+}
