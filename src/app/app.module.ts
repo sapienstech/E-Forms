@@ -14,6 +14,8 @@ import { MockWebApi } from './mock-web-api';
 
 import { AppRouterModule } from './app-router.module';
 
+import { UtilsService } from './services/utils.service';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -34,6 +36,10 @@ import { AppComponent } from './app.component';
     declarations: [
         AppComponent
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+
+    providers: [
+        UtilsService
+    ]
 })
 export class AppModule { }

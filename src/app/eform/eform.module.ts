@@ -8,12 +8,8 @@ import {
     WidgetRegistry
 } from 'angular2-schema-form/src';
 
-import { UtilsService } from '../services/utils.service';
-import { TransformationService } from './services/transformation.service';
-
 import { EformRouterModule } from './eform-router.module';
 
-import { EformComponent } from './eform/eform.component';
 import { PreviewComponent } from './preview/preview.component';
 import { CollapsibleWidget } from '../widgets/collapsable/collapsable.widget';
 
@@ -26,19 +22,13 @@ import { CollapsibleWidget } from '../widgets/collapsable/collapsable.widget';
 
         EformRouterModule
     ],
-    exports: [
-        EformComponent
-    ],
     declarations: [
-        EformComponent,
         PreviewComponent,
         CollapsibleWidget
     ],
     entryComponents: [CollapsibleWidget],
     providers: [
-        TransformationService,
-        { provide: WidgetRegistry, useClass: DefaultWidgetRegistry },
-        UtilsService
+        { provide: WidgetRegistry, useClass: DefaultWidgetRegistry }
     ]
 })
 export class EformModule {

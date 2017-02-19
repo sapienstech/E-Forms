@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+
 import { UtilsService } from '../../services/utils.service';
-import { TransformationService } from '../services/transformation.service';
+import { TransformationService } from '../../config';
+
 import { PARSE_ERROR } from '../../types/constants';
 import { FormSchema } from '../../types/types';
 
@@ -15,20 +17,23 @@ export class PreviewComponent {
     error: string;
 
     schema: FormSchema;
-    layout:any;
-    metadata :any;
+    layout: any;
+    metadata: any;
 
     constructor(private utilsService: UtilsService,
-                private transformerService: TransformationService) {
+        private transformerService: TransformationService) {
     }
 
-    generateForm(){
+    generateForm() {
         this.schema = this.transformerService.mergeLayoutWithSchema(this.metadata, this.layout);
     }
 
     layoutFileSelected(data: any) {
         let file = data.currentTarget.files[0];
-        if(!file) return;
+        if (!file) {
+            return;
+        }
+
         this.utilsService.parseFileToObject(file).subscribe(result => {
             this.layout = result;
         });
@@ -38,14 +43,16 @@ export class PreviewComponent {
         this.schema = null;
         this.layout = null;
         let file = data.currentTarget.files[0];
-        if(!file) return;
+        if (!file) {
+            return;
+        }
+
         this.utilsService.parseFileToObject(file).subscribe(result => {
             try {
                 this.error = '';
                 let formSchema = this.transformerService.transformToFormSchema(result);
-                this.metadata= formSchema;
-            }
-            catch (er) {
+                this.metadata = formSchema;
+            } catch (er) {
                 this.error = PARSE_ERROR;
             }
 
