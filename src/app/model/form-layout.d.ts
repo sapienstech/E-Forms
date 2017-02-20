@@ -1,3 +1,5 @@
+import { Fieldset } from './form-schema';
+
 export class FormLayout {
     fieldsets: Fieldset[];
     collapsible: boolean;
@@ -11,7 +13,3 @@ export class Dependency {
     value: any;
 }
 
-export class Fieldset {
-    fields: string[];
-    title: string;
-}

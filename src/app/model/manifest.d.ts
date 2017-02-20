@@ -5,8 +5,8 @@ export interface Manifest {
 }
 
 export interface Asset {
+    name: string;
     assetType: 'FLOW' | 'DECISION';
-
     group: {
         factType: FactType[];
     }
@@ -24,6 +24,6 @@ export interface FactType {
     isPersistent: boolean;
     isList: boolean;
     validValues: {
-        values: string[];
+        value: string[];
     };
 }

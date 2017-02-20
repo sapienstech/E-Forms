@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-export type JsonSchemaType = 'string' | 'number' | 'integer' | 'object' | 'array';
+export type JsonSchemaType = 'string' | 'number' | 'integer' | 'boolean' | 'object' | 'array';
 
 export interface JsonSchema {
     $ref?: string;
