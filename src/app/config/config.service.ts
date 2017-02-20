@@ -5,7 +5,7 @@ import { Manifest, FormLayout } from '../model';
 import { ProcessConfig } from './config.model';
 
 import { TransformationService } from './transformation.service';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ConfigService {
