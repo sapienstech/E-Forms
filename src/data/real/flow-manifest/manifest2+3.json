@@ -1,0 +1,1335 @@
+{
+    "executionModelHash": "cdcf1bdacbae5a2b192bf83363980822",
+    "release": "ortal",
+    "tag": "tag2",
+    "conclusion": "Surrender Single Policy Eform Validation",
+    "assets": {
+        "asset": {
+            "name": "SurrenderSinglePolicyEformValidation-1.1",
+            "version": "1.1",
+            "assets": [
+                {
+                    "name": "Determine Policy CallML Requirement Action (View: SunLife)",
+                    "view": "SunLife",
+                    "version": "1.1",
+                    "conclusion": "PolicyCallMLRequirementAction",
+                    "group": {
+                        "name": "Root",
+                        "factTypes": [
+                            {
+                                "name": "First Policy Holder Identification Check Required",
+                                "modelMapping": "FirstPolicyHolderIdentificationCheckRequired",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Not Required",
+                                    "Required"
+                                ]
+                            },
+                            {
+                                "name": "Second Policy Holder Politically Exposed Person Indicator [Sunlife CPDF]",
+                                "modelMapping": "SecondPolicyHolderPoliticallyExposedPersonIndicatorSunlifeCPDF",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "No Political Exposure",
+                                    "Politically Exposed"
+                                ]
+                            },
+                            {
+                                "name": "First Policy Holder First Name [Sunlife E-Form]",
+                                "modelMapping": "FirstPolicyHolderFirstNameSunlifeEForm",
+                                "dataType": "TEXT",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Second Policy Holder Identification Check Trigger",
+                                "modelMapping": "SecondPolicyHolderIdentificationCheckTrigger",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "ID Check Triggered",
+                                    "No ID Check Triggered"
+                                ]
+                            },
+                            {
+                                "name": "Policy Signature Match Indicator",
+                                "modelMapping": "PolicySignatureMatchIndicator",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Signature(s) Do Not Match",
+                                    "Signature(s) Match"
+                                ]
+                            },
+                            {
+                                "name": "First Policy Holder Address Freshness Status",
+                                "modelMapping": "FirstPolicyHolderAddressFreshnessStatus",
+                                "dataType": "CODE",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Address Updated Within 3 Years",
+                                    "Address Updated Within 6 Months",
+                                    "New Address Provided",
+                                    "No Recent Address Update"
+                                ]
+                            },
+                            {
+                                "name": "First Policy Holder Politically Exposed Person Indicator [Sunlife CPDF]",
+                                "modelMapping": "FirstPolicyHolderPoliticallyExposedPersonIndicatorSunlifeCPDF",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "No Political Exposure",
+                                    "Politically Exposed"
+                                ]
+                            },
+                            {
+                                "name": "First Policy Holder Surrenders Payment Total",
+                                "modelMapping": "FirstPolicyHolderSurrendersPaymentTotal",
+                                "dataType": "AMOUNT",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Second Policy Holder Months Since Last Name Update",
+                                "modelMapping": "SecondPolicyHolderMonthsSinceLastNameUpdate",
+                                "dataType": "QUANTITY",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Policy Premium Source Bank Account Recent Change Indicator",
+                                "modelMapping": "PolicyPremiumSourceBankAccountRecentChangeIndicator",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Changed Recently",
+                                    "No Recent Change"
+                                ]
+                            },
+                            {
+                                "name": "Second Policy Holder Payment Amount Limit Indicator",
+                                "modelMapping": "SecondPolicyHolderPaymentAmountLimitIndicator",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Over Limit",
+                                    "Within Limit"
+                                ]
+                            },
+                            {
+                                "name": "First Policy Holder Identification Check Trigger",
+                                "modelMapping": "FirstPolicyHolderIdentificationCheckTrigger",
+                                "dataType": "CODE",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "ID Check Triggered",
+                                    "No ID Check Triggered"
+                                ]
+                            },
+                            {
+                                "name": "Second Policy Holder Surrender 6 Month Total Payment Amount [Sunlife CPDF]",
+                                "modelMapping": "SecondPolicyHolderSurrender6MonthTotalPaymentAmountSunlifeCPDF",
+                                "dataType": "AMOUNT",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "First Policy Holder Name Last Update Date [Sunlife CPDF]",
+                                "modelMapping": "FirstPolicyHolderNameLastUpdateDateSunlifeCPDF",
+                                "dataType": "DATE",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "First Policy Holder Name Freshness Status",
+                                "modelMapping": "FirstPolicyHolderNameFreshnessStatus",
+                                "dataType": "CODE",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Name Updated Within 3 Years",
+                                    "Name Updated Within 6 Months",
+                                    "New Name Provided",
+                                    "No Recent Name Update"
+                                ]
+                            },
+                            {
+                                "name": "Second Policy Holder Months Since Last Address Update",
+                                "modelMapping": "SecondPolicyHolderMonthsSinceLastAddressUpdate",
+                                "dataType": "QUANTITY",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Second Policy Holder Address Significant Change Indicator [Sunlife E-Form]",
+                                "modelMapping": "SecondPolicyHolderAddressSignificantChangeIndicatorSunlifeEForm",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "Major Change",
+                                    "Minor Change"
+                                ]
+                            },
+                            {
+                                "name": "First Policy Holder Payment Amount Limit Indicator",
+                                "modelMapping": "FirstPolicyHolderPaymentAmountLimitIndicator",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Over Limit",
+                                    "Within Limit"
+                                ]
+                            },
+                            {
+                                "name": "First Policy Holder Surname [Sunlife E-Form]",
+                                "modelMapping": "FirstPolicyHolderSurnameSunlifeEForm",
+                                "dataType": "TEXT",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "First Policy Holder Address Significant Change Indicator [Sunlife E-Form]",
+                                "modelMapping": "FirstPolicyHolderAddressSignificantChangeIndicatorSunlifeEForm",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "Major Change",
+                                    "Minor Change"
+                                ]
+                            },
+                            {
+                                "name": "First Policy Holder First Name [Sunlife CPDF]",
+                                "modelMapping": "FirstPolicyHolderFirstNameSunlifeCPDF",
+                                "dataType": "TEXT",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "First Policy Holder Address Last Update Date [Sunlife CPDF]",
+                                "modelMapping": "FirstPolicyHolderAddressLastUpdateDateSunlifeCPDF",
+                                "dataType": "DATE",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Second Policy Holder Most Recent Identification Verification Date [Sunlife CPDF]",
+                                "modelMapping": "SecondPolicyHolderMostRecentIdentificationVerificationDateSunlifeCPDF",
+                                "dataType": "DATE",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "First Policy Holder Payment Bank Account New Indicator [Sunlife E-Form]",
+                                "modelMapping": "FirstPolicyHolderPaymentBankAccountNewIndicatorSunlifeEForm",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "Known Bank Account",
+                                    "New Bank Account"
+                                ]
+                            },
+                            {
+                                "name": "First Policy Holder Most Recent Identification Verification Date [Sunlife CPDF]",
+                                "modelMapping": "FirstPolicyHolderMostRecentIdentificationVerificationDateSunlifeCPDF",
+                                "dataType": "DATE",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "First Policy Holder Previous Identification Status [Sunlife CPDF]",
+                                "modelMapping": "FirstPolicyHolderPreviousIdentificationStatusSunlifeCPDF",
+                                "dataType": "CODE",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "Failed",
+                                    "Not on File",
+                                    "Passed"
+                                ]
+                            },
+                            {
+                                "name": "Policy Restriction Code [Sunlife CPDF]",
+                                "modelMapping": "PolicyRestrictionCodeSunlifeCPDF",
+                                "dataType": "CODE",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "00",
+                                    "01",
+                                    "02",
+                                    "10",
+                                    "12",
+                                    "20",
+                                    "21",
+                                    "22",
+                                    "60",
+                                    "91",
+                                    "92"
+                                ]
+                            },
+                            {
+                                "name": "Policy Held in Trust Indicator",
+                                "modelMapping": "PolicyHeldInTrustIndicator",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Held in Trust",
+                                    "Not In Trust"
+                                ]
+                            },
+                            {
+                                "name": "Second Policy Holder Previous Identification Status [Sunlife CPDF]",
+                                "modelMapping": "SecondPolicyHolderPreviousIdentificationStatusSunlifeCPDF",
+                                "dataType": "CODE",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "Failed",
+                                    "Not on File",
+                                    "Passed"
+                                ]
+                            },
+                            {
+                                "name": "Policy Signature Check Required",
+                                "modelMapping": "PolicySignatureCheckRequired",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Not Required",
+                                    "Required"
+                                ]
+                            },
+                            {
+                                "name": "Second Policy Holder Surrender Payments Total",
+                                "modelMapping": "SecondPolicyHolderSurrenderPaymentsTotal",
+                                "dataType": "AMOUNT",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Second Policy Holder Identification Freshness Qualification",
+                                "modelMapping": "SecondPolicyHolderIdentificationFreshnessQualification",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "ID Refresh Required",
+                                    "Qualified"
+                                ]
+                            },
+                            {
+                                "name": "Second Policy Holder Name Last Update Date [Sunlife CPDF]",
+                                "modelMapping": "SecondPolicyHolderNameLastUpdateDateSunlifeCPDF",
+                                "dataType": "DATE",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Second Policy Holder Payment Bank Account New Indicator [Sunlife E-Form]",
+                                "modelMapping": "SecondPolicyHolderPaymentBankAccountNewIndicatorSunlifeEForm",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "Known Bank Account",
+                                    "New Bank Account"
+                                ]
+                            },
+                            {
+                                "name": "Second Policy Holder Name Freshness Status",
+                                "modelMapping": "SecondPolicyHolderNameFreshnessStatus",
+                                "dataType": "CODE",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Name Updated Within 3 Years",
+                                    "Name Updated Within 6 Months",
+                                    "New Name Provided",
+                                    "No Recent Name Update"
+                                ]
+                            },
+                            {
+                                "name": "Policy Holder Identification Check Required",
+                                "modelMapping": "PolicyHolderIdentificationCheckRequired",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Not Required",
+                                    "Required"
+                                ]
+                            },
+                            {
+                                "name": "First Policy Holder Months Since Last Address Update",
+                                "modelMapping": "FirstPolicyHolderMonthsSinceLastAddressUpdate",
+                                "dataType": "QUANTITY",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Policy Surrender Total Payment Amount [Sunlife CPDF]",
+                                "modelMapping": "PolicySurrenderTotalPaymentAmountSunlifeCPDF",
+                                "dataType": "AMOUNT",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "First Policy Holder Signature Match Indicator [Sunlife E-Form]",
+                                "modelMapping": "FirstPolicyHolderSignatureMatchIndicatorSunlifeEForm",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "Signature Does Not Match",
+                                    "Signature Match"
+                                ]
+                            },
+                            {
+                                "name": "Second Policy Holder Address Last Update Date [Sunlife CPDF]",
+                                "modelMapping": "SecondPolicyHolderAddressLastUpdateDateSunlifeCPDF",
+                                "dataType": "DATE",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "First Policy Holder Surrender 6 Month Total Payment Amount [Sunlife CPDF]",
+                                "modelMapping": "FirstPolicyHolderSurrender6MonthTotalPaymentAmountSunlifeCPDF",
+                                "dataType": "AMOUNT",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Second Policy Holder Address Freshness Status",
+                                "modelMapping": "SecondPolicyHolderAddressFreshnessStatus",
+                                "dataType": "CODE",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Address Updated Within 3 Years",
+                                    "Address Updated Within 6 Months",
+                                    "New Address Provided",
+                                    "No Recent Address Update"
+                                ]
+                            },
+                            {
+                                "name": "Second Policy Holder Signature Match Indicator [Sunlife E-Form]",
+                                "modelMapping": "SecondPolicyHolderSignatureMatchIndicatorSunlifeEForm",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "Signature Does Not Match",
+                                    "Signature Match"
+                                ]
+                            },
+                            {
+                                "name": "Second Policy Holder Identification Check Required",
+                                "modelMapping": "SecondPolicyHolderIdentificationCheckRequired",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Not Required",
+                                    "Required"
+                                ]
+                            },
+                            {
+                                "name": "First Policy Holder Identification Freshness Qualification",
+                                "modelMapping": "FirstPolicyHolderIdentificationFreshnessQualification",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "ID Refresh Required",
+                                    "Qualified"
+                                ]
+                            },
+                            {
+                                "name": "Policy Premium Source Bank Account Last Change Date [Sunlife CPDF]",
+                                "modelMapping": "PolicyPremiumSourceBankAccountLastChangeDateSunlifeCPDF",
+                                "dataType": "DATE",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Second Policy Holder First Name [Sunlife E-Form]",
+                                "modelMapping": "SecondPolicyHolderFirstNameSunlifeEForm",
+                                "dataType": "TEXT",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "First Policy Holder Months Since Last Name Update",
+                                "modelMapping": "FirstPolicyHolderMonthsSinceLastNameUpdate",
+                                "dataType": "QUANTITY",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Second Policy Holder Last Name [Sunlife E-Form]",
+                                "modelMapping": "SecondPolicyHolderLastNameSunlifeEForm",
+                                "dataType": "TEXT",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Policy CallML Requirement Action",
+                                "modelMapping": "PolicyCallMLRequirementAction",
+                                "dataType": "CODE",
+                                "isPersistent": "true",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "No CallML Required",
+                                    "Perform CallML",
+                                    "Refer"
+                                ]
+                            },
+                            {
+                                "name": "Policy Premium Source Bank Account Months Since Last Change",
+                                "modelMapping": "PolicyPremiumSourceBankAccountMonthsSinceLastChange",
+                                "dataType": "QUANTITY",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Policy Joint Ownership Indicator [Sunlife CPDF]",
+                                "modelMapping": "PolicyJointOwnershipIndicatorSunlifeCPDF",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "Joint",
+                                    "Single"
+                                ]
+                            },
+                            {
+                                "name": "Policy Holder Bankruptcy Indicator",
+                                "modelMapping": "PolicyHolderBankruptcyIndicator",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Bankrupt",
+                                    "Solvent"
+                                ]
+                            },
+                            {
+                                "name": "Policy Payment Bank Account Owned By Joint Policy Holders [Sunlife E-Form]",
+                                "modelMapping": "PolicyPaymentBankAccountOwnedByJointPolicyHoldersSunlifeEForm",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "Not Owned by Joint Policy Holders",
+                                    "Owned by Joint Policy Holders"
+                                ]
+                            }
+                        ]
+                    },
+                    "assetType": "DECISION"
+                },
+                {
+                    "name": "Determine Surrender E-Form Validation Result (View: SunLife-Surrender)",
+                    "view": "SunLife-Surrender",
+                    "version": "1.1",
+                    "conclusion": "SurrenderEFormValidationResult",
+                    "group": {
+                        "name": "Root",
+                        "factTypes": [
+                            {
+                                "name": "First Policy Holder First Name [Sunlife CPDF]",
+                                "modelMapping": "FirstPolicyHolderFirstNameSunlifeCPDF",
+                                "dataType": "TEXT",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false"
+                            },
+                            {
+                                "name": "Policy CallML Requirement Action",
+                                "modelMapping": "PolicyCallMLRequirementAction",
+                                "dataType": "CODE",
+                                "isPersistent": "true",
+                                "isConclusion": "false",
+                                "isList": "false",
+                                "validValues": [
+                                    "No CallML Required",
+                                    "Perform CallML",
+                                    "Refer"
+                                ]
+                            },
+                            {
+                                "name": "Surrender E-Form Validation Result",
+                                "modelMapping": "SurrenderEFormValidationResult",
+                                "dataType": "INDICATOR",
+                                "isPersistent": "false",
+                                "isConclusion": "true",
+                                "isList": "false",
+                                "validValues": [
+                                    "Invalid",
+                                    "Valid"
+                                ]
+                            }
+                        ]
+                    },
+                    "assetType": "DECISION"
+                }
+            ],
+            "group": {
+                "name": "Root",
+                "factTypes": [
+                    {
+                        "name": "First Policy Holder Identification Check Required",
+                        "modelMapping": "FirstPolicyHolderIdentificationCheckRequired",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Not Required",
+                            "Required"
+                        ]
+                    },
+                    {
+                        "name": "Second Policy Holder Politically Exposed Person Indicator [Sunlife CPDF]",
+                        "modelMapping": "SecondPolicyHolderPoliticallyExposedPersonIndicatorSunlifeCPDF",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "No Political Exposure",
+                            "Politically Exposed"
+                        ]
+                    },
+                    {
+                        "name": "First Policy Holder First Name [Sunlife E-Form]",
+                        "modelMapping": "FirstPolicyHolderFirstNameSunlifeEForm",
+                        "dataType": "TEXT",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Second Policy Holder Identification Check Trigger",
+                        "modelMapping": "SecondPolicyHolderIdentificationCheckTrigger",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "ID Check Triggered",
+                            "No ID Check Triggered"
+                        ]
+                    },
+                    {
+                        "name": "Policy Signature Match Indicator",
+                        "modelMapping": "PolicySignatureMatchIndicator",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Signature(s) Do Not Match",
+                            "Signature(s) Match"
+                        ]
+                    },
+                    {
+                        "name": "First Policy Holder Address Freshness Status",
+                        "modelMapping": "FirstPolicyHolderAddressFreshnessStatus",
+                        "dataType": "CODE",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Address Updated Within 3 Years",
+                            "Address Updated Within 6 Months",
+                            "New Address Provided",
+                            "No Recent Address Update"
+                        ]
+                    },
+                    {
+                        "name": "First Policy Holder Politically Exposed Person Indicator [Sunlife CPDF]",
+                        "modelMapping": "FirstPolicyHolderPoliticallyExposedPersonIndicatorSunlifeCPDF",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "No Political Exposure",
+                            "Politically Exposed"
+                        ]
+                    },
+                    {
+                        "name": "First Policy Holder Surrenders Payment Total",
+                        "modelMapping": "FirstPolicyHolderSurrendersPaymentTotal",
+                        "dataType": "AMOUNT",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Second Policy Holder Months Since Last Name Update",
+                        "modelMapping": "SecondPolicyHolderMonthsSinceLastNameUpdate",
+                        "dataType": "QUANTITY",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Policy Premium Source Bank Account Recent Change Indicator",
+                        "modelMapping": "PolicyPremiumSourceBankAccountRecentChangeIndicator",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Changed Recently",
+                            "No Recent Change"
+                        ]
+                    },
+                    {
+                        "name": "Second Policy Holder Payment Amount Limit Indicator",
+                        "modelMapping": "SecondPolicyHolderPaymentAmountLimitIndicator",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Over Limit",
+                            "Within Limit"
+                        ]
+                    },
+                    {
+                        "name": "First Policy Holder Identification Check Trigger",
+                        "modelMapping": "FirstPolicyHolderIdentificationCheckTrigger",
+                        "dataType": "CODE",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "ID Check Triggered",
+                            "No ID Check Triggered"
+                        ]
+                    },
+                    {
+                        "name": "Second Policy Holder Surrender 6 Month Total Payment Amount [Sunlife CPDF]",
+                        "modelMapping": "SecondPolicyHolderSurrender6MonthTotalPaymentAmountSunlifeCPDF",
+                        "dataType": "AMOUNT",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "First Policy Holder Name Last Update Date [Sunlife CPDF]",
+                        "modelMapping": "FirstPolicyHolderNameLastUpdateDateSunlifeCPDF",
+                        "dataType": "DATE",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "First Policy Holder Name Freshness Status",
+                        "modelMapping": "FirstPolicyHolderNameFreshnessStatus",
+                        "dataType": "CODE",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Name Updated Within 3 Years",
+                            "Name Updated Within 6 Months",
+                            "New Name Provided",
+                            "No Recent Name Update"
+                        ]
+                    },
+                    {
+                        "name": "Second Policy Holder Months Since Last Address Update",
+                        "modelMapping": "SecondPolicyHolderMonthsSinceLastAddressUpdate",
+                        "dataType": "QUANTITY",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Second Policy Holder Address Significant Change Indicator [Sunlife E-Form]",
+                        "modelMapping": "SecondPolicyHolderAddressSignificantChangeIndicatorSunlifeEForm",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "Major Change",
+                            "Minor Change"
+                        ]
+                    },
+                    {
+                        "name": "First Policy Holder Payment Amount Limit Indicator",
+                        "modelMapping": "FirstPolicyHolderPaymentAmountLimitIndicator",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Over Limit",
+                            "Within Limit"
+                        ]
+                    },
+                    {
+                        "name": "First Policy Holder Surname [Sunlife E-Form]",
+                        "modelMapping": "FirstPolicyHolderSurnameSunlifeEForm",
+                        "dataType": "TEXT",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "First Policy Holder Address Significant Change Indicator [Sunlife E-Form]",
+                        "modelMapping": "FirstPolicyHolderAddressSignificantChangeIndicatorSunlifeEForm",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "Major Change",
+                            "Minor Change"
+                        ]
+                    },
+                    {
+                        "name": "First Policy Holder First Name [Sunlife CPDF]",
+                        "modelMapping": "FirstPolicyHolderFirstNameSunlifeCPDF",
+                        "dataType": "TEXT",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "First Policy Holder Address Last Update Date [Sunlife CPDF]",
+                        "modelMapping": "FirstPolicyHolderAddressLastUpdateDateSunlifeCPDF",
+                        "dataType": "DATE",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Second Policy Holder Most Recent Identification Verification Date [Sunlife CPDF]",
+                        "modelMapping": "SecondPolicyHolderMostRecentIdentificationVerificationDateSunlifeCPDF",
+                        "dataType": "DATE",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "First Policy Holder Payment Bank Account New Indicator [Sunlife E-Form]",
+                        "modelMapping": "FirstPolicyHolderPaymentBankAccountNewIndicatorSunlifeEForm",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "Known Bank Account",
+                            "New Bank Account"
+                        ]
+                    },
+                    {
+                        "name": "First Policy Holder Most Recent Identification Verification Date [Sunlife CPDF]",
+                        "modelMapping": "FirstPolicyHolderMostRecentIdentificationVerificationDateSunlifeCPDF",
+                        "dataType": "DATE",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "First Policy Holder Previous Identification Status [Sunlife CPDF]",
+                        "modelMapping": "FirstPolicyHolderPreviousIdentificationStatusSunlifeCPDF",
+                        "dataType": "CODE",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "Failed",
+                            "Not on File",
+                            "Passed"
+                        ]
+                    },
+                    {
+                        "name": "Policy Restriction Code [Sunlife CPDF]",
+                        "modelMapping": "PolicyRestrictionCodeSunlifeCPDF",
+                        "dataType": "CODE",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "00",
+                            "01",
+                            "02",
+                            "10",
+                            "12",
+                            "20",
+                            "21",
+                            "22",
+                            "60",
+                            "91",
+                            "92"
+                        ]
+                    },
+                    {
+                        "name": "Policy Held in Trust Indicator",
+                        "modelMapping": "PolicyHeldInTrustIndicator",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Held in Trust",
+                            "Not In Trust"
+                        ]
+                    },
+                    {
+                        "name": "Second Policy Holder Previous Identification Status [Sunlife CPDF]",
+                        "modelMapping": "SecondPolicyHolderPreviousIdentificationStatusSunlifeCPDF",
+                        "dataType": "CODE",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "Failed",
+                            "Not on File",
+                            "Passed"
+                        ]
+                    },
+                    {
+                        "name": "Policy Signature Check Required",
+                        "modelMapping": "PolicySignatureCheckRequired",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Not Required",
+                            "Required"
+                        ]
+                    },
+                    {
+                        "name": "Second Policy Holder Surrender Payments Total",
+                        "modelMapping": "SecondPolicyHolderSurrenderPaymentsTotal",
+                        "dataType": "AMOUNT",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Second Policy Holder Identification Freshness Qualification",
+                        "modelMapping": "SecondPolicyHolderIdentificationFreshnessQualification",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "ID Refresh Required",
+                            "Qualified"
+                        ]
+                    },
+                    {
+                        "name": "Second Policy Holder Name Last Update Date [Sunlife CPDF]",
+                        "modelMapping": "SecondPolicyHolderNameLastUpdateDateSunlifeCPDF",
+                        "dataType": "DATE",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Second Policy Holder Payment Bank Account New Indicator [Sunlife E-Form]",
+                        "modelMapping": "SecondPolicyHolderPaymentBankAccountNewIndicatorSunlifeEForm",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "Known Bank Account",
+                            "New Bank Account"
+                        ]
+                    },
+                    {
+                        "name": "Second Policy Holder Name Freshness Status",
+                        "modelMapping": "SecondPolicyHolderNameFreshnessStatus",
+                        "dataType": "CODE",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Name Updated Within 3 Years",
+                            "Name Updated Within 6 Months",
+                            "New Name Provided",
+                            "No Recent Name Update"
+                        ]
+                    },
+                    {
+                        "name": "Policy Holder Identification Check Required",
+                        "modelMapping": "PolicyHolderIdentificationCheckRequired",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Not Required",
+                            "Required"
+                        ]
+                    },
+                    {
+                        "name": "First Policy Holder Months Since Last Address Update",
+                        "modelMapping": "FirstPolicyHolderMonthsSinceLastAddressUpdate",
+                        "dataType": "QUANTITY",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Policy Surrender Total Payment Amount [Sunlife CPDF]",
+                        "modelMapping": "PolicySurrenderTotalPaymentAmountSunlifeCPDF",
+                        "dataType": "AMOUNT",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "First Policy Holder Signature Match Indicator [Sunlife E-Form]",
+                        "modelMapping": "FirstPolicyHolderSignatureMatchIndicatorSunlifeEForm",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "Signature Does Not Match",
+                            "Signature Match"
+                        ]
+                    },
+                    {
+                        "name": "Second Policy Holder Address Last Update Date [Sunlife CPDF]",
+                        "modelMapping": "SecondPolicyHolderAddressLastUpdateDateSunlifeCPDF",
+                        "dataType": "DATE",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "First Policy Holder Surrender 6 Month Total Payment Amount [Sunlife CPDF]",
+                        "modelMapping": "FirstPolicyHolderSurrender6MonthTotalPaymentAmountSunlifeCPDF",
+                        "dataType": "AMOUNT",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Second Policy Holder Address Freshness Status",
+                        "modelMapping": "SecondPolicyHolderAddressFreshnessStatus",
+                        "dataType": "CODE",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Address Updated Within 3 Years",
+                            "Address Updated Within 6 Months",
+                            "New Address Provided",
+                            "No Recent Address Update"
+                        ]
+                    },
+                    {
+                        "name": "Second Policy Holder Signature Match Indicator [Sunlife E-Form]",
+                        "modelMapping": "SecondPolicyHolderSignatureMatchIndicatorSunlifeEForm",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "Signature Does Not Match",
+                            "Signature Match"
+                        ]
+                    },
+                    {
+                        "name": "Second Policy Holder Identification Check Required",
+                        "modelMapping": "SecondPolicyHolderIdentificationCheckRequired",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Not Required",
+                            "Required"
+                        ]
+                    },
+                    {
+                        "name": "First Policy Holder Identification Freshness Qualification",
+                        "modelMapping": "FirstPolicyHolderIdentificationFreshnessQualification",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "ID Refresh Required",
+                            "Qualified"
+                        ]
+                    },
+                    {
+                        "name": "Policy Premium Source Bank Account Last Change Date [Sunlife CPDF]",
+                        "modelMapping": "PolicyPremiumSourceBankAccountLastChangeDateSunlifeCPDF",
+                        "dataType": "DATE",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Second Policy Holder First Name [Sunlife E-Form]",
+                        "modelMapping": "SecondPolicyHolderFirstNameSunlifeEForm",
+                        "dataType": "TEXT",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "First Policy Holder Months Since Last Name Update",
+                        "modelMapping": "FirstPolicyHolderMonthsSinceLastNameUpdate",
+                        "dataType": "QUANTITY",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Second Policy Holder Last Name [Sunlife E-Form]",
+                        "modelMapping": "SecondPolicyHolderLastNameSunlifeEForm",
+                        "dataType": "TEXT",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Policy CallML Requirement Action",
+                        "modelMapping": "PolicyCallMLRequirementAction",
+                        "dataType": "CODE",
+                        "isPersistent": "true",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "No CallML Required",
+                            "Perform CallML",
+                            "Refer"
+                        ]
+                    },
+                    {
+                        "name": "Policy Premium Source Bank Account Months Since Last Change",
+                        "modelMapping": "PolicyPremiumSourceBankAccountMonthsSinceLastChange",
+                        "dataType": "QUANTITY",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false"
+                    },
+                    {
+                        "name": "Policy Joint Ownership Indicator [Sunlife CPDF]",
+                        "modelMapping": "PolicyJointOwnershipIndicatorSunlifeCPDF",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "Joint",
+                            "Single"
+                        ]
+                    },
+                    {
+                        "name": "Policy Holder Bankruptcy Indicator",
+                        "modelMapping": "PolicyHolderBankruptcyIndicator",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Bankrupt",
+                            "Solvent"
+                        ]
+                    },
+                    {
+                        "name": "Policy Payment Bank Account Owned By Joint Policy Holders [Sunlife E-Form]",
+                        "modelMapping": "PolicyPaymentBankAccountOwnedByJointPolicyHoldersSunlifeEForm",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "true",
+                        "isConclusion": "false",
+                        "isList": "false",
+                        "validValues": [
+                            "Not Owned by Joint Policy Holders",
+                            "Owned by Joint Policy Holders"
+                        ]
+                    },
+                    {
+                        "name": "Surrender E-Form Validation Result",
+                        "modelMapping": "SurrenderEFormValidationResult",
+                        "dataType": "INDICATOR",
+                        "isPersistent": "false",
+                        "isConclusion": "true",
+                        "isList": "false",
+                        "validValues": [
+                            "Invalid",
+                            "Valid"
+                        ]
+                    }
+                ]
+            },
+            "assetType": "FLOW"
+        }
+    },
+    "MessageCategories": [
+        {
+            "name": "Critical"
+        },
+        {
+            "name": "Informational"
+        },
+        {
+            "name": "Case Notes"
+        },
+        {
+            "name": "Letter Content"
+        },
+        {
+            "name": "Workflow Document Type"
+        },
+        {
+            "name": "Workflow Message"
+        },
+        {
+            "name": "WorkflowDocumentType"
+        },
+        {
+            "name": "WorkflowMessageDetails"
+        },
+        {
+            "name": "WorkflowReasonForSending"
+        },
+        {
+            "name": "WorkflowRole"
+        },
+        {
+            "name": "WorkflowCaseNotes"
+        },
+        {
+            "name": "HandoffEmailBody"
+        },
+        {
+            "name": "HandoffEmailFrom"
+        },
+        {
+            "name": "HandoffEmailSignature"
+        },
+        {
+            "name": "HandoffEmailSubject"
+        },
+        {
+            "name": "ChrysalisLetterParagraphs"
+        },
+        {
+            "name": "ChrysalisLetterTemplate"
+        },
+        {
+            "name": "ManualLetterParagraphs"
+        },
+        {
+            "name": "ManualLetterTemplate"
+        },
+        {
+            "name": "ManualLetterReference"
+        },
+        {
+            "name": "HandoffEmailTo"
+        },
+        {
+            "name": "HandoffEmailCC"
+        },
+        {
+            "name": "HandoffEmailBCC"
+        },
+        {
+            "name": "ReclassifyDocumentType"
+        },
+        {
+            "name": "Validation Flow Messages"
+        },
+        {
+            "name": "EFormMessageDetails"
+        },
+        {
+            "name": "WorkflowRoleOption"
+        },
+        {
+            "name": "WorkflowRoleQueue"
+        }
+    ]
+}
