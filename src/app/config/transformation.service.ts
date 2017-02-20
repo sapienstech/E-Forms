@@ -126,7 +126,9 @@ export class TransformationService {
     }
 
     private moveAllUnSectionedFiledsToLastSection(layout: FormLayout, metadata: FormSchema) {
-        if(!layout.fieldsets) return;
+        if(!layout.fieldsets) {
+            return;
+        }
         let fields: string[] = layout.fieldsets.map(s => s.fields).reduce((a, b) => {
             return a.concat(b);
         });
@@ -140,7 +142,9 @@ export class TransformationService {
     }
 
     private buildElementDependencies(dependencies: Dependency[], metadata: FormProperty) {
-        if(!dependencies) return;
+        if(!dependencies) {
+            return;
+        }
         dependencies.forEach((dp: Dependency) => {
             dp.fields.forEach(field => {
                 if (metadata.properties[field]) {
