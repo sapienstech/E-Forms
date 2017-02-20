@@ -1,27 +1,27 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { PARSE_ERROR } from '../types/constants';
 
 @Injectable()
 export class UtilsService {
+    parseFileToObject(file: any): Observable<any> {
+        return Observable.create((observer) => {
+            let reader = new FileReader();
+            reader.addEventListener('load', (result) => {
+                try {
+                    let json = this.parseJsonFile(result);
+                    observer.next(json);
+                } catch (er) {
+                    observer.error(PARSE_ERROR);
+                }
 
-    constructor() {
-
+            });
+            reader.readAsText(file);
+        });
     }
 
-  parseFileToObject(file: any) :Observable<any> {
-    return Observable.create((observer)=>{
-
-      var reader = new FileReader();
-      reader.addEventListener('load', (result) => {
-        observer.next( this.parseJsonFile(result));
-      });
-      reader.readAsText(file);
-    })
-  }
-
-
-  private parseJsonFile(result) {
-    var target: any = result.target.result;
-    return JSON.parse(target);
-  }
+    private parseJsonFile(result) {
+        let target: any = result.target.result;
+        return JSON.parse(target);
+    }
 }

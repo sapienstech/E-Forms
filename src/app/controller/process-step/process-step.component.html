@@ -1,0 +1,8 @@
+<h2>{{ step }}</h2>
+
+<sf-form [model]="input"
+         [schema]="schema"
+         (onChange)="output = $event.value"></sf-form>
+
+<button class="btn btn-primary"
+        (click)="execute()">Execute</button>

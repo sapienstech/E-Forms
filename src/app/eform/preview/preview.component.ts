@@ -1,27 +1,64 @@
-import {Component} from '@angular/core';
-import {UtilsService} from '../../services/utils.service';
+import { Component } from '@angular/core';
+
+import { UtilsService } from '../../services/utils.service';
+import { TransformationService } from '../../config';
+
+import { PARSE_ERROR } from '../../types/constants';
+import { FormSchema } from '../../model';
 
 @Component({
-  selector: 'ef-form-preview',
-  templateUrl: 'preview.component.html',
-  styleUrls: ['preview.component.less']
+    selector: 'ef-form-preview',
+    templateUrl: 'preview.component.html',
+    styleUrls: ['preview.component.less']
 })
 export class PreviewComponent {
-  schema: any ;
 
-  constructor(private utilsService:UtilsService){
+    model: any = {};
+    error: string;
 
-  }
+    schema: FormSchema;
+    layout: any;
+    metadata: any;
 
-  fileSelected(data){
-    //necessary for CD
-    this.schema = null;
-    this.utilsService.parseFileToObject(data.currentTarget.files[0]).subscribe((result=>{
-      this.schema = result;
-    }));
+    constructor(private utilsService: UtilsService,
+        private transformerService: TransformationService) {
+    }
 
+    generateForm() {
+        this.schema = this.transformerService.mergeLayoutWithSchema(this.metadata, this.layout);
+    }
 
-  }
+    layoutFileSelected(data: any) {
+        let file = data.currentTarget.files[0];
+        if (!file) {
+            return;
+        }
 
+        this.utilsService.parseFileToObject(file).subscribe(result => {
+            this.layout = result;
+        });
+    }
+
+    manifestFileSelected(data: any) {
+        this.schema = null;
+        this.layout = null;
+        let file = data.currentTarget.files[0];
+        if (!file) {
+            return;
+        }
+
+        this.utilsService.parseFileToObject(file).subscribe(result => {
+            try {
+                this.error = '';
+                let formSchema = this.transformerService.transformToFormSchema(result);
+                this.metadata = formSchema;
+            } catch (er) {
+                this.error = PARSE_ERROR;
+            }
+
+        }, error => {
+            this.error = error;
+        });
+    }
 
 }
