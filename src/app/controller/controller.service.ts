@@ -44,7 +44,7 @@ export class ControllerService {
             return;
         }
 
-        this.config.getManifest(this.controllerState.step.flow)
+        this.config.getFormSchema(this.controllerState.step.flow)
             .subscribe(manifest => {
                 this.controllerState.step.formSchema = manifest;
 

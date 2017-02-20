@@ -10,15 +10,15 @@ import {
 import { ExecutionInput } from './model';
 
 const FLOW_MANIFESTS = [
-    { id: '1000', data: require('../data/manifest/form1.json') },
-    { id: '2000', data: require('../data/manifest/form2.json') },
-    { id: '3000', data: require('../data/manifest/form3.json') },
+    { id: '1000', data: require('../data/real/flow-manifest/manifest1.json') },
+    { id: '2000', data: require('../data/real/flow-manifest/manifest2+3.json') },
+    { id: '3000', data: require('../data/real/flow-manifest/manifest2+3.json') },
 ];
 
 const LAYOUTS = [
-    { id: '1000', data: require('../data/layout/layout1.json') },
-    { id: '2000', data: require('../data/layout/layout2.json') },
-    { id: '3000', data: require('../data/layout/layout3.json') },
+    { id: '1000', data: null },
+    { id: '2000', data: null },
+    { id: '3000', data: null },
 ];
 
 const PROCESSES = [
@@ -54,9 +54,9 @@ const PROCESSES = [
 ];
 
 const EXECUTION_RESULTS = {
-    '1000': require('../data/execution-result/result1.json'),
-    '2000': require('../data/execution-result/result2.json'),
-    '3000': require('../data/execution-result/result3.json')
+    '1000': require('../data/real/execution-result/result1.json'),
+    '2000': require('../data/real/execution-result/result2.json'),
+    '3000': require('../data/real/execution-result/result3.json')
 };
 
 export class MockWebApi extends InMemoryDbService {

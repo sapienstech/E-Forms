@@ -1,0 +1,114 @@
+{
+    "executionModelHash": "8e82d2c085ea8db734e2419fddfd8111",
+    "release": "ortal",
+    "tag": "tag2",
+    "conclusion": "Single Policy Surrender Data Retrieval",
+    "asset": [
+        {
+            "name": "Determine Case Review Readiness Status (View: Base)",
+            "view": "Base",
+            "version": "1.0",
+            "conclusion": "CaseReviewReadinessStatus",
+            "group": {
+                "name": "Root",
+                "factType": [
+                    {
+                        "name": "Policy Number",
+                        "modelMapping": "PolicyNumber",
+                        "dataType": "IDENTIFIER",
+                        "isPersistent": true,
+                        "isConclusion": false,
+                        "isList": false
+                    }
+                ]
+            },
+            "assetType": "FLOW"
+        }
+    ],
+    "MessageCategories": [
+        {
+            "name": "Critical"
+        },
+        {
+            "name": "Informational"
+        },
+        {
+            "name": "Case Notes"
+        },
+        {
+            "name": "Letter Content"
+        },
+        {
+            "name": "Workflow Document Type"
+        },
+        {
+            "name": "Workflow Message"
+        },
+        {
+            "name": "WorkflowDocumentType"
+        },
+        {
+            "name": "WorkflowMessageDetails"
+        },
+        {
+            "name": "WorkflowReasonForSending"
+        },
+        {
+            "name": "WorkflowRole"
+        },
+        {
+            "name": "WorkflowCaseNotes"
+        },
+        {
+            "name": "HandoffEmailBody"
+        },
+        {
+            "name": "HandoffEmailFrom"
+        },
+        {
+            "name": "HandoffEmailSignature"
+        },
+        {
+            "name": "HandoffEmailSubject"
+        },
+        {
+            "name": "ChrysalisLetterParagraphs"
+        },
+        {
+            "name": "ChrysalisLetterTemplate"
+        },
+        {
+            "name": "ManualLetterParagraphs"
+        },
+        {
+            "name": "ManualLetterTemplate"
+        },
+        {
+            "name": "ManualLetterReference"
+        },
+        {
+            "name": "HandoffEmailTo"
+        },
+        {
+            "name": "HandoffEmailCC"
+        },
+        {
+            "name": "HandoffEmailBCC"
+        },
+        {
+            "name": "ReclassifyDocumentType"
+        },
+        {
+            "name": "Validation Flow Messages"
+        },
+        {
+            "name": "EFormMessageDetails"
+        },
+        {
+            "name": "WorkflowRoleOption"
+        },
+        {
+            "name": "WorkflowRoleQueue"
+        }
+    ]
+}
