@@ -11,10 +11,10 @@ describe('Flow Executor Service', () => {
 
     it('should transform form inputs to DE execution inputs', () => {
         let formInputs = {
-                cond1: '1',
-                cond2: '2',
-                cond4: '4'
-            };
+            cond1: '1',
+            cond2: '2',
+            cond4: '4'
+        };
 
         let deInputs = {
             executableKey: {
@@ -73,7 +73,7 @@ describe('Flow Executor Service', () => {
 
 
     it('should transform from DE Execution results to form inputs', () => {
-        let executionResults = {
+        let executionResults: any = {
             'executionResults': [
                 {
                     'conclusion': {
@@ -682,7 +682,7 @@ describe('Flow Executor Service', () => {
 
         let formInputs = { conc1: '1' };
         let ei = service.transformExecutionResult(executionResults);
-        let equal = _.isEqual(ei, formInputs);
+        let equal = _.isEqual(ei.data, formInputs);
         expect(equal).toBeTruthy();
     });
 
