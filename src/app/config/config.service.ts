@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/catch';
+
 import { Manifest, FormLayout } from '../model';
 import { ProcessConfig } from './config.model';
-
 import { TransformationService } from './transformation.service';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ConfigService {
@@ -21,21 +23,22 @@ export class ConfigService {
     }
 
     getFormSchema(flowId) {
-        let manifestObs = this.http.get('api/flowManifests/' + flowId).
-                                    map(response => response.json() as Manifest).
-                                    map(manifest=>this.transformationService.transformToFormSchema(manifest));
-
-        let layoutObs = this.http.get('api/layouts/' + flowId).
-                                  map(response => response.json() as FormLayout);
-
-        return Observable.combineLatest(manifestObs , layoutObs,(m,l)=> this.transformationService.mergeLayoutWithSchema(m,l));
-
+        return Observable.combineLatest(
+            this.getManifest(flowId),
+            this.getLayout(flowId),
+            (m, l) => this.transformationService.mergeLayoutWithSchema(m, l)
+        );
     }
 
-    getLayout(flowId) {
-        return this.http.get('api/layouts/' + flowId)
-            .map(response => response.json() as FormLayout);
+    getLayout(flowId: string) {
+        return this.http.get(`api/layouts/${ flowId }`)
+            .map(response => response.json() as FormLayout)
+            .catch(() => Observable.of(undefined as FormLayout));
     }
 
-
+    private getManifest(flowId: string) {
+        return this.http.get(`/api/flowManifests/${ flowId }`)
+            .map(response => response.json() as Manifest)
+            .map(manifest => this.transformationService.transformToFormSchema(manifest));
+    }
 }

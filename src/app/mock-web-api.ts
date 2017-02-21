@@ -16,9 +16,9 @@ const FLOW_MANIFESTS = [
 ];
 
 const LAYOUTS = [
-    { id: '1000', data: null },
-    { id: '2000', data: null },
-    { id: '3000', data: null },
+    // { id: '1000', data: null },
+    // { id: '2000', data: null },
+    // { id: '3000', data: null },
 ];
 
 const PROCESSES = [
@@ -66,6 +66,10 @@ export class MockWebApi extends InMemoryDbService {
         super();
 
         this.responseInterceptor = (res) => {
+            if (res.status !== STATUS.OK) {
+                return res;
+            }
+
             let body = (res.body as any).data;
             if (body.hasOwnProperty('id')) {
                 body = body.data;
