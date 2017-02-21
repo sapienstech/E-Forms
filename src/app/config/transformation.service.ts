@@ -35,8 +35,8 @@ export class TransformationService {
         if(!layout.hidden){
             return;
         }
-        Object.keys(metadata.properties).forEach(prop => {
-            if (layout.hidden.indexOf(prop) >= 0) {
+        layout.hidden.forEach(prop=>{
+            if(metadata.properties[prop]) {
                 metadata.properties[prop].widget = 'hidden';
             }
         });
@@ -96,7 +96,7 @@ export class TransformationService {
 
     private convertValidValues(factType: FactType): Array<any> {
         return factType.validValues.value
-            .map((value, _index) => {
+            .map(value => {
                 return {
                     enum: [value],
                     description: value
