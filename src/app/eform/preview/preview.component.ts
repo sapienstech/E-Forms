@@ -22,6 +22,10 @@ export class PreviewComponent {
 
     constructor(private utilsService: UtilsService,
         private transformerService: TransformationService) {
+        let manifest = require('../../../data/examples/manifest/form3.json');
+        this.metadata = this.transformerService.transformToFormSchema(manifest);
+        this.layout = require('../../../data/examples/layout/layout3.json');
+        this.generateForm();
     }
 
     generateForm() {
@@ -60,5 +64,7 @@ export class PreviewComponent {
             this.error = error;
         });
     }
-
+    dataChanged(data){
+        data.toString();
+    }
 }
