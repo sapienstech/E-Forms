@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { ExecutionInput, ArtifactKey, ExecutionResult } from '../model/execution';
+import { ExecutionInput, ArtifactKey, ExecutionResults, ExecutionResult } from '../model/execution';
 
 @Injectable()
 export class FlowExecutorService {
@@ -12,7 +12,7 @@ export class FlowExecutorService {
         let executionInputs = this.transformExecutionInput(flowId, data);
 
         return this.http.post(`/flow/${ flowId }`, executionInputs)
-            .map(response => response.json() as ExecutionResult)
+            .map(response => response.json() as ExecutionResults)
             .map(result => this.transformExecutionResult(result));
     }
 
@@ -50,18 +50,23 @@ export class FlowExecutorService {
         return result;
     }
 
-    public transformExecutionResult(executionResult: ExecutionResult) {
-        let results = {};
-
+    transformExecutionResult(executionResult: ExecutionResults) {
         // TODO: Handle validation messages
-        // TODO: Handle list value
+        // TODO: Handle list value better
 
-        for (let result of executionResult.executionResults) {
-            if (result.conclusion.values) {
-                results[result.conclusion.factTypeName] = result.conclusion.values.join(',');
-            }
-        }
+        return executionResult.executionResults
+            .filter(this.isValidExecutionResult)
+            .reduce(this.mapExecutionResult, {});
+    }
 
-        return results;
+    private isValidExecutionResult(result: ExecutionResult) {
+        return result.conclusion
+            && result.conclusion.isConclusionValues
+            && result.conclusion.values;
+    }
+
+    private mapExecutionResult(map: any, result: ExecutionResult) {
+        map[result.conclusion.factTypeName] = result.conclusion.values.join(',');
+        return map;
     }
 }

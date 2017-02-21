@@ -10,10 +10,12 @@ export interface ExecutionInput {
     executionConfiguration: undefined;
 }
 
+export interface ExecutionResults {
+    executionResults: ExecutionResult[];
+}
+
 export interface ExecutionResult {
-    executionResults: {
-        conclusion: IoFactType;
-    }[];
+    conclusion: IoFactType;
 }
 
 export interface ArtifactKey {
