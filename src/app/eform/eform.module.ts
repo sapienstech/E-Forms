@@ -12,6 +12,7 @@ import { EformRouterModule } from './eform-router.module';
 
 import { PreviewComponent } from './preview/preview.component';
 import { CollapsibleWidget } from '../widgets/collapsable/collapsable.widget';
+import { HiddenWidget } from '../widgets/hidden/hidden.widget';
 
 @NgModule({
     imports: [
@@ -19,14 +20,14 @@ import { CollapsibleWidget } from '../widgets/collapsable/collapsable.widget';
         FormsModule,
         AccordionModule,
         SchemaFormModule,
-
         EformRouterModule
     ],
     declarations: [
         PreviewComponent,
-        CollapsibleWidget
+        CollapsibleWidget,
+        HiddenWidget
     ],
-    entryComponents: [CollapsibleWidget],
+    entryComponents: [CollapsibleWidget,HiddenWidget],
     providers: [
         { provide: WidgetRegistry, useClass: DefaultWidgetRegistry }
     ]
@@ -34,5 +35,6 @@ import { CollapsibleWidget } from '../widgets/collapsable/collapsable.widget';
 export class EformModule {
     constructor(widgetRegistry: WidgetRegistry) {
         widgetRegistry.register('collapsible', CollapsibleWidget);
+        widgetRegistry.register('hidden', HiddenWidget);
     }
 }

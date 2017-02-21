@@ -1,13 +1,36 @@
 {
-	"fieldsets": [{
-		"title": "title1",
-		"fields": ["haveKids", "bornDate","whatIsYourAge"]
-	}],
-	"collapsible": true,
-	"required": ["whatIsYourAge"],
-	"dependencies": [{
-		"fields": ["haveKids","bornDate"],
-		"dependentOn": "whatIsYourAge",
-		"value": "33"
-	}]
+    "fieldsets": [
+        {
+            "title": "title1",
+            "fields": [
+                "haveKids",
+                "bornDate",
+                "whatIsYourAge"
+            ]
+        }
+    ],
+    "hidden": [
+        "PreviousZip5","PolicyGrade","whatIsYourAge"
+    ],
+    "collapsible": true,
+    "required": [
+        "whatIsYourAge"
+    ],
+    "dependencies": [
+        {
+            "fields": [
+                "haveKids",
+                "bornDate"
+            ],
+            "dependentOn": "whatIsYourAge",
+            "value": "33"
+        },
+        {
+            "fields": [
+                "PreviousOccupiedSquareFootage"
+            ],
+            "dependentOn": "PolicyGrade",
+            "value": "B"
+        }
+    ]
 }

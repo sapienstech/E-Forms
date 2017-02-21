@@ -19,18 +19,27 @@ export class TransformationService {
         if (!layout) {
             return metadata;
         }
-
+        this.buildHiddenFields(metadata, layout);
         metadata.required = layout.required;
-
         if (layout.collapsible) {
             metadata.widget = 'collapsible';
         }
-
         this.buildElementDependencies(layout.dependencies, metadata);
         metadata.fieldsets = layout.fieldsets;
         this.moveAllUnSectionedFiledsToLastSection(layout, metadata);
 
         return metadata;
+    }
+
+    private buildHiddenFields(metadata: FormSchema, layout: FormLayout) {
+        if(!layout.hidden){
+            return;
+        }
+        Object.keys(metadata.properties).forEach(prop => {
+            if (layout.hidden.indexOf(prop) >= 0) {
+                metadata.properties[prop].widget = 'hidden';
+            }
+        });
     }
 
     transformToFormSchema(manifest: Manifest): FormSchema {
@@ -87,9 +96,9 @@ export class TransformationService {
 
     private convertValidValues(factType: FactType): Array<any> {
         return factType.validValues.value
-            .map((value, index) => {
+            .map((value, _index) => {
                 return {
-                    enum: ['L' + index],
+                    enum: [value], //['L' + index],
                     description: value
                 };
             });
