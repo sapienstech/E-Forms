@@ -11,11 +11,9 @@ export interface ExecutionInput {
 }
 
 export interface ExecutionResults {
-    executionResults: ExecutionResult[];
-}
-
-export interface ExecutionResult {
-    conclusion: IoFactType;
+    executionResults: {
+        conclusion: IoFactType;
+    }[];
 }
 
 export interface ArtifactKey {
@@ -29,5 +27,12 @@ export interface IoFactType {
     factTypeName: string;
     values?: string[];
     isConclusionValues: boolean;
-    rowHits?;
+    rowHit?: {
+        message: Message[];
+    };
+}
+
+export interface Message {
+    category: string;
+    text: string;
 }

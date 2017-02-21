@@ -42,7 +42,7 @@
                     "type": "string",
                     "title": "step type",
                     "description": "The type of interaction for this step",
-                    "default": "execute",
+                    "default": "ui",
                     "oneOf": [{
                             "enum": ["ui"],
                             "description": "Display a form to collect input"
@@ -61,14 +61,35 @@
                     "type": "string",
                     "title": "display name of the step"
                 },
-                "validation": {
-                    "type": "boolean",
-                    "title": "validation step indicator",
-                    "description": "Indicates that this step executes a validation flow",
-                    "default": false
-                }
+                "validation": { "$ref": "/definitions/validation" }
             },
             "required": ["flow"],
+            "additionalProperties": false
+        },
+
+        "validation": {
+            "type": "object",
+            "title": "validation step indicator",
+            "description": "Indicates that this step executes a validation flow",
+            "properties": {
+                "conclusion": {
+                    "type": "string",
+                    "title": "validation fact type name"
+                },
+                "valid": {
+                    "type": "string",
+                    "title": "value indicates success"
+                },
+                "invalid": {
+                    "type": "string",
+                    "title": "value indicates failure"
+                }
+            },
+            "required": ["conclusion"],
+            "oneOf": [
+                { "required": ["valid"] },
+                { "required": ["invalid"] }
+            ],
             "additionalProperties": false
         }
     }
