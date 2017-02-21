@@ -98,7 +98,7 @@ export class TransformationService {
         return factType.validValues.value
             .map((value, _index) => {
                 return {
-                    enum: [value], //['L' + index],
+                    enum: [value],
                     description: value
                 };
             });
