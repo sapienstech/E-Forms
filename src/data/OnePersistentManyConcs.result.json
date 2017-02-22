@@ -1,0 +1,899 @@
+{
+  "executionResults": [
+    {
+      "conclusion": {
+        "values": [
+          "1"
+        ],
+        "factTypeName": "finalConc",
+        "rowHit": [
+          {
+            "rowId": "1017937",
+            "rowHash": "43f1cf49233b715afb8f8101744de915"
+          }
+        ],
+        "isConclusionValues": true
+      },
+      "trace": {
+        "IoGroupInstances": [
+          {
+            "IoFactType": [
+              {
+                "values": [
+                  "value4"
+                ],
+                "factTypeName": "cond4",
+                "rowHit": [
+                  {
+                    "rowId": "1018002",
+                    "rowHash": "9be934857cbcba459143810abf42c19e"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value3"
+                ],
+                "factTypeName": "cond3",
+                "rowHit": [
+                  {
+                    "rowId": "1017996",
+                    "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value5"
+                ],
+                "factTypeName": "cond5",
+                "rowHit": [
+                  {
+                    "rowId": "1018010",
+                    "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "persistent",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value2"
+                ],
+                "factTypeName": "cond2",
+                "rowHit": [
+                  {
+                    "rowId": "1017990",
+                    "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value1"
+                ],
+                "factTypeName": "cond1",
+                "rowHit": [
+                  {
+                    "rowId": "1017984",
+                    "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "finalConc",
+                "rowHit": [
+                  {
+                    "rowId": "1017937",
+                    "rowHash": "43f1cf49233b715afb8f8101744de915"
+                  }
+                ],
+                "isConclusionValues": true
+              }
+            ],
+            "IoFactTypes": [
+              {
+                "values": [
+                  "value4"
+                ],
+                "factTypeName": "cond4",
+                "rowHit": [
+                  {
+                    "rowId": "1018002",
+                    "rowHash": "9be934857cbcba459143810abf42c19e"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value3"
+                ],
+                "factTypeName": "cond3",
+                "rowHit": [
+                  {
+                    "rowId": "1017996",
+                    "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value5"
+                ],
+                "factTypeName": "cond5",
+                "rowHit": [
+                  {
+                    "rowId": "1018010",
+                    "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "persistent",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value2"
+                ],
+                "factTypeName": "cond2",
+                "rowHit": [
+                  {
+                    "rowId": "1017990",
+                    "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value1"
+                ],
+                "factTypeName": "cond1",
+                "rowHit": [
+                  {
+                    "rowId": "1017984",
+                    "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "finalConc",
+                "rowHit": [
+                  {
+                    "rowId": "1017937",
+                    "rowHash": "43f1cf49233b715afb8f8101744de915"
+                  }
+                ],
+                "isConclusionValues": true
+              }
+            ]
+          }
+        ],
+        "IoGroupInstance": [
+          {
+            "IoFactType": [
+              {
+                "values": [
+                  "value4"
+                ],
+                "factTypeName": "cond4",
+                "rowHit": [
+                  {
+                    "rowId": "1018002",
+                    "rowHash": "9be934857cbcba459143810abf42c19e"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value3"
+                ],
+                "factTypeName": "cond3",
+                "rowHit": [
+                  {
+                    "rowId": "1017996",
+                    "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value5"
+                ],
+                "factTypeName": "cond5",
+                "rowHit": [
+                  {
+                    "rowId": "1018010",
+                    "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "persistent",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value2"
+                ],
+                "factTypeName": "cond2",
+                "rowHit": [
+                  {
+                    "rowId": "1017990",
+                    "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value1"
+                ],
+                "factTypeName": "cond1",
+                "rowHit": [
+                  {
+                    "rowId": "1017984",
+                    "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "finalConc",
+                "rowHit": [
+                  {
+                    "rowId": "1017937",
+                    "rowHash": "43f1cf49233b715afb8f8101744de915"
+                  }
+                ],
+                "isConclusionValues": true
+              }
+            ],
+            "IoFactTypes": [
+              {
+                "values": [
+                  "value4"
+                ],
+                "factTypeName": "cond4",
+                "rowHit": [
+                  {
+                    "rowId": "1018002",
+                    "rowHash": "9be934857cbcba459143810abf42c19e"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value3"
+                ],
+                "factTypeName": "cond3",
+                "rowHit": [
+                  {
+                    "rowId": "1017996",
+                    "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value5"
+                ],
+                "factTypeName": "cond5",
+                "rowHit": [
+                  {
+                    "rowId": "1018010",
+                    "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "persistent",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value2"
+                ],
+                "factTypeName": "cond2",
+                "rowHit": [
+                  {
+                    "rowId": "1017990",
+                    "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value1"
+                ],
+                "factTypeName": "cond1",
+                "rowHit": [
+                  {
+                    "rowId": "1017984",
+                    "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "finalConc",
+                "rowHit": [
+                  {
+                    "rowId": "1017937",
+                    "rowHash": "43f1cf49233b715afb8f8101744de915"
+                  }
+                ],
+                "isConclusionValues": true
+              }
+            ]
+          }
+        ]
+      },
+      "executedVersion": "1.0",
+      "executedViewName": "Base",
+      "idInFlow": "TaskNode_0_4"
+    },
+    {
+      "executedVersion": "1",
+      "name": "testServiceTask",
+      "idInFlow": "TaskNode_0_6",
+      "serviceTaskExecutionResult": {
+        "serviceTaskName": "testServiceTask",
+        "inputFactTypes": {
+          "name": "ROOT",
+          "IoGroupInstances": [
+            {
+              "IoFactType": [
+                {
+                  "values": [
+                    "1"
+                  ],
+                  "factTypeName": "persistent",
+                  "isConclusionValues": false
+                }
+              ],
+              "IoFactTypes": [
+                {
+                  "values": [
+                    "1"
+                  ],
+                  "factTypeName": "persistent",
+                  "isConclusionValues": false
+                }
+              ]
+            }
+          ],
+          "IoGroupInstance": [
+            {
+              "IoFactType": [
+                {
+                  "values": [
+                    "1"
+                  ],
+                  "factTypeName": "persistent",
+                  "isConclusionValues": false
+                }
+              ],
+              "IoFactTypes": [
+                {
+                  "values": [
+                    "1"
+                  ],
+                  "factTypeName": "persistent",
+                  "isConclusionValues": false
+                }
+              ]
+            }
+          ]
+        },
+        "outputFactTypes": {
+          "name": "ROOT",
+          "IoGroupInstances": [
+            {
+              "IoFactType": [
+                {
+                  "factTypeName": "cond5",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond4",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond3",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond2",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond1",
+                  "isConclusionValues": false
+                }
+              ],
+              "IoFactTypes": [
+                {
+                  "factTypeName": "cond5",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond4",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond3",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond2",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond1",
+                  "isConclusionValues": false
+                }
+              ]
+            }
+          ],
+          "IoGroupInstance": [
+            {
+              "IoFactType": [
+                {
+                  "factTypeName": "cond5",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond4",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond3",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond2",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond1",
+                  "isConclusionValues": false
+                }
+              ],
+              "IoFactTypes": [
+                {
+                  "factTypeName": "cond5",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond4",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond3",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond2",
+                  "isConclusionValues": false
+                },
+                {
+                  "factTypeName": "cond1",
+                  "isConclusionValues": false
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "trace": {
+    "IoGroupInstances": [
+      {
+        "IoFactType": [
+          {
+            "values": [
+              "value4"
+            ],
+            "factTypeName": "cond4",
+            "rowHit": [
+              {
+                "rowId": "1018002",
+                "rowHash": "9be934857cbcba459143810abf42c19e"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value1"
+            ],
+            "factTypeName": "cond1",
+            "rowHit": [
+              {
+                "rowId": "1017984",
+                "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value5"
+            ],
+            "factTypeName": "cond5",
+            "rowHit": [
+              {
+                "rowId": "1018010",
+                "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value3"
+            ],
+            "factTypeName": "cond3",
+            "rowHit": [
+              {
+                "rowId": "1017996",
+                "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "persistent",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "finalConc",
+            "rowHit": [
+              {
+                "rowId": "1017937",
+                "rowHash": "43f1cf49233b715afb8f8101744de915"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value2"
+            ],
+            "factTypeName": "cond2",
+            "rowHit": [
+              {
+                "rowId": "1017990",
+                "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+              }
+            ],
+            "isConclusionValues": true
+          }
+        ],
+        "IoFactTypes": [
+          {
+            "values": [
+              "value4"
+            ],
+            "factTypeName": "cond4",
+            "rowHit": [
+              {
+                "rowId": "1018002",
+                "rowHash": "9be934857cbcba459143810abf42c19e"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value1"
+            ],
+            "factTypeName": "cond1",
+            "rowHit": [
+              {
+                "rowId": "1017984",
+                "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value5"
+            ],
+            "factTypeName": "cond5",
+            "rowHit": [
+              {
+                "rowId": "1018010",
+                "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value3"
+            ],
+            "factTypeName": "cond3",
+            "rowHit": [
+              {
+                "rowId": "1017996",
+                "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "persistent",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "finalConc",
+            "rowHit": [
+              {
+                "rowId": "1017937",
+                "rowHash": "43f1cf49233b715afb8f8101744de915"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value2"
+            ],
+            "factTypeName": "cond2",
+            "rowHit": [
+              {
+                "rowId": "1017990",
+                "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+              }
+            ],
+            "isConclusionValues": true
+          }
+        ]
+      }
+    ],
+    "IoGroupInstance": [
+      {
+        "IoFactType": [
+          {
+            "values": [
+              "value4"
+            ],
+            "factTypeName": "cond4",
+            "rowHit": [
+              {
+                "rowId": "1018002",
+                "rowHash": "9be934857cbcba459143810abf42c19e"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value1"
+            ],
+            "factTypeName": "cond1",
+            "rowHit": [
+              {
+                "rowId": "1017984",
+                "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value5"
+            ],
+            "factTypeName": "cond5",
+            "rowHit": [
+              {
+                "rowId": "1018010",
+                "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value3"
+            ],
+            "factTypeName": "cond3",
+            "rowHit": [
+              {
+                "rowId": "1017996",
+                "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "persistent",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "finalConc",
+            "rowHit": [
+              {
+                "rowId": "1017937",
+                "rowHash": "43f1cf49233b715afb8f8101744de915"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value2"
+            ],
+            "factTypeName": "cond2",
+            "rowHit": [
+              {
+                "rowId": "1017990",
+                "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+              }
+            ],
+            "isConclusionValues": true
+          }
+        ],
+        "IoFactTypes": [
+          {
+            "values": [
+              "value4"
+            ],
+            "factTypeName": "cond4",
+            "rowHit": [
+              {
+                "rowId": "1018002",
+                "rowHash": "9be934857cbcba459143810abf42c19e"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value1"
+            ],
+            "factTypeName": "cond1",
+            "rowHit": [
+              {
+                "rowId": "1017984",
+                "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value5"
+            ],
+            "factTypeName": "cond5",
+            "rowHit": [
+              {
+                "rowId": "1018010",
+                "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value3"
+            ],
+            "factTypeName": "cond3",
+            "rowHit": [
+              {
+                "rowId": "1017996",
+                "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "persistent",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "finalConc",
+            "rowHit": [
+              {
+                "rowId": "1017937",
+                "rowHash": "43f1cf49233b715afb8f8101744de915"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value2"
+            ],
+            "factTypeName": "cond2",
+            "rowHit": [
+              {
+                "rowId": "1017990",
+                "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+              }
+            ],
+            "isConclusionValues": true
+          }
+        ]
+      }
+    ]
+  },
+  "profileStopWatch": [
+    {
+      "operation": "Execute Flow (Execution Manager)",
+      "elapsedTime": 113
+    }
+  ],
+  "executedVersion": "1.0"
+}

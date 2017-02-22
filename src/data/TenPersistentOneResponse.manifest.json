@@ -1,0 +1,250 @@
+{
+  "asset": [
+    {
+      "asset": [
+        {
+          "group": {
+            "factType": [
+              {
+                "name": "cond5",
+                "modelMapping": "cond5",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1017888
+              },
+              {
+                "name": "additionalFt4",
+                "modelMapping": "additionalFt4",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1019136
+              },
+              {
+                "name": "cond2",
+                "modelMapping": "cond2",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1017855
+              },
+              {
+                "name": "additionalFt1",
+                "modelMapping": "additionalFt1",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1019103
+              },
+              {
+                "name": "additionalFt5",
+                "modelMapping": "additionalFt5",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1019147
+              },
+              {
+                "name": "cond3",
+                "modelMapping": "cond3",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1017866
+              },
+              {
+                "name": "additionalFt2",
+                "modelMapping": "additionalFt2",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1019114
+              },
+              {
+                "validValues": {
+                  "value": [
+                    "invalid",
+                    "valid"
+                  ]
+                },
+                "name": "isValid",
+                "modelMapping": "isValid",
+                "dataType": "TEXT",
+                "isPersistent": false,
+                "isConclusion": true,
+                "isList": false,
+                "factTypeDefinition": 1018536
+              },
+              {
+                "name": "cond4",
+                "modelMapping": "cond4",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1017877
+              },
+              {
+                "name": "additionalFt3",
+                "modelMapping": "additionalFt3",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1019125
+              },
+              {
+                "name": "cond1",
+                "modelMapping": "cond1",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1017826
+              }
+            ],
+            "name": "Root"
+          },
+          "assetType": "DECISION",
+          "name": "Determine isValid (View: Base)",
+          "view": "Base",
+          "version": "1.0",
+          "conclusion": "isValid"
+        }
+      ],
+      "group": {
+        "factType": [
+          {
+            "name": "cond5",
+            "modelMapping": "cond5",
+            "dataType": "TEXT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1017888
+          },
+          {
+            "name": "additionalFt4",
+            "modelMapping": "additionalFt4",
+            "dataType": "TEXT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1019136
+          },
+          {
+            "name": "cond2",
+            "modelMapping": "cond2",
+            "dataType": "TEXT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1017855
+          },
+          {
+            "name": "additionalFt1",
+            "modelMapping": "additionalFt1",
+            "dataType": "TEXT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1019103
+          },
+          {
+            "name": "additionalFt5",
+            "modelMapping": "additionalFt5",
+            "dataType": "TEXT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1019147
+          },
+          {
+            "name": "cond3",
+            "modelMapping": "cond3",
+            "dataType": "TEXT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1017866
+          },
+          {
+            "name": "additionalFt2",
+            "modelMapping": "additionalFt2",
+            "dataType": "TEXT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1019114
+          },
+          {
+            "validValues": {
+              "value": [
+                "invalid",
+                "valid"
+              ]
+            },
+            "name": "isValid",
+            "modelMapping": "isValid",
+            "dataType": "TEXT",
+            "isPersistent": false,
+            "isConclusion": true,
+            "isList": false,
+            "factTypeDefinition": 1018536
+          },
+          {
+            "name": "cond4",
+            "modelMapping": "cond4",
+            "dataType": "TEXT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1017877
+          },
+          {
+            "name": "additionalFt3",
+            "modelMapping": "additionalFt3",
+            "dataType": "TEXT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1019125
+          },
+          {
+            "name": "cond1",
+            "modelMapping": "cond1",
+            "dataType": "TEXT",
+            "isPersistent": true,
+            "isConclusion": false,
+            "isList": false,
+            "factTypeDefinition": 1017826
+          }
+        ],
+        "name": "Root"
+      },
+      "assetType": "FLOW",
+      "name": "TenPersistentOneResponse-1.0",
+      "version": "1.0"
+    }
+  ],
+  "MessageCategory": [
+    {
+      "name": "Critical"
+    },
+    {
+      "name": "Informational"
+    }
+  ],
+  "executionModelHash": "20e4a6a5d922af4af32c6b5eca90ea5b",
+  "release": "testUiGenerator",
+  "tag": "tag2",
+  "conclusion": "TenPersistentOneResponse"
+}
