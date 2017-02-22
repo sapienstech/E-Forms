@@ -10,5 +10,17 @@ export interface StepConfig {
     flow: string;
     type?: StepType;
     title?: string;
-    validation?: boolean;
+    validation?: ValidationConfig;
 }
+
+export interface ValidationValidConfig {
+    conclusion: string;
+    valid: string;
+}
+
+export interface ValidationInvalidConfig {
+    conclusion: string;
+    invalid: string;
+}
+
+export type ValidationConfig = ValidationValidConfig | ValidationInvalidConfig;

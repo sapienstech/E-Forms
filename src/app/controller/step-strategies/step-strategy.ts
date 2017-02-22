@@ -1,9 +1,9 @@
 import { Observable } from 'rxjs/Observable';
 
-import { StepType } from '../../config';
+import { StepType, ValidationConfig, ValidationValidConfig } from '../../config';
 
 import { ControllerState } from '../controller-state';
-import { FlowExecutorService } from '../flow-executor.service';
+import { FlowExecutorService, ExecutionResponse } from '../flow-executor.service';
 
 export abstract class StepStrategy {
     readonly type: StepType;
@@ -36,7 +36,8 @@ export abstract class StepStrategy {
      * @returns a cold observable
      */
     protected executeFlow(state: ControllerState) {
-        return this.flowExecutor.execute(state.step.flow, state.data);
+        return this.flowExecutor.execute(state.step.flow, state.data)
+            .map(response => this.mapResponse(response, state.step.validation));
     }
 
     /**
@@ -46,5 +47,38 @@ export abstract class StepStrategy {
      */
     protected executeFlowAsync(state: ControllerState) {
         this.executeFlow(state).subscribe();
+    }
+
+    private mapResponse(response: ExecutionResponse, validation: ValidationConfig) {
+        if (!validation || this.isValid(response, validation)) {
+            return response.data;
+        }
+
+        let validationMessages = response.messages[validation.conclusion];
+        return Observable.throw(validationMessages);
+    }
+
+    /**
+     * Checks if the validation response is valid.
+     *
+     * If configuration uses the 'valid' property, the response is only valid if the conclusion
+     * value exists and is equal to the configured valid value.
+     *
+     * If configuration uses the 'invalid' property, the response is valid if the conclusion value
+     * doesn't exist or it is not equal to the configured invalid value.
+     *
+     * @param response the execution response
+     * @param config the validation configuration
+     * @returns true if the response is valid, otherwise false
+     */
+    private isValid(response: ExecutionResponse, config: ValidationConfig) {
+        let conclusion = response.data[config.conclusion];
+        return this.isValidValidationConfig(config)
+            ? conclusion === config.valid
+            : conclusion !== config.invalid;
+    }
+
+    private isValidValidationConfig(config: ValidationConfig): config is ValidationValidConfig {
+        return config.hasOwnProperty('valid');
     }
 }

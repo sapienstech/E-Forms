@@ -54,21 +54,43 @@ Each process object will include:
 }
 ```
 
-A step defines which flow to execute, and if and how the UI will be updated
+A step defines which flow to execute, and if and how the UI will be updated:
 
 - flow - a unique identifier for a flow
-- type - the type of step: "ui", "execute" (default), "async"
-- validation - an optional flag to indicate that the results should be treated as validation result
+- type - the type of step: "ui" (default), "execute", "async"
+- validation - optional validation configuration
 
 ```json
 {
     "flow": "flow_123",
     "type": "ui",
-    "validation": false
+    "validation": {}
 }
 ```
 
-### Controller
+Validation defines that a flow's response should be treated as a validation response:
+
+- conclusion - the fact type name of a conclusion to expect the validation response
+- valid - the value that indicates validation success
+- invalid - the value that indicates validation failure
+
+```json
+{
+    "conclusion": "ValidationFactTypeName",
+    "valid": "VALID"
+}
+```
+
+or
+
+```json
+{
+    "conclusion": "ValidationFactTypeName",
+    "invalid": "INVALID"
+}
+```
+
+## Controller
 
 The controller component is responsible for enabling process selection, and controlling a process through the various steps.
 

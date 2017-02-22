@@ -22,6 +22,5 @@ export class UiStepStrategy extends StepStrategy {
 
     execute(state: ControllerState) {
         return this.executeFlow(state);
-        // TODO: Handle errors & validation
     }
 }
