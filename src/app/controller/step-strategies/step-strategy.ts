@@ -1,4 +1,6 @@
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/empty';
+import 'rxjs/add/observable/throw';
 
 import { StepType, ValidationConfig, ValidationValidConfig } from '../../config';
 
@@ -47,6 +49,7 @@ export abstract class StepStrategy {
      */
     protected executeFlowAsync(state: ControllerState) {
         this.executeFlow(state).subscribe();
+        return Observable.empty();
     }
 
     private mapResponse(response: ExecutionResponse, validation: ValidationConfig) {
