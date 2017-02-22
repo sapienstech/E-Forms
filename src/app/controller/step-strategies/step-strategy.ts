@@ -74,8 +74,8 @@ export abstract class StepStrategy {
     private isValid(response: ExecutionResponse, config: ValidationConfig) {
         let conclusion = response.data[config.conclusion];
         return this.isValidValidationConfig(config)
-            ? conclusion !== undefined && conclusion === config.valid
-            : conclusion === undefined || conclusion !== config.invalid;
+            ? conclusion === config.valid
+            : conclusion !== config.invalid;
     }
 
     private isValidValidationConfig(config: ValidationConfig): config is ValidationValidConfig {

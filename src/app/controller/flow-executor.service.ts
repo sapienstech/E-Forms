@@ -71,10 +71,12 @@ export class FlowExecutorService {
             messages: {}
         };
 
-        return executionResult.executionResults
+        executionResult.executionResults
             .map(r => r.conclusion)
             .filter(this.isValidExecutionResult)
-            .reduce(this.mapExecutionResult, response);
+            .forEach(c => this.mapExecutionResult(response, c));
+
+        return response;
     }
 
     private isValidExecutionResult(conclusion: IoFactType) {
@@ -90,7 +92,5 @@ export class FlowExecutorService {
         if (conclusion.rowHit && conclusion.rowHit.message) {
             response.messages[conclusion.factTypeName] = conclusion.rowHit.message;
         }
-
-        return response;
     }
 }
