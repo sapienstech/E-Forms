@@ -10,53 +10,45 @@ import {
 import { ExecutionInput } from './model';
 
 const FLOW_MANIFESTS = [
-    { id: '1000', data: require('../data/real/flow-manifest/manifest1.json') },
-    { id: '2000', data: require('../data/real/flow-manifest/manifest2+3.json') },
-    { id: '3000', data: require('../data/real/flow-manifest/manifest2+3.json') },
+    {
+        id: 'OnePersistentManyConcs',
+        data: require('../data/OnePersistentManyConcs.manifest.json')
+    },
+    {
+        id: 'TenPersistentOneResponse',
+        data: require('../data/TenPersistentOneResponse.manifest.json')
+    },
 ];
 
-const LAYOUTS = [
-    // { id: '1000', data: null },
-    // { id: '2000', data: null },
-    // { id: '3000', data: null },
-];
+const LAYOUTS = [];
 
 const PROCESSES = [
     { title: 'Process 1', steps: [] },
     {
-        title: 'Process 2',
-        description: 'Process 2 Description',
+        title: 'Example Process',
+        description: 'Example process using Mock data',
         steps: [{
             type: 'ui',
-            flow: '1000',
-            title: 'Flow 1 - Step 1'
+            flow: 'OnePersistentManyConcs'
         },
         {
             type: 'ui',
-            flow: '2000',
-            title: 'Flow 2 - Step 2'
+            flow: 'TenPersistentOneResponse',
+            validation: {
+                conclusion: 'isValid',
+                invalid: 'invalid'
+            }
         },
         {
-            type: 'execute',
-            flow: '3000',
-            title: 'Flow 3 - Step 3'
-        }]
-    },
-    {
-        title: 'Process 3',
-        description: 'Process 3 Description',
-        steps: [{
-            type: 'ui',
-            flow: '1000',
-            title: 'Flow 1 - Step 1'
+            type: 'async',
+            flow: 'TenPersistentOneResponse'
         }]
     }
 ];
 
 const EXECUTION_RESULTS = {
-    '1000': require('../data/real/execution-result/result1.json'),
-    '2000': require('../data/real/execution-result/result2.json'),
-    '3000': require('../data/real/execution-result/result3.json')
+    'OnePersistentManyConcs': require('../data/OnePersistentManyConcs.result.json'),
+    'TenPersistentOneResponse': require('../data/TenPersistentOneResponse.result.json'),
 };
 
 export class MockWebApi extends InMemoryDbService {
@@ -80,9 +72,9 @@ export class MockWebApi extends InMemoryDbService {
 
     createDb() {
         return {
-            flowManifests: FLOW_MANIFESTS,
+            manifest: FLOW_MANIFESTS,
             process: PROCESSES,
-            layouts: LAYOUTS
+            layout: LAYOUTS
         };
     }
 

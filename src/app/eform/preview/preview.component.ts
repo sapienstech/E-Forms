@@ -22,9 +22,9 @@ export class PreviewComponent {
 
     constructor(private utilsService: UtilsService,
         private transformerService: TransformationService) {
-        let manifest = require('../../../data/examples/manifest/form3.json');
+        let manifest = require('../../../data/TenPersistentOneResponse.manifest.json');
         this.metadata = this.transformerService.transformToFormSchema(manifest);
-        this.layout = require('../../../data/examples/layout/layout3.json');
+        this.layout = require('../../../data/TenPersistentOneResponse.layout.json');
         this.generateForm();
     }
 
@@ -64,7 +64,7 @@ export class PreviewComponent {
             this.error = error;
         });
     }
-    dataChanged(data){
+    dataChanged(data) {
         data.toString();
     }
 }

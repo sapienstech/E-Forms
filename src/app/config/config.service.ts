@@ -31,13 +31,13 @@ export class ConfigService {
     }
 
     getLayout(flowId: string) {
-        return this.http.get(`api/layouts/${ flowId }`)
+        return this.http.get(`api/layout/${ flowId }`)
             .map(response => response.json() as FormLayout)
             .catch(() => Observable.of(undefined as FormLayout));
     }
 
     private getManifest(flowId: string) {
-        return this.http.get(`/api/flowManifests/${ flowId }`)
+        return this.http.get(`/api/manifest/${ flowId }`)
             .map(response => response.json() as Manifest)
             .map(manifest => this.transformationService.transformToFormSchema(manifest));
     }
