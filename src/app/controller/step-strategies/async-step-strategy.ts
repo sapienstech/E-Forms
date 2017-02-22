@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/empty';
-
 import { ControllerState } from '../controller-state';
 import { FlowExecutorService } from '../flow-executor.service';
 
@@ -15,7 +12,6 @@ export class AsyncStepStrategy extends StepStrategy {
     }
 
     execute(state: ControllerState) {
-        this.executeFlowAsync(state);
-        return Observable.empty<any>();
+        return this.executeFlowAsync(state);
     }
 }
