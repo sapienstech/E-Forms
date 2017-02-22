@@ -1,0 +1,1423 @@
+{
+  "executionResults": [
+    {
+      "conclusion": {
+        "values": [
+          "invalid"
+        ],
+        "factTypeName": "isValid",
+        "rowHit": [
+          {
+            "rowId": "1019205",
+            "message": [
+              {
+                "category": "Critical",
+                "text": "additionalFt2 is empty"
+              }
+            ],
+            "rowHash": "6035cea6a855fe126802fb26b257e769"
+          },
+          {
+            "rowId": "1019210",
+            "message": [
+              {
+                "category": "Critical",
+                "text": "additionalFt1 is empty"
+              }
+            ],
+            "rowHash": "a181c2c5a1e7731875394dbb910953f6"
+          },
+          {
+            "rowId": "1019200",
+            "message": [
+              {
+                "category": "Critical",
+                "text": "additionalFt3 is empty"
+              }
+            ],
+            "rowHash": "56d936b66a6a0a52040d8c8196b38bc8"
+          },
+          {
+            "rowId": "1019195",
+            "message": [
+              {
+                "category": "Critical",
+                "text": "additionalFt4 is empty"
+              }
+            ],
+            "rowHash": "d961225e253b11d3ef30b806845c1c17"
+          },
+          {
+            "rowId": "1019190",
+            "message": [
+              {
+                "category": "Critical",
+                "text": "additionalFt5 is empty"
+              }
+            ],
+            "rowHash": "8ebfcc17e928015629704b04af7e5d85"
+          }
+        ],
+        "isConclusionValues": true
+      },
+      "trace": {
+        "IoGroupInstances": [
+          {
+            "IoFactType": [
+              {
+                "values": [
+                  "value1"
+                ],
+                "factTypeName": "cond1",
+                "rowHit": [
+                  {
+                    "rowId": "1017984",
+                    "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "persistent",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "finalConc",
+                "rowHit": [
+                  {
+                    "rowId": "1017937",
+                    "rowHash": "43f1cf49233b715afb8f8101744de915"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt5",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value2"
+                ],
+                "factTypeName": "cond2",
+                "rowHit": [
+                  {
+                    "rowId": "1017990",
+                    "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt1",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value3"
+                ],
+                "factTypeName": "cond3",
+                "rowHit": [
+                  {
+                    "rowId": "1017996",
+                    "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "invalid"
+                ],
+                "factTypeName": "isValid",
+                "rowHit": [
+                  {
+                    "rowId": "1019205",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt2 is empty"
+                      }
+                    ],
+                    "rowHash": "6035cea6a855fe126802fb26b257e769"
+                  },
+                  {
+                    "rowId": "1019210",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt1 is empty"
+                      }
+                    ],
+                    "rowHash": "a181c2c5a1e7731875394dbb910953f6"
+                  },
+                  {
+                    "rowId": "1019200",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt3 is empty"
+                      }
+                    ],
+                    "rowHash": "56d936b66a6a0a52040d8c8196b38bc8"
+                  },
+                  {
+                    "rowId": "1019195",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt4 is empty"
+                      }
+                    ],
+                    "rowHash": "d961225e253b11d3ef30b806845c1c17"
+                  },
+                  {
+                    "rowId": "1019190",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt5 is empty"
+                      }
+                    ],
+                    "rowHash": "8ebfcc17e928015629704b04af7e5d85"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value4"
+                ],
+                "factTypeName": "cond4",
+                "rowHit": [
+                  {
+                    "rowId": "1018002",
+                    "rowHash": "9be934857cbcba459143810abf42c19e"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt4",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value5"
+                ],
+                "factTypeName": "cond5",
+                "rowHit": [
+                  {
+                    "rowId": "1018010",
+                    "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt3",
+                "isConclusionValues": false
+              },
+              {
+                "factTypeName": "additionalFt2",
+                "isConclusionValues": false
+              }
+            ],
+            "IoFactTypes": [
+              {
+                "values": [
+                  "value1"
+                ],
+                "factTypeName": "cond1",
+                "rowHit": [
+                  {
+                    "rowId": "1017984",
+                    "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "persistent",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "finalConc",
+                "rowHit": [
+                  {
+                    "rowId": "1017937",
+                    "rowHash": "43f1cf49233b715afb8f8101744de915"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt5",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value2"
+                ],
+                "factTypeName": "cond2",
+                "rowHit": [
+                  {
+                    "rowId": "1017990",
+                    "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt1",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value3"
+                ],
+                "factTypeName": "cond3",
+                "rowHit": [
+                  {
+                    "rowId": "1017996",
+                    "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "invalid"
+                ],
+                "factTypeName": "isValid",
+                "rowHit": [
+                  {
+                    "rowId": "1019205",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt2 is empty"
+                      }
+                    ],
+                    "rowHash": "6035cea6a855fe126802fb26b257e769"
+                  },
+                  {
+                    "rowId": "1019210",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt1 is empty"
+                      }
+                    ],
+                    "rowHash": "a181c2c5a1e7731875394dbb910953f6"
+                  },
+                  {
+                    "rowId": "1019200",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt3 is empty"
+                      }
+                    ],
+                    "rowHash": "56d936b66a6a0a52040d8c8196b38bc8"
+                  },
+                  {
+                    "rowId": "1019195",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt4 is empty"
+                      }
+                    ],
+                    "rowHash": "d961225e253b11d3ef30b806845c1c17"
+                  },
+                  {
+                    "rowId": "1019190",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt5 is empty"
+                      }
+                    ],
+                    "rowHash": "8ebfcc17e928015629704b04af7e5d85"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value4"
+                ],
+                "factTypeName": "cond4",
+                "rowHit": [
+                  {
+                    "rowId": "1018002",
+                    "rowHash": "9be934857cbcba459143810abf42c19e"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt4",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value5"
+                ],
+                "factTypeName": "cond5",
+                "rowHit": [
+                  {
+                    "rowId": "1018010",
+                    "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt3",
+                "isConclusionValues": false
+              },
+              {
+                "factTypeName": "additionalFt2",
+                "isConclusionValues": false
+              }
+            ]
+          }
+        ],
+        "IoGroupInstance": [
+          {
+            "IoFactType": [
+              {
+                "values": [
+                  "value1"
+                ],
+                "factTypeName": "cond1",
+                "rowHit": [
+                  {
+                    "rowId": "1017984",
+                    "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "persistent",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "finalConc",
+                "rowHit": [
+                  {
+                    "rowId": "1017937",
+                    "rowHash": "43f1cf49233b715afb8f8101744de915"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt5",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value2"
+                ],
+                "factTypeName": "cond2",
+                "rowHit": [
+                  {
+                    "rowId": "1017990",
+                    "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt1",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value3"
+                ],
+                "factTypeName": "cond3",
+                "rowHit": [
+                  {
+                    "rowId": "1017996",
+                    "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "invalid"
+                ],
+                "factTypeName": "isValid",
+                "rowHit": [
+                  {
+                    "rowId": "1019205",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt2 is empty"
+                      }
+                    ],
+                    "rowHash": "6035cea6a855fe126802fb26b257e769"
+                  },
+                  {
+                    "rowId": "1019210",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt1 is empty"
+                      }
+                    ],
+                    "rowHash": "a181c2c5a1e7731875394dbb910953f6"
+                  },
+                  {
+                    "rowId": "1019200",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt3 is empty"
+                      }
+                    ],
+                    "rowHash": "56d936b66a6a0a52040d8c8196b38bc8"
+                  },
+                  {
+                    "rowId": "1019195",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt4 is empty"
+                      }
+                    ],
+                    "rowHash": "d961225e253b11d3ef30b806845c1c17"
+                  },
+                  {
+                    "rowId": "1019190",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt5 is empty"
+                      }
+                    ],
+                    "rowHash": "8ebfcc17e928015629704b04af7e5d85"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value4"
+                ],
+                "factTypeName": "cond4",
+                "rowHit": [
+                  {
+                    "rowId": "1018002",
+                    "rowHash": "9be934857cbcba459143810abf42c19e"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt4",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value5"
+                ],
+                "factTypeName": "cond5",
+                "rowHit": [
+                  {
+                    "rowId": "1018010",
+                    "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt3",
+                "isConclusionValues": false
+              },
+              {
+                "factTypeName": "additionalFt2",
+                "isConclusionValues": false
+              }
+            ],
+            "IoFactTypes": [
+              {
+                "values": [
+                  "value1"
+                ],
+                "factTypeName": "cond1",
+                "rowHit": [
+                  {
+                    "rowId": "1017984",
+                    "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "persistent",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "1"
+                ],
+                "factTypeName": "finalConc",
+                "rowHit": [
+                  {
+                    "rowId": "1017937",
+                    "rowHash": "43f1cf49233b715afb8f8101744de915"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt5",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value2"
+                ],
+                "factTypeName": "cond2",
+                "rowHit": [
+                  {
+                    "rowId": "1017990",
+                    "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt1",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value3"
+                ],
+                "factTypeName": "cond3",
+                "rowHit": [
+                  {
+                    "rowId": "1017996",
+                    "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "invalid"
+                ],
+                "factTypeName": "isValid",
+                "rowHit": [
+                  {
+                    "rowId": "1019205",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt2 is empty"
+                      }
+                    ],
+                    "rowHash": "6035cea6a855fe126802fb26b257e769"
+                  },
+                  {
+                    "rowId": "1019210",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt1 is empty"
+                      }
+                    ],
+                    "rowHash": "a181c2c5a1e7731875394dbb910953f6"
+                  },
+                  {
+                    "rowId": "1019200",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt3 is empty"
+                      }
+                    ],
+                    "rowHash": "56d936b66a6a0a52040d8c8196b38bc8"
+                  },
+                  {
+                    "rowId": "1019195",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt4 is empty"
+                      }
+                    ],
+                    "rowHash": "d961225e253b11d3ef30b806845c1c17"
+                  },
+                  {
+                    "rowId": "1019190",
+                    "message": [
+                      {
+                        "category": "Critical",
+                        "text": "additionalFt5 is empty"
+                      }
+                    ],
+                    "rowHash": "8ebfcc17e928015629704b04af7e5d85"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "values": [
+                  "value4"
+                ],
+                "factTypeName": "cond4",
+                "rowHit": [
+                  {
+                    "rowId": "1018002",
+                    "rowHash": "9be934857cbcba459143810abf42c19e"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt4",
+                "isConclusionValues": false
+              },
+              {
+                "values": [
+                  "value5"
+                ],
+                "factTypeName": "cond5",
+                "rowHit": [
+                  {
+                    "rowId": "1018010",
+                    "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+                  }
+                ],
+                "isConclusionValues": true
+              },
+              {
+                "factTypeName": "additionalFt3",
+                "isConclusionValues": false
+              },
+              {
+                "factTypeName": "additionalFt2",
+                "isConclusionValues": false
+              }
+            ]
+          }
+        ]
+      },
+      "executedVersion": "1.0",
+      "executedViewName": "Base",
+      "idInFlow": "TaskNode_0_4"
+    }
+  ],
+  "trace": {
+    "IoGroupInstances": [
+      {
+        "IoFactType": [
+          {
+            "values": [
+              "value3"
+            ],
+            "factTypeName": "cond3",
+            "rowHit": [
+              {
+                "rowId": "1017996",
+                "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt4",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "value2"
+            ],
+            "factTypeName": "cond2",
+            "rowHit": [
+              {
+                "rowId": "1017990",
+                "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt3",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "invalid"
+            ],
+            "factTypeName": "isValid",
+            "rowHit": [
+              {
+                "rowId": "1019205",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt2 is empty"
+                  }
+                ],
+                "rowHash": "6035cea6a855fe126802fb26b257e769"
+              },
+              {
+                "rowId": "1019210",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt1 is empty"
+                  }
+                ],
+                "rowHash": "a181c2c5a1e7731875394dbb910953f6"
+              },
+              {
+                "rowId": "1019190",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt5 is empty"
+                  }
+                ],
+                "rowHash": "8ebfcc17e928015629704b04af7e5d85"
+              },
+              {
+                "rowId": "1019200",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt3 is empty"
+                  }
+                ],
+                "rowHash": "56d936b66a6a0a52040d8c8196b38bc8"
+              },
+              {
+                "rowId": "1019195",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt4 is empty"
+                  }
+                ],
+                "rowHash": "d961225e253b11d3ef30b806845c1c17"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt5",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "value4"
+            ],
+            "factTypeName": "cond4",
+            "rowHit": [
+              {
+                "rowId": "1018002",
+                "rowHash": "9be934857cbcba459143810abf42c19e"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt2",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "finalConc",
+            "rowHit": [
+              {
+                "rowId": "1017937",
+                "rowHash": "43f1cf49233b715afb8f8101744de915"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value5"
+            ],
+            "factTypeName": "cond5",
+            "rowHit": [
+              {
+                "rowId": "1018010",
+                "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt1",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "persistent",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "value1"
+            ],
+            "factTypeName": "cond1",
+            "rowHit": [
+              {
+                "rowId": "1017984",
+                "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+              }
+            ],
+            "isConclusionValues": true
+          }
+        ],
+        "IoFactTypes": [
+          {
+            "values": [
+              "value3"
+            ],
+            "factTypeName": "cond3",
+            "rowHit": [
+              {
+                "rowId": "1017996",
+                "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt4",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "value2"
+            ],
+            "factTypeName": "cond2",
+            "rowHit": [
+              {
+                "rowId": "1017990",
+                "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt3",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "invalid"
+            ],
+            "factTypeName": "isValid",
+            "rowHit": [
+              {
+                "rowId": "1019205",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt2 is empty"
+                  }
+                ],
+                "rowHash": "6035cea6a855fe126802fb26b257e769"
+              },
+              {
+                "rowId": "1019210",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt1 is empty"
+                  }
+                ],
+                "rowHash": "a181c2c5a1e7731875394dbb910953f6"
+              },
+              {
+                "rowId": "1019190",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt5 is empty"
+                  }
+                ],
+                "rowHash": "8ebfcc17e928015629704b04af7e5d85"
+              },
+              {
+                "rowId": "1019200",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt3 is empty"
+                  }
+                ],
+                "rowHash": "56d936b66a6a0a52040d8c8196b38bc8"
+              },
+              {
+                "rowId": "1019195",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt4 is empty"
+                  }
+                ],
+                "rowHash": "d961225e253b11d3ef30b806845c1c17"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt5",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "value4"
+            ],
+            "factTypeName": "cond4",
+            "rowHit": [
+              {
+                "rowId": "1018002",
+                "rowHash": "9be934857cbcba459143810abf42c19e"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt2",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "finalConc",
+            "rowHit": [
+              {
+                "rowId": "1017937",
+                "rowHash": "43f1cf49233b715afb8f8101744de915"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value5"
+            ],
+            "factTypeName": "cond5",
+            "rowHit": [
+              {
+                "rowId": "1018010",
+                "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt1",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "persistent",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "value1"
+            ],
+            "factTypeName": "cond1",
+            "rowHit": [
+              {
+                "rowId": "1017984",
+                "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+              }
+            ],
+            "isConclusionValues": true
+          }
+        ]
+      }
+    ],
+    "IoGroupInstance": [
+      {
+        "IoFactType": [
+          {
+            "values": [
+              "value3"
+            ],
+            "factTypeName": "cond3",
+            "rowHit": [
+              {
+                "rowId": "1017996",
+                "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt4",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "value2"
+            ],
+            "factTypeName": "cond2",
+            "rowHit": [
+              {
+                "rowId": "1017990",
+                "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt3",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "invalid"
+            ],
+            "factTypeName": "isValid",
+            "rowHit": [
+              {
+                "rowId": "1019205",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt2 is empty"
+                  }
+                ],
+                "rowHash": "6035cea6a855fe126802fb26b257e769"
+              },
+              {
+                "rowId": "1019210",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt1 is empty"
+                  }
+                ],
+                "rowHash": "a181c2c5a1e7731875394dbb910953f6"
+              },
+              {
+                "rowId": "1019190",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt5 is empty"
+                  }
+                ],
+                "rowHash": "8ebfcc17e928015629704b04af7e5d85"
+              },
+              {
+                "rowId": "1019200",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt3 is empty"
+                  }
+                ],
+                "rowHash": "56d936b66a6a0a52040d8c8196b38bc8"
+              },
+              {
+                "rowId": "1019195",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt4 is empty"
+                  }
+                ],
+                "rowHash": "d961225e253b11d3ef30b806845c1c17"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt5",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "value4"
+            ],
+            "factTypeName": "cond4",
+            "rowHit": [
+              {
+                "rowId": "1018002",
+                "rowHash": "9be934857cbcba459143810abf42c19e"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt2",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "finalConc",
+            "rowHit": [
+              {
+                "rowId": "1017937",
+                "rowHash": "43f1cf49233b715afb8f8101744de915"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value5"
+            ],
+            "factTypeName": "cond5",
+            "rowHit": [
+              {
+                "rowId": "1018010",
+                "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt1",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "persistent",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "value1"
+            ],
+            "factTypeName": "cond1",
+            "rowHit": [
+              {
+                "rowId": "1017984",
+                "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+              }
+            ],
+            "isConclusionValues": true
+          }
+        ],
+        "IoFactTypes": [
+          {
+            "values": [
+              "value3"
+            ],
+            "factTypeName": "cond3",
+            "rowHit": [
+              {
+                "rowId": "1017996",
+                "rowHash": "e9d160017a3ef9071d3aba6f5edd9c99"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt4",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "value2"
+            ],
+            "factTypeName": "cond2",
+            "rowHit": [
+              {
+                "rowId": "1017990",
+                "rowHash": "d61c0984e1dfa4ef8866693bb78aa826"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt3",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "invalid"
+            ],
+            "factTypeName": "isValid",
+            "rowHit": [
+              {
+                "rowId": "1019205",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt2 is empty"
+                  }
+                ],
+                "rowHash": "6035cea6a855fe126802fb26b257e769"
+              },
+              {
+                "rowId": "1019210",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt1 is empty"
+                  }
+                ],
+                "rowHash": "a181c2c5a1e7731875394dbb910953f6"
+              },
+              {
+                "rowId": "1019190",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt5 is empty"
+                  }
+                ],
+                "rowHash": "8ebfcc17e928015629704b04af7e5d85"
+              },
+              {
+                "rowId": "1019200",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt3 is empty"
+                  }
+                ],
+                "rowHash": "56d936b66a6a0a52040d8c8196b38bc8"
+              },
+              {
+                "rowId": "1019195",
+                "message": [
+                  {
+                    "category": "Critical",
+                    "text": "additionalFt4 is empty"
+                  }
+                ],
+                "rowHash": "d961225e253b11d3ef30b806845c1c17"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt5",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "value4"
+            ],
+            "factTypeName": "cond4",
+            "rowHit": [
+              {
+                "rowId": "1018002",
+                "rowHash": "9be934857cbcba459143810abf42c19e"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt2",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "finalConc",
+            "rowHit": [
+              {
+                "rowId": "1017937",
+                "rowHash": "43f1cf49233b715afb8f8101744de915"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "values": [
+              "value5"
+            ],
+            "factTypeName": "cond5",
+            "rowHit": [
+              {
+                "rowId": "1018010",
+                "rowHash": "b414c71aca448286fc6bcff3f7024ee3"
+              }
+            ],
+            "isConclusionValues": true
+          },
+          {
+            "factTypeName": "additionalFt1",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "1"
+            ],
+            "factTypeName": "persistent",
+            "isConclusionValues": false
+          },
+          {
+            "values": [
+              "value1"
+            ],
+            "factTypeName": "cond1",
+            "rowHit": [
+              {
+                "rowId": "1017984",
+                "rowHash": "f60164f8ff64513119b9f3655a8d0862"
+              }
+            ],
+            "isConclusionValues": true
+          }
+        ]
+      }
+    ]
+  },
+  "profileStopWatch": [
+    {
+      "operation": "Execute Flow (Execution Manager)",
+      "elapsedTime": 108
+    }
+  ],
+  "executedVersion": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+    "executableKey":{
+        "artifactKey":{
+            "name":"OnePersistentManyConcs",
+            "releaseName":"testUiGenerator",
+            "tagName":"tag1",
+            "artifactType":"FLOW"
+        },
+        "effectiveDate":"2015-11-01T00:00:00.282-04:00"
+    },
+    "executionInput":{
+        "rootGroup":{
+            "IoGroupInstances": [
+              {
+                "IoFactTypes": [
+                  {
+                    "values": [
+                      "1"
+                    ],
+                    "factTypeName": "persistent",
+                    "isConclusionValues": false
+                  }
+                ]
+              }
+            ]
+        }
+    },
+    "executionConfiguration":{
+        
+    }
+}
