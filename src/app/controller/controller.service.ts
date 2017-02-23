@@ -86,15 +86,20 @@ export class ControllerService {
         this.controllerState.update(data);
 
         this.executeFlow().subscribe(
-            result => {
-                subscriber.complete();
-
-                // Merge in the data from the execution
-                this.controllerState.update(result);
-                this.nextStep();
-            },
-            error => subscriber.error(error)
+            result => this.afterExecution(subscriber, result),
+            error => subscriber.error(error),
+            () => this.afterExecution(subscriber)
         );
+    }
+
+    private afterExecution(subscriber: ExecuteSubscriber, data?: any) {
+        subscriber.complete();
+
+        if (data) {
+            this.controllerState.update(data);
+        }
+
+        this.nextStep();
     }
 
     private executeFlow() {

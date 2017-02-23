@@ -10,7 +10,13 @@ export interface FormProperty extends JsonSchema {
     widget?: string;
     visibleIf?: {
         [prop: string]: any;
-    }
+    };
+    buttons?: Button[];
+}
+
+export interface Button {
+    id: string;
+    label: string;
 }
 
 export interface Fieldset {
