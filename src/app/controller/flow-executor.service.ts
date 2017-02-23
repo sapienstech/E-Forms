@@ -89,8 +89,19 @@ export class FlowExecutorService {
         let value = conclusion.values.join(',');
         response.data[conclusion.factTypeName] = value;
 
-        if (conclusion.rowHit && conclusion.rowHit.message) {
-            response.messages[conclusion.factTypeName] = conclusion.rowHit.message;
+        if (conclusion.rowHit && conclusion.rowHit.length > 0) {
+            response.messages[conclusion.factTypeName] = this.flatMap(
+                conclusion.rowHit,
+                r => r.message
+            );
         }
+    }
+
+    private flatMap<T, TResult>(array: T[], selector: (item: T) => TResult[]) {
+        let result: TResult[] = [];
+        array.forEach(item => {
+            result = result.concat(selector(item));
+        });
+        return result;
     }
 }

@@ -29,7 +29,7 @@ export interface IoFactType {
     isConclusionValues: boolean;
     rowHit?: {
         message: Message[];
-    };
+    }[];
 }
 
 export interface Message {
