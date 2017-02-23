@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ConfigService, ProcessConfig } from '../config';
-import { ControllerService } from '../controller';
 
 @Component({
     selector: 'ef-process-selection',
@@ -14,11 +14,12 @@ export class ProcessSelectionComponent implements OnInit {
 
     constructor(
         private configService: ConfigService,
-        private controller: ControllerService) {
+        private router: Router
+    ) {
     }
 
     ngOnInit() {
-        this.configService.getProcessConfig()
+        this.configService.getProcesses()
             .subscribe(processes => {
                 this.processes = processes;
             });
@@ -26,7 +27,7 @@ export class ProcessSelectionComponent implements OnInit {
 
     execute(process: ProcessConfig) {
         if (this.validateProcess(process)) {
-            this.controller.select(process);
+            this.router.navigate(['/process', process.id]);
         }
     }
 
