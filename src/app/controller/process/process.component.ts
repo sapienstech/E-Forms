@@ -45,7 +45,7 @@ export class ProcessComponent implements OnInit {
 
     execute() {
         this.controllerService.execute(this.output)
-            .subscribe(undefined, e => this.executionError(e));
+            .subscribe(undefined, e => this.executionError(e), () => this.schema = null);
     }
 
     private executionError(error: any) {
