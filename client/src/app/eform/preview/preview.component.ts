@@ -25,9 +25,9 @@ export class PreviewComponent {
                 private transformerService: TransformationService,
                 private http:Http) {
 
-        this.http.get('src/data/example/preview1.manifest.json').subscribe(manifest=>{
+        this.http.get('client/src/data/example/preview1.manifest.json').subscribe(manifest=>{
             this.metadata = this.transformerService.transformToFormSchema(manifest.json());
-            this.http.get('src/data/example/preview1.layout.json').subscribe(layout=>{
+            this.http.get('client/src/data/example/preview1.layout.json').subscribe(layout=>{
                 this.layout = layout.json();
                 this.generateForm();
             });

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ControlWidget } from 'angular2-schema-form/src';
+import { ControlWidget } from 'angular2-schema-form';
 
 @Component({
   selector: 'ef-hidden-widget',
