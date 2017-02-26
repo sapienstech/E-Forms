@@ -16,8 +16,8 @@ const routes: Routes = [
             // ProcessRouteGuard
         ],
         children: [
-            { path: ':id', component: ProcessComponent },
-            { path: 'end', component: ProcessCompleteComponent }
+            { path: 'end', component: ProcessCompleteComponent },
+            { path: ':id', component: ProcessComponent }
         ]
     }
 ];

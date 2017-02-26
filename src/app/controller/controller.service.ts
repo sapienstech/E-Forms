@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -40,8 +39,7 @@ export class ControllerService {
 
     constructor(
         private config: ConfigService,
-        private flowExecutor: FlowExecutorService,
-        private router: Router
+        private flowExecutor: FlowExecutorService
     ) {
         this._showForm = new Subject<ShowFormEvent>();
         this.controllerState = new ControllerState();
@@ -64,7 +62,6 @@ export class ControllerService {
     private nextStep() {
         if (!this.controllerState.proceed()) {
             this._showForm.complete();
-            this.router.navigate(['/process/end']);
             return;
         }
 
@@ -86,20 +83,13 @@ export class ControllerService {
         this.controllerState.update(data);
 
         this.executeFlow().subscribe(
-            result => this.afterExecution(subscriber, result),
+            result => this.controllerState.update(result),
             error => subscriber.error(error),
-            () => this.afterExecution(subscriber)
+            () => {
+                subscriber.complete();
+                this.nextStep();
+            }
         );
-    }
-
-    private afterExecution(subscriber: ExecuteSubscriber, data?: any) {
-        subscriber.complete();
-
-        if (data) {
-            this.controllerState.update(data);
-        }
-
-        this.nextStep();
     }
 
     private executeFlow() {
@@ -118,7 +108,7 @@ export class ControllerService {
     private mapResponse(response: ExecutionResponse) {
         let validation = this.controllerState.step.validation;
         if (!validation || this.isValid(response, validation)) {
-            return Observable.of(validation);
+            return Observable.of(response.data);
         }
 
         let validationMessages = response.messages[validation.conclusion];

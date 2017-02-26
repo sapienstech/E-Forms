@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { FormSchema } from '../../model';
 
@@ -21,7 +21,8 @@ export class ProcessComponent implements OnInit {
 
     constructor(
         private controllerService: ControllerService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private router: Router
     ) {
     }
 
@@ -39,6 +40,7 @@ export class ProcessComponent implements OnInit {
             () => {
                 console.log('process complete');
                 this.schema = undefined;
+                this.router.navigate(['../end'], { relativeTo: this.activatedRoute });
             }
         );
     }
