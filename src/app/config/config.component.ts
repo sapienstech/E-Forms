@@ -5,12 +5,13 @@ import { ConfigService } from './config.service';
     selector: 'ef-config',
     templateUrl: 'config.component.html'
 })
-export class ConfigComponent{
+export class ConfigComponent {
 
-    selectedProcess:any;
-    constructor(configService:ConfigService){
-        configService.getProcessConfig().subscribe(results=>{
-            this.selectedProcess =results[1];
+    selectedProcess: any;
+
+    constructor(configService: ConfigService) {
+        configService.getProcesses().subscribe(results => {
+            this.selectedProcess = results[1];
         });
     }
 }
