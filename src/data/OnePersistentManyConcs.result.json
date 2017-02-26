@@ -2,15 +2,13 @@
     "trace": {
         "root": {
             "executionKeyValues": {},
-            "cond1": "value1",
-            "cond4": "value4",
-            "cond3": "value3",
-            "cond2": "value2",
-            "cond5": null,
-            "finalConc": "2",
-            "persistent": null,
+            "Name": "John Smith",
+            "Address": "123 Anywhere Road",
+            "PostCode": "NW1 7FG",
+            "Telephone": "020-7123-1234",
+            "NINumber": "1234",
             "factTypeDetails": {
-                "finalConc": {
+                "Name": {
                     "conclusionValue": "2",
                     "rowHits": [{
                         "hashId": "1018060",
@@ -18,7 +16,7 @@
                     }],
                     "resultComparison": null
                 },
-                "cond4": {
+                "Address": {
                     "conclusionValue": "value4",
                     "rowHits": [{
                         "hashId": "1018002",
@@ -26,7 +24,7 @@
                     }],
                     "resultComparison": null
                 },
-                "cond3": {
+                "PostCode": {
                     "conclusionValue": "value3",
                     "rowHits": [{
                         "hashId": "1017996",
@@ -34,7 +32,7 @@
                     }],
                     "resultComparison": null
                 },
-                "cond2": {
+                "Telephone": {
                     "conclusionValue": "value2",
                     "rowHits": [{
                         "hashId": "1017990",
@@ -42,7 +40,7 @@
                     }],
                     "resultComparison": null
                 },
-                "cond1": {
+                "NINumber": {
                     "conclusionValue": "value1",
                     "rowHits": [{
                         "hashId": "1017984",
