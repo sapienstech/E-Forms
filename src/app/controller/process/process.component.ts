@@ -13,7 +13,6 @@ import { ControllerService } from '../controller.service';
     ]
 })
 export class ProcessComponent implements OnInit {
-    step: string;
     schema: FormSchema;
     input: any;
 
