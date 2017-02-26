@@ -37,7 +37,7 @@
         "@types/lodash": "^4.14.52",
         "@types/node": "^6.0.60",
         "bootstrap": "^3.3.7",
-        "codelyzer": "~2.0.0-beta.4",
+        "codelyzer": "~3.0.0-beta.0",
         "jasmine-core": "2.5.2",
         "jasmine-spec-reporter": "2.5.0",
         "karma": "~1.5.0",

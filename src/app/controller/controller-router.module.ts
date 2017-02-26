@@ -6,20 +6,18 @@ import { SchemaFormModule } from 'angular2-schema-form/src';
 
 import { ProcessRouteGuard } from './process-router.guard';
 
-import { ProcessStepComponent } from './process-step';
+import { ProcessComponent } from './process';
 import { ProcessCompleteComponent } from './process-complete';
-import { ProcessInvalidComponent } from './process-invalid';
 
 const routes: Routes = [
     {
         path: 'process',
         canActivate: [
-            ProcessRouteGuard
+            // ProcessRouteGuard
         ],
         children: [
-            { path: 'step', component: ProcessStepComponent },
             { path: 'end', component: ProcessCompleteComponent },
-            { path: 'invalid', component: ProcessInvalidComponent }
+            { path: ':id', component: ProcessComponent }
         ]
     }
 ];
@@ -35,9 +33,8 @@ const routes: Routes = [
         ProcessRouteGuard
     ],
     declarations: [
-        ProcessStepComponent,
-        ProcessCompleteComponent,
-        ProcessInvalidComponent
+        ProcessComponent,
+        ProcessCompleteComponent
     ]
 })
 export class ControllerRouterModule { }

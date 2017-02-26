@@ -23,8 +23,9 @@ const FLOW_MANIFESTS = [
 const LAYOUTS = [];
 
 const PROCESSES = [
-    { title: 'Process 1', steps: [] },
+    { id: 'process-1', title: 'Process 1', steps: [] },
     {
+        id: 'example-process',
         title: 'Example Process',
         description: 'Example process using Mock data',
         steps: [{
@@ -63,7 +64,7 @@ export class MockWebApi extends InMemoryDbService {
             }
 
             let body = (res.body as any).data;
-            if (body.hasOwnProperty('id')) {
+            if (body.hasOwnProperty('id') && body.hasOwnProperty('data')) {
                 body = body.data;
             }
             return res.merge({ body });

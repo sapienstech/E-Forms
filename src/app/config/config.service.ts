@@ -19,9 +19,14 @@ export class ConfigService {
     ) {
     }
 
-    getProcessConfig() {
+    getProcesses() {
         return this.http.get('/api/process')
             .map(response => response.json() as ProcessConfig[]);
+    }
+
+    getProcess(id: string) {
+        return this.http.get(`/api/process/${ id }`)
+            .map(response => response.json() as ProcessConfig);
     }
 
     getFormSchema(flowId) {

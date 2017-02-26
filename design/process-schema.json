@@ -18,6 +18,7 @@
         "process": {
             "type": "object",
             "properties": {
+                "id": { "type": "string" },
                 "title": { "type": "string" },
                 "description": { "type": "string" },
                 "steps": {
@@ -26,7 +27,7 @@
                     "minItems": 1
                 }
             },
-            "required": ["title", "steps"],
+            "required": ["id", "title", "steps"],
             "additionalProperties": false
         },
 

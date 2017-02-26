@@ -1,11 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
+import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/empty';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/mergeMap';
 
-import { ConfigService, ProcessConfig } from '../config';
+import { FormSchema } from '../model';
+import { ConfigService, ValidationConfig, ValidationValidConfig } from '../config';
+
 import { ControllerState } from './controller-state';
-import { StepStrategiesService } from './step-strategies';
+import { FlowExecutorService, ExecutionResponse } from './flow-executor.service';
+
+export interface ShowFormEvent {
+    schema: FormSchema;
+    model: any;
+}
 
 interface ExecuteSubscriber {
     complete(): void;
@@ -19,61 +30,112 @@ const EmptyExecuteSubscriber: ExecuteSubscriber = {
 
 @Injectable()
 export class ControllerService {
+    private _showForm: Subject<ShowFormEvent>;
+    private controllerState: ControllerState;
+
+    get showForm(): Observable<ShowFormEvent> {
+        return this._showForm;
+    }
+
     constructor(
         private config: ConfigService,
-        private controllerState: ControllerState,
-        private strategies: StepStrategiesService,
-        private router: Router
+        private flowExecutor: FlowExecutorService
     ) {
+        this._showForm = new Subject<ShowFormEvent>();
+        this.controllerState = new ControllerState();
     }
 
-    select(process: ProcessConfig) {
-        this.controllerState.initialize(process);
-        this.selectStrategy();
+    select(processId: string) {
+        this.config.getProcess(processId)
+            .subscribe(process => {
+                this.controllerState.initialize(process);
+                this.nextStep();
+            });
     }
 
-    execute(data?): Observable<void> {
+    execute(data?: any): Observable<void> {
         return Observable.create(subscriber => {
             this.internalExecute(subscriber, data);
         });
     }
 
-    private selectStrategy() {
+    private nextStep() {
         if (!this.controllerState.proceed()) {
-            this.router.navigateByUrl('/process/end');
+            this._showForm.complete();
             return;
         }
 
-        this.config.getFormSchema(this.controllerState.step.flow)
-            .subscribe(manifest => {
-                this.controllerState.step.formSchema = manifest;
-
-                let strategy = this.findStrategy();
-                if (!strategy.enter()) {
-                    this.internalExecute(EmptyExecuteSubscriber);
-                }
-            });
+        if (this.controllerState.step.type !== 'ui') {
+            this.internalExecute(EmptyExecuteSubscriber);
+        } else {
+            this.config.getFormSchema(this.controllerState.step.flow)
+                .subscribe(formSchema => {
+                    this._showForm.next({
+                        schema: formSchema,
+                        model: this.controllerState.data
+                    });
+                });
+        }
     }
 
-    private internalExecute(subscriber: ExecuteSubscriber, data?) {
+    private internalExecute(subscriber: ExecuteSubscriber, data?: any) {
         // Merge in the data from the UI
         this.controllerState.update(data);
 
-        let strategy = this.findStrategy();
-        strategy.execute(this.controllerState).subscribe(
-            result => {
+        this.executeFlow().subscribe(
+            result => this.controllerState.update(result),
+            error => subscriber.error(error),
+            () => {
                 subscriber.complete();
-
-                // Merge in the data from the execution
-                this.controllerState.update(result);
-                this.selectStrategy();
-            },
-            error => subscriber.error(error)
+                this.nextStep();
+            }
         );
     }
 
-    private findStrategy() {
-        let stepType = this.controllerState.step.type;
-        return this.strategies.getStrategy(stepType);
+    private executeFlow() {
+        let execution = this.flowExecutor.execute(
+            this.controllerState.step.flow,
+            this.controllerState.data
+        );
+        if (this.controllerState.step.type !== 'async') {
+            return execution.mergeMap(response => this.mapResponse(response));
+        }
+
+        execution.subscribe();
+        return Observable.empty<any>();
+    }
+
+    private mapResponse(response: ExecutionResponse) {
+        let validation = this.controllerState.step.validation;
+        if (!validation || this.isValid(response, validation)) {
+            return Observable.of(response.data);
+        }
+
+        let validationMessages = response.messages[validation.conclusion];
+        return Observable.throw(validationMessages);
+    }
+
+    /**
+     * Checks if the validation response is valid.
+     *
+     * If configuration uses the 'valid' property, the response is only valid if the conclusion
+     * value exists and is equal to the configured valid value.
+     *
+     * If configuration uses the 'invalid' property, the response is valid if the conclusion value
+     * doesn't exist or it is not equal to the configured invalid value.
+     *
+     * @param response the execution response
+     * @param config the validation configuration
+     * @returns true if the response is valid, otherwise false
+     */
+    private isValid(response: ExecutionResponse, config: ValidationConfig) {
+        let conclusion = response.data[config.conclusion];
+        return this.isValidValidationConfig(config)
+            ? conclusion === config.valid
+            : conclusion !== config.invalid;
+    }
+
+    private isValidValidationConfig(config: ValidationConfig): config is ValidationValidConfig {
+        return config.hasOwnProperty('valid');
     }
 }
