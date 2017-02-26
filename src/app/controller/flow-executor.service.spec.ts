@@ -26,42 +26,10 @@ describe('Flow Executor Service', () => {
                 }
             },
             executionInput: {
-                'rootGroup': {
-                    'IoGroupInstances': [
-                        {
-                            'IoFactTypes': [
-                                {
-                                    'values': [
-                                        '1'
-                                    ],
-                                    'factTypeName': 'cond1',
-                                    'isConclusionValues': false
-                                }
-                            ]
-                        },
-                        {
-                            'IoFactTypes': [
-                                {
-                                    'values': [
-                                        '2'
-                                    ],
-                                    'factTypeName': 'cond2',
-                                    'isConclusionValues': false
-                                }
-                            ]
-                        },
-                        {
-                            'IoFactTypes': [
-                                {
-                                    'values': [
-                                        '4'
-                                    ],
-                                    'factTypeName': 'cond4',
-                                    'isConclusionValues': false
-                                }
-                            ]
-                        }
-                    ]
+                'root': {
+                    cond1: '1',
+                    cond2: '2',
+                    cond4: '4'
                 }
             },
             executionConfiguration: null
@@ -74,613 +42,180 @@ describe('Flow Executor Service', () => {
 
     it('should transform from DE Execution results to form inputs', () => {
         let executionResults: any = {
-            'executionResults': [
-                {
-                    'conclusion': {
-                        'values': [
-                            '1'
-                        ],
-                        'factTypeName': 'conc1',
-                        'rowHit': [
-                            {
-                                'rowId': '1016259',
-                                'message': [
-                                    {
-                                        'category': 'Informational',
-                                        'text': 'this is an informational message'
-                                    },
-                                    {
-                                        'category': 'Critical',
-                                        'text': 'this is a critical message'
-                                    }
-                                ],
-                                'rowHash': '13c0e0782d1fb08d670f188abee16457'
-                            }
-                        ],
-                        'isConclusionValues': true
-                    },
-                    'trace': {
-                        'IoGroupInstances': [
-                            {
-                                'IoFactType': [
-                                    {
-                                        'values': [
-                                            '1'
-                                        ],
-                                        'factTypeName': 'cond1',
-                                        'isConclusionValues': false
-                                    },
-                                    {
-                                        'values': [
-                                            '1'
-                                        ],
-                                        'factTypeName': 'conc1',
-                                        'rowHit': [
-                                            {
-                                                'rowId': '1016259',
-                                                'message': [
-                                                    {
-                                                        'category': 'Informational',
-                                                        'text': 'this is an informational message'
-                                                    },
-                                                    {
-                                                        'category': 'Critical',
-                                                        'text': 'this is a critical message'
-                                                    }
-                                                ],
-                                                'rowHash': '13c0e0782d1fb08d670f188abee16457'
-                                            }
-                                        ],
-                                        'isConclusionValues': true
-                                    }
-                                ],
-                                'IoFactTypes': [
-                                    {
-                                        'values': [
-                                            '1'
-                                        ],
-                                        'factTypeName': 'cond1',
-                                        'isConclusionValues': false
-                                    },
-                                    {
-                                        'values': [
-                                            '1'
-                                        ],
-                                        'factTypeName': 'conc1',
-                                        'rowHit': [
-                                            {
-                                                'rowId': '1016259',
-                                                'message': [
-                                                    {
-                                                        'category': 'Informational',
-                                                        'text': 'this is an informational message'
-                                                    },
-                                                    {
-                                                        'category': 'Critical',
-                                                        'text': 'this is a critical message'
-                                                    }
-                                                ],
-                                                'rowHash': '13c0e0782d1fb08d670f188abee16457'
-                                            }
-                                        ],
-                                        'isConclusionValues': true
-                                    }
-                                ]
-                            },
-                            {},
-                            {}
-                        ],
-                        'IoGroupInstance': [
-                            {
-                                'IoFactType': [
-                                    {
-                                        'values': [
-                                            '1'
-                                        ],
-                                        'factTypeName': 'cond1',
-                                        'isConclusionValues': false
-                                    },
-                                    {
-                                        'values': [
-                                            '1'
-                                        ],
-                                        'factTypeName': 'conc1',
-                                        'rowHit': [
-                                            {
-                                                'rowId': '1016259',
-                                                'message': [
-                                                    {
-                                                        'category': 'Informational',
-                                                        'text': 'this is an informational message'
-                                                    },
-                                                    {
-                                                        'category': 'Critical',
-                                                        'text': 'this is a critical message'
-                                                    }
-                                                ],
-                                                'rowHash': '13c0e0782d1fb08d670f188abee16457'
-                                            }
-                                        ],
-                                        'isConclusionValues': true
-                                    }
-                                ],
-                                'IoFactTypes': [
-                                    {
-                                        'values': [
-                                            '1'
-                                        ],
-                                        'factTypeName': 'cond1',
-                                        'isConclusionValues': false
-                                    },
-                                    {
-                                        'values': [
-                                            '1'
-                                        ],
-                                        'factTypeName': 'conc1',
-                                        'rowHit': [
-                                            {
-                                                'rowId': '1016259',
-                                                'message': [
-                                                    {
-                                                        'category': 'Informational',
-                                                        'text': 'this is an informational message'
-                                                    },
-                                                    {
-                                                        'category': 'Critical',
-                                                        'text': 'this is a critical message'
-                                                    }
-                                                ],
-                                                'rowHash': '13c0e0782d1fb08d670f188abee16457'
-                                            }
-                                        ],
-                                        'isConclusionValues': true
-                                    }
-                                ]
-                            },
-                            {},
-                            {}
-                        ]
-                    },
-                    'executedVersion': '1.0',
-                    'executedViewName': 'Base',
-                    'idInFlow': 'TaskNode_0_4'
-                },
-                {
-                    'conclusion': {
-                        'factTypeName': 'conc2',
-                        'isConclusionValues': false
-                    },
-                    'trace': {
-                        'IoGroupInstances': [
-                            {
-                                'IoFactType': [
-                                    {
-                                        'factTypeName': 'cond2',
-                                        'isConclusionValues': false
-                                    },
-                                    {
-                                        'factTypeName': 'conc2',
-                                        'isConclusionValues': false
-                                    }
-                                ],
-                                'IoFactTypes': [
-                                    {
-                                        'factTypeName': 'cond2',
-                                        'isConclusionValues': false
-                                    },
-                                    {
-                                        'factTypeName': 'conc2',
-                                        'isConclusionValues': false
-                                    }
-                                ]
-                            },
-                            {},
-                            {}
-                        ],
-                        'IoGroupInstance': [
-                            {
-                                'IoFactType': [
-                                    {
-                                        'factTypeName': 'cond2',
-                                        'isConclusionValues': false
-                                    },
-                                    {
-                                        'factTypeName': 'conc2',
-                                        'isConclusionValues': false
-                                    }
-                                ],
-                                'IoFactTypes': [
-                                    {
-                                        'factTypeName': 'cond2',
-                                        'isConclusionValues': false
-                                    },
-                                    {
-                                        'factTypeName': 'conc2',
-                                        'isConclusionValues': false
-                                    }
-                                ]
-                            },
-                            {},
-                            {}
-                        ]
-                    },
-                    'executedVersion': '1.0',
-                    'executedViewName': 'Base',
-                    'idInFlow': 'TaskNode_0_5'
+            "trace": {
+                "root": {
+                    "executionKeyValues": {},
+                    "cond1": "value1",
+                    "cond4": "value4",
+                    "cond3": "value3",
+                    "cond2": "value2",
+                    "cond5": null,
+                    "finalConc": "2",
+                    "persistent": null,
+                    "factTypeDetails": {
+                        "finalConc": {
+                            "conclusionValue": "2",
+                            "rowHits": [{
+                                "hashId": "1018060",
+                                "hash": "60c009aab69d3d63d4a077f3d02119dc"
+                            }],
+                            "resultComparison": null
+                        },
+                        "cond4": {
+                            "conclusionValue": "value4",
+                            "rowHits": [{
+                                "hashId": "1018002",
+                                "hash": "9be934857cbcba459143810abf42c19e"
+                            }],
+                            "resultComparison": null
+                        },
+                        "cond3": {
+                            "conclusionValue": "value3",
+                            "rowHits": [{
+                                "hashId": "1017996",
+                                "hash": "e9d160017a3ef9071d3aba6f5edd9c99"
+                            }],
+                            "resultComparison": null
+                        },
+                        "cond2": {
+                            "conclusionValue": "value2",
+                            "rowHits": [{
+                                "hashId": "1017990",
+                                "hash": "d61c0984e1dfa4ef8866693bb78aa826"
+                            }],
+                            "resultComparison": null
+                        },
+                        "cond1": {
+                            "conclusionValue": "value1",
+                            "rowHits": [{
+                                "hashId": "1017984",
+                                "hash": "f60164f8ff64513119b9f3655a8d0862"
+                            }],
+                            "resultComparison": null
+                        }
+                    }
                 }
-            ],
-            'trace': {
-                'IoGroupInstances': [
-                    {
-                        'IoFactType': [
-                            {
-                                'factTypeName': 'ListAmount',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'cond4',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'testOutput2',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'conc2',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'conc4',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'cond2',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'values': [
-                                    '1'
-                                ],
-                                'factTypeName': 'cond1',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'testOutput1',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'values': [
-                                    '1'
-                                ],
-                                'factTypeName': 'conc1',
-                                'rowHit': [
-                                    {
-                                        'rowId': '1016259',
-                                        'message': [
-                                            {
-                                                'category': 'Informational',
-                                                'text': 'this is an informational message'
-                                            },
-                                            {
-                                                'category': 'Critical',
-                                                'text': 'this is a critical message'
-                                            }
-                                        ],
-                                        'rowHash': '13c0e0782d1fb08d670f188abee16457'
-                                    }
-                                ],
-                                'isConclusionValues': true
-                            },
-                            {
-                                'factTypeName': 'cond3',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'conc3',
-                                'isConclusionValues': false
-                            }
-                        ],
-                        'IoFactTypes': [
-                            {
-                                'factTypeName': 'ListAmount',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'cond4',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'testOutput2',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'conc2',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'conc4',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'cond2',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'values': [
-                                    '1'
-                                ],
-                                'factTypeName': 'cond1',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'testOutput1',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'values': [
-                                    '1'
-                                ],
-                                'factTypeName': 'conc1',
-                                'rowHit': [
-                                    {
-                                        'rowId': '1016259',
-                                        'message': [
-                                            {
-                                                'category': 'Informational',
-                                                'text': 'this is an informational message'
-                                            },
-                                            {
-                                                'category': 'Critical',
-                                                'text': 'this is a critical message'
-                                            }
-                                        ],
-                                        'rowHash': '13c0e0782d1fb08d670f188abee16457'
-                                    }
-                                ],
-                                'isConclusionValues': true
-                            },
-                            {
-                                'factTypeName': 'cond3',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'conc3',
-                                'isConclusionValues': false
-                            }
-                        ]
-                    },
-                    {
-                        'IoFactType': [
-                            {
-                                'values': [
-                                    '2'
-                                ],
-                                'factTypeName': 'cond2',
-                                'isConclusionValues': false
-                            }
-                        ],
-                        'IoFactTypes': [
-                            {
-                                'values': [
-                                    '2'
-                                ],
-                                'factTypeName': 'cond2',
-                                'isConclusionValues': false
-                            }
-                        ]
-                    },
-                    {
-                        'IoFactType': [
-                            {
-                                'values': [
-                                    '4'
-                                ],
-                                'factTypeName': 'cond4',
-                                'isConclusionValues': false
-                            }
-                        ],
-                        'IoFactTypes': [
-                            {
-                                'values': [
-                                    '4'
-                                ],
-                                'factTypeName': 'cond4',
-                                'isConclusionValues': false
-                            }
-                        ]
-                    }
-                ],
-                'IoGroupInstance': [
-                    {
-                        'IoFactType': [
-                            {
-                                'factTypeName': 'ListAmount',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'cond4',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'testOutput2',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'conc2',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'conc4',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'cond2',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'values': [
-                                    '1'
-                                ],
-                                'factTypeName': 'cond1',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'testOutput1',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'values': [
-                                    '1'
-                                ],
-                                'factTypeName': 'conc1',
-                                'rowHit': [
-                                    {
-                                        'rowId': '1016259',
-                                        'message': [
-                                            {
-                                                'category': 'Informational',
-                                                'text': 'this is an informational message'
-                                            },
-                                            {
-                                                'category': 'Critical',
-                                                'text': 'this is a critical message'
-                                            }
-                                        ],
-                                        'rowHash': '13c0e0782d1fb08d670f188abee16457'
-                                    }
-                                ],
-                                'isConclusionValues': true
-                            },
-                            {
-                                'factTypeName': 'cond3',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'conc3',
-                                'isConclusionValues': false
-                            }
-                        ],
-                        'IoFactTypes': [
-                            {
-                                'factTypeName': 'ListAmount',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'cond4',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'testOutput2',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'conc2',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'conc4',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'cond2',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'values': [
-                                    '1'
-                                ],
-                                'factTypeName': 'cond1',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'testOutput1',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'values': [
-                                    '1'
-                                ],
-                                'factTypeName': 'conc1',
-                                'rowHit': [
-                                    {
-                                        'rowId': '1016259',
-                                        'message': [
-                                            {
-                                                'category': 'Informational',
-                                                'text': 'this is an informational message'
-                                            },
-                                            {
-                                                'category': 'Critical',
-                                                'text': 'this is a critical message'
-                                            }
-                                        ],
-                                        'rowHash': '13c0e0782d1fb08d670f188abee16457'
-                                    }
-                                ],
-                                'isConclusionValues': true
-                            },
-                            {
-                                'factTypeName': 'cond3',
-                                'isConclusionValues': false
-                            },
-                            {
-                                'factTypeName': 'conc3',
-                                'isConclusionValues': false
-                            }
-                        ]
-                    },
-                    {
-                        'IoFactType': [
-                            {
-                                'values': [
-                                    '2'
-                                ],
-                                'factTypeName': 'cond2',
-                                'isConclusionValues': false
-                            }
-                        ],
-                        'IoFactTypes': [
-                            {
-                                'values': [
-                                    '2'
-                                ],
-                                'factTypeName': 'cond2',
-                                'isConclusionValues': false
-                            }
-                        ]
-                    },
-                    {
-                        'IoFactType': [
-                            {
-                                'values': [
-                                    '4'
-                                ],
-                                'factTypeName': 'cond4',
-                                'isConclusionValues': false
-                            }
-                        ],
-                        'IoFactTypes': [
-                            {
-                                'values': [
-                                    '4'
-                                ],
-                                'factTypeName': 'cond4',
-                                'isConclusionValues': false
-                            }
-                        ]
-                    }
-                ]
             },
-            'profileStopWatch': [
-                {
-                    'operation': 'Execute Flow (Execution Manager)',
-                    'elapsedTime': 4
+            "executedVersion": "1.0",
+            "expectedResultsMatchActualResults": null,
+            "executionResults": {
+                "finalConc": {
+                    "Base": {
+                        "1.0": [{
+                            "conclusion": {
+                                "conclusionName": "finalConc",
+                                "conclusionValue": "2",
+                                "rowHits": [{
+                                    "hashId": "1018060",
+                                    "hash": "60c009aab69d3d63d4a077f3d02119dc"
+                                }],
+                                "resultComparison": null
+                            },
+                            "executedVersion": "1.0",
+                            "trace": {
+                                "root": {
+                                    "executionKeyValues": {},
+                                    "cond3": "value3",
+                                    "finalConc": "2",
+                                    "cond5": null,
+                                    "cond4": "value4",
+                                    "persistent": null,
+                                    "cond2": "value2",
+                                    "cond1": "value1",
+                                    "factTypeDetails": {
+                                        "finalConc": {
+                                            "conclusionValue": "2",
+                                            "rowHits": [{
+                                                "hashId": "1018060",
+                                                "hash": "60c009aab69d3d63d4a077f3d02119dc"
+                                            }],
+                                            "resultComparison": null
+                                        },
+                                        "cond4": {
+                                            "conclusionValue": "value4",
+                                            "rowHits": [{
+                                                "hashId": "1018002",
+                                                "hash": "9be934857cbcba459143810abf42c19e"
+                                            }],
+                                            "resultComparison": null
+                                        },
+                                        "cond3": {
+                                            "conclusionValue": "value3",
+                                            "rowHits": [{
+                                                "hashId": "1017996",
+                                                "hash": "e9d160017a3ef9071d3aba6f5edd9c99"
+                                            }],
+                                            "resultComparison": null
+                                        },
+                                        "cond2": {
+                                            "conclusionValue": "value2",
+                                            "rowHits": [{
+                                                "hashId": "1017990",
+                                                "hash": "d61c0984e1dfa4ef8866693bb78aa826"
+                                            }],
+                                            "resultComparison": null
+                                        },
+                                        "cond1": {
+                                            "conclusionValue": "value1",
+                                            "rowHits": [{
+                                                "hashId": "1017984",
+                                                "hash": "f60164f8ff64513119b9f3655a8d0862"
+                                            }],
+                                            "resultComparison": null
+                                        }
+                                    }
+                                }
+                            },
+                            "idInFlow": "TaskNode_0_4",
+                            "expectedResultsMatchActualResults": null,
+                            "name": null,
+                            "executedViewName": "Base",
+                            "executableKey": null,
+                            "executionKeyValues": null,
+                            "profileStopWatch": []
+                        }]
+                    }
+                },
+                "testServiceTask": {
+                    "serviceTaskName": "testServiceTask",
+                    "inputFts": {
+                        "ROOT": {
+                            "executionKeyValues": {},
+                            "persistent": null,
+                            "factTypeDetails": {}
+                        }
+                    },
+                    "outputFts": {
+                        "ROOT": {
+                            "executionKeyValues": {},
+                            "cond5": null,
+                            "cond4": null,
+                            "cond3": null,
+                            "cond2": null,
+                            "cond1": null,
+                            "factTypeDetails": {}
+                        }
+                    }
                 }
-            ],
-            'executedVersion': '1.0'
+            },
+            "executionKeyValues": {},
+            "profileStopWatch": [{
+                "operation": "Execute Flow (Execution Manager)",
+                "elapsedTime": 264
+            }],
+            "executedTransitions": null
         };
 
-        let formInputs = { conc1: '1' };
+        let formInputs = {
+            "cond1": "value1",
+            "cond4": "value4",
+            "cond3": "value3",
+            "cond2": "value2",
+            "cond5": null,
+            "finalConc": "2",
+            "persistent": null,
+        };
+
         let ei = service.transformExecutionResult(executionResults);
         let equal = _.isEqual(ei.data, formInputs);
         expect(equal).toBeTruthy();

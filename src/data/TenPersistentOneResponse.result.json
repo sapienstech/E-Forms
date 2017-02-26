@@ -3,7 +3,7 @@
         "root": {
             "executionKeyValues": {},
             "cond4": "bla",
-            "isValid": "invalid",
+            "isValid": "valid",
             "additionalFt5": null,
             "additionalFt1": "bla",
             "cond3": "bla",
@@ -16,15 +16,13 @@
             "factTypeDetails": {
                 "isValid": {
                     "conclusionValue": "invalid",
-                    "rowHits": [
-                        {
-                            "messages": {
-                                "Critical": "additionalFt5 is empty"
-                            },
-                            "hashId": "1019190",
-                            "hash": "8ebfcc17e928015629704b04af7e5d85"
-                        }
-                    ],
+                    "rowHits": [{
+                        "messages": {
+                            "Critical": "additionalFt5 is empty"
+                        },
+                        "hashId": "1019190",
+                        "hash": "8ebfcc17e928015629704b04af7e5d85"
+                    }],
                     "resultComparison": null
                 }
             }
@@ -34,73 +32,65 @@
     "decisionViews": {
         "isValid": {
             "Base": {
-                "1.0": [
-                    {
-                        "conclusion": {
-                            "conclusionName": "isValid",
-                            "conclusionValue": "invalid",
-                            "rowHits": [
-                                {
-                                    "messages": {
-                                        "Critical": "additionalFt5 is empty"
-                                    },
-                                    "hashId": "1019190",
-                                    "hash": "8ebfcc17e928015629704b04af7e5d85"
-                                }
-                            ],
-                            "resultComparison": null
-                        },
-                        "executedVersion": "1.0",
-                        "trace": {
-                            "root": {
-                                "executionKeyValues": {},
-                                "isValid": "invalid",
-                                "additionalFt4": "bla",
-                                "additionalFt2": "bla",
-                                "additionalFt1": "bla",
-                                "cond5": "bla",
-                                "additionalFt5": null,
-                                "additionalFt3": "bla",
-                                "cond3": "bla",
-                                "cond2": "bla",
-                                "cond1": "bla",
-                                "cond4": "bla",
-                                "factTypeDetails": {
-                                    "isValid": {
-                                        "conclusionValue": "invalid",
-                                        "rowHits": [
-                                            {
-                                                "messages": {
-                                                    "Critical": "additionalFt5 is empty"
-                                                },
-                                                "hashId": "1019190",
-                                                "hash": "8ebfcc17e928015629704b04af7e5d85"
-                                            }
-                                        ],
-                                        "resultComparison": null
-                                    }
+                "1.0": [{
+                    "conclusion": {
+                        "conclusionName": "isValid",
+                        "conclusionValue": "invalid",
+                        "rowHits": [{
+                            "messages": {
+                                "Critical": "additionalFt5 is empty"
+                            },
+                            "hashId": "1019190",
+                            "hash": "8ebfcc17e928015629704b04af7e5d85"
+                        }],
+                        "resultComparison": null
+                    },
+                    "executedVersion": "1.0",
+                    "trace": {
+                        "root": {
+                            "executionKeyValues": {},
+                            "isValid": "invalid",
+                            "additionalFt4": "bla",
+                            "additionalFt2": "bla",
+                            "additionalFt1": "bla",
+                            "cond5": "bla",
+                            "additionalFt5": null,
+                            "additionalFt3": "bla",
+                            "cond3": "bla",
+                            "cond2": "bla",
+                            "cond1": "bla",
+                            "cond4": "bla",
+                            "factTypeDetails": {
+                                "isValid": {
+                                    "conclusionValue": "invalid",
+                                    "rowHits": [{
+                                        "messages": {
+                                            "Critical": "additionalFt5 is empty"
+                                        },
+                                        "hashId": "1019190",
+                                        "hash": "8ebfcc17e928015629704b04af7e5d85"
+                                    }],
+                                    "resultComparison": null
                                 }
                             }
-                        },
-                        "idInFlow": "TaskNode_0_4",
-                        "expectedResultsMatchActualResults": null,
-                        "name": null,
-                        "executedViewName": "Base",
-                        "executableKey": null,
-                        "executionKeyValues": null,
-                        "profileStopWatch": []
-                    }
-                ]
+                        }
+                    },
+                    "idInFlow": "TaskNode_0_4",
+                    "expectedResultsMatchActualResults": null,
+                    "name": null,
+                    "executedViewName": "Base",
+                    "executableKey": null,
+                    "executionKeyValues": null,
+                    "profileStopWatch": []
+                }]
             }
         }
     },
     "expectedResultsMatchActualResults": null,
     "executionKeyValues": {},
-    "profileStopWatch": [
-        {
-            "operation": "Execute Flow (Execution Manager)",
-            "elapsedTime": 3
-        }
-    ],
+    "profileStopWatch": [{
+        "operation": "Execute Flow (Execution Manager)",
+        "elapsedTime": 3
+    }],
     "executedTransitions": null
 }
