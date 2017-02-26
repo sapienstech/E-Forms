@@ -126,7 +126,6 @@ export class TransformationService {
             case 'CODE':
             case 'IDENTIFIER':
             case 'NAME':
-            case 'TEXT':
             case 'ENUMERATOR':
                 return 'string';
         }

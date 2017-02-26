@@ -6,8 +6,8 @@
           "group": {
             "factType": [
               {
-                "name": "cond5",
-                "modelMapping": "cond5",
+                "name": "Name",
+                "modelMapping": "Name",
                 "dataType": "TEXT",
                 "isPersistent": true,
                 "isConclusion": false,
@@ -15,8 +15,8 @@
                 "factTypeDefinition": 1017888
               },
               {
-                "name": "additionalFt4",
-                "modelMapping": "additionalFt4",
+                "name": "Address",
+                "modelMapping": "Address",
                 "dataType": "TEXT",
                 "isPersistent": true,
                 "isConclusion": false,
@@ -24,8 +24,8 @@
                 "factTypeDefinition": 1019136
               },
               {
-                "name": "cond2",
-                "modelMapping": "cond2",
+                "name": "Post Code",
+                "modelMapping": "PostCode",
                 "dataType": "TEXT",
                 "isPersistent": true,
                 "isConclusion": false,
@@ -33,8 +33,8 @@
                 "factTypeDefinition": 1017855
               },
               {
-                "name": "additionalFt1",
-                "modelMapping": "additionalFt1",
+                "name": "Telephone",
+                "modelMapping": "Telephone",
                 "dataType": "TEXT",
                 "isPersistent": true,
                 "isConclusion": false,
@@ -42,8 +42,8 @@
                 "factTypeDefinition": 1019103
               },
               {
-                "name": "additionalFt5",
-                "modelMapping": "additionalFt5",
+                "name": "NI Number",
+                "modelMapping": "NINumber",
                 "dataType": "TEXT",
                 "isPersistent": true,
                 "isConclusion": false,
@@ -51,18 +51,18 @@
                 "factTypeDefinition": 1019147
               },
               {
-                "name": "cond3",
-                "modelMapping": "cond3",
-                "dataType": "TEXT",
+                "name": "Name Changed",
+                "modelMapping": "NameChanged",
+                "dataType": "INDICATOR",
                 "isPersistent": true,
                 "isConclusion": false,
                 "isList": false,
                 "factTypeDefinition": 1017866
               },
               {
-                "name": "additionalFt2",
-                "modelMapping": "additionalFt2",
-                "dataType": "TEXT",
+                "name": "Address Changed",
+                "modelMapping": "AddressChanged",
+                "dataType": "INDICATOR",
                 "isPersistent": true,
                 "isConclusion": false,
                 "isList": false,
@@ -84,9 +84,9 @@
                 "factTypeDefinition": 1018536
               },
               {
-                "name": "cond4",
-                "modelMapping": "cond4",
-                "dataType": "TEXT",
+                "name": "Signature Available",
+                "modelMapping": "SignatureAvailable",
+                "dataType": "INDICATOR",
                 "isPersistent": true,
                 "isConclusion": false,
                 "isList": false,
@@ -122,111 +122,111 @@
       ],
       "group": {
         "factType": [
-          {
-            "name": "cond5",
-            "modelMapping": "cond5",
-            "dataType": "TEXT",
-            "isPersistent": true,
-            "isConclusion": false,
-            "isList": false,
-            "factTypeDefinition": 1017888
-          },
-          {
-            "name": "additionalFt4",
-            "modelMapping": "additionalFt4",
-            "dataType": "TEXT",
-            "isPersistent": true,
-            "isConclusion": false,
-            "isList": false,
-            "factTypeDefinition": 1019136
-          },
-          {
-            "name": "cond2",
-            "modelMapping": "cond2",
-            "dataType": "TEXT",
-            "isPersistent": true,
-            "isConclusion": false,
-            "isList": false,
-            "factTypeDefinition": 1017855
-          },
-          {
-            "name": "additionalFt1",
-            "modelMapping": "additionalFt1",
-            "dataType": "TEXT",
-            "isPersistent": true,
-            "isConclusion": false,
-            "isList": false,
-            "factTypeDefinition": 1019103
-          },
-          {
-            "name": "additionalFt5",
-            "modelMapping": "additionalFt5",
-            "dataType": "TEXT",
-            "isPersistent": true,
-            "isConclusion": false,
-            "isList": false,
-            "factTypeDefinition": 1019147
-          },
-          {
-            "name": "cond3",
-            "modelMapping": "cond3",
-            "dataType": "TEXT",
-            "isPersistent": true,
-            "isConclusion": false,
-            "isList": false,
-            "factTypeDefinition": 1017866
-          },
-          {
-            "name": "additionalFt2",
-            "modelMapping": "additionalFt2",
-            "dataType": "TEXT",
-            "isPersistent": true,
-            "isConclusion": false,
-            "isList": false,
-            "factTypeDefinition": 1019114
-          },
-          {
-            "validValues": {
-              "value": [
-                "invalid",
-                "valid"
-              ]
+            {
+                "name": "Name",
+                "modelMapping": "Name",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1017888
             },
-            "name": "isValid",
-            "modelMapping": "isValid",
-            "dataType": "TEXT",
-            "isPersistent": false,
-            "isConclusion": true,
-            "isList": false,
-            "factTypeDefinition": 1018536
-          },
-          {
-            "name": "cond4",
-            "modelMapping": "cond4",
-            "dataType": "TEXT",
-            "isPersistent": true,
-            "isConclusion": false,
-            "isList": false,
-            "factTypeDefinition": 1017877
-          },
-          {
-            "name": "additionalFt3",
-            "modelMapping": "additionalFt3",
-            "dataType": "TEXT",
-            "isPersistent": true,
-            "isConclusion": false,
-            "isList": false,
-            "factTypeDefinition": 1019125
-          },
-          {
-            "name": "cond1",
-            "modelMapping": "cond1",
-            "dataType": "TEXT",
-            "isPersistent": true,
-            "isConclusion": false,
-            "isList": false,
-            "factTypeDefinition": 1017826
-          }
+            {
+                "name": "Name Changed",
+                "modelMapping": "NameChanged",
+                "dataType": "INDICATOR",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1017866
+            },
+            {
+                "name": "Address",
+                "modelMapping": "Address",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1019136
+            },
+            {
+                "name": "Address Changed",
+                "modelMapping": "AddressChanged",
+                "dataType": "INDICATOR",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1019114
+            },
+            {
+                "name": "Post Code",
+                "modelMapping": "PostCode",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1017855
+            },
+            {
+                "name": "Telephone",
+                "modelMapping": "Telephone",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1019103
+            },
+            {
+                "name": "NI Number",
+                "modelMapping": "NINumber",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1019147
+            },
+            {
+                "validValues": {
+                    "value": [
+                        "invalid",
+                        "valid"
+                    ]
+                },
+                "name": "isValid",
+                "modelMapping": "isValid",
+                "dataType": "TEXT",
+                "isPersistent": false,
+                "isConclusion": true,
+                "isList": false,
+                "factTypeDefinition": 1018536
+            },
+            {
+                "name": "Signature Available",
+                "modelMapping": "SignatureAvailable",
+                "dataType": "INDICATOR",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1017877
+            },
+            {
+                "name": "Assignee Name",
+                "modelMapping": "AssigneeName",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1019125
+            },
+            {
+                "name": "Trustee Name",
+                "modelMapping": "TrusteeName",
+                "dataType": "TEXT",
+                "isPersistent": true,
+                "isConclusion": false,
+                "isList": false,
+                "factTypeDefinition": 1017826
+            }
         ],
         "name": "Root"
       },
