@@ -84,7 +84,7 @@
             "name": "cond5",
             "modelMapping": "cond5",
             "dataType": "TEXT",
-            "isPersistent": true,
+            "isPersistent": false,
             "isConclusion": true,
             "isList": false,
             "factTypeDefinition": 1017888
@@ -93,7 +93,7 @@
             "name": "cond2",
             "modelMapping": "cond2",
             "dataType": "TEXT",
-            "isPersistent": true,
+            "isPersistent": false,
             "isConclusion": true,
             "isList": false,
             "factTypeDefinition": 1017855
@@ -102,7 +102,7 @@
             "name": "cond3",
             "modelMapping": "cond3",
             "dataType": "TEXT",
-            "isPersistent": true,
+            "isPersistent": false,
             "isConclusion": true,
             "isList": false,
             "factTypeDefinition": 1017866
@@ -111,13 +111,13 @@
             "name": "cond4",
             "modelMapping": "cond4",
             "dataType": "TEXT",
-            "isPersistent": true,
+            "isPersistent": false,
             "isConclusion": true,
             "isList": false,
             "factTypeDefinition": 1017877
           },
           {
-            "name": "persistent",
+            "name": "Policy ID",
             "modelMapping": "persistent",
             "dataType": "TEXT",
             "isPersistent": true,
@@ -138,7 +138,7 @@
             "name": "cond1",
             "modelMapping": "cond1",
             "dataType": "TEXT",
-            "isPersistent": true,
+            "isPersistent": false,
             "isConclusion": true,
             "isList": false,
             "factTypeDefinition": 1017826
