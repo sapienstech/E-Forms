@@ -1,13 +1,8 @@
-import { ResponseOptions } from '@angular/http';
 import {
     InMemoryDbService,
-    HttpMethodInterceptorArgs,
     ResponseInterceptor,
-    createObservableResponse,
     STATUS
 } from 'angular-in-memory-web-api';
-
-import { ExecutionInput } from './model';
 
 const FLOW_MANIFESTS = [
     {
@@ -47,10 +42,10 @@ const PROCESSES = [
     }
 ];
 
-const EXECUTION_RESULTS = {
-    'OnePersistentManyConcs': require('../data/OnePersistentManyConcs.result.json'),
-    'TenPersistentOneResponse': require('../data/TenPersistentOneResponse.result.json'),
-};
+// const EXECUTION_RESULTS = {
+//     'OnePersistentManyConcs': require('../data/OnePersistentManyConcs.result.json'),
+//     'TenPersistentOneResponse': require('../data/TenPersistentOneResponse.result.json'),
+// };
 
 export class MockWebApi extends InMemoryDbService {
     private responseInterceptor: ResponseInterceptor;
@@ -79,13 +74,13 @@ export class MockWebApi extends InMemoryDbService {
         };
     }
 
-    post(args: HttpMethodInterceptorArgs) {
-        let request = args.requestInfo.req.json() as ExecutionInput;
-        let flow = request.executableKey.artifactKey.name;
-
-        return createObservableResponse(args.requestInfo.req, new ResponseOptions({
-            body: EXECUTION_RESULTS[flow],
-            status: STATUS.OK
-        }));
-    }
+    // post(args: HttpMethodInterceptorArgs) {
+    //     let request = args.requestInfo.req.json() as ExecutionInput;
+    //     let flow = request.executableKey.artifactKey.name;
+    //
+    //     return createObservableResponse(args.requestInfo.req, new ResponseOptions({
+    //         body: EXECUTION_RESULTS[flow],
+    //         status: STATUS.OK
+    //     }));
+    // }
 }

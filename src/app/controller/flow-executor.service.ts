@@ -8,6 +8,7 @@ import {
     FactTypeDetails,
     Messages
 } from '../model/execution';
+import { environment } from '../../environments/environment';
 
 const NON_CONCLUSION_KEYS = new Set(['factTypeDetails', 'executionKeyValues']);
 
@@ -28,9 +29,15 @@ export class FlowExecutorService {
     execute(flowId: string, data: any) {
         let executionInputs = this.transformExecutionInput(flowId, data);
 
-        return this.http.post(`/flow/${ flowId }`, executionInputs)
+        // let flow = executionInputs.executableKey.artifactKey
+
+        return this.http.post(environment.de,executionInputs)
             .map(response => response.json() as ExecutionResult)
             .map(result => this.transformExecutionResult(result));
+
+        // return this.http.post(`/flow/${ flowId }`, executionInputs)
+        //     .map(response => response.json() as ExecutionResult)
+        //     .map(result => this.transformExecutionResult(result));
     }
 
     transformExecutionInput(flowId: string, data: any) {
