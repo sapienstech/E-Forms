@@ -5,5 +5,5 @@
 
 export const environment = {
     production: false,
-    de:'http://localhost:9090/bdes/ws/rs/api/2_0/execute/flow'
+    de:'http://localhost:3000/execute'
 };

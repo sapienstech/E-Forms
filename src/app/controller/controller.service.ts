@@ -68,7 +68,7 @@ export class ControllerService {
         if (this.controllerState.step.type !== 'ui') {
             this.internalExecute(EmptyExecuteSubscriber);
         } else {
-            this.config.getFormSchema(this.controllerState.step.flow)
+            this.config.getFormSchema(this.controllerState.step.flow.name)
                 .subscribe(formSchema => {
                     this._showForm.next({
                         schema: formSchema,

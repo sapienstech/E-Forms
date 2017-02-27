@@ -26,8 +26,8 @@ export class FlowExecutorService {
     constructor(private http: Http) {
     }
 
-    execute(flowId: string, data: any) {
-        let executionInputs = this.transformExecutionInput(flowId, data);
+    execute(flow: ArtifactKey, data: any) {
+        let executionInputs = this.transformExecutionInput(flow, data);
 
         // let flow = executionInputs.executableKey.artifactKey
 
@@ -40,17 +40,12 @@ export class FlowExecutorService {
         //     .map(result => this.transformExecutionResult(result));
     }
 
-    transformExecutionInput(flowId: string, data: any) {
-        let artifactKey: ArtifactKey = {
-            name: flowId,
-            releaseName: undefined,
-            tagName: undefined,
-            artifactType: 'FLOW'
-        };
+    transformExecutionInput(artifactKey: ArtifactKey, data: any) {
 
         let result: ExecutionInput = {
             executableKey: {
-                artifactKey
+                artifactKey,
+                effectiveDate:"2015-11-01T00:00:00.282-04:00"
             },
             executionInput: {
                 root: data

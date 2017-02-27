@@ -25,11 +25,20 @@ const PROCESSES = [
         description: 'Example process using Mock data',
         steps: [{
             type: 'ui',
-            flow: 'OnePersistentManyConcs'
-        },
+            flow: {
+                    name:"OnePersistentManyConcs",
+                    releaseName:"testUiGenerator",
+                    tagName:"tag2",
+                    artifactType:"FLOW"
+        }},
         {
             type: 'ui',
-            flow: 'TenPersistentOneResponse',
+            flow: {
+                "name":"TenPersistentOneResponse",
+                "releaseName":"testUiGenerator",
+                "tagName":"tag2",
+                "artifactType":"FLOW"
+            },
             validation: {
                 conclusion: 'isValid',
                 invalid: 'invalid'
@@ -37,7 +46,12 @@ const PROCESSES = [
         },
         {
             type: 'async',
-            flow: 'TenPersistentOneResponse'
+            flow: {
+                "name":"TenPersistentOneResponse",
+                "releaseName":"testUiGenerator",
+                "tagName":"tag2",
+                "artifactType":"FLOW"
+            }
         }]
     }
 ];
