@@ -1,10 +1,9 @@
 {
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "../out-tsc/spec",
+        "outDir": "../../dist/out-tsc/spec",
         "module": "commonjs",
         "target": "es6",
-        "baseUrl": "",
         "types": [
             "jasmine",
             "node"

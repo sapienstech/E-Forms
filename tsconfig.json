@@ -5,6 +5,7 @@
         "sourceMap": true,
         "declaration": false,
         "moduleResolution": "node",
+        "newLine": "LF",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "lib": [
@@ -14,10 +15,19 @@
         "noEmitHelpers": true,
         "importHelpers": true,
 
+        "baseUrl": "",
         "paths": {
             "angular-schema-form": [
                 "./schema-form"
             ]
-        }
+        },
+
+        "alwaysStrict": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "forceConsistentCasingInFileNames": true
     }
 }
