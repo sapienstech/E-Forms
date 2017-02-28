@@ -4,16 +4,20 @@ import { Http } from '@angular/http';
 import {
     ExecutionInput,
     ArtifactKey,
-    ExecutionResults,
-    IoFactType,
-    Message
+    ExecutionResult,
+    FactTypeDetails,
+    Messages
 } from '../model/execution';
+
+const NON_CONCLUSION_KEYS = new Set(['factTypeDetails', 'executionKeyValues']);
 
 export interface ExecutionResponse {
     data: any;
-    messages: {
-        [name: string]: Message[];
-    };
+    messages: MessagesMap;
+}
+
+interface MessagesMap {
+    [name: string]: { category: string, text: string }[];
 }
 
 @Injectable()
@@ -25,7 +29,7 @@ export class FlowExecutorService {
         let executionInputs = this.transformExecutionInput(flowId, data);
 
         return this.http.post(`/flow/${ flowId }`, executionInputs)
-            .map(response => response.json() as ExecutionResults)
+            .map(response => response.json() as ExecutionResult)
             .map(result => this.transformExecutionResult(result));
     }
 
@@ -42,20 +46,7 @@ export class FlowExecutorService {
                 artifactKey
             },
             executionInput: {
-                rootGroup: {
-                    IoGroupInstances: Object.keys(data)
-                        .map(key => {
-                            return {
-                                IoFactTypes: [
-                                    {
-                                        factTypeName: key,
-                                        values: [data[key]],
-                                        isConclusionValues: false
-                                    }
-                                ]
-                            };
-                        })
-                }
+                root: data
             },
             executionConfiguration: null
         };
@@ -63,34 +54,56 @@ export class FlowExecutorService {
         return result;
     }
 
-    transformExecutionResult(executionResult: ExecutionResults) {
+    transformExecutionResult(executionResult: ExecutionResult) {
         // TODO: Handle list value better
 
-        let response: ExecutionResponse = {
-            data: {},
-            messages: {}
+        let root = executionResult.trace.root;
+
+        return {
+            data: this.mapConclusionValues(root),
+            messages: this.mapFactTypeDetails(root.factTypeDetails)
         };
-
-        executionResult.executionResults
-            .map(r => r.conclusion)
-            .filter(this.isValidExecutionResult)
-            .forEach(c => this.mapExecutionResult(response, c));
-
-        return response;
     }
 
-    private isValidExecutionResult(conclusion: IoFactType) {
-        return conclusion
-            && conclusion.isConclusionValues
-            && !!conclusion.values;
+    private mapConclusionValues(conclusions: any) {
+        return Object.keys(conclusions)
+            .filter(key => !NON_CONCLUSION_KEYS.has(key))
+            .reduce((map, key) => {
+                map[key] = conclusions[key];
+                return map;
+            }, {});
     }
 
-    private mapExecutionResult(response: ExecutionResponse, conclusion: IoFactType) {
-        let value = conclusion.values.join(',');
-        response.data[conclusion.factTypeName] = value;
+    private mapFactTypeDetails(factTypeDetails: FactTypeDetails) {
+        let messages: MessagesMap = {};
 
-        if (conclusion.rowHit && conclusion.rowHit.message) {
-            response.messages[conclusion.factTypeName] = conclusion.rowHit.message;
+        Object.keys(factTypeDetails)
+            .forEach(key => {
+                messages[key] = this.flatMap(
+                    factTypeDetails[key].rowHits,
+                    r => this.mapMessages(r.messages)
+                );
+            });
+
+        return messages;
+    }
+
+    private mapMessages(messages: Messages) {
+        if (!messages) {
+            return [];
         }
+
+        return Object.keys(messages)
+            .map(key => {
+                return { category: key, text: messages[key] };
+            });
+    }
+
+    private flatMap<T, TResult>(array: T[], selector: (item: T) => TResult[]) {
+        let result: TResult[] = [];
+        array.forEach(item => {
+            result = result.concat(selector(item));
+        });
+        return result;
     }
 }

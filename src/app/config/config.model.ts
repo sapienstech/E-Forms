@@ -1,4 +1,5 @@
 export interface ProcessConfig {
+    id: string;
     title: string;
     description?: string;
     steps: StepConfig[];

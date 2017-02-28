@@ -3,17 +3,11 @@ export interface ExecutionInput {
         artifactKey: ArtifactKey;
     };
     executionInput: {
-        rootGroup: {
-            IoGroupInstances: { IoFactTypes: IoFactType[] }[];
+        root: {
+            [factTypeName: string]: string;
         };
     };
     executionConfiguration: undefined;
-}
-
-export interface ExecutionResults {
-    executionResults: {
-        conclusion: IoFactType;
-    }[];
 }
 
 export interface ArtifactKey {
@@ -23,16 +17,24 @@ export interface ArtifactKey {
     artifactType: 'FLOW';
 }
 
-export interface IoFactType {
-    factTypeName: string;
-    values?: string[];
-    isConclusionValues: boolean;
-    rowHit?: {
-        message: Message[];
+export interface ExecutionResult {
+    trace: {
+        root: {
+            factTypeDetails: any;
+
+            [factTypeName: string]: string;
+        }
+    }
+}
+
+export interface FactTypeDetails {
+    [conclusion: string]: {
+        rowHits?: {
+            messages: Messages;
+        }[];
     };
 }
 
-export interface Message {
-    category: string;
-    text: string;
+export interface Messages {
+    [category: string]: string;
 }
