@@ -9,7 +9,8 @@
         "test": "ng test --progress=false --single-run --code-coverage",
         "test-watch": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "server":"node server.js"
     },
     "private": true,
     "dependencies": {

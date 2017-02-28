@@ -13,6 +13,10 @@ const FLOW_MANIFESTS = [
         id: 'TenPersistentOneResponse',
         data: require('../data/TenPersistentOneResponse.manifest.json')
     },
+    {
+        id: 'ff1',
+        data: require('../data/ff1.manifest.json')
+    }
 ];
 
 const LAYOUTS = [];
@@ -53,6 +57,20 @@ const PROCESSES = [
                 "artifactType":"FLOW"
             }
         }]
+    },
+    {
+        id: 'process2',
+        title: 'Process 2',
+        description: 'Example process using Service Tasks',
+        steps: [{
+            type: 'ui',
+            flow: {
+                name:"ff1",
+                releaseName:"project1",
+                tagName:"shaul",
+                artifactType:"FLOW"
+            }}
+           ]
     }
 ];
 

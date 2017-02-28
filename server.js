@@ -63,14 +63,13 @@ app.post('/execute',(req,res)=> {
         method: 'POST',
         params:req.body
     }, (body, _res)=>{
-        // do your stuff
         res.send(JSON.parse(_res.body));
     });
 
 });
 
 
-app.get('/a',(req,res)=>{
+app.get('/ok',(req,res)=>{
     res.send('OK');
 })
 
