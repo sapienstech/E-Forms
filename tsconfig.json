@@ -10,7 +10,14 @@
         "lib": [
             "es2016"
         ],
+
         "noEmitHelpers": true,
-        "importHelpers": true
+        "importHelpers": true,
+
+        "paths": {
+            "angular-schema-form": [
+                "./schema-form"
+            ]
+        }
     }
 }

@@ -9,6 +9,8 @@ import {
 
 import { ExecutionInput } from './model';
 
+declare function require(id: string): any;
+
 const FLOW_MANIFESTS = [
     {
         id: 'OnePersistentManyConcs',
