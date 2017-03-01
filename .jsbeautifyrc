@@ -24,6 +24,7 @@
 
     "js": {
         "jslint_happy": true,
+        "operator_position": "after-newline",
         "keep_array_indentation": false,
         "keep_function_indentation": true
     }
