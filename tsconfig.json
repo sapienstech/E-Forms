@@ -15,13 +15,6 @@
         "noEmitHelpers": true,
         "importHelpers": true,
 
-        "baseUrl": "",
-        "paths": {
-            "angular-schema-form": [
-                "./schema-form"
-            ]
-        },
-
         "alwaysStrict": true,
         "noImplicitThis": true,
         "noImplicitReturns": true,
