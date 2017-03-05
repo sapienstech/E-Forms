@@ -28,16 +28,10 @@ export class FlowExecutorService {
 
     execute(flow: ArtifactKey, data: any) {
         let executionInputs = this.transformExecutionInput(flow, data);
-
-        // let flow = executionInputs.executableKey.artifactKey
-
-        return this.http.post(environment.de,executionInputs)
+        return this.http.post(environment.de+'/execute',executionInputs)
             .map(response => response.json() as ExecutionResult)
             .map(result => this.transformExecutionResult(result));
 
-        // return this.http.post(`/flow/${ flowId }`, executionInputs)
-        //     .map(response => response.json() as ExecutionResult)
-        //     .map(result => this.transformExecutionResult(result));
     }
 
     transformExecutionInput(artifactKey: ArtifactKey, data: any) {

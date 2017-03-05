@@ -10,7 +10,7 @@
         "test-watch": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "server":"node server.js"
+        "server":"ng build && node server/server.js"
     },
     "private": true,
     "dependencies": {

@@ -5,5 +5,5 @@
 
 export const environment = {
     production: false,
-    de:'http://localhost:3000/execute'
+    de:'http://localhost:3000'
 };

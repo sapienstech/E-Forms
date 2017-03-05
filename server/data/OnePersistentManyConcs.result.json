@@ -1,0 +1,162 @@
+{
+    "trace": {
+        "root": {
+            "executionKeyValues": {},
+            "Name": "John Smith",
+            "Address": "123 Anywhere Road",
+            "PostCode": "NW1 7FG",
+            "Telephone": "020-7123-1234",
+            "NINumber": "1234",
+            "factTypeDetails": {
+                "Name": {
+                    "conclusionValue": "2",
+                    "rowHits": [{
+                        "hashId": "1018060",
+                        "hash": "60c009aab69d3d63d4a077f3d02119dc"
+                    }],
+                    "resultComparison": null
+                },
+                "Address": {
+                    "conclusionValue": "value4",
+                    "rowHits": [{
+                        "hashId": "1018002",
+                        "hash": "9be934857cbcba459143810abf42c19e"
+                    }],
+                    "resultComparison": null
+                },
+                "PostCode": {
+                    "conclusionValue": "value3",
+                    "rowHits": [{
+                        "hashId": "1017996",
+                        "hash": "e9d160017a3ef9071d3aba6f5edd9c99"
+                    }],
+                    "resultComparison": null
+                },
+                "Telephone": {
+                    "conclusionValue": "value2",
+                    "rowHits": [{
+                        "hashId": "1017990",
+                        "hash": "d61c0984e1dfa4ef8866693bb78aa826"
+                    }],
+                    "resultComparison": null
+                },
+                "NINumber": {
+                    "conclusionValue": "value1",
+                    "rowHits": [{
+                        "hashId": "1017984",
+                        "hash": "f60164f8ff64513119b9f3655a8d0862"
+                    }],
+                    "resultComparison": null
+                }
+            }
+        }
+    },
+    "executedVersion": "1.0",
+    "expectedResultsMatchActualResults": null,
+    "executionResults": {
+        "finalConc": {
+            "Base": {
+                "1.0": [{
+                    "conclusion": {
+                        "conclusionName": "finalConc",
+                        "conclusionValue": "2",
+                        "rowHits": [{
+                            "hashId": "1018060",
+                            "hash": "60c009aab69d3d63d4a077f3d02119dc"
+                        }],
+                        "resultComparison": null
+                    },
+                    "executedVersion": "1.0",
+                    "trace": {
+                        "root": {
+                            "executionKeyValues": {},
+                            "cond3": "value3",
+                            "finalConc": "2",
+                            "cond5": null,
+                            "cond4": "value4",
+                            "persistent": null,
+                            "cond2": "value2",
+                            "cond1": "value1",
+                            "factTypeDetails": {
+                                "finalConc": {
+                                    "conclusionValue": "2",
+                                    "rowHits": [{
+                                        "hashId": "1018060",
+                                        "hash": "60c009aab69d3d63d4a077f3d02119dc"
+                                    }],
+                                    "resultComparison": null
+                                },
+                                "cond4": {
+                                    "conclusionValue": "value4",
+                                    "rowHits": [{
+                                        "hashId": "1018002",
+                                        "hash": "9be934857cbcba459143810abf42c19e"
+                                    }],
+                                    "resultComparison": null
+                                },
+                                "cond3": {
+                                    "conclusionValue": "value3",
+                                    "rowHits": [{
+                                        "hashId": "1017996",
+                                        "hash": "e9d160017a3ef9071d3aba6f5edd9c99"
+                                    }],
+                                    "resultComparison": null
+                                },
+                                "cond2": {
+                                    "conclusionValue": "value2",
+                                    "rowHits": [{
+                                        "hashId": "1017990",
+                                        "hash": "d61c0984e1dfa4ef8866693bb78aa826"
+                                    }],
+                                    "resultComparison": null
+                                },
+                                "cond1": {
+                                    "conclusionValue": "value1",
+                                    "rowHits": [{
+                                        "hashId": "1017984",
+                                        "hash": "f60164f8ff64513119b9f3655a8d0862"
+                                    }],
+                                    "resultComparison": null
+                                }
+                            }
+                        }
+                    },
+                    "idInFlow": "TaskNode_0_4",
+                    "expectedResultsMatchActualResults": null,
+                    "name": null,
+                    "executedViewName": "Base",
+                    "executableKey": null,
+                    "executionKeyValues": null,
+                    "profileStopWatch": []
+                }]
+            }
+        },
+        "testServiceTask": {
+            "serviceTaskName": "testServiceTask",
+            "inputFts": {
+                "ROOT": {
+                    "executionKeyValues": {},
+                    "persistent": null,
+                    "factTypeDetails": {}
+                }
+            },
+            "outputFts": {
+                "ROOT": {
+                    "executionKeyValues": {},
+                    "cond5": null,
+                    "cond4": null,
+                    "cond3": null,
+                    "cond2": null,
+                    "cond1": null,
+                    "factTypeDetails": {}
+                }
+            }
+        }
+    },
+    "executionKeyValues": {},
+    "profileStopWatch": [{
+        "operation": "Execute Flow (Execution Manager)",
+        "elapsedTime": 264
+    }],
+    "executedTransitions": null
+}
