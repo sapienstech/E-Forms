@@ -15,7 +15,7 @@ import { ControllerService } from '../controller.service';
 export class ProcessComponent implements OnInit {
     schema: FormSchema;
     input: any;
-
+    errors:any;
     output: any;
 
     constructor(
@@ -50,6 +50,6 @@ export class ProcessComponent implements OnInit {
     }
 
     private executionError(error: any) {
-        console.log(error);
+        this.errors = error;
     }
 }

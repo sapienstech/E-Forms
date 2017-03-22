@@ -1,6 +1,7 @@
 export interface ExecutionInput {
     executableKey: {
         artifactKey: ArtifactKey;
+        effectiveDate:string
     };
     executionInput: {
         root: {

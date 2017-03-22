@@ -1,13 +1,9 @@
-import { ResponseOptions } from '@angular/http';
 import {
     InMemoryDbService,
-    HttpMethodInterceptorArgs,
     ResponseInterceptor,
-    createObservableResponse,
     STATUS
 } from 'angular-in-memory-web-api';
 
-import { ExecutionInput } from './model';
 
 declare function require(id: string): any;
 
@@ -32,11 +28,20 @@ const PROCESSES = [
         description: 'Example process using Mock data',
         steps: [{
             type: 'ui',
-            flow: 'OnePersistentManyConcs'
-        },
+            flow: {
+                    name:"OnePersistentManyConcs",
+                    releaseName:"testUiGenerator",
+                    tagName:"tag2",
+                    artifactType:"FLOW"
+        }},
         {
             type: 'ui',
-            flow: 'TenPersistentOneResponse',
+            flow: {
+                "name":"TenPersistentOneResponse",
+                "releaseName":"testUiGenerator",
+                "tagName":"tag2",
+                "artifactType":"FLOW"
+            },
             validation: {
                 conclusion: 'isValid',
                 invalid: 'invalid'
@@ -44,15 +49,34 @@ const PROCESSES = [
         },
         {
             type: 'async',
-            flow: 'TenPersistentOneResponse'
+            flow: {
+                "name":"TenPersistentOneResponse",
+                "releaseName":"testUiGenerator",
+                "tagName":"tag2",
+                "artifactType":"FLOW"
+            }
         }]
+    },
+    {
+        id: 'process2',
+        title: 'Process 2',
+        description: 'Example process using Service Tasks',
+        steps: [{
+            type: 'ui',
+            flow: {
+                name:"ff1",
+                releaseName:"project1",
+                tagName:"shaul",
+                artifactType:"FLOW"
+            }}
+           ]
     }
 ];
 
-const EXECUTION_RESULTS = {
-    'OnePersistentManyConcs': require('../data/OnePersistentManyConcs.result.json'),
-    'TenPersistentOneResponse': require('../data/TenPersistentOneResponse.result.json'),
-};
+// const EXECUTION_RESULTS = {
+//     'OnePersistentManyConcs': require('../data/OnePersistentManyConcs.result.json'),
+//     'TenPersistentOneResponse': require('../data/TenPersistentOneResponse.result.json'),
+// };
 
 export class MockWebApi extends InMemoryDbService {
     private responseInterceptor: ResponseInterceptor;
@@ -81,13 +105,13 @@ export class MockWebApi extends InMemoryDbService {
         };
     }
 
-    post(args: HttpMethodInterceptorArgs) {
-        let request = args.requestInfo.req.json() as ExecutionInput;
-        let flow = request.executableKey.artifactKey.name;
-
-        return createObservableResponse(args.requestInfo.req, new ResponseOptions({
-            body: EXECUTION_RESULTS[flow],
-            status: STATUS.OK
-        }));
-    }
+    // post(args: HttpMethodInterceptorArgs) {
+    //     let request = args.requestInfo.req.json() as ExecutionInput;
+    //     let flow = request.executableKey.artifactKey.name;
+    //
+    //     return createObservableResponse(args.requestInfo.req, new ResponseOptions({
+    //         body: EXECUTION_RESULTS[flow],
+    //         status: STATUS.OK
+    //     }));
+    // }
 }

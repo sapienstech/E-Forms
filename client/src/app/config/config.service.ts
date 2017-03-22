@@ -10,6 +10,7 @@ import 'rxjs/add/operator/catch';
 import { Manifest, FormLayout } from '../model';
 import { ProcessConfig } from './config.model';
 import { TransformationService } from './transformation.service';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ConfigService {
@@ -20,7 +21,7 @@ export class ConfigService {
     }
 
     getProcesses() {
-        return this.http.get('/api/process')
+        return this.http.get(environment.de + '/processes')
             .map(response => response.json() as ProcessConfig[]);
     }
 

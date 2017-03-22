@@ -1,6 +1,7 @@
 
 import { FlowExecutorService } from './flow-executor.service';
 import * as _ from 'lodash';
+import { ArtifactKey } from '../model/execution';
 
 describe('Flow Executor Service', () => {
     let service: FlowExecutorService;
@@ -16,8 +17,9 @@ describe('Flow Executor Service', () => {
             cond4: '4'
         };
 
-        let deInputs = {
+        let deInputs: any = {
             executableKey: {
+                effectiveDate:"2015-11-01T00:00:00.282-04:00",
                 artifactKey: {
                     name: 'flow1',
                     releaseName: undefined,
@@ -34,9 +36,14 @@ describe('Flow Executor Service', () => {
             },
             executionConfiguration: null
         };
-        let ei = service.transformExecutionInput('flow1', formInputs);
-        let equal = _.isEqual(ei, deInputs);
-        expect(equal).toBeTruthy();
+        let ak :ArtifactKey= {
+            name: 'flow1',
+            releaseName: undefined,
+            tagName: undefined,
+            artifactType: 'FLOW'
+        };
+        let ei = service.transformExecutionInput(ak, formInputs);
+        expect(ei).toEqual(deInputs);
     });
 
 

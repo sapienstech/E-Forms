@@ -12,6 +12,9 @@ import { ConfigService, ValidationConfig, ValidationValidConfig } from '../confi
 
 import { ControllerState } from './controller-state';
 import { FlowExecutorService, ExecutionResponse } from './flow-executor.service';
+import { environment } from '../../environments/environment';
+import { Http } from '@angular/http';
+import { TransformationService } from '../config/transformation.service';
 
 export interface ShowFormEvent {
     schema: FormSchema;
@@ -38,8 +41,10 @@ export class ControllerService {
     }
 
     constructor(
+        private http:Http,
         private config: ConfigService,
-        private flowExecutor: FlowExecutorService
+        private flowExecutor: FlowExecutorService,
+        private transformationService:TransformationService
     ) {
         this._showForm = new Subject<ShowFormEvent>();
         this.controllerState = new ControllerState();
@@ -68,10 +73,10 @@ export class ControllerService {
         if (this.controllerState.step.type !== 'ui') {
             this.internalExecute(EmptyExecuteSubscriber);
         } else {
-            this.config.getFormSchema(this.controllerState.step.flow)
+            this.http.post(environment.de+'/manifest',this.controllerState.step.flow)
                 .subscribe(formSchema => {
                     this._showForm.next({
-                        schema: formSchema,
+                        schema: this.transformationService.transformToFormSchema(formSchema.json()),
                         model: this.controllerState.data
                     });
                 });

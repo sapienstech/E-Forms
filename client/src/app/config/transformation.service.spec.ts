@@ -1,9 +1,9 @@
-import { FormLayout, FormSchema, Manifest } from '../types/types';
 import { TransformationService } from './transformation.service';
+import { Manifest, FormLayout, FormSchema } from '../model';
 
 describe('Transformation Service', () => {
 
-    const manifest: Manifest = <Manifest>{
+    const manifest: Manifest = <any> {
         'asset': [
             {
                 'asset': [
@@ -178,7 +178,7 @@ describe('Transformation Service', () => {
         'conclusion': 'Test'
     };
 
-    const layout: FormLayout = <FormLayout>{
+    const layout: FormLayout = <any>{
         'fieldsets': [{
             'title': 'title1',
             'fields': ['ft_1', 'ft_2']

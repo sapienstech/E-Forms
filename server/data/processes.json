@@ -1,0 +1,61 @@
+[
+    {
+        "id": "process-1",
+        "title": "Process 1",
+        "steps": []
+    },
+    {
+        "id": "example-process",
+        "title": "Example Process",
+        "description": "Example process using Mock data",
+        "steps": [
+            {
+                "type": "ui",
+                "flow": {
+                    "name": "OnePersistentManyConcs",
+                    "releaseName": "testUiGenerator",
+                    "tagName": "tag2",
+                    "artifactType": "FLOW"
+                }
+            },
+            {
+                "type": "ui",
+                "flow": {
+                    "name": "TenPersistentOneResponse",
+                    "releaseName": "testUiGenerator",
+                    "tagName": "tag2",
+                    "artifactType": "FLOW"
+                },
+                "validation": {
+                    "conclusion": "isValid",
+                    "invalid": "invalid"
+                }
+            },
+            {
+                "type": "async",
+                "flow": {
+                    "name": "TenPersistentOneResponse",
+                    "releaseName": "testUiGenerator",
+                    "tagName": "tag2",
+                    "artifactType": "FLOW"
+                }
+            }
+        ]
+    },
+    {
+        "id": "process2",
+        "title": "Process 2",
+        "description": "Example process using Service Tasks",
+        "steps": [
+            {
+                "type": "ui",
+                "flow": {
+                    "name": "ff1",
+                    "releaseName": "project1",
+                    "tagName": "shaul",
+                    "artifactType": "FLOW"
+                }
+            }
+        ]
+    }
+]

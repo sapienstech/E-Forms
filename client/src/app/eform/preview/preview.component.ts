@@ -6,6 +6,8 @@ import { TransformationService } from '../../config';
 import { PARSE_ERROR } from '../../types/constants';
 import { FormSchema } from '../../model';
 import { Http } from '@angular/http';
+import { ArtifactKey } from '../../model/execution';
+import { environment } from '../../../environments/environment';
 
 @Component({
     selector: 'ef-form-preview',
@@ -25,9 +27,15 @@ export class PreviewComponent {
                 private transformerService: TransformationService,
                 private http:Http) {
 
-        this.http.get('client/src/data/example/preview1.manifest.json').subscribe(manifest=>{
+        let key :ArtifactKey= {
+            "name":"TenPersistentOneResponse",
+            "releaseName":"testUiGenerator",
+            "tagName":"tag2",
+            "artifactType":"FLOW"
+        };
+        this.http.post(environment.de + '/manifest',key).subscribe(manifest=>{
             this.metadata = this.transformerService.transformToFormSchema(manifest.json());
-            this.http.get('client/src/data/example/preview1.layout.json').subscribe(layout=>{
+            this.http.post(environment.de + '/layout',key).subscribe(layout=>{
                 this.layout = layout.json();
                 this.generateForm();
             });

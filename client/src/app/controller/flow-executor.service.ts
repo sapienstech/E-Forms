@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
+import 'rxjs/add/operator/map';
+
 import {
     ExecutionInput,
     ArtifactKey,
@@ -8,6 +10,7 @@ import {
     FactTypeDetails,
     Messages
 } from '../model/execution';
+import { environment } from '../../environments/environment';
 
 const NON_CONCLUSION_KEYS = new Set(['factTypeDetails', 'executionKeyValues']);
 
@@ -25,25 +28,20 @@ export class FlowExecutorService {
     constructor(private http: Http) {
     }
 
-    execute(flowId: string, data: any) {
-        let executionInputs = this.transformExecutionInput(flowId, data);
-
-        return this.http.post(`/flow/${ flowId }`, executionInputs)
+    execute(flow: ArtifactKey, data: any) {
+        let executionInputs = this.transformExecutionInput(flow, data);
+        return this.http.post(environment.de+'/execute',executionInputs)
             .map(response => response.json() as ExecutionResult)
             .map(result => this.transformExecutionResult(result));
+
     }
 
-    transformExecutionInput(flowId: string, data: any) {
-        let artifactKey: ArtifactKey = {
-            name: flowId,
-            releaseName: undefined,
-            tagName: undefined,
-            artifactType: 'FLOW'
-        };
+    transformExecutionInput(artifactKey: ArtifactKey, data: any) {
 
         let result: ExecutionInput = {
             executableKey: {
-                artifactKey
+                artifactKey,
+                effectiveDate:"2015-11-01T00:00:00.282-04:00"
             },
             executionInput: {
                 root: data

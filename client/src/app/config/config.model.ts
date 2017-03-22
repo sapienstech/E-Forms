@@ -1,3 +1,4 @@
+import { ArtifactKey } from '../model/execution';
 export interface ProcessConfig {
     id: string;
     title: string;
@@ -8,7 +9,7 @@ export interface ProcessConfig {
 export type StepType = 'ui' | 'execute' | 'async';
 
 export interface StepConfig {
-    flow: string;
+    flow: ArtifactKey;
     type?: StepType;
     title?: string;
     validation?: ValidationConfig;
