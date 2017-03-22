@@ -17,8 +17,9 @@ describe('Flow Executor Service', () => {
             cond4: '4'
         };
 
-        let deInputs = {
+        let deInputs: any = {
             executableKey: {
+                effectiveDate:"2015-11-01T00:00:00.282-04:00",
                 artifactKey: {
                     name: 'flow1',
                     releaseName: undefined,
@@ -42,8 +43,7 @@ describe('Flow Executor Service', () => {
             artifactType: 'FLOW'
         };
         let ei = service.transformExecutionInput(ak, formInputs);
-        let equal = _.isEqual(ei, deInputs);
-        expect(equal).toBeTruthy();
+        expect(ei).toEqual(deInputs);
     });
 
 

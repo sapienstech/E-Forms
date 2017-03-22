@@ -10,8 +10,12 @@ import { environment } from '../environments/environment';
 export class AppComponent {
 
     deUp:boolean;
-    constructor(http:Http){
-        http.get(environment.de+'/heartbeat').subscribe(r=>{
+    constructor(private http:Http){
+
+    }
+
+    ngOnInit(){
+        this.http.get(environment.de+'/heartbeat').subscribe(r=>{
             this.deUp = r.json();
         })
     }
