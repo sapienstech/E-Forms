@@ -4,7 +4,6 @@ import {
     STATUS
 } from 'angular-in-memory-web-api';
 
-import { ExecutionInput } from './model';
 
 declare function require(id: string): any;
 
