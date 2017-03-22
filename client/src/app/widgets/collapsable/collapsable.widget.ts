@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ObjectLayoutWidget } from 'angular2-schema-form/src';
+import { ObjectLayoutWidget } from 'angular2-schema-form';
 
 @Component({
     selector: 'ef-collapsible',

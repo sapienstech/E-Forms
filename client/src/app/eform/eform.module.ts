@@ -6,7 +6,7 @@ import {
     SchemaFormModule,
     DefaultWidgetRegistry,
     WidgetRegistry
-} from 'angular2-schema-form/src';
+} from 'angular2-schema-form';
 
 import { EformRouterModule } from './eform-router.module';
 
@@ -27,7 +27,10 @@ import { HiddenWidget } from '../widgets/hidden/hidden.widget';
         CollapsibleWidget,
         HiddenWidget
     ],
-    entryComponents: [CollapsibleWidget,HiddenWidget],
+    entryComponents: [
+        CollapsibleWidget,
+        HiddenWidget
+    ],
     providers: [
         { provide: WidgetRegistry, useClass: DefaultWidgetRegistry }
     ]

@@ -1,24 +1,19 @@
 {
+    "compileOnSave": false,
     "compilerOptions": {
-        "target": "es5",
-        "module": "es2015",
-        "lib": [
-            "es2015",
-            "dom"
-        ],
-        "moduleResolution": "node",
-
-        "baseUrl": "",
-        "outDir": "../dist/out-tsc",
-        "mapRoot": "./",
+        "outDir": "./dist/out-tsc",
         "sourceMap": true,
-        "typeRoots": [
-            "../node_modules/@types"
-        ],
-
+        "declaration": false,
+        "moduleResolution": "node",
         "newLine": "LF",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "lib": [
+            "es2016"
+        ],
+
+        "noEmitHelpers": true,
+        "importHelpers": true,
 
         "alwaysStrict": true,
         "noImplicitThis": true,
@@ -27,6 +22,5 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         "forceConsistentCasingInFileNames": true
-    },
-    "compileOnSave": false
+    }
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { SchemaFormModule } from 'angular2-schema-form/src';
+import { SchemaFormModule } from 'angular2-schema-form';
 
 import { ProcessRouteGuard } from './process-router.guard';
 

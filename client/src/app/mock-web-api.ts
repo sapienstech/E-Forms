@@ -4,6 +4,10 @@ import {
     STATUS
 } from 'angular-in-memory-web-api';
 
+import { ExecutionInput } from './model';
+
+declare function require(id: string): any;
+
 const FLOW_MANIFESTS = [
     {
         id: 'OnePersistentManyConcs',
@@ -13,10 +17,6 @@ const FLOW_MANIFESTS = [
         id: 'TenPersistentOneResponse',
         data: require('../data/TenPersistentOneResponse.manifest.json')
     },
-    {
-        id: 'ff1',
-        data: require('../data/ff1.manifest.json')
-    }
 ];
 
 const LAYOUTS = [];
