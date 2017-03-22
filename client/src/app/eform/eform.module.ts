@@ -6,7 +6,7 @@ import {
     SchemaFormModule,
     DefaultWidgetRegistry,
     WidgetRegistry
-} from 'angular-schema-form';
+} from 'angular2-schema-form';
 
 import { EformRouterModule } from './eform-router.module';
 
