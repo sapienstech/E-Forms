@@ -14,6 +14,7 @@ import { AppRouterModule } from './app-router.module';
 import { UtilsService } from './services/utils.service';
 
 import { AppComponent } from './app.component';
+import { ManagementModule } from './de-management/management.module';
 
 @NgModule({
     imports: [
@@ -25,6 +26,7 @@ import { AppComponent } from './app.component';
         ConfigModule,
         ProcessSelectionModule,
         ControllerModule,
+        ManagementModule,
         EformModule
     ],
 

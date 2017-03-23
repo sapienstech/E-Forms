@@ -12,18 +12,13 @@ export class DashboardComponent implements OnInit {
         this.views = [
             {
                 title: 'Configuration',
-                description: 'Provide configuration for processes, flows and layouts.',
+                description: 'Provide configuration for available DEs.',
                 link: 'config'
             },
             {
-                title: 'Preview',
-                description: 'Select a flow to preview its form.',
-                link: 'preview'
-            },
-            {
-                title: 'Run Process',
-                description: 'Select a process and start running it.',
-                link: 'select-process'
+                title: 'Management Console',
+                description: 'Execute Decision flows',
+                link: 'demc'
             }
         ];
     }
