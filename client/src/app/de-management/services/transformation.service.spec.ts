@@ -1,5 +1,7 @@
-import { FormLayout, FormSchema, Manifest } from '../types/types';
 import { TransformationService } from './transformation.service';
+import { Manifest } from '../../model/manifest';
+import { FormSchema } from '../../model/form-schema';
+import { FormLayout } from '../../model/form-layout';
 
 describe('Transformation Service', () => {
 

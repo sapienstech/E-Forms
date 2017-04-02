@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { ArtifactInfo } from '../../types/types';
 import { Injectable } from '@angular/core';
 import { HEARTBEAT_URL } from '../consts';
-import { TransformationService } from '../../config/transformation.service';
+import { TransformationService } from './transformation.service';
 import { ArtifactKey, ExecutionInput, ExecutionResult, FactTypeDetails, Messages } from '../../model/execution';
 
 

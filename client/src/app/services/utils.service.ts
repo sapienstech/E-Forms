@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { PARSE_ERROR } from '../types/constants';
+declare var FileReader : any;
 
 @Injectable()
 export class UtilsService {

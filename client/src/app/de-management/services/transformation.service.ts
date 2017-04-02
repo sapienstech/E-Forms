@@ -1,17 +1,9 @@
 import { Injectable } from '@angular/core';
+import { FormProperty, FormSchema } from '../../model/form-schema';
+import { Dependency, FormLayout } from '../../model/form-layout';
+import { FactType, Manifest } from '../../model/manifest';
+import { JsonSchemaType } from '../../model/json-schema';
 
-import {
-    JsonSchemaType,
-
-    FormProperty,
-    FormSchema,
-
-    FormLayout,
-    Dependency,
-
-    Manifest,
-    FactType
-} from '../model';
 
 @Injectable()
 export class TransformationService {
