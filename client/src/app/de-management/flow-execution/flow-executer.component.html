@@ -1,0 +1,35 @@
+<div class="main">
+    <div class="header">
+        <h2>{{flow?.name}}</h2>
+    </div>
+    <div class="main-content">
+        <div class="inputs-container">
+            <div>
+                <h3>Flow Inputs</h3>
+            </div>
+            <div class="form-container">
+                <div *ngIf="schema">
+                    <sf-form [schema]="schema"
+                             (onChange)="output = $event.value"></sf-form>
+
+
+                </div>
+            </div>
+            <button class="btn btn-primary"
+                    (click)="execute()">Execute</button>
+        </div>
+
+        <div class="results-container">
+            <div>
+                <h3>Flow Results</h3>
+            </div>
+            <div class="results">
+                <div *ngFor="let item of executionResult | keys" class="result-item">
+                    <span>{{item.key}}:</span>
+                    <span>{{item.value}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

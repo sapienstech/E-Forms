@@ -1,0 +1,36 @@
+<div class="main">
+    <div class="main-header">
+        <h2>DE Management Console</h2>
+    </div>
+    <div class="main-content">
+        <div class="servers" *ngIf="!isLocal">
+            <div *ngFor="let de of deServers" class="server-item" (click)="DEClicked(de)" [ngClass]="{'selected-item':de.selected}">
+               <div class="de-header">
+                   <h3>{{de.name}}</h3>
+               </div>
+                <div class="item-content">
+                    <h4>Ver: {{de.aliveStatus}}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="flows">
+            <div *ngFor="let flow of projects" class="flow-item" (click)="flowSelected(flow)" [ngClass]="{'selected-flow':flow.selected}">
+                <h3>{{flow.name}}</h3>
+                <div class="flow-details" >
+                    <div *ngFor="let tag of flow.tags" class="tag-item">
+                        <div (click)="expandTag(tag)" class="tag-header" [ngClass]="{'selected-tag-header':tag.selected}">
+                            <div class="expander-btn" >+</div>
+                            <h4>{{tag.name}}</h4>
+                        </div>
+                        <div class="tag-details" [ngClass]="{'selected-tag':tag.selected}">
+                            <div *ngFor="let flow of tag.flows"  class="flow-item1" (click)="flowClicked(flow)">
+                                <div  >-</div>
+                                <h4>{{flow.name}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

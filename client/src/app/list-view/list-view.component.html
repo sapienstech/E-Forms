@@ -1,0 +1,8 @@
+<div class="main">
+    <div class="list-item"  *ngFor="let item of itemsSource" [ngClass]="{'selected-item':selected[item]}" (click)="itemSelected(item)">
+        <ng-template #template *ngTemplateOutlet="templateRef;context:item"  ></ng-template>
+        <!--<div *ngIf="!template">-->
+            <!--<h3>{{item}}</h3>-->
+        <!--</div>-->
+    </div>
+</div>
