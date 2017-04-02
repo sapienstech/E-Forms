@@ -1,3 +1,10 @@
+export interface ArtifactInfo {
+    tagName: string;
+    name: string;
+    artifactType: string;
+    releaseName: string;
+}
+
 export interface FactType {
     name: string;
     modelMapping: string;

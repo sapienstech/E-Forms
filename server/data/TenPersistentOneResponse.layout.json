@@ -1,0 +1,30 @@
+{
+    "fieldsets": [
+        {
+            "title": "conditions",
+            "fields": [
+                "cond1",
+                "cond2",
+                "cond3",
+                "cond4"
+            ]
+        }
+    ],
+    "collapsible": true,
+    "dependencies": [
+        {
+            "fields": [
+                "cond2"
+            ],
+            "dependentOn": "cond1",
+            "value": "$ANY$"
+        },
+        {
+            "fields": [
+                "cond4"
+            ],
+            "dependentOn": "cond3",
+            "value": "22"
+        }
+    ]
+}

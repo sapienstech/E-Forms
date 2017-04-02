@@ -43,7 +43,8 @@ export class FlowExecutorService {
 
         let result: ExecutionInput = {
             executableKey: {
-                artifactKey
+                artifactKey,
+                effectiveDate: '2017'
             },
             executionInput: {
                 root: data
@@ -95,7 +96,7 @@ export class FlowExecutorService {
 
         return Object.keys(messages)
             .map(key => {
-                return { category: key, text: messages[key] };
+                return {category: key, text: messages[key]};
             });
     }
 

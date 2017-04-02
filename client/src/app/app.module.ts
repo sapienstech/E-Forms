@@ -6,8 +6,6 @@ import { ConfigModule } from './config';
 import { ProcessSelectionModule } from './process-selection';
 import { ControllerModule } from './controller';
 import { EformModule } from './eform';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { MockWebApi } from './mock-web-api';
 
 import { AppRouterModule } from './app-router.module';
 
@@ -15,18 +13,23 @@ import { UtilsService } from './services/utils.service';
 
 import { AppComponent } from './app.component';
 import { ManagementModule } from './de-management/management.module';
+import { ManagementService } from './de-management/services/management.service';
+import { LocalManagementService } from './de-management/services/local-management.service';
+import { ManagementServiceFacade } from './de-management/services/management.service.facade';
+import { FlowExecuterModule } from './de-management/flow-execution/flow-executer.module';
+
 
 @NgModule({
     imports: [
         BrowserModule,
         HttpModule,
-        InMemoryWebApiModule.forRoot(MockWebApi,{passThruUnknownUrl : true}),
         AppRouterModule,
         DashboardModule,
         ConfigModule,
         ProcessSelectionModule,
         ControllerModule,
         ManagementModule,
+        FlowExecuterModule,
         EformModule
     ],
 
@@ -36,6 +39,9 @@ import { ManagementModule } from './de-management/management.module';
     bootstrap: [AppComponent],
 
     providers: [
+        ManagementService,
+        LocalManagementService,
+        ManagementServiceFacade,
         UtilsService
     ]
 })
