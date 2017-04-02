@@ -5,7 +5,7 @@ import { FormLayout } from '../../model/form-layout';
 
 describe('Transformation Service', () => {
 
-    const manifest: Manifest = <Manifest>{
+    const manifest: Manifest = <any>{
         'asset': [
             {
                 'asset': [
