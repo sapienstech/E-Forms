@@ -15,7 +15,7 @@ export class AppComponent {
     }
 
     ngOnInit(){
-        this.http.get(environment.de+'/heartbeat').subscribe(r=>{
+        this.http.get(environment.de+'/local-heartbeat').subscribe(r=>{
             this.deUp = r.json();
         })
     }

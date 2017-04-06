@@ -45,7 +45,7 @@ export class TransformationService {
             properties: {},
             required: [],
             fieldsets: [{
-                title: flow.name,
+                title: undefined,
                 fields: []
             }]
         };

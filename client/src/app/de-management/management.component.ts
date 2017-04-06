@@ -34,7 +34,11 @@ export class ManagementComponent implements OnInit {
                     this.deServers = list;
                     this.deServers.forEach(de => {
                         this.service.getDEHealthCheck(de).subscribe(r => {
-                            de.aliveStatus = r;
+                            if (r.error) {
+                                de.aliveStatus = 'Server is down';
+                            } else {
+                                de.aliveStatus = 'Ver: ' + r.status;
+                            }
                         })
                     });
                 });
@@ -80,7 +84,7 @@ export class ManagementComponent implements OnInit {
         });
     }
 
-    public flowSelected(flow: any) {
+    public projectSelected(flow: any) {
         Object.keys(this.projects).forEach(f => {
             this.projects[f].selected = false;
         });
@@ -91,6 +95,7 @@ export class ManagementComponent implements OnInit {
     flowClicked(flow: any) {
         this.router.navigateByUrl('/execute-flow?flow-name=' + flow.name +
             '&tag-name=' + flow.tagName +
+            '&version=' + flow.version +
             '&release-name=' + flow.releaseName +
             '&de-name=' + this.selectedDE.name +
             '&de-url=' + this.selectedDE.url);

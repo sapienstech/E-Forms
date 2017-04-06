@@ -8,6 +8,9 @@ export class KeysPipe implements PipeTransform {
             let key = valueKeys[i];
             keys.push({key: key, value: value[key]});
         }
+        keys = keys.sort((a,b)=>{
+            return a.key.localeCompare(b.key);
+        });
         return keys;
     }
 }
