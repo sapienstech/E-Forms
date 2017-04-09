@@ -28,7 +28,6 @@ export class FlowExecuterComponent implements OnInit {
     @ViewChild('form') form: FormComponent;
     private errorMessage: string;
 
-
     constructor(private route: ActivatedRoute, private service: ManagementServiceFacade) {
 
     }

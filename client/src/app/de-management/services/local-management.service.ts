@@ -20,6 +20,7 @@ export class LocalManagementService implements IManagementService {
             }
         };
         return this.http.post(this.localDEUrl + MANIFEST_URL, requestOptionArgs).map(r => r.json());
+
     }
 
     private localDEUrl: string;
@@ -45,6 +46,7 @@ export class LocalManagementService implements IManagementService {
     public execute(key: any): Observable<any> {
         let requestOptionArgs =key;
         return this.http.post(this.localDEUrl + EXECUTE_URL, requestOptionArgs).map(r => r.json());
+
     }
 
 
