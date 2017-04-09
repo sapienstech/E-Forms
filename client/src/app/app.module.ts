@@ -13,6 +13,7 @@ import { LocalManagementService } from './de-management/services/local-managemen
 import { ManagementServiceFacade } from './de-management/services/management.service.facade';
 import { FlowExecuterModule } from './de-management/flow-execution/flow-executer.module';
 import { TransformationService } from './de-management/services/transformation.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { TransformationService } from './de-management/services/transformation.s
         AppRouterModule,
         ManagementModule,
         FlowExecuterModule,
+        BrowserAnimationsModule
     ],
 
     declarations: [

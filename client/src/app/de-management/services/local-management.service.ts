@@ -12,16 +12,15 @@ export class LocalManagementService implements IManagementService {
 
     getFlowManifest(flow: any): Observable<any> {
         let requestOptionArgs = {
-            body:{
-                artifactKey:{
-                    name:flow.name,
-                    releaseName:flow.releaseName,
-                    tagName:flow.tagName,
-                    artifactType:'FLOW'
-                }
+            artifactKey: {
+                name: flow.name,
+                releaseName: flow.releaseName,
+                tagName: flow.tagName,
+                artifactType: 'FLOW'
             }
         };
-        return this.http.post(this.localDEUrl + MANIFEST_URL,requestOptionArgs).map(r=>r.json());
+        return this.http.post(this.localDEUrl + MANIFEST_URL, requestOptionArgs).map(r => r.json());
+
     }
 
     private localDEUrl: string;
@@ -44,11 +43,10 @@ export class LocalManagementService implements IManagementService {
 
     }
 
-    public execute(key:any):Observable<any>{
-        let requestOptionArgs = {
-            body:key
-        };
-        return this.http.post(this.localDEUrl  + EXECUTE_URL,requestOptionArgs).map(r => r.json());
+    public execute(key: any): Observable<any> {
+        let requestOptionArgs =key;
+        return this.http.post(this.localDEUrl + EXECUTE_URL, requestOptionArgs).map(r => r.json());
+
     }
 
 

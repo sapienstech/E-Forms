@@ -55,24 +55,52 @@ export class ManagementServiceFacade {
     }
 
     public getDEHealthCheck(de: any): Observable<any> {
-        return this.managementServiceImp.getDEHealthCheck(de);
+        return this.managementServiceImp.getDEHealthCheck(de).map((result: any)=>{
+            if (result.error) {
+                return this.extractErrorMessage(result.error);
+            } else {
+                return result;
+            }
+        });
     }
 
     public getArtifacts(de: any): Observable<ArtifactInfo[]> {
-        return this.managementServiceImp.getFlows(de);
+        return this.managementServiceImp.getFlows(de).map((result: any) => {
+            if (result.error) {
+                return this.extractErrorMessage(result.error);
+            } else {
+                return result;
+            }
+
+        });
     }
 
     public execute(data: any, de?: any): Observable<any> {
 
         let executionInputs = this.transformExecutionInput(this.flow, data);
 
-        return this.managementServiceImp.execute(executionInputs, de).map(response => response.json() as ExecutionResult)
-            .map(result => this.transformExecutionResult(result));
+        return this.managementServiceImp.execute(executionInputs, de)
+            .map((result: any) => {
+                if (result.error) {
+                    return this.extractErrorMessage(result.error);
+                }
+                else {
+
+                    return this.transformExecutionResult(result);
+                }
+            });
     }
 
     getFlowManifest(flow: any, de?: any): Observable<any> {
         this.flow = flow;
-        return this.managementServiceImp.getFlowManifest(flow, de).map(r => r.json()).map(manifest => this.transformationService.transformToFormSchema(manifest));
+        return this.managementServiceImp.getFlowManifest(flow, de).map(result => {
+            if (result.error) {
+                return this.extractErrorMessage(result.error);
+            }
+            else {
+                return this.transformationService.transformToFormSchema(result);
+            }
+        });
     }
 
     transformExecutionInput(flow: any, data: any) {
@@ -86,7 +114,7 @@ export class ManagementServiceFacade {
         let result: ExecutionInput = {
             executableKey: {
                 artifactKey,
-                effectiveDate: '2017'
+                effectiveDate: '2019-01-01'
             },
             executionInput: {
                 root: data
@@ -148,5 +176,21 @@ export class ManagementServiceFacade {
             result = result.concat(selector(item));
         });
         return result;
+    }
+
+    private extractErrorMessage(error) : any {
+        let _error: any;
+        if (typeof error == 'string') {
+            _error =  {error: error};
+        }
+        else {
+            _error = JSON.parse(error);
+
+            if (_error.message)
+                _error =  {error: _error.message};
+            else
+                _error =  {error: _error};
+        }
+        return _error;
     }
 }

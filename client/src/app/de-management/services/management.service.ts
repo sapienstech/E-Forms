@@ -6,41 +6,45 @@ import { ArtifactInfo } from '../../types/types';
 import { IManagementService } from './IManagementService';
 
 @Injectable()
-export class ManagementService implements IManagementService{
+export class ManagementService implements IManagementService {
 
-    constructor(private http:Http) { }
+    constructor(private http: Http) {
+    }
 
-    getFlowManifest(flow: any,de:any): Observable<any> {
+    getFlowManifest(flow: any, de: any): Observable<any> {
         let requestOptionArgs = {
-            body:{
-                artifactKey:{
-                    name:flow.name,
-                    releaseName:flow.releaseName,
-                    tagName:flow.tagName,
-                    artifactType:'FLOW'
+            body: {
+                artifactKey: {
+                    name: flow.name,
+                    releaseName: flow.releaseName,
+                    tagName: flow.tagName,
+                    artifactType: 'FLOW'
                 },
-                de:de.url
+                de: de.url
             }
         };
-        return this.http.post(environment.de+'/manifest',requestOptionArgs);
+        return this.http.post(environment.de + '/manifest', requestOptionArgs).map(r => r.json());
     }
 
-    public getDEsInfo():Observable<any[]>{
-        return this.http.get(environment.de+ '/de-servers').map(r=> r.json());
+    public getDEsInfo(): Observable<any[]> {
+        return this.http.get(environment.de + '/de-servers').map(r => r.json());
     }
 
-    public getDEHealthCheck(de:any):Observable<any>{
-        return this.http.get(environment.de + '/heartbeat?url='+de.url).map(r=>r.text());
+    public getDEHealthCheck(de: any): Observable<any> {
+        return this.http.get(environment.de + '/heartbeat?url=' + de.url).map(r => {
+            return r.json()
+        });
     }
 
-    public getFlows(de:any):Observable<ArtifactInfo[]>{
-        return this.http.get(environment.de + '/flows?url='+de.url).map(r=>r.json());
+    public getFlows(de: any): Observable<ArtifactInfo[]> {
+        return this.http.get(environment.de + '/flows?url=' + de.url).map(r => r.json());
     }
 
-    public execute(key:any,de:any):Observable<any>{
+    public execute(key: any, de: any): Observable<any> {
         let requestOptionArgs = {
-            body:key
+            body: key
         };
-        return this.http.post(environment.de + '/execute?url='+de.url,requestOptionArgs);
+        return this.http.post(environment.de + '/execute?url=' + de.url, requestOptionArgs).map(r => r.json());
+
     }
 }

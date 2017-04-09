@@ -39,12 +39,15 @@ class Api {
                 }
             }
             request.send(req.body.body.de + '/manifest',options, (body, _res) => {
-
+                if (body == 'ECONNREFUSED') {
+                    res.send(SERVER_ERROR)
+                    return;
+                }
                 if(_res.statusCode >= 200 && _res.statusCode < 400) {
                     res.send(JSON.parse(_res.body));
                 }
                 else{
-                    return {error:'error'};
+                    res.send({error:'error'});
                 }
 
             });
@@ -61,7 +64,16 @@ class Api {
                 method: 'GET',
                 params: null,
             }, (body, _res) => {
-                res.send(_res.body);
+                if (body == 'ECONNREFUSED') {
+                    res.send(SERVER_ERROR)
+                    return;
+                }
+                if(_res.statusCode >= 200 && _res.statusCode < 400) {
+                    res.send({status:_res.body});
+                }
+                else{
+                    res.send({error:'error'});
+                }
             });
         });
 
@@ -76,17 +88,21 @@ class Api {
 
         app.get('/flows', (req, res) => {
 
-            request.send(req.query.url + '/repo/findAllArtifactKeys', {
+            request.send(req.query.url + '/repo/findAllArtifactKeysWithVersionAndEffectiveDates', {
                 method: 'GET',
                 params: null,
             }, (body, _res) => {
                 if (body == 'ECONNREFUSED') {
                     res.send(SERVER_ERROR)
+                    return;
                 }
-                else {
+                if(_res.statusCode >= 200 && _res.statusCode < 400) {
                     let result = JSON.parse(_res.body);
                     let filtered = result.filter(r => r.artifactType == 'FLOW');
                     res.send(filtered);
+                }
+                else{
+                    res.send({error:'error'});
                 }
             });
 
@@ -98,11 +114,16 @@ class Api {
                 method: 'POST',
                 params: req.body.body
             }, (body, _res) => {
-                if(_res.statusCode >= 200 && _res.statusCode < 400) {
+                if(body == 'ECONNREFUSED'){
+                    res.send({error:{message:'DE server is down'}})
+                    return;
+                }
+                else if(_res.statusCode >= 200 && _res.statusCode < 400) {
                     res.send(JSON.parse(_res.body));
                 }
                 else{
-                    return {error:'error'};
+                    res.send({error:body});
+
                 }
             });
 

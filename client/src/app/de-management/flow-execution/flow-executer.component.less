@@ -1,11 +1,12 @@
+@import '../../../styles';
 
 .main {
     height: 100%;
     .header {
-        background: #2c6abe;
+        background: @main-color;
         display: table;
         width: 100%;
-        border-bottom: 1px solid lightgray;
+        border-bottom: 1px solid @border-color;
         h2{
             display: table-cell;
             padding: 0 10px;
@@ -22,9 +23,14 @@
             height: 100%;
             float: left;
             padding-left: 10px;
-            padding-top: 10px;
             padding-bottom: 10px;
-
+            >div:first-child{
+                margin: 10px 10px 0 0;
+                border-bottom: 1px solid lightgray;
+                >h3{
+                    margin: 0px;
+                }
+            }
         }
 
         .results-container {
@@ -32,27 +38,42 @@
             display: inline-block;
             width: 50%;
             height: 100%;
+            >div:first-child{
+                margin: 10px;
+                border-bottom: 1px solid lightgray;
+                >h3{
+                    margin: 0px;
+                }
+            }
         }
     }
 
     .form-container{
         overflow: auto;
         padding-right: 10px;
+        margin-top: 20px;
         height: ~"calc(100% - 100px)";
     }
 
     .result-item{
-        margin:10px;
+        padding:10px;
+        &:nth-child(even) {
+            background: #e7e7e7;
+        }
         >span {
             &:first-child{
                 font-weight: bold;
                 margin-right:10px;
+                width: 400px;
+                display: inline-block;
             }
         }
     }
 
     .results{
-        margin:10px
+        margin:20px 10px 10px 10px;
+        height: ~"calc(100% - 70px)";
+        overflow: auto;
     }
 }
 

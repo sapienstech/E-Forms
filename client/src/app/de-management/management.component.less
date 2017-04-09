@@ -1,3 +1,4 @@
+@import '../../styles';
 
 .main{
     background: #e9e9e9;
@@ -11,7 +12,7 @@
 
 .main-header{
     height: 50px;
-    background: #2c6abe;
+    background: @main-color;
     .header;
     h2{
         color: white;
@@ -25,13 +26,15 @@
     height: ~"calc(100% - 51px)";
 
     .servers{
+        border-right: 1px solid @border-color;
         height: 100%;
         float: left;
-        background: #2c6abe;
+        background: @main-color;
         width: 300px;
         margin-top: 1px;
         overflow: auto;
         .server-item{
+            padding: 10px;
             height: 100px;
             overflow: hidden;
             border-bottom: 1px solid white;
@@ -76,24 +79,32 @@
         }
     }
 
-    .flows{
+    .projects{
         height: 100%;
         overflow: auto;
-        .flow-item{
+        .project-item{
             cursor:pointer;
-            padding: 10px;
             overflow: hidden;
+            max-height: 50px;
+            border-bottom: 1px solid @border-color;
+
             &:hover{
                 background: #f5f5f5;
             }
-            max-height: 50px;
-            border-bottom: 1px solid #d6d6d6;
-            h3{
-                margin: 0px;
+            .project-header{
+                height: 50px;
+                background: #e9e9e9;
+                border-bottom: 1px solid @border-color;
+                h3{
+                    display: inline-block;
+                    margin: 10px;
+                }
             }
 
 
-            .flow-details{
+
+
+            .project-details{
                 margin-left: 10px;
                 max-height: 600px;
                 margin-top: 20px;
@@ -117,6 +128,7 @@
 
             .selected-tag{
                 height: auto;
+                margin-bottom: 20px;
             }
 
 
@@ -124,7 +136,7 @@
 
         .tag-header{
             &:hover{
-                color: #0060ff;
+                color: @main-color;
             }
             .expander-btn{
 
@@ -136,36 +148,37 @@
 
 
 
-        .selected-flow{
+        .selected-project{
             background: #f5f5f5;
             max-height: 400px;
-        }
 
-        .selected-tag-header{
-            color: #0060ff;
         }
-
         .item-marker{
 
         }
 
-        .flow-item1{
+        .flow-item{
             margin-top: 5px;
             >div{
                 display: inline-block;
                 margin-right: 5px;
             }
-            >h4{
+            .flow-name-header{
                 &:hover{
-                    text-decoration: underline;
+                    color: @main-color;
                 }
                 display: inline-block;
+
+                span:first-child{
+                    margin-right: 10px;
+                }
+
             }
         }
     }
 }
 
 
-div,h4{
+div{
     transition: 0.5s all;
 }
