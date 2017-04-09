@@ -93,12 +93,19 @@ export class ManagementComponent implements OnInit {
     }
 
     flowClicked(flow: any) {
-        this.router.navigateByUrl('/execute-flow?flow-name=' + flow.name +
+
+        let url = '/execute-flow?flow-name=' + flow.name +
             '&tag-name=' + flow.tagName +
             '&version=' + flow.version +
-            '&release-name=' + flow.releaseName +
-            '&de-name=' + this.selectedDE.name +
-            '&de-url=' + this.selectedDE.url);
+            '&release-name=' + flow.releaseName;
+
+        if (this.selectedDE) {
+            url = url +
+                '&de-name=' + this.selectedDE.name +
+                '&de-url=' + this.selectedDE.url;
+        }
+
+        this.router.navigateByUrl(url);
 
     }
 }

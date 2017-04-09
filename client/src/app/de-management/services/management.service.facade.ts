@@ -79,7 +79,7 @@ export class ManagementServiceFacade {
 
         let executionInputs = this.transformExecutionInput(this.flow, data);
 
-        return this.managementServiceImp.execute(executionInputs, de).map(response => response.json() as ExecutionResult)
+        return this.managementServiceImp.execute(executionInputs, de)
             .map((result: any) => {
                 if (result.error) {
                     return this.extractErrorMessage(result.error);
@@ -93,7 +93,7 @@ export class ManagementServiceFacade {
 
     getFlowManifest(flow: any, de?: any): Observable<any> {
         this.flow = flow;
-        return this.managementServiceImp.getFlowManifest(flow, de).map(r => r.json()).map(result => {
+        return this.managementServiceImp.getFlowManifest(flow, de).map(result => {
             if (result.error) {
                 return this.extractErrorMessage(result.error);
             }

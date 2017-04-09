@@ -12,7 +12,8 @@ import { FormComponent } from 'angular2-schema-form';
         trigger('routeAnimation', [
             state('*', style({opacity: 1})),
             state('void', style({opacity: 0})),
-            transition('void => *', [style({opacity: 1}),animate(1000)])
+            transition('void => *', [style({opacity: 0}),animate(1000)
+            ])
 
         ])
     ]
@@ -77,6 +78,8 @@ export class FlowExecuterComponent implements OnInit {
             else {
                 this.executionResult = result.data;
             }
+        },error=>{
+            this.errorMessage = error;
         });
     }
 }

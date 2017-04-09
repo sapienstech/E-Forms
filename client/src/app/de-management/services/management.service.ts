@@ -23,7 +23,7 @@ export class ManagementService implements IManagementService {
                 de: de.url
             }
         };
-        return this.http.post(environment.de + '/manifest', requestOptionArgs);
+        return this.http.post(environment.de + '/manifest', requestOptionArgs).map(r => r.json());
     }
 
     public getDEsInfo(): Observable<any[]> {
@@ -44,6 +44,6 @@ export class ManagementService implements IManagementService {
         let requestOptionArgs = {
             body: key
         };
-        return this.http.post(environment.de + '/execute?url=' + de.url, requestOptionArgs);
+        return this.http.post(environment.de + '/execute?url=' + de.url, requestOptionArgs).map(r => r.json());
     }
 }
