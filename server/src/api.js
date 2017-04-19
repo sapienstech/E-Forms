@@ -27,7 +27,9 @@ class Api {
         });
     }
 
-    exposeDEEndpoints() {
+
+    exposeDEEndpoints(port) {
+
 
 
         app.post('/manifest', (req, res) => {
@@ -134,8 +136,10 @@ class Api {
             res.send('OK');
         })
 
-        app.listen(3000, function () {
-            console.log('Example app listening on port 3000!')
+        let selectedPort = port || 3000;
+        app.listen(selectedPort, function () {
+            console.log('Example app listening on port '+ selectedPort +'!')
+
         })
 
 
@@ -161,7 +165,9 @@ class Api {
 
     getFile(file) {
         return new Promise((res, rej) => {
-            fs.readFile('data/' + file, 'utf8', (err, data) => {
+
+            fs.readFile('../data/' + file, 'utf8', (err, data) => {
+
                 if (!err) {
                     let file = JSON.parse(data);
                     res(file);
