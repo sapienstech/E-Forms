@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href ./",
     "test": "ng test --progress=false --single-run --code-coverage",
     "test-watch": "ng test",
     "lint": "ng lint",
@@ -17,6 +17,7 @@
     "@angular/compiler": ">=4.0.0-beta <5.0.0",
     "@angular/core": ">=4.0.0-beta <5.0.0",
     "@angular/forms": ">=4.0.0-beta <5.0.0",
+    "@angular/animations": ">=4.0.0-beta <5.0.0",
     "@angular/http": ">=4.0.0-beta <5.0.0",
     "@angular/platform-browser": ">=4.0.0-beta <5.0.0",
     "@angular/platform-browser-dynamic": ">=4.0.0-beta <5.0.0",
@@ -32,12 +33,13 @@
     "zone.js": "^0.8.0"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0-rc.4",
+    "@angular/cli": "1.0.0",
     "@angular/compiler-cli": ">=4.0.0-beta <5.0.0",
     "@types/jasmine": "^2.5.43",
     "@types/lodash": "^4.14.53",
-    "@types/node": "~7.0.5",
+    "@types/node": "^7.0.12",
     "@types/z-schema": "^3.16.31",
+    "base-href-webpack-plugin": "^1.0.2",
     "bootstrap": "^3.3.7",
     "codelyzer": "~3.0.0-beta.0",
     "jasmine-core": "~2.5.2",

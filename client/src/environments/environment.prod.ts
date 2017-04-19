@@ -1,3 +1,6 @@
+declare var window : any;
+
 export const environment = {
-    production: true
+    production: true,
+    de:window.location.origin
 };

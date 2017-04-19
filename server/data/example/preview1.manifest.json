@@ -11,7 +11,7 @@
                                 "dataType": "TEXT",
                                 "isPersistent": true,
                                 "isConclusion": false,
-                                "isList": false,
+                                "isList": true,
                                 "factTypeDefinition": 1017888
                             },
                             {
@@ -123,12 +123,82 @@
             "group": {
                 "factType": [
                     {
+                        "name": "field1",
+                        "modelMapping": "field1",
+                        "dataType": "TEXT",
+                        "isPersistent": true,
+                        "isConclusion": false,
+                        "isList": false,
+                        "factTypeDefinition": 1017888
+                    },
+                    {
+                        "name": "field2",
+                        "modelMapping": "field2",
+                        "dataType": "AMOUNT",
+                        "isPersistent": true,
+                        "isConclusion": false,
+                        "isList": false,
+                        "factTypeDefinition": 1017888
+                    },
+                    {
+                        "name": "field3",
+                        "modelMapping": "field3",
+                        "dataType": "DATE",
+                        "isPersistent": true,
+                        "isConclusion": false,
+                        "isList": false,
+                        "factTypeDefinition": 1017888
+                    },
+                    {
+                        "name": "field4",
+                        "modelMapping": "field4",
+                        "dataType": "INDICATOR",
+                        "isPersistent": true,
+                        "isConclusion": false,
+                        "isList": false,
+                        "factTypeDefinition": 1017888
+                    },
+                    {
+                        "name": "field5",
+                        "modelMapping": "field5",
+                        "dataType": "TEXT",
+                        "isPersistent": true,
+                        "isConclusion": false,
+                        "isList": true,
+                        "factTypeDefinition": 1017888,
+                        "validValues": {
+                            "value": [
+                                "invalid",
+                                "valid"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "field6",
+                        "modelMapping": "field6",
+                        "dataType": "TEXT",
+                        "isPersistent": true,
+                        "isConclusion": false,
+                        "isList": true,
+                        "factTypeDefinition": 1017888
+
+                    },{
+                        "name": "field7",
+                        "modelMapping": "field7",
+                        "dataType": "TEXT",
+                        "isPersistent": true,
+                        "isConclusion": false,
+                        "isList": false,
+                        "factTypeDefinition": 1017888
+
+                    },
+                    {
                         "name": "cond5",
                         "modelMapping": "cond5",
                         "dataType": "TEXT",
                         "isPersistent": true,
                         "isConclusion": false,
-                        "isList": false,
+                        "isList": true,
                         "factTypeDefinition": 1017888
                     },
                     {
