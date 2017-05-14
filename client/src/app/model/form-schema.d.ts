@@ -5,7 +5,7 @@ export interface FormProperty extends JsonSchema {
         [name: string]: FormProperty;
     };
     items?: FormProperty | FormProperty[];
-
+    index?:string;
     format?: string; // TODO: Check if this is standard JSON Schema
     widget?: string;
     visibleIf?: {
