@@ -5,6 +5,9 @@ var path = require('path');
 var req = require('./request');
 var bodyParser = require('body-parser');
 var app = express();
+var cors = require('cors');
+app.use(cors());
+
 var request = new req();
 
 app.use(bodyParser.json()); // for parsing application/json

@@ -57,7 +57,9 @@ export class TransformationService {
 
                 if (ft.isList) {
                     property.type = 'array';
+                    property.index = 'i';
                     property.items = this.convertProperty(ft);
+                    property.items.description = 'input';
                 }
 
                 form.properties[ft.modelMapping] = property;
