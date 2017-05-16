@@ -169,7 +169,7 @@ class Api {
     getFile(file) {
         return new Promise((res, rej) => {
 
-            fs.readFile('../data/' + file, 'utf8', (err, data) => {
+            fs.readFile('data/' + file, 'utf8', (err, data) => {
 
                 if (!err) {
                     let file = JSON.parse(data);
