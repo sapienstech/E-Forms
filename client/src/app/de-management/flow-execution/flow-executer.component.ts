@@ -27,6 +27,7 @@ export class FlowExecuterComponent implements OnInit {
     executionResult: any = {};
     @ViewChild('form') form: FormComponent;
     private errorMessage: string;
+    // private executing: boolean = false;
 
     constructor(private route: ActivatedRoute, private service: ManagementServiceFacade) {
 
@@ -69,6 +70,7 @@ export class FlowExecuterComponent implements OnInit {
 
 
     execute(){
+        // this.executing = true;
         this.errorMessage = null;
         this.service.execute(this.output,this.de).subscribe(result=>{
             if(result.error){

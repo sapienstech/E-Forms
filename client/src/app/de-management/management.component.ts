@@ -3,6 +3,7 @@ import { ArtifactInfo } from '../types/types';
 import { ManagementServiceFacade } from './services/management.service.facade';
 import * as _ from 'lodash';
 import { Router } from '@angular/router';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
     selector: 'management',
@@ -16,7 +17,7 @@ export class ManagementComponent implements OnInit {
     private projects: any;
     private selectedDE: any;
 
-    constructor(private service: ManagementServiceFacade, private router: Router) {
+    constructor(private utilsService: UtilsService,private service: ManagementServiceFacade, private router: Router) {
     }
 
     ngOnInit() {
@@ -33,6 +34,7 @@ export class ManagementComponent implements OnInit {
                 this.service.getDEsInfo().subscribe(list => {
                     this.deServers = list;
                     this.deServers.forEach(de => {
+                        de.hostName = this.utilsService.extractHostname(de.url);
                         this.service.getDEHealthCheck(de).subscribe(r => {
                             if (r.error) {
                                 de.aliveStatus = 'Server is down';

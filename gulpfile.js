@@ -2,6 +2,9 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var runSequence = require('run-sequence');
 
+var del = require("del");
+
+
 var ver = getVersion();
 var destFolder = 'DEMC_' + ver;
 
@@ -36,12 +39,18 @@ gulp.task('populate release folder', function () {
 
 });
 
-gulp.task('create start file', function () {
-    let content = 'cd server/src \r\n'+
-        'node main.js';
+
+gulp.task('create start file', () => {
+    let content = 'cd server \r\n node wis-installer.js ';
     return fileGenerator("start.bat", content).pipe(gulp.dest(destFolder));
 });
 
-gulp.task('release', runSequence('populate release folder', 'create start file'));
+gulp.task('create stop file', () => {
+    let content = 'sc stop DEMC \r\n sc delete DEMC';
+    return fileGenerator("stop.bat", content).pipe(gulp.dest(destFolder));
+});
+
+gulp.task('release', runSequence('populate release folder', 'create start file' , 'create stop file'));
+
 
 
