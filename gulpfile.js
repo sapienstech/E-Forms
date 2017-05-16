@@ -1,7 +1,9 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var runSequence = require('run-sequence');
+
 var del = require("del");
+
 
 var ver = getVersion();
 var destFolder = 'DEMC_' + ver;
@@ -49,5 +51,6 @@ gulp.task('create stop file', () => {
 });
 
 gulp.task('release', runSequence('populate release folder', 'create start file' , 'create stop file'));
+
 
 
