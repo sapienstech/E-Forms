@@ -38,10 +38,12 @@
             display: inline-block;
             width: 50%;
             height: 100%;
-            >div:first-child{
+            .actual-results{
                 margin: 10px;
-                border-bottom: 1px solid lightgray;
-                >h3{
+                >div:first-child{
+                    border-bottom: 1px solid lightgray;
+                }
+                h3{
                     margin: 0px;
                 }
             }
@@ -74,6 +76,14 @@
         margin:20px 10px 10px 10px;
         height: ~"calc(100% - 70px)";
         overflow: auto;
+    }
+
+    .busy{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: white;
+        opacity: 0.5;
     }
 }
 

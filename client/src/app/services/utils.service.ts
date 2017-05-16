@@ -25,4 +25,17 @@ export class UtilsService {
         let target: any = result.target.result;
         return JSON.parse(target);
     }
+
+    public extractHostname(url) {
+    var hostname;
+    //find & remove protocol (http, ftp, etc.) and get the hostname
+    if (url.indexOf("://") > -1) {
+        hostname = url.split('/')[2];
+    }
+    else {
+        hostname = url.split('/')[0];
+    }
+
+    return hostname;
+}
 }
