@@ -7,6 +7,9 @@
         "start": "ng serve",
         "build": "ng build --base-href ./",
         "build-prod": "ng build --env=prod --base-href ./ && gulp release",
+
+        "build-dev": "ng build --env=prod --base-href ./ && gulp dev",
+
         "test": "ng test --progress=false --single-run --code-coverage",
         "test-watch": "ng test",
         "lint": "ng lint",

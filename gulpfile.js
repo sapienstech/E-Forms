@@ -30,7 +30,7 @@ function getVersion() {
 }
 
 
-gulp.task('populate release folder', function () {
+gulp.task('populate release / dev folder', function () {
     gulp.src('server/**')
         .pipe(gulp.dest(destFolder + '/server'));
 
@@ -41,16 +41,27 @@ gulp.task('populate release folder', function () {
 
 
 gulp.task('create start file', () => {
-    let content = 'cd server \r\n node wis-installer.js ';
+
+    let content = 'cd server \r\n node wis-installer.js %1 \r\n pause';
+
     return fileGenerator("start.bat", content).pipe(gulp.dest(destFolder));
 });
 
 gulp.task('create stop file', () => {
-    let content = 'sc stop DEMC \r\n sc delete DEMC';
+
+    let content = 'cd server \r\n node wis-uninstaller.js %1 \r\n pause';
     return fileGenerator("stop.bat", content).pipe(gulp.dest(destFolder));
 });
 
-gulp.task('release', runSequence('populate release folder', 'create start file' , 'create stop file'));
+
+gulp.task('create start dev file', () => {
+    let content = 'cd server \r\n node src/main.js';
+    return fileGenerator("start-dev.bat", content).pipe(gulp.dest(destFolder));
+});
+
+gulp.task('release', runSequence('populate release / dev folder', 'create start file' , 'create stop file'));
+gulp.task('dev', runSequence('populate release / dev folder', 'create start dev file'));
+
 
 
 

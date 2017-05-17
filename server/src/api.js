@@ -169,7 +169,7 @@ class Api {
     getFile(file) {
         return new Promise((res, rej) => {
 
-            fs.readFile('../data/' + file, 'utf8', (err, data) => {
+            fs.readFile('./data/' + file, 'utf8', (err, data) => {
 
                 if (!err) {
                     let file = JSON.parse(data);
@@ -186,7 +186,7 @@ class Api {
     getMockExecutionResults(data) {
         return new Promise((res, rej) => {
             let flow = data.executableKey.artifactKey.name;
-            fs.readFile('data/' + flow + '.result.json', 'utf8', (err, data) => {
+            fs.readFile('./data/' + flow + '.result.json', 'utf8', (err, data) => {
                 if (!err) {
                     let file = JSON.parse(data);
                     res(file);

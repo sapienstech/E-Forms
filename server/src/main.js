@@ -3,9 +3,9 @@ var api = require('./api');
 const _api = new api();
 
 let portNumber = 3000;
+let portParam = '--port:';
 
 process.argv.every((val, index, array) => {
-    let portParam = '--port:';
     if (val.indexOf(portParam) >= 0) {
         let parameterVal = val.replace(portParam, '');
         portNumber = parseInt(parameterVal);
@@ -13,7 +13,10 @@ process.argv.every((val, index, array) => {
     }
     return true;
 });
-
+if (process.env.port && process.env.port.indexOf(portParam) >= 0) {
+    let parameterVal = process.env.port.replace(portParam, '');
+    portNumber = parseInt(parameterVal);
+}
 _api.exposeDEEndpoints(portNumber);
 
 
