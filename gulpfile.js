@@ -41,11 +41,14 @@ gulp.task('populate release / dev folder', function () {
 
 
 gulp.task('create start file', () => {
+
     let content = 'cd server \r\n node wis-installer.js %1 \r\n pause';
+
     return fileGenerator("start.bat", content).pipe(gulp.dest(destFolder));
 });
 
 gulp.task('create stop file', () => {
+
     let content = 'cd server \r\n node wis-uninstaller.js %1 \r\n pause';
     return fileGenerator("stop.bat", content).pipe(gulp.dest(destFolder));
 });
@@ -58,6 +61,7 @@ gulp.task('create start dev file', () => {
 
 gulp.task('release', runSequence('populate release / dev folder', 'create start file' , 'create stop file'));
 gulp.task('dev', runSequence('populate release / dev folder', 'create start dev file'));
+
 
 
 
