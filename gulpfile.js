@@ -32,11 +32,13 @@ gulp.task('populate packed folder', function () {
     gulp.src('server/data/**')
         .pipe(gulp.dest(destFolder + '/data'));
 
+
     gulp.src('server/bundle.js')
         .pipe(gulp.dest(destFolder + '/server'));
 
     gulp.src('server/wis-*')
         .pipe(gulp.dest(destFolder + '/server'));
+
 
 
     gulp.src('node_modules/minimist/**')
@@ -51,8 +53,10 @@ gulp.task('populate packed folder', function () {
     gulp.src('node_modules/wordwrap/**')
         .pipe(gulp.dest(destFolder + '/node_modules/wordwrap'));
 
+
     gulp.src('node_modules/xml/**')
         .pipe(gulp.dest(destFolder + '/node_modules/xml'));
+
 
     gulp.src('dist/**')
         .pipe(gulp.dest(destFolder + '/dist'))
@@ -74,6 +78,7 @@ gulp.task('create start dev file', () => {
     let content = 'cd server \r\n node src/main.js';
     return fileGenerator("start-dev.bat", content).pipe(gulp.dest(destFolder));
 });
+
 
 gulp.task('release', ()=> { return runSequence('webpack server','populate packed folder', 'create start file', 'create stop file')});
 
@@ -106,6 +111,7 @@ gulp.task('webpack server', () => {
     },(e,s)=>{
 
     })
+
 
 });
 
