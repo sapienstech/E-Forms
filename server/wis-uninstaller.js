@@ -6,7 +6,7 @@ if((process.platform == 'linux') || (process.platform == 'freebsd'))
 
 var svc = new Service({
     name:'DEMC',
-    script: './src/main.js '
+    script: './bundle.js '
 });
 
 svc.on('uninstall',function(){
