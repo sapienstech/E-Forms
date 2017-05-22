@@ -19,7 +19,7 @@ if(process.env.DEBUG_MODE == "true") {
 }
 else {
     console.log('release mode');
-    RELATIVE_PATH  = 'data/';
+    RELATIVE_PATH  = '../data/';
     app.use(express.static('../dist'));
 }
 

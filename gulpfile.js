@@ -1,9 +1,9 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var runSequence = require('run-sequence');
-
+var webpack = require("webpack");
+const path = require('path');
 var del = require("del");
-
 
 var ver = getVersion();
 var destFolder = 'DEMC_' + ver;
@@ -28,40 +28,39 @@ function getVersion() {
     return pkg.version;
 }
 
-
-gulp.task('populate unpacked folder', function () {
-    gulp.src('server/**')
-        .pipe(gulp.dest(destFolder + '/server')).on('end', function () {
-        console.log('finished copying server folder')
-    });
-    ;
-
-    gulp.src('node_modules/**')
-        .pipe(gulp.dest(destFolder + '/node_modules')).on('end', function () {
-        console.log('finished copying node_modules folder')
-    });
-
-    gulp.src('dist/**')
-        .pipe(gulp.dest(destFolder + '/dist')).on('end', function () {
-        console.log('finished copying dist folder')
-    });
-
-});
-
 gulp.task('populate packed folder', function () {
     gulp.src('server/data/**')
         .pipe(gulp.dest(destFolder + '/data'));
+
+    gulp.src('server/bundle.js')
+        .pipe(gulp.dest(destFolder + '/server'));
+
+    gulp.src('server/wis-*')
+        .pipe(gulp.dest(destFolder + '/server'));
+
+
+    gulp.src('node_modules/minimist/**')
+        .pipe(gulp.dest(destFolder + '/node_modules/minimist'));
+
+    gulp.src('node_modules/node-windows/**')
+        .pipe(gulp.dest(destFolder + '/node_modules/node-windows'));
+
+    gulp.src('node_modules/optimist/**')
+        .pipe(gulp.dest(destFolder + '/node_modules/optimist'));
+
+    gulp.src('node_modules/wordwrap/**')
+        .pipe(gulp.dest(destFolder + '/node_modules/wordwrap'));
+
+    gulp.src('node_modules/xml/**')
+        .pipe(gulp.dest(destFolder + '/node_modules/xml'));
 
     gulp.src('dist/**')
         .pipe(gulp.dest(destFolder + '/dist'))
 
 });
 
-
 gulp.task('create start file', () => {
-
     let content = 'cd server \r\n' + 'node wis-installer.js %1 \r\n' + 'pause';
-
     return fileGenerator("start.bat", content).pipe(gulp.dest(destFolder));
 });
 
@@ -71,24 +70,72 @@ gulp.task('create stop file', () => {
     return fileGenerator("stop.bat", content).pipe(gulp.dest(destFolder));
 });
 
-
 gulp.task('create start dev file', () => {
     let content = 'cd server \r\n node src/main.js';
     return fileGenerator("start-dev.bat", content).pipe(gulp.dest(destFolder));
 });
 
+gulp.task('release', ()=> { return runSequence('webpack server','populate packed folder', 'create start file', 'create stop file')});
 
-gulp.task('dev : unpacked', ['populate unpacked folder', 'create start dev file']);
+gulp.task('webpack server', () => {
 
-gulp.task('release : packed', ['populate packed folder', 'create start file', 'create stop file', 'package']);
-gulp.task('release : unpacked', ['populate unpacked folder', 'create start file', 'create stop file']);
+    webpack({
+        entry: './server/src/main.js',
+        output: {
+            path: path.resolve(__dirname, "server"),
+            filename: 'bundle.js'
+        },
+        devtool: 'source-map',
+        target: 'node',
+        node: {
+            fs: 'empty',
+            net: 'empty'
+        },
+        module: {
+            loaders: [
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    loader: 'babel-loader',
+                    query: {
+                        presets: ['es2015']
+                    }
+                }
+            ]
+        }
+    },(e,s)=>{
 
-gulp.task('package', () => {
-    let exec = require('child_process').exec;
-    exec('pkg ./server/src/main.js --out-dir ' + destFolder, (err, stdout, stderr) => {
-        console.log(stdout);
-        console.log(stderr);
-    });
+    })
+
 });
 
 
+// gulp.task('pkg', () => {
+//     let exec = require('child_process').exec;
+//     exec('pkg ./server/src/main.js --out-dir ' + destFolder, (err, stdout, stderr) => {
+//         console.log(stdout);
+//         console.log(stderr);
+//     })
+// });
+// });
+// gulp.task('populate unpacked folder', function () {
+//
+//     gulp.src('server/**')
+//         .pipe(gulp.dest(destFolder + '/server')).on('end', function () {
+//         console.log('finished copying server folder')
+//     });
+//
+//
+//     gulp.src('node_modules/**')
+//         .pipe(gulp.dest(destFolder + '/node_modules')).on('end', function () {
+//         console.log('finished copying node_modules folder')
+//     });
+//
+//     gulp.src('dist/**')
+//         .pipe(gulp.dest(destFolder + '/dist')).on('end', function () {
+//         console.log('finished copying dist folder')
+//     });
+//
+// });
+// gulp.task('dev : unpacked', ['populate unpacked folder', 'create start dev file']);
+// gulp.task('release : unpacked', ['populate unpacked folder', 'create start file', 'create stop file']);

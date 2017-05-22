@@ -13,7 +13,7 @@ if(process.argv.length>2) arg = process.argv[2];
 var svc = new Service({
     name:'DEMC',
     description: 'DEMC',
-    script: './src/main.js ',
+    script: './bundle.js ',
     env: {name:'port',value:arg}
 });
 
