@@ -40,7 +40,6 @@ gulp.task('populate packed folder', function () {
         .pipe(gulp.dest(destFolder + '/server'));
 
 
-
     gulp.src('node_modules/minimist/**')
         .pipe(gulp.dest(destFolder + '/node_modules/minimist'));
 
@@ -63,16 +62,27 @@ gulp.task('populate packed folder', function () {
 
 });
 
-gulp.task('create start file', () => {
+gulp.task('create start sh', () => {
+    let shContent = 'cd server \r\n' + 'nohup node bundle.js $1 2>&1 & echo $! > ../demc.pid';
+    return fileGenerator("start.sh", shContent).pipe(gulp.dest(destFolder));
+});
+
+gulp.task('create start bat', () => {
     let content = 'cd server \r\n' + 'node wis-installer.js %1 \r\n' + 'pause';
     return fileGenerator("start.bat", content).pipe(gulp.dest(destFolder));
 });
 
-gulp.task('create stop file', () => {
-
+gulp.task('create stop bat', () => {
     let content = 'cd server \r\n node wis-uninstaller.js %1 \r\n pause';
     return fileGenerator("stop.bat", content).pipe(gulp.dest(destFolder));
 });
+
+
+gulp.task('create stop sh', () => {
+    let shContent = 'value=$(<demc.pid) \r\n' + 'kill $value';
+    return fileGenerator("stop.sh", shContent).pipe(gulp.dest(destFolder));
+});
+
 
 gulp.task('create start dev file', () => {
     let content = 'cd server \r\n node src/main.js';
@@ -80,7 +90,9 @@ gulp.task('create start dev file', () => {
 });
 
 
-gulp.task('release', ()=> { return runSequence('webpack server','populate packed folder', 'create start file', 'create stop file')});
+gulp.task('release', () => {
+    return runSequence('webpack server', 'populate packed folder', 'create start bat', 'create stop bat', 'create start sh', 'create stop sh')
+});
 
 gulp.task('webpack server', () => {
 
@@ -108,7 +120,7 @@ gulp.task('webpack server', () => {
                 }
             ]
         }
-    },(e,s)=>{
+    }, (e, s) => {
 
     })
 
