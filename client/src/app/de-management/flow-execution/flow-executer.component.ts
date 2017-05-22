@@ -42,6 +42,7 @@ export class FlowExecuterComponent implements OnInit {
             this.route.queryParams.subscribe((params: Params) => {
                 this.flow = {
                     name: params['flow-name'],
+                    realName: params['flow-real-name'],
                     tagName: params['tag-name'],
                     version: params['version'],
                     releaseName: params['release-name']

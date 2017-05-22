@@ -32,7 +32,7 @@
                             <div *ngFor="let flow of tag.flows" class="flow-item" (click)="flowClicked(flow)">
                                 <div>-</div>
                                 <h4 class="flow-name-header">
-                                    <span>{{flow.name}}</span>
+                                    <span>{{flow.unNormalizedName}}</span>
                                     <span>-V{{flow.version}}</span>
                                 </h4>
 

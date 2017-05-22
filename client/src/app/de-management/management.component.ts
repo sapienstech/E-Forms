@@ -62,7 +62,7 @@ export class ManagementComponent implements OnInit {
     private getArtifacts(de: any) {
         this.service.getArtifacts(de).subscribe((result: ArtifactInfo[]) => {
             this.artifacts = result.filter((r: any) => r.artifactType == 'FLOW'); //TODO: need to move the filter to the service
-            this.projects = _.groupBy(this.artifacts, 'releaseName');
+            this.projects = _.groupBy(this.artifacts, 'unNormalizedReleaseName');
             this.projects = Object.keys(this.projects).map(f => {
                 return {
                     name: f,
@@ -72,7 +72,7 @@ export class ManagementComponent implements OnInit {
             });
 
             this.projects.forEach(p => {
-                p.tags = _.groupBy(p.tags, 'tagName');
+                p.tags = _.groupBy(p.tags, 'unNormalizedTagName');
                 p.tags = Object.keys(p.tags).map(t => {
                     return {
                         name: t,
@@ -97,6 +97,7 @@ export class ManagementComponent implements OnInit {
     flowClicked(flow: any) {
 
         let url = '/execute-flow?flow-name=' + flow.name +
+            '&flow-real-name=' + flow.unNormalizedName+
             '&tag-name=' + flow.tagName +
             '&version=' + flow.version +
             '&release-name=' + flow.releaseName;

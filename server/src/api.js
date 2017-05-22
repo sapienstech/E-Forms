@@ -1,3 +1,4 @@
+var RELATIVE_PATH = '';
 var fs = require('fs');
 var url = require('url');
 var express = require('express');
@@ -7,12 +8,20 @@ var bodyParser = require('body-parser');
 var app = express();
 var cors = require('cors');
 app.use(cors());
-
 var request = new req();
-
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
-app.use('/', express.static(path.join(__dirname, '../../dist')));
+
+if(process.env.DEBUG_MODE == "true") {
+    console.log('debug mode');
+    app.use('/', express.static(path.join(__dirname, '../../dist')));
+    RELATIVE_PATH  = '../data/';
+}
+else {
+    console.log('release mode');
+    RELATIVE_PATH  = 'data/';
+    app.use(express.static('../dist'));
+}
 
 const SERVER_ERROR = {error: 'server error'};
 const de = 'http://localhost:9090/bdes';
@@ -167,9 +176,10 @@ class Api {
     }
 
     getFile(file) {
+
         return new Promise((res, rej) => {
 
-            fs.readFile('./data/' + file, 'utf8', (err, data) => {
+            fs.readFile(RELATIVE_PATH + file, 'utf8', (err, data) => {
 
                 if (!err) {
                     let file = JSON.parse(data);
