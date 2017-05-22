@@ -3,6 +3,10 @@ export interface ArtifactInfo {
     name: string;
     artifactType: string;
     releaseName: string;
+    unNormalizedReleaseName: string;
+    unNormalizedTagName: string;
+    unNormalizedName: string;
+
 }
 //
 // export interface FactType {

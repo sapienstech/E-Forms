@@ -1,5 +1,13 @@
-var api = require('./api');
 
+
+    if(typeof v8debug === 'object') {
+        process.env.DEBUG_MODE = true;
+}
+else {
+    process.env.DEBUG_MODE = false;
+}
+
+var api = require('./api');
 const _api = new api();
 
 let portNumber = 3000;
