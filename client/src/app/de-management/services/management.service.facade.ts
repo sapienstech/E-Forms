@@ -91,14 +91,26 @@ export class ManagementServiceFacade {
             });
     }
 
-    getFlowManifest(flow: any, de?: any): Observable<any> {
+    getFlowSchema(flow: any, de?: any): Observable<any> {
         this.flow = flow;
-        return this.managementServiceImp.getFlowManifest(flow, de).map(result => {
+        return this.managementServiceImp.getFlowSchema(flow, de).map(result => {
             if (result.error) {
                 return this.extractErrorMessage(result.error);
             }
             else {
                 return this.transformationService.transformToFormSchema(result);
+            }
+        });
+    }
+
+    getFlowManifest(flow: any, de?: any): Observable<any> {
+        this.flow = flow;
+        return this.managementServiceImp.getFlowSchema(flow, de).map(result => {
+            if (result.error) {
+                return this.extractErrorMessage(result.error);
+            }
+            else {
+                return result;
             }
         });
     }

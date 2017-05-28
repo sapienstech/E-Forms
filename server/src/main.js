@@ -1,6 +1,4 @@
-
-
-    if(typeof v8debug === 'object') {
+if(typeof v8debug === 'object') {
         process.env.DEBUG_MODE = true;
 }
 else {

@@ -40,8 +40,8 @@
                         <h5>{{errorMessage}}</h5>
                     </div>
                     <div [@routeAnimation]="!errorMessage" class="results" *ngIf="!errorMessage">
-                        <div *ngFor="let item of executionResult | keys" class="result-item">
-                            <span>{{item.key}}:</span>
+                        <div *ngFor="let item of executionResult" class="result-item">
+                            <span>{{item.field}}:</span>
                             <span>{{item.value}}</span>
                         </div>
 

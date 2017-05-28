@@ -11,5 +11,5 @@ export interface IManagementService {
 
     execute(key: any, de?: any): Observable<any>;
 
-    getFlowManifest(flow: any, de?: any): Observable<any> ;
+    getFlowSchema(flow: any, de?: any): Observable<any> ;
 }

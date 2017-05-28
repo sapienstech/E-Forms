@@ -28,7 +28,7 @@ function getVersion() {
     return pkg.version;
 }
 
-gulp.task('populate packed folder', function () {
+gulp.task('populate packed folder', ['webpack server'], function () {
     gulp.src('server/data/**')
         .pipe(gulp.dest(destFolder + '/data'));
 
@@ -36,7 +36,13 @@ gulp.task('populate packed folder', function () {
     gulp.src('server/bundle.js')
         .pipe(gulp.dest(destFolder + '/server'));
 
-    gulp.src('server/wis-*')
+    gulp.src('server/package_files/start.*')
+        .pipe(gulp.dest(destFolder ));
+
+    gulp.src('server/package_files/stop.*')
+        .pipe(gulp.dest(destFolder ));
+
+    gulp.src('server/package_files/wis-*')
         .pipe(gulp.dest(destFolder + '/server'));
 
 
@@ -62,39 +68,20 @@ gulp.task('populate packed folder', function () {
 
 });
 
-gulp.task('create start sh', () => {
-    let shContent = 'cd server \r\n' + 'nohup node bundle.js $1 2>&1 & echo $! > ../demc.pid';
-    return fileGenerator("start.sh", shContent).pipe(gulp.dest(destFolder));
-});
-
-gulp.task('create start bat', () => {
-    let content = 'cd server \r\n' + 'node wis-installer.js %1 \r\n' + 'pause';
-    return fileGenerator("start.bat", content).pipe(gulp.dest(destFolder));
-});
-
-gulp.task('create stop bat', () => {
-    let content = 'cd server \r\n node wis-uninstaller.js %1 \r\n pause';
-    return fileGenerator("stop.bat", content).pipe(gulp.dest(destFolder));
-});
-
-
-gulp.task('create stop sh', () => {
-    let shContent = 'value=$(<demc.pid) \r\n' + 'kill $value';
-    return fileGenerator("stop.sh", shContent).pipe(gulp.dest(destFolder));
-});
-
 
 gulp.task('create start dev file', () => {
-    let content = 'cd server \r\n node src/main.js';
+    let content = 'cd server \r\n node bundle.js';
     return fileGenerator("start-dev.bat", content).pipe(gulp.dest(destFolder));
 });
 
 
 gulp.task('release', () => {
-    return runSequence('webpack server', 'populate packed folder', 'create start bat', 'create stop bat', 'create start sh', 'create stop sh')
+    return runSequence('webpack server', 'populate packed folder');
 });
 
-gulp.task('webpack server', () => {
+gulp.task('default', ['populate packed folder']);
+
+gulp.task('webpack server', done => {
 
     webpack({
         entry: './server/src/main.js',
@@ -121,7 +108,7 @@ gulp.task('webpack server', () => {
             ]
         }
     }, (e, s) => {
-
+        done();
     })
 
 
@@ -155,5 +142,5 @@ gulp.task('webpack server', () => {
 //     });
 //
 // });
-// gulp.task('dev : unpacked', ['populate unpacked folder', 'create start dev file']);
+gulp.task('dev : packed', ['webpack server', 'populate packed folder', 'create start dev file']);
 // gulp.task('release : unpacked', ['populate unpacked folder', 'create start file', 'create stop file']);

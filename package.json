@@ -8,8 +8,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --base-href ./",
-    "build-prod": "ng build --env=prod --base-href ./ && gulp release",
-    "build-dev": "ng build --env=prod --base-href ./ && gulp dev",
+    "build-prod": "ng build --env=prod --base-href ./ && gulp",
+    "build-dev": "ng build --env=prod --base-href ./ && gulp",
     "test": "ng test --progress=false --single-run --code-coverage",
     "test-watch": "ng test",
     "lint": "ng lint",
@@ -73,7 +73,7 @@
     "run-sequence": "^1.2.2",
     "ts-node": "~3.0.0",
     "tslint": "~4.5.1",
-    "typescript": "~2.1.0",
+    "typescript": "~2.2",
     "webpack": "^2.5.1"
   }
 }

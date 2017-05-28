@@ -20,11 +20,12 @@ import { FormComponent } from 'angular2-schema-form';
 })
 export class FlowExecuterComponent implements OnInit {
 
+    originalManifest: any;
     flow: any;
     schema: any;
     de: any;
     output:any;
-    executionResult: any = {};
+    executionResult: any[] = [];
     @ViewChild('form') form: FormComponent;
     private errorMessage: string;
     private executing: boolean = false;
@@ -51,6 +52,7 @@ export class FlowExecuterComponent implements OnInit {
                     name: params['de-name'],
                     url: params['de-url']
                 }
+                this.getFlowSchema();
                 this.getFlowManifest();
             });
 
@@ -60,9 +62,15 @@ export class FlowExecuterComponent implements OnInit {
 
 
 
+      private getFlowSchema() {
+        this.service.getFlowSchema(this.flow, this.de).subscribe(result=>{
+            this.schema = result;
+        });
+    }
+
     private getFlowManifest() {
         this.service.getFlowManifest(this.flow, this.de).subscribe(result=>{
-            this.schema = result;
+            this.originalManifest = result.asset[0].group.factType;
         });
     }
 
@@ -85,7 +93,14 @@ export class FlowExecuterComponent implements OnInit {
                this.errorMessage = result.error;
             }
             else {
-                this.executionResult = result.data;
+                this.executionResult = [];
+                let keys = Object.keys(result.data);
+                keys.forEach(key=> {
+                    let originalFT = this.originalManifest.find(f => f.modelMapping == key);
+                    if (originalFT.isPersistent == false) {
+                        this.executionResult.push({field: originalFT.name, value: result.data[key]});
+                    }
+                });
             }
         },error=>{
             this.errorMessage = error;

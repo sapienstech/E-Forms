@@ -11,7 +11,7 @@ export class ManagementService implements IManagementService {
     constructor(private http: Http) {
     }
 
-    getFlowManifest(flow: any, de: any): Observable<any> {
+    getFlowSchema(flow: any, de: any): Observable<any> {
         let requestOptionArgs = {
             body: {
                 artifactKey: {

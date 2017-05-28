@@ -19,9 +19,7 @@ if(process.env.DEBUG_MODE == "true") {
 }
 else {
     console.log('release mode');
-
     RELATIVE_PATH  = '../data/';
-
     app.use(express.static('../dist'));
 }
 
@@ -59,7 +57,7 @@ class Api {
                     res.send(SERVER_ERROR)
                     return;
                 }
-                if(_res.statusCode >= 200 && _res.statusCode < 400) {
+                if(_res && _res.statusCode >= 200 && _res.statusCode < 400) {
                     res.send(JSON.parse(_res.body));
                 }
                 else{
@@ -84,7 +82,7 @@ class Api {
                     res.send(SERVER_ERROR)
                     return;
                 }
-                if(_res.statusCode >= 200 && _res.statusCode < 400) {
+                if(_res && _res.statusCode >= 200 && _res.statusCode < 400) {
                     res.send({status:_res.body});
                 }
                 else{
@@ -112,7 +110,7 @@ class Api {
                     res.send(SERVER_ERROR)
                     return;
                 }
-                if(_res.statusCode >= 200 && _res.statusCode < 400) {
+                if(_res && _res.statusCode >= 200 && _res.statusCode < 400) {
                     let result = JSON.parse(_res.body);
                     let filtered = result.filter(r => r.artifactType == 'FLOW');
                     res.send(filtered);
@@ -134,7 +132,7 @@ class Api {
                     res.send({error:{message:'DE server is down'}})
                     return;
                 }
-                else if(_res.statusCode >= 200 && _res.statusCode < 400) {
+                else if(_res && _res.statusCode >= 200 && _res.statusCode < 400) {
                     res.send(JSON.parse(_res.body));
                 }
                 else{

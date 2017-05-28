@@ -10,7 +10,7 @@ declare var window: any;
 @Injectable()
 export class LocalManagementService implements IManagementService {
 
-    getFlowManifest(flow: any): Observable<any> {
+    getFlowSchema(flow: any): Observable<any> {
         let requestOptionArgs = {
             artifactKey: {
                 name: flow.name,
@@ -24,7 +24,6 @@ export class LocalManagementService implements IManagementService {
     }
 
     private localDEUrl: string;
-
 
     constructor(private http: Http) {
         this.localDEUrl = window.location.origin;
