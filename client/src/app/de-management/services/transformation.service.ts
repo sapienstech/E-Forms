@@ -59,7 +59,7 @@ export class TransformationService {
                     property.type = 'array';
                     property.index = 'i';
                     property.items = this.convertProperty(ft);
-                    property.items.description = 'input';
+                    property.items.description = '';
                 }
 
                 form.properties[ft.modelMapping] = property;

@@ -8,14 +8,16 @@ import { PipesModule } from '../../pipes/pipes.module';
 import { HiddenWidget } from '../../widgets/hidden/hidden.widget';
 import { CollapsibleWidget } from '../../widgets/collapsable/collapsable.widget';
 import { AccordionModule } from 'ngx-accordion';
+import { ArrayWidget } from '../../widgets/array/array.widget';
 
 @NgModule({
     imports: [BrowserModule,FlowExecuterRouterModule,SchemaFormModule,PipesModule,AccordionModule],
-    declarations: [FlowExecuterComponent, CollapsibleWidget,HiddenWidget],
+    declarations: [FlowExecuterComponent, CollapsibleWidget,HiddenWidget,ArrayWidget],
     providers: [ManagementService, { provide: WidgetRegistry, useClass: DefaultWidgetRegistry }],
     entryComponents: [
         CollapsibleWidget,
-        HiddenWidget
+        HiddenWidget,
+        ArrayWidget
     ]
 })
 export class FlowExecuterModule {
@@ -23,5 +25,6 @@ export class FlowExecuterModule {
     constructor(widgetRegistry: WidgetRegistry) {
         widgetRegistry.register('collapsible', CollapsibleWidget);
         widgetRegistry.register('hidden', HiddenWidget);
+        widgetRegistry.register('array', ArrayWidget);
     }
 }
