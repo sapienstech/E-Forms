@@ -62,7 +62,8 @@ export class ManagementComponent implements OnInit {
     private getArtifacts(de: any) {
         this.service.getArtifacts(de).subscribe((result: ArtifactInfo[]) => {
             this.artifacts = result.filter((r: any) => r.artifactType == 'FLOW'); //TODO: need to move the filter to the service
-            this.projects = _.groupBy(this.artifacts, 'unNormalizedReleaseName');
+            this.projects = _.groupBy(this.artifacts, 'originalReleaseName');
+
             this.projects = Object.keys(this.projects).map(f => {
                 return {
                     name: f,
@@ -72,7 +73,7 @@ export class ManagementComponent implements OnInit {
             });
 
             this.projects.forEach(p => {
-                p.tags = _.groupBy(p.tags, 'unNormalizedTagName');
+                p.tags = _.groupBy(p.tags, 'originalTagName');
                 p.tags = Object.keys(p.tags).map(t => {
                     return {
                         name: t,
@@ -82,6 +83,17 @@ export class ManagementComponent implements OnInit {
                 })
             });
 
+            this.projects.sort((a,b)=>{
+                var nameA = a.name.toUpperCase();
+                var nameB = b.name.toUpperCase();
+                if (nameA < nameB) {
+                    return -1;
+                }
+                if (nameA > nameB) {
+                    return 1;
+                }
+                return 0;
+            });
 
         });
     }
@@ -97,7 +109,7 @@ export class ManagementComponent implements OnInit {
     flowClicked(flow: any) {
 
         let url = '/execute-flow?flow-name=' + flow.name +
-            '&flow-real-name=' + flow.unNormalizedName+
+            '&flow-real-name=' + flow.originalName+
             '&tag-name=' + flow.tagName +
             '&version=' + flow.version +
             '&release-name=' + flow.releaseName;

@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 import { HEARTBEAT_URL } from '../consts';
 import { TransformationService } from './transformation.service';
 import { ArtifactKey, ExecutionInput, ExecutionResult, FactTypeDetails, Messages } from '../../model/execution';
+import { UtilsService } from '../../services/utils.service';
 
 
 export interface ExecutionResponse {
@@ -20,21 +21,19 @@ interface MessagesMap {
 }
 
 const NON_CONCLUSION_KEYS = new Set(['factTypeDetails', 'executionKeyValues']);
-declare var window: any;
 
 @Injectable()
 export class ManagementServiceFacade {
 
     private managementServiceImp: IManagementService;
-    private localUrl: string;
     public isLocal$: BehaviorSubject<boolean>;
     private flow: any;
 
 
-    constructor(private http: Http, managementService: ManagementService, localManagementService: LocalManagementService, private transformationService: TransformationService) {
+    constructor(private http: Http, managementService: ManagementService, localManagementService: LocalManagementService, private transformationService: TransformationService,private utilsService :UtilsService ) {
         this.isLocal$ = new BehaviorSubject(null);
-        this.localUrl = window.location.origin;
-        let heartBeat = this.localUrl + HEARTBEAT_URL;
+
+        let heartBeat = this.utilsService.getLocalUrl() + HEARTBEAT_URL;
         let obs = this.http.get(heartBeat);
 
         obs.subscribe(_ok => {
@@ -55,7 +54,7 @@ export class ManagementServiceFacade {
     }
 
     public getDEHealthCheck(de: any): Observable<any> {
-        return this.managementServiceImp.getDEHealthCheck(de).map((result: any)=>{
+        return this.managementServiceImp.getDEHealthCheck(de).map((result: any) => {
             if (result.error) {
                 return this.extractErrorMessage(result.error);
             } else {
@@ -190,18 +189,18 @@ export class ManagementServiceFacade {
         return result;
     }
 
-    private extractErrorMessage(error) : any {
+    private extractErrorMessage(error): any {
         let _error: any;
         if (typeof error == 'string') {
-            _error =  {error: error};
+            _error = {error: error};
         }
         else {
             _error = JSON.parse(error);
 
             if (_error.message)
-                _error =  {error: _error.message};
+                _error = {error: _error.message};
             else
-                _error =  {error: _error};
+                _error = {error: _error};
         }
         return _error;
     }

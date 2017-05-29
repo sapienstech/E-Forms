@@ -4,8 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { ArtifactInfo } from '../../types/types';
 import { IManagementService } from './IManagementService';
 import { EXECUTE_URL, GET_FLOWS_URL, MANIFEST_URL } from '../consts';
-declare var window: any;
-
+import { UtilsService } from '../../services/utils.service';
 
 @Injectable()
 export class LocalManagementService implements IManagementService {
@@ -25,8 +24,8 @@ export class LocalManagementService implements IManagementService {
 
     private localDEUrl: string;
 
-    constructor(private http: Http) {
-        this.localDEUrl = window.location.origin;
+    constructor(private http: Http,private utilsService :UtilsService ) {
+        this.localDEUrl = this.utilsService.getLocalUrl();
     }
 
     public getDEsInfo(): Observable<any[]> {

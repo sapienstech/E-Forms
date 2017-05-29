@@ -142,5 +142,5 @@ gulp.task('webpack server', done => {
 //     });
 //
 // });
-gulp.task('dev : packed', ['webpack server', 'populate packed folder', 'create start dev file']);
+gulp.task('dev', ['webpack server', 'populate packed folder', 'create start dev file']);
 // gulp.task('release : unpacked', ['populate unpacked folder', 'create start file', 'create stop file']);
