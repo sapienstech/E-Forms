@@ -75,6 +75,10 @@ export class TransformationService {
             type: this.convertDataType(factType.dataType)
         };
 
+        if(property.type = 'number'){
+            property.default = null;
+        }
+
         if (factType.dataType === 'DATE' || factType.dataType === 'DATE_TIME') {
             property.format = 'date';
             property.widget = 'date';
