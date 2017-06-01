@@ -97,7 +97,7 @@ export class FlowExecuterComponent implements OnInit {
                 let keys = Object.keys(result.data);
                 keys.forEach(key=> {
                     let originalFT = this.originalManifest.find(f => f.modelMapping == key);
-                    if (originalFT.isPersistent == false) {
+                    if ((originalFT.isPersistent == false) || (originalFT.isConclusion == true)) {
                         this.executionResult.push({field: originalFT.name, value: result.data[key]});
                     }
                 });
