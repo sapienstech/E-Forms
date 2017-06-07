@@ -80,30 +80,38 @@ export class ManagementComponent implements OnInit {
                         selected: false,
                         flows: p.tags[t]
                     }
-                })
+                });
+                p.tags.sort(this.sortByName);
             });
 
-            this.projects.sort((a,b)=>{
-                var nameA = a.name.toUpperCase();
-                var nameB = b.name.toUpperCase();
-                if (nameA < nameB) {
-                    return -1;
-                }
-                if (nameA > nameB) {
-                    return 1;
-                }
-                return 0;
-            });
+            this.projects.sort(this.sortByName);
 
         });
     }
 
+    private sortByName(objA : any ,objB : any) : any{
+        var nameA = objA.name.toUpperCase();
+        var nameB = objB.name.toUpperCase();
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        return 0;
+    }
+
     public projectSelected(flow: any) {
-        Object.keys(this.projects).forEach(f => {
+        Object.keys(this.projects).forEach((f:any) => {
+            if(this.projects[f].name == flow.name) return;
             this.projects[f].selected = false;
         });
-        flow.selected = true
+        flow.selected = !flow.selected
 
+    }
+
+    public projectDetailsClicked(event : any){
+        event.stopPropagation();
     }
 
     flowClicked(flow: any) {
