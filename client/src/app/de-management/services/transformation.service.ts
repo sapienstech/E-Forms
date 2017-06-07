@@ -75,7 +75,7 @@ export class TransformationService {
             type: this.convertDataType(factType.dataType)
         };
 
-        if(property.type = 'number'){
+        if(property.type == 'number'){
             property.default = null;
         }
 

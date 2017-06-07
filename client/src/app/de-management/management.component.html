@@ -22,7 +22,7 @@
                 <div class="project-header">
                     <h3>{{project.name}}</h3>
                 </div>
-                <div class="project-details">
+                <div class="project-details" (click)="projectDetailsClicked($event)">
                     <div *ngFor="let tag of project.tags" class="tag-item">
                         <div (click)="expandTag(tag)" class="tag-header">
                             <div class="expander-btn">+</div>
