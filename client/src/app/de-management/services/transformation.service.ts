@@ -161,4 +161,36 @@ export class TransformationService {
             });
         });
     }
+
+    transformFTsToFormSchema(requiredFTs: any[],manifest:any) {
+
+
+        let form: FormSchema = {
+            type: 'object',
+            properties: {},
+            required: [],
+            fieldsets: [{
+                title: undefined,
+                fields: []
+            }]
+        };
+
+        manifest
+            .filter(ft => requiredFTs.indexOf(ft.modelMapping) > -1)
+            .forEach(ft => {
+                let property = this.convertProperty(ft);
+
+                if (ft.isList) {
+                    property.type = 'array';
+                    property.index = 'i';
+                    property.items = this.convertProperty(ft);
+                    property.items.description = '';
+                }
+
+                form.properties[ft.modelMapping] = property;
+                form.fieldsets[0].fields.push(ft.modelMapping);
+            });
+
+        return form;
+    }
 }

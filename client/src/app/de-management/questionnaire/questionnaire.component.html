@@ -1,0 +1,55 @@
+<div class="main">
+    <div class="header">
+        <h2>{{flow?.realName}} -V{{flow?.version}}</h2>
+    </div>
+    <div class="main-content">
+        <div class="inputs-container">
+            <div>
+                <h3>Flow Inputs</h3>
+            </div>
+            <div class="form-container">
+                <div *ngIf="schema">
+                    <sf-form [schema]="schema" #form
+                             (onChange)="output = $event.value"></sf-form>
+
+
+                </div>
+            </div>
+            <div class="executer-buttons">
+                <button class="btn btn-primary" (click)="next()" >Next</button>
+                <button class="btn btn-primary" (click)="clear()">Clear</button>
+            </div>
+        </div>
+
+        <div class="results-container">
+            <div *ngIf="executing" class="busy">
+                <div class="spinner">
+
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+            <div class="actual-results">
+                <div>
+                    <div>
+                        <h3>Flow Results</h3>
+                    </div>
+                    <div [@routeAnimation]="errorMessage" class="results" *ngIf="errorMessage">
+                        <h2>{{errorTitle}}</h2>
+                        <h5>{{errorMessage}}</h5>
+                    </div>
+                    <div [@routeAnimation]="!errorMessage" class="results" *ngIf="!errorMessage">
+                        <div *ngFor="let item of executionResult" class="result-item">
+                            <span>{{item.field}}:</span>
+                            <span>{{item.value}}</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

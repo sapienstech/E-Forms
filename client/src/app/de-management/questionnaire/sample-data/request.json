@@ -1,0 +1,24 @@
+{
+    "executableKey":{
+        "artifactKey":{
+            "name":"superFlow",
+            "releaseName":"testProjectMoshe",
+            "tagName":"tag6_SNAPSHOT",
+            "artifactType":"FLOW"
+        },
+        "version":"1.0",
+        "viewName":"Base"
+    },
+    "executionInput":{
+        "executionKeyValues":{
+            "$testCaseId$":"1019452",
+            "bench#":"1"
+        },
+        "ROOT":{
+            "executionKeyValues":{
+                "InputId":"1019440"
+            },
+            "ftA":"0"
+        }
+    }
+}

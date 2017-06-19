@@ -19,6 +19,8 @@ export interface ArtifactKey {
 }
 
 export interface ExecutionResult {
+    conclusion:any;
+    requiredFactTypes:any[];
     trace: {
         root: {
             factTypeDetails: any;

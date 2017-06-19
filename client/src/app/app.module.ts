@@ -11,9 +11,9 @@ import { ManagementModule } from './de-management/management.module';
 import { ManagementService } from './de-management/services/management.service';
 import { LocalManagementService } from './de-management/services/local-management.service';
 import { ManagementServiceFacade } from './de-management/services/management.service.facade';
-import { FlowExecuterModule } from './de-management/flow-execution/flow-executer.module';
 import { TransformationService } from './de-management/services/transformation.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QuestionnaireModule } from './de-management/questionnaire/questionnaire.module';
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         HttpModule,
         AppRouterModule,
         ManagementModule,
-        FlowExecuterModule,
+        QuestionnaireModule,
         BrowserAnimationsModule
     ],
 

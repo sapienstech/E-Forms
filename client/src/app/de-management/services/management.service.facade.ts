@@ -20,7 +20,6 @@ interface MessagesMap {
     [name: string]: { category: string, text: string }[];
 }
 
-const NON_CONCLUSION_KEYS = new Set(['factTypeDetails', 'executionKeyValues']);
 
 @Injectable()
 export class ManagementServiceFacade {
@@ -30,7 +29,7 @@ export class ManagementServiceFacade {
     private flow: any;
 
 
-    constructor(private http: Http, managementService: ManagementService, localManagementService: LocalManagementService, private transformationService: TransformationService,private utilsService :UtilsService ) {
+    constructor(private http: Http, managementService: ManagementService, localManagementService: LocalManagementService, private transformationService: TransformationService, private utilsService: UtilsService) {
         this.isLocal$ = new BehaviorSubject(null);
 
         let heartBeat = this.utilsService.getLocalUrl() + HEARTBEAT_URL;
@@ -114,6 +113,16 @@ export class ManagementServiceFacade {
         });
     }
 
+    private flowInputs: any = {};
+
+    public saveFlowInputs(inputs: any) {
+        Object.assign(this.flowInputs, inputs);
+    }
+
+    public getFlowInputs(){
+        return this.flowInputs;
+    }
+
     transformExecutionInput(flow: any, data: any) {
         let artifactKey: ArtifactKey = {
             name: flow.name,
@@ -139,22 +148,23 @@ export class ManagementServiceFacade {
     transformExecutionResult(executionResult: ExecutionResult) {
         // TODO: Handle list value better
 
-        let root = executionResult.trace.root;
-
         return {
-            data: this.mapConclusionValues(root),
-            messages: this.mapFactTypeDetails(root.factTypeDetails)
+            result: executionResult.conclusion,
+            requiredFTs: executionResult.requiredFactTypes,
+            messages: this.mapFactTypeDetails(executionResult.trace.root.factTypeDetails)
         };
     }
 
-    private mapConclusionValues(conclusions: any) {
-        return Object.keys(conclusions)
-            .filter(key => !NON_CONCLUSION_KEYS.has(key))
-            .reduce((map, key) => {
-                map[key] = conclusions[key];
-                return map;
-            }, {});
-    }
+
+
+    // private mapConclusionValues(conclusions: any) {
+    //     return Object.keys(conclusions)
+    //         .filter(key => !NON_CONCLUSION_KEYS.has(key))
+    //         .reduce((map, key) => {
+    //             map[key] = conclusions[key];
+    //             return map;
+    //         }, {});
+    // }
 
     private mapFactTypeDetails(factTypeDetails: FactTypeDetails) {
         let messages: MessagesMap = {};
@@ -203,5 +213,11 @@ export class ManagementServiceFacade {
                 _error = {error: _error};
         }
         return _error;
+    }
+
+
+    getFlowSchemaFromRequiredFTs(requiredFTs: any[],manifest:any) {
+
+       return this.transformationService.transformFTsToFormSchema(requiredFTs,manifest);
     }
 }

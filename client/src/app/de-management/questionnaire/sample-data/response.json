@@ -1,0 +1,69 @@
+{
+    "trace": {
+        "ROOT": {
+            "executionKeyValues": {
+                "InputId": "1019440"
+            },
+            "ftC2": null,
+            "ftC": null,
+            "ftB2": null,
+            "ftB": null,
+            "ftB1": null,
+            "ftC1": null,
+            "ftA": "0",
+            "concFT": null,
+            "factTypeDetails": {}
+        }
+    },
+    "executedVersion": "1.0",
+    "decisionViews": {
+        "concFT": {
+            "Base": {
+                "1.0": [
+                    {
+                        "conclusion": null,
+                        "executedVersion": "1.0",
+                        "trace": {
+                            "ROOT": {
+                                "executionKeyValues": {
+                                    "InputId": "1019440"
+                                },
+                                "ftA": "0",
+                                "ftC2": null,
+                                "ftB2": null,
+                                "ftC": null,
+                                "ftB": null,
+                                "ftC1": null,
+                                "ftB1": null,
+                                "concFT": null,
+                                "factTypeDetails": {}
+                            }
+                        },
+                        "idInFlow": "TaskNode_0_4",
+                        "requiredFactTypes": [
+                            "ftB1"
+                        ],
+                        "expectedResultsMatchActualResults": null,
+                        "name": null,
+                        "executedViewName": "Base",
+                        "executableKey": null,
+                        "executionKeyValues": null,
+                        "profileStopWatch": []
+                    }
+                ]
+            }
+        }
+    },
+    "expectedResultsMatchActualResults": "",
+    "executionKeyValues": {
+        "$testCaseId$": "1019452",
+        "bench#": "1"
+    },
+    "profileStopWatch": [
+        {
+            "operation": "Execute Flow (Execution Manager)",
+            "elapsedTime": 0
+        }
+    ],
+    "executedTransitions": ""
+}

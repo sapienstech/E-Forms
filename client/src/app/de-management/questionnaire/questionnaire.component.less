@@ -1,0 +1,101 @@
+@import '../../../styles';
+
+.main {
+    height: 100%;
+    .header {
+        background: @main-color;
+        display: table;
+        width: 100%;
+        border-bottom: 1px solid @border-color;
+        h2 {
+            display: table-cell;
+            padding: 0 10px;
+            vertical-align: middle;
+            color: white;
+        }
+        height: 50px;
+    }
+    .main-content {
+        height: ~"calc(100% - 53px)";
+        .inputs-container {
+            display: inline-block;
+            width: 50%;
+            height: 100%;
+            float: left;
+            padding-left: 10px;
+            padding-bottom: 10px;
+            > div:first-child {
+                margin: 10px 10px 0 0;
+                border-bottom: 1px solid lightgray;
+                > h3 {
+                    margin: 0px;
+                }
+            }
+        }
+
+        .results-container {
+            position: relative;
+            border-left: 1px solid lightgray;
+            display: inline-block;
+            width: 50%;
+            height: 100%;
+            .actual-results {
+                height: 100%;
+                overflow: auto;
+                > div:first-child {
+                    margin: 10px;
+                    > div:first-child {
+                        border-bottom: 1px solid lightgray;
+                    }
+                    h3 {
+                        margin: 0px;
+                    }
+
+                }
+
+            }
+        }
+    }
+
+    .form-container {
+        overflow: auto;
+        padding-right: 10px;
+        margin-top: 20px;
+        height: ~"calc(100% - 110px)";
+    }
+    .executer-buttons{
+        margin-top:20px;
+    }
+
+    .result-item {
+        padding: 10px;
+        &:nth-child(even) {
+            background: #e7e7e7;
+        }
+        > span {
+            &:first-child {
+                font-weight: bold;
+                margin-right: 10px;
+                width: 400px;
+                display: inline-block;
+            }
+        }
+    }
+
+    .results {
+        margin: 20px 10px 10px 10px;
+        height: ~"calc(100% - 70px)";
+        overflow: auto;
+    }
+
+    .busy {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: white;
+
+        opacity: 0.5;
+    }
+}
+
+
