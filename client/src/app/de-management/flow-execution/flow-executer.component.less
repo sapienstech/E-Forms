@@ -1,7 +1,7 @@
 @import '../../../styles';
 
 .main {
-    h1,h2,h3,h4,h5{
+    h1,h2,h3,h4,h5,span{
         color:@h-color;
     }
     height: 100%;
@@ -16,6 +16,12 @@
             display: table-cell;
             padding: 0 10px;
             vertical-align: middle;
+        }
+        .flah{
+            background: @selected-color;
+            color:@main-color;
+            width: 158px;
+            padding-left:38px;
         }
 
     }
@@ -44,10 +50,10 @@
             width: 50%;
             height: 100%;
             float: left;
-            padding-left: 10px;
+            padding-left: 21px;
             padding-bottom: 10px;
             > div:first-child {
-                margin: 10px 10px 0 0;
+                margin: 10px 21px 0 0;
                 border-bottom: 1px solid lightgray;
                 > h3 {
                     margin: 0px;
@@ -65,8 +71,9 @@
             .actual-results {
                 height: 100%;
                 overflow: auto;
+                padding: 0px 21px;
                 > div:first-child {
-                    margin: 10px;
+                    margin: 10px 0px;
                     > div:first-child {
                         border-bottom: 1px solid lightgray;
                     }
@@ -83,7 +90,7 @@
 
     .form-container {
         overflow: auto;
-        padding-right: 10px;
+        padding-right: 21px;
         margin-top: 20px;
         height: ~"calc(100% - 110px)";
     }
@@ -92,10 +99,7 @@
     }
 
     .result-item {
-        padding: 10px;
-        &:nth-child(even) {
-            background: #e7e7e7;
-        }
+        padding: 10px 0px;
         > span {
             &:first-child {
                 font-weight: bold;
@@ -107,7 +111,7 @@
     }
 
     .results {
-        margin: 20px 10px 10px 10px;
+        margin: 20px 10px 10px 0px;
         height: ~"calc(100% - 70px)";
         overflow: auto;
     }

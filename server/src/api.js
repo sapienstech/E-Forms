@@ -12,6 +12,8 @@ var request = new req();
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
 
+fs.writeFile('demc.log','');
+
 if(process.env.DEBUG_MODE == "true") {
     console.log('debug mode');
     app.use('/', express.static(path.join(__dirname, '../../dist')));
@@ -74,18 +76,22 @@ class Api {
 
 
         app.get('/heartbeat', (req, res) => {
+            fs.appendFile('demc.log','\r\n'+'DEBUG: check heartbeat for ' + req.query.url );
             request.send(req.query.url + '/heartbeat', {
                 method: 'GET',
                 params: null,
             }, (body, _res) => {
-                if (body == 'ECONNREFUSED') {
+                fs.appendFile('DEBUG: ' + body);
+                if (body == 'ECONNREFUSED' || body == 'ENOTFOUND') {
+                    fs.appendFile('demc.log','\r\n'+'ERROR: ' + body);
                     res.send(SERVER_ERROR)
                     return;
                 }
-                if(_res && _res.statusCode >= 200 && _res.statusCode < 400) {
+                else if(_res && _res.statusCode >= 200 && _res.statusCode < 400) {
                     res.send({status:_res.body});
                 }
                 else{
+                    fs.appendFile('demc.log','\r\n'+'ERROR: '  + body);
                     res.send({error:'error'});
                 }
             });
