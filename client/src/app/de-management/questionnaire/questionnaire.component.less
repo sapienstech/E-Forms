@@ -1,34 +1,62 @@
 @import '../../../styles';
-
 .main {
+    h1,h2,h3,h4,h5,span{
+        color:@h-color;
+    }
     height: 100%;
     .header {
         background: @main-color;
         display: table;
         width: 100%;
         border-bottom: 1px solid @border-color;
+        height: 40px;
         h2 {
+            font-size: 22px;
             display: table-cell;
             padding: 0 10px;
             vertical-align: middle;
-            color: white;
         }
-        height: 50px;
+        .flah{
+            background: @selected-color;
+            color:@main-color;
+            width: 158px;
+            padding-left:38px;
+        }
+
+    }
+    .main-header{
+        height: auto;
+        background: @main-color;
+        padding: 14px;
+        width: 100%;
+        border-bottom: 3px solid #E6E6E6;
+        img{
+            height: 50px;
+            display: inline;
+        }
+        h2{
+            color: @h-color;
+            margin: 0px;
+            vertical-align: middle;
+            display: inline;
+            margin-left: 46px;
+        }
     }
     .main-content {
-        height: ~"calc(100% - 53px)";
+        height: ~"calc(100% - 134px)";
         .inputs-container {
             display: inline-block;
             width: 50%;
             height: 100%;
             float: left;
-            padding-left: 10px;
+            padding-left: 21px;
             padding-bottom: 10px;
             > div:first-child {
-                margin: 10px 10px 0 0;
+                margin: 10px 21px 0 0;
                 border-bottom: 1px solid lightgray;
                 > h3 {
                     margin: 0px;
+                    font-size: 19px;
                 }
             }
         }
@@ -42,12 +70,14 @@
             .actual-results {
                 height: 100%;
                 overflow: auto;
+                padding: 0px 21px;
                 > div:first-child {
-                    margin: 10px;
+                    margin: 10px 0px;
                     > div:first-child {
                         border-bottom: 1px solid lightgray;
                     }
                     h3 {
+                        font-size: 19px;
                         margin: 0px;
                     }
 
@@ -59,7 +89,7 @@
 
     .form-container {
         overflow: auto;
-        padding-right: 10px;
+        padding-right: 21px;
         margin-top: 20px;
         height: ~"calc(100% - 110px)";
     }
@@ -68,10 +98,7 @@
     }
 
     .result-item {
-        padding: 10px;
-        &:nth-child(even) {
-            background: #e7e7e7;
-        }
+        padding: 10px 0px;
         > span {
             &:first-child {
                 font-weight: bold;
@@ -83,7 +110,7 @@
     }
 
     .results {
-        margin: 20px 10px 10px 10px;
+        margin: 20px 10px 10px 0px;
         height: ~"calc(100% - 70px)";
         overflow: auto;
     }
@@ -97,5 +124,3 @@
         opacity: 0.5;
     }
 }
-
-

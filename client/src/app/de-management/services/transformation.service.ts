@@ -74,10 +74,7 @@ export class TransformationService {
             description: factType.name,
             type: this.convertDataType(factType.dataType)
         };
-
-        if(property.type == 'number'){
-            property.default = null;
-        }
+        property.default = null;
 
         if (factType.dataType === 'DATE' || factType.dataType === 'DATE_TIME') {
             property.format = 'date';
@@ -87,6 +84,7 @@ export class TransformationService {
         if (factType.validValues) {
             property.widget = 'select';
             property.oneOf = this.convertValidValues(factType);
+            property.default = null;
         }
 
         return property;

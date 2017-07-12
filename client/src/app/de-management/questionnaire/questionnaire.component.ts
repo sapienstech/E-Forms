@@ -2,7 +2,6 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ManagementServiceFacade } from '../services/management.service.facade';
-import { FormComponent } from 'angular2-schema-form';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -27,7 +26,7 @@ export class QuestionnaireComponent implements OnInit {
     de: any;
     output: any;
     executionResult: any[] = [];
-    @ViewChild('form') form: FormComponent;
+    @ViewChild('form') form: any;
     private errorMessage: string;
     private executing: boolean = false;
     private errorTitle: string;
@@ -63,12 +62,6 @@ export class QuestionnaireComponent implements OnInit {
 
     }
 
-
-    // private getFlowSchema() {
-    //     this.service.getFlowSchema(this.flow, this.de).subscribe(result => {
-    //         this.schema = result;
-    //     });
-    // }
 
     private getFlowManifest() {
         return Observable.create(obs=>{

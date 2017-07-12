@@ -119,7 +119,10 @@ export class ManagementServiceFacade {
         Object.assign(this.flowInputs, inputs);
     }
 
-    public getFlowInputs(){
+    public getFlowInputs() {
+        Object.keys(this.flowInputs).forEach(key=>{
+            if(this.flowInputs[key] == '') this.flowInputs[key] = null;
+        });
         return this.flowInputs;
     }
 
@@ -154,7 +157,6 @@ export class ManagementServiceFacade {
             messages: this.mapFactTypeDetails(executionResult.trace.root.factTypeDetails)
         };
     }
-
 
 
     // private mapConclusionValues(conclusions: any) {
@@ -216,8 +218,8 @@ export class ManagementServiceFacade {
     }
 
 
-    getFlowSchemaFromRequiredFTs(requiredFTs: any[],manifest:any) {
+    getFlowSchemaFromRequiredFTs(requiredFTs: any[], manifest: any) {
 
-       return this.transformationService.transformFTsToFormSchema(requiredFTs,manifest);
+        return this.transformationService.transformFTsToFormSchema(requiredFTs, manifest);
     }
 }
