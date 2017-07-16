@@ -1,37 +1,22 @@
-import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
+import { CardItemDirective } from './car-item.directive';
+import { ListItemDirective } from './list-item.directive';
 
 @Component({
-    selector: 'list-view',
+    selector: 'card-or-list-view',
     templateUrl: './list-view.component.html'
 })
-export class ListViewComponent implements OnInit {
+export class CardOrListViewComponent {
 
-    constructor() { }
+    @Input() items: {
+        header: string,
+        content: string
+    }[] = [];
 
-    @ContentChild(TemplateRef)
-    templateRef: any;
+    @Input() mode: 'card' | 'list' = 'card';
 
-    ngOnInit() { }
+    @ContentChild(CardItemDirective, {read: TemplateRef}) cardItemTemplate;
+    @ContentChild(ListItemDirective, {read: TemplateRef}) listItemTemplate;
 
-    @Input()
-    bindingPath:string;
-
-    @Input()
-    itemsSource:any[];
-
-    @Input()
-    selectedItem:any;
-
-    @Output()
-    selectedItemChanged: EventEmitter<any>;
-
-    selected:any ={};
-
-    itemSelected(item:any){
-        Object.keys(this.selected).forEach(k=>{
-           this.selected[k] = false;
-        });
-        this.selected[item]=true;
-    }
 
 }

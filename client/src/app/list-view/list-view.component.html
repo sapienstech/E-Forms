@@ -1,8 +1,12 @@
-<div class="main">
-    <div class="list-item"  *ngFor="let item of itemsSource" [ngClass]="{'selected-item':selected[item]}" (click)="itemSelected(item)">
-        <ng-template #template *ngTemplateOutlet="templateRef;context:item"  ></ng-template>
-        <!--<div *ngIf="!template">-->
-            <!--<h3>{{item}}</h3>-->
-        <!--</div>-->
-    </div>
-</div>
+<ng-container [ngSwitch]="mode">
+    <ng-container *ngSwitchCase="'card'">
+        <ng-container *ngFor="let item of items">
+            <ng-container *ngTemplateOutlet="cardItemTemplate; context: {$implicit: item}"></ng-container>
+        </ng-container>
+    </ng-container>
+    <ul *ngSwitchCase="'list'">
+        <li *ngFor="let item of items">
+            <ng-container *ngTemplateOutlet="listItemTemplate; context: {$implicit: item}"></ng-container>
+        </li>
+    </ul>
+</ng-container>
