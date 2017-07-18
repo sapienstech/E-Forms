@@ -131,4 +131,10 @@ export class ManagementComponent implements OnInit {
         this.router.navigateByUrl(url);
 
     }
+
+    toggleShowingEffectiveDates(flow:any,event:any){
+        event.stopPropagation();
+        if(flow.showEffectiveDates == undefined) flow.showEffectiveDates = false;
+        flow.showEffectiveDates = !flow.showEffectiveDates;
+    }
 }
