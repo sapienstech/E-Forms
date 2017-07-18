@@ -35,8 +35,25 @@
                             <div *ngFor="let flow of tag.flows" class="flow-item" (click)="flowClicked(flow)">
                                 <div>-</div>
                                 <h4 class="flow-name-header">
-                                    <span>{{flow.originalName}}</span>
-                                    <span>-V{{flow.version}}</span>
+                                    <div>
+                                        <span>{{flow.originalName}}</span>
+                                        <span>-V{{flow.version}}</span>
+                                        <div class="effective-dates-btn" (click)="toggleShowingEffectiveDates(flow,$event)" *ngIf="flow.effectiveDateRanges">Effective Dates</div>
+                                    </div>
+                                    <div *ngIf="flow.showEffectiveDates">
+                                        <div>
+                                            <table class="effective-dates">
+                                                <tr>
+                                                    <th>Effective date</th>
+                                                    <th>Expiration date</th>
+                                                </tr>
+                                                <tr *ngFor="let range of flow.effectiveDateRanges">
+                                                    <td>{{range.effectiveDate}}</td>
+                                                    <td>{{range.expirationDate}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </h4>
 
                             </div>
