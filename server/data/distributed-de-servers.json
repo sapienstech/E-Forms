@@ -1,35 +1,6 @@
 [
     {
         "name": "Local DE",
-        "url":"http://localhost:9090/bdes/ws/rs/api/2_0/execute"
-    },
-    {
-        "name": "Local DE 2",
-        "url":"http://localhost:9090/bdes/ws/rs/api/2_0/execute"
-    },
-    {
-        "name": "Local DE 3",
-        "url":"http://localhost:9090/bdes/ws/rs/api/2_0/execute"
-    },
-    {
-        "name": "Local DE 4",
-        "url":"http://localhost:9090/bdes/ws/rs/api/2_0/execute"
-    },
-    {
-        "name": "Local DE 5",
-        "url":"http://localhost:9090/bdes/ws/rs/api/2_0/execute"
-    },
-    {
-        "name": "Local DE 6",
-        "url":"http://localhost:9090/bdes/ws/rs/api/2_0/execute"
-    },
-    {
-        "name": "Local DE 7",
-        "url":"http://localhost:9090/bdes/ws/rs/api/2_0/execute"
-    },
-    {
-        "name": "Local DE 8",
-        "url":"http://localhost:9090/bdes/ws/rs/api/2_0/execute"
+        "url":"http://localhost:9090"
     }
-
 ]

@@ -5,8 +5,7 @@ var webpack = require("webpack");
 const path = require('path');
 var del = require("del");
 
-var ver = getVersion();
-var destFolder = 'DEMC_' + ver;
+var destFolder = 'DEMC_';
 
 
 function fileGenerator(filename, string) {

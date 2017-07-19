@@ -6,8 +6,8 @@
         </div>
     </div>
     <div class="header">
-            <h2 class="flah">FLOW</h2>
-            <h2>{{flow?.realName}} -V{{flow?.version}}</h2>
+        <h2 class="flah">FLOW</h2>
+        <h2>{{flow?.realName}} -V{{flow?.version}}</h2>
     </div>
     <div class="main-content">
         <div class="inputs-container">
@@ -31,27 +31,35 @@
         <div class="results-container">
             <div *ngIf="executing" class="busy">
                 <div class="spinner">
-
                     <div class="bounce1"></div>
                     <div class="bounce2"></div>
                     <div class="bounce3"></div>
                 </div>
+                <button (click)="stopExecution()" class="btn btn-danger stop-exec">Stop Execution</button>
             </div>
             <div class="actual-results">
                 <div>
                     <div>
                         <h3>Flow Results</h3>
                     </div>
-                    <div [@routeAnimation]="errorMessage" class="results" *ngIf="errorMessage">
-                        <h2>An error received during flow execution...</h2>
-                        <h5>{{errorMessage}}</h5>
-                    </div>
-                    <div [@routeAnimation]="!errorMessage" class="results" *ngIf="!errorMessage">
-                        <div *ngFor="let item of executionResult" class="result-item">
-                            <span>{{item.field}}:</span>
-                            <span>{{item.value}}</span>
+                    <div *ngIf="!executing">
+                        <div [@routeAnimation]="errorMessage" class="results" *ngIf="errorMessage">
+                            <h2>An error received during flow execution...</h2>
+                            <h5>{{errorMessage}}</h5>
                         </div>
-
+                        <div [@routeAnimation]="!errorMessage" class="results" *ngIf="!errorMessage">
+                            <div *ngFor="let item of executionResult" class="result-container">
+                                <div class="result-item">
+                                    <span>{{item.field}}:</span>
+                                    <span>{{item.value}}</span>
+                                </div>
+                                <div *ngIf="item.messages && item.messages.length > 0" class="messages">
+                                    <div *ngFor="let mes of item.messages">
+                                        <span [ngClass]="mes.category.toLowerCase()">{{mes.text}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

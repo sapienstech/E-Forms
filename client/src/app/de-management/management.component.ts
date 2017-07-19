@@ -32,7 +32,10 @@ export class ManagementComponent implements OnInit {
             }
             else {
                 this.service.getDEsInfo().subscribe(list => {
-                    this.deServers = list;
+                    this.deServers = list.map(l=>{
+                        l.url += '/bdes/ws/rs/api/2_0/execute';
+                        return l;
+                    });
                     this.deServers.forEach(de => {
                         de.hostName = this.utilsService.extractHostname(de.url);
                         this.service.getDEHealthCheck(de).subscribe(r => {

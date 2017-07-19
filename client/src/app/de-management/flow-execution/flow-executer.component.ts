@@ -87,23 +87,34 @@ export class FlowExecuterComponent implements OnInit {
 
         this.errorMessage = null;
         this.service.execute(this.output,this.de).subscribe(result=>{
-            this.executing = false;
-
-            if(result.error){
-               this.errorMessage = result.error;
+            if(!this.executing) {
+                this.executionResult = [];
+                this.errorMessage = null;
             }
             else {
-                this.executionResult = [];
-                let keys = Object.keys(result.data);
-                keys.forEach(key=> {
-                    let originalFT = this.originalManifest.find(f => f.modelMapping == key);
-                    if (originalFT.isConclusion == true) {
-                        this.executionResult.push({field: originalFT.name, value: result.data[key]});
-                    }
-                });
+                this.executing = false;
+                if (result.error) {
+                    this.errorMessage = result.error;
+                }
+                else {
+                    this.executionResult = [];
+                    let keys = Object.keys(result.data);
+                    keys.forEach(key => {
+                        let originalFT = this.originalManifest.find(f => f.modelMapping == key);
+                        if (originalFT.isConclusion == true) {
+                            this.executionResult.push({field: originalFT.name, value: result.data[key], messages: result.messages[key]});
+                        }
+                    });
+                }
             }
         },error=>{
             this.errorMessage = error;
         });
+    }
+
+
+    stopExecution(){
+
+        this.executing = false;
     }
 }
