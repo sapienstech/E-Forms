@@ -10,18 +10,34 @@
 .effective-dates{
     margin-top: 10px;
 }
+th{
+    font-size: 16px;
+}
+
 td{
+    font-size: 14px;
     padding: 5px 20px 0px 0px;
 }
-.effective-dates-btn{
-    display: inline;
-    background: @secondary-color;
-    padding: 5px;
-    margin-left: 10px;
-    &:hover{
-        background: #dedede;
+
+.effective-dates-btn-container{
+    margin-top: 10px;
+    margin-left: 15px;
+    .effective-dates-btn{
+        color:blue;
+        font-style: italic;
+        font-size: 14px;
+        margin-right: 3px;
+        &:hover{
+            border-bottom: 1px solid blue;
+        }
+    }
+    .glyphicon{
+        font-size: 14px;
+        top: 2px;
+        color: blue;
     }
 }
+
 
 .main-header{
     height: auto;
@@ -188,6 +204,7 @@ td{
 
         .flow-item{
             margin-top: 5px;
+            margin-left: 10px;
             >div{
                 display: inline-block;
                 margin-right: 5px;
@@ -197,6 +214,9 @@ td{
 
                 span:first-child{
                     margin-right: 10px;
+                    &:hover{
+                        border-bottom: 1px solid black;
+                    }
                 }
 
             }

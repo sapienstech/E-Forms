@@ -27,7 +27,7 @@
                 <button class="btn btn-primary" (click)="clear()">Clear</button>
             </div>
         </div>
-
+        <div class="separator"></div>
         <div class="results-container">
             <div *ngIf="executing" class="busy">
                 <div class="spinner">
@@ -55,7 +55,7 @@
                                 </div>
                                 <div *ngIf="item.messages && item.messages.length > 0" class="messages">
                                     <div *ngFor="let mes of item.messages">
-                                        <span [ngClass]="mes.category.toLowerCase()">{{mes.text}}</span>
+                                        <span >"{{mes.text}}"</span>
                                     </div>
                                 </div>
                             </div>
