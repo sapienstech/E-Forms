@@ -16,6 +16,7 @@
             display: table-cell;
             padding: 0 10px;
             vertical-align: middle;
+            background: @secondary-color;
         }
         .flah {
             background: @selected-color;
@@ -47,7 +48,7 @@
         height: ~"calc(100% - 134px)";
         .inputs-container {
             display: inline-block;
-            width: 50%;
+            width: 45%;
             height: 100%;
             float: left;
             padding-left: 21px;
@@ -61,12 +62,17 @@
                 }
             }
         }
+        .separator {
+            width: 7%;
+            display: inline-block;
+            background: @secondary-color;
+            height: 100%;
+        }
 
         .results-container {
             position: relative;
-            border-left: 1px solid lightgray;
             display: inline-block;
-            width: 50%;
+            width: 45%;
             height: 100%;
             .actual-results {
                 height: 100%;
@@ -100,14 +106,8 @@
     .result-container {
         padding: 10px 0px;
         border-bottom: 0.1px solid lightgray;
-        &:hover{
+        &:hover {
             box-shadow: 0px 0px 14px 0px grey;
-        }
-        .critical{
-            color:red;
-        }
-        .informational{
-            color:orange;
         }
     }
     .result-item {
@@ -116,7 +116,6 @@
             &:first-child {
                 font-weight: bold;
                 margin-right: 10px;
-                width: 400px;
                 display: inline-block;
             }
         }
@@ -136,9 +135,19 @@
         background: white;
         opacity: 0.5;
     }
-    .stop-exec
-    {
+    .stop-exec {
         margin: 5% 45%;
+    }
+
+    .messages {
+        span {
+            margin-left: 33px;
+            margin-top: 10px;
+            display: list-item;
+            list-style-position: inside;
+            font-style: italic;
+        }
+
     }
 }
 
