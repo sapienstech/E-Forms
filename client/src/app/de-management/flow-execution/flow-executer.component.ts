@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ManagementServiceFacade } from '../services/management.service.facade';
 import { FormComponent } from 'angular2-schema-form';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'flow-executer',
@@ -12,7 +13,7 @@ import { FormComponent } from 'angular2-schema-form';
         trigger('routeAnimation', [
             state('*', style({opacity: 1})),
             state('void', style({opacity: 0})),
-            transition('void => *', [style({opacity: 0}),animate(1000)
+            transition('void => *', [style({opacity: 0}), animate(1000)
             ])
 
         ])
@@ -20,15 +21,17 @@ import { FormComponent } from 'angular2-schema-form';
 })
 export class FlowExecuterComponent implements OnInit {
 
+
     originalManifest: any;
     flow: any;
     schema: any;
     de: any;
-    output:any;
+    output: any;
     executionResult: any[] = [];
     @ViewChild('form') form: FormComponent;
     private errorMessage: string;
     private executing: boolean = false;
+    private executionSubscriber: Subscription;
 
 
     constructor(private route: ActivatedRoute, private service: ManagementServiceFacade) {
@@ -61,33 +64,33 @@ export class FlowExecuterComponent implements OnInit {
     }
 
 
-
-      private getFlowSchema() {
-        this.service.getFlowSchema(this.flow, this.de).subscribe(result=>{
+    private getFlowSchema() {
+        this.service.getFlowSchema(this.flow, this.de).subscribe(result => {
             this.schema = result;
         });
     }
 
     private getFlowManifest() {
-        this.service.getFlowManifest(this.flow, this.de).subscribe(result=>{
+        this.service.getFlowManifest(this.flow, this.de).subscribe(result => {
             this.originalManifest = result.asset[0].group.factType;
         });
     }
 
-    clear(){
+    clear() {
         this.form.reset();
         this.errorMessage = null;
         this.executionResult = null;
     }
 
 
-    execute(){
+    execute() {
 
         this.executing = true;
 
         this.errorMessage = null;
-        this.service.execute(this.output,this.de).subscribe(result=>{
-            if(!this.executing) {
+        this.executionSubscriber = this.service.execute(this.output, this.de).subscribe(result => {
+            console.log('finished execution');
+            if (!this.executing) {
                 this.executionResult = [];
                 this.errorMessage = null;
             }
@@ -107,14 +110,16 @@ export class FlowExecuterComponent implements OnInit {
                     });
                 }
             }
-        },error=>{
+        }, error => {
             this.errorMessage = error;
         });
     }
 
 
-    stopExecution(){
-
+    stopExecution() {
         this.executing = false;
+        this.executionResult = [];
+        this.errorMessage = null;
+        this.executionSubscriber.unsubscribe();
     }
 }
