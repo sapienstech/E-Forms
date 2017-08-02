@@ -30,7 +30,7 @@ export class ManagementServiceFacade {
     private flow: any;
 
 
-    constructor(private http: Http, managementService: ManagementService, localManagementService: LocalManagementService, private transformationService: TransformationService,private utilsService :UtilsService ) {
+    constructor(private http: Http, managementService: ManagementService, localManagementService: LocalManagementService, private transformationService: TransformationService, private utilsService: UtilsService) {
         this.isLocal$ = new BehaviorSubject(null);
 
         let heartBeat = this.utilsService.getLocalUrl() + HEARTBEAT_URL;
@@ -125,7 +125,8 @@ export class ManagementServiceFacade {
         let result: ExecutionInput = {
             executableKey: {
                 artifactKey,
-                effectiveDate: '2019-01-01'
+                version: flow.version
+
             },
             executionInput: {
                 root: data

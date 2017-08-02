@@ -16,12 +16,12 @@ export class ManagementComponent implements OnInit {
     private isLocal: boolean;
     private projects: any;
     private selectedDE: any;
+    private loading: boolean;
 
     constructor(private utilsService: UtilsService,private service: ManagementServiceFacade, private router: Router) {
     }
 
     ngOnInit() {
-
         this.service.isLocal$.subscribe(r => {
             if (r == null) return;
 
@@ -63,7 +63,10 @@ export class ManagementComponent implements OnInit {
     }
 
     private getArtifacts(de: any) {
+        this.projects = [];
+        this.loading = true;
         this.service.getArtifacts(de).subscribe((result: ArtifactInfo[]) => {
+            this.loading = false;
             this.artifacts = result.filter((r: any) => r.artifactType == 'FLOW'); //TODO: need to move the filter to the service
             this.projects = _.groupBy(this.artifacts, 'originalReleaseName');
 
