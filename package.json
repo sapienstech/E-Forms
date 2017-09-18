@@ -39,7 +39,7 @@
 
     "webpack-stream": "^3.2.0",
 
-    "z-schema": "^3.18.2",
+    "z-schema": "^3.18.4",
     "zone.js": "^0.8.0"
   },
   "optionalDependencies": {
