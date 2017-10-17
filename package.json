@@ -51,7 +51,7 @@
     "@angular/compiler-cli": ">=4.0.0-beta <5.0.0",
     "@types/jasmine": "^2.5.43",
     "@types/lodash": "^4.14.53",
-    "@types/node": "^7.0.12",
+    "@types/node": "^8.0.44",
     "@types/z-schema": "^3.16.31",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
