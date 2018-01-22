@@ -11,7 +11,7 @@ import { QuestionnaireComponent } from './questionnaire.component';
 import { QuestionnaireRouterModule } from './questionnaire.router.module';
 
 @NgModule({
-    imports: [BrowserModule,QuestionnaireRouterModule,SchemaFormModule,PipesModule,AccordionModule],
+    imports: [BrowserModule,QuestionnaireRouterModule,SchemaFormModule.forRoot(),PipesModule,AccordionModule],
     declarations: [QuestionnaireComponent, CollapsibleWidget,HiddenWidget,ArrayWidget],
     providers: [ManagementService, { provide: WidgetRegistry, useClass: DefaultWidgetRegistry }],
     entryComponents: [

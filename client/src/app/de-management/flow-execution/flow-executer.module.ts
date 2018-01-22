@@ -11,7 +11,7 @@ import { AccordionModule } from 'ngx-accordion';
 import { ArrayWidget } from '../../widgets/array/array.widget';
 
 @NgModule({
-    imports: [BrowserModule,FlowExecuterRouterModule,SchemaFormModule,PipesModule,AccordionModule],
+    imports: [BrowserModule,FlowExecuterRouterModule,SchemaFormModule.forRoot(),PipesModule,AccordionModule],
     declarations: [FlowExecuterComponent, CollapsibleWidget,HiddenWidget,ArrayWidget],
     providers: [ManagementService, { provide: WidgetRegistry, useClass: DefaultWidgetRegistry }],
     entryComponents: [

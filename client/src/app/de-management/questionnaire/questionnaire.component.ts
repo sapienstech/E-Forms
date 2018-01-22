@@ -96,19 +96,16 @@ export class QuestionnaireComponent implements OnInit {
             else {
                 this.executionResult = [];
 
-                if (this.isFinalResult(executionResult)) {
-                    this.executionResult = this.extractResult(executionResult.result);
-                }
-                else {
-                    if (executionResult.requiredFTs.length > 0) {
-                        this.schema = this.service.getFlowSchemaFromRequiredFTs(executionResult.requiredFTs, this.originalManifest);
-                    } else {
-                        this.errorTitle = 'Error';
+                if (executionResult.requiredFTs.length > 0) {
+                    this.schema = this.service.getFlowSchemaFromRequiredFTs(executionResult.requiredFTs, this.originalManifest);
+                }else {
+                    if (this.isFinalResult(executionResult)) {
+                        this.executionResult = this.extractResult(executionResult.result);
+                    }else {
+                        this.errorTitle = 'No Result';
                         this.errorMessage = 'The flow ended without result';
                     }
                 }
-
-
             }
         }, error => {
             this.errorTitle = 'An error received during flow execution...';
