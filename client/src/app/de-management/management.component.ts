@@ -39,7 +39,7 @@ export class ManagementComponent implements OnInit {
                             if (r.error) {
                                 de.aliveStatus = 'Server is down';
                             } else {
-                                de.aliveStatus = 'Ver: ' + r.status;
+                                //de.aliveStatus = 'Ver: ' + r.status;
                             }
                         })
                     });
