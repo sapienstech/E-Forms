@@ -47,11 +47,17 @@
                         <h5>{{errorMessage}}</h5>
                     </div>
                     <div [@routeAnimation]="!errorMessage" class="results" *ngIf="!errorMessage">
-                        <div *ngFor="let item of executionResult" class="result-item">
-                            <span>{{item.field}}:</span>
-                            <span>{{item.value}}</span>
+                        <div *ngFor="let item of executionResult" class="result-container">
+                            <div class="result-item">
+                                <span>{{item.field}}:</span>
+                                <span>{{item.value}}</span>
+                            </div>
+                            <div *ngIf="item.messages && item.messages.length > 0" class="messages">
+                                <div *ngFor="let mes of item.messages">
+                                    <span >"{{mes.text}}"</span>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>

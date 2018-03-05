@@ -100,7 +100,7 @@ export class QuestionnaireComponent implements OnInit {
                     this.schema = this.service.getFlowSchemaFromRequiredFTs(executionResult.requiredFTs, this.originalManifest);
                 }else {
                     if (this.isFinalResult(executionResult)) {
-                        this.executionResult = this.extractResult(executionResult.result);
+                        this.executionResult = this.extractResult(executionResult);
                     }else {
                         this.errorTitle = 'No Result';
                         this.errorMessage = 'The flow ended without result';
@@ -123,7 +123,7 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     private extractResult(data: any): any {
-        return [{field: data.factTypeName, value: data.values}];
+        return [{field: data.result.factTypeName, value: data.result.values, messages: data.messages ? data.messages[data.result.factTypeName] : data.messages}];
     }
 
 
