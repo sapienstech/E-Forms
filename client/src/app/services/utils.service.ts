@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { PARSE_ERROR } from '../types/constants';
-//import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environment';
 declare var FileReader: any;
 declare var window: any;
 
@@ -43,9 +43,9 @@ export class UtilsService {
 
 
     public getLocalUrl(){
-        /*if(!environment.production){
+        if(!environment.production){
             return 'http://localhost:3000';
-        } */
+        }
         if(this.isIE()){
             return window.location.protocol + '//' + window.location.host;
         }
