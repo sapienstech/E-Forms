@@ -1,4 +1,4 @@
-# Eforms
+# DE Console
 
 [![CircleCI](https://circleci.com/gh/sapienstech/E-Forms.svg?style=svg)](https://circleci.com/gh/sapienstech/E-Forms) [![Greenkeeper badge](https://badges.greenkeeper.io/sapienstech/E-Forms.svg)](https://greenkeeper.io/)
 

@@ -1,8 +1,6 @@
 {
-  "name": "eforms",
-
+  "name": "de-console",
   "version": "1.0.1",
-
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -35,9 +33,7 @@
     "ngx-accordion": "0.0.17",
     "rxjs": "^5.1.0",
     "tslib": "^1.6.0",
-
     "webpack-stream": "^3.2.0",
-
     "z-schema": "^3.18.2",
     "zone.js": "^0.8.0"
   },
