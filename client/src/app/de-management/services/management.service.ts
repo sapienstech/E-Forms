@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { ArtifactInfo } from '../../types/types';
 import { IManagementService } from './IManagementService';
 import { UtilsService } from '../../services/utils.service';
+import {DiExecutionInput} from "../../model";
+import {DeDetails} from "../di-integration/di-integration.component";
 
 @Injectable()
 export class ManagementService implements IManagementService {
@@ -46,5 +48,14 @@ export class ManagementService implements IManagementService {
         };
         return this.http.post(this.utilsService.getLocalUrl() + '/execute?url=' + de.url, requestOptionArgs).map(r => r.json());
 
+    }
+
+    executeDi(inputs: DiExecutionInput, deDetails: DeDetails): Observable<any> {
+
+        let requestOptionArgs = {
+            body: inputs
+        };
+
+        return this.http.post(this.utilsService.getLocalUrl() + "/executeDi?url=" + deDetails.url, requestOptionArgs).map(response => response.json());
     }
 }

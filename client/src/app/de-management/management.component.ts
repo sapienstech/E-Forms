@@ -116,7 +116,7 @@ export class ManagementComponent implements OnInit {
 
     flowClicked(flow: any) {
 
-        let url = '/questionnaire?flow-name=' + flow.name +
+        let url = '/di-integration?flow-name=' + flow.name +
             '&flow-real-name=' + flow.originalName+
             '&tag-name=' + flow.tagName +
             '&version=' + flow.version +

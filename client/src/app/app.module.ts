@@ -14,6 +14,7 @@ import { ManagementServiceFacade } from './de-management/services/management.ser
 import { TransformationService } from './de-management/services/transformation.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QuestionnaireModule } from './de-management/questionnaire/questionnaire.module';
+import {DiIntegrationModule} from "./de-management/di-integration/di-integration.module";
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { QuestionnaireModule } from './de-management/questionnaire/questionnaire
         AppRouterModule,
         ManagementModule,
         QuestionnaireModule,
+        DiIntegrationModule,
         BrowserAnimationsModule
     ],
 

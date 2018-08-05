@@ -11,6 +11,15 @@ export interface ExecutionInput {
     executionConfiguration: undefined;
 }
 
+export interface DiExecutionInput {
+    executableKey: {
+        artifactKey: ArtifactKey;
+        effectiveDate:string;
+    };
+    instanceId: string;
+    executionConfiguration: object;
+}
+
 export interface ArtifactKey {
     name: string;
     releaseName: string;
@@ -21,6 +30,7 @@ export interface ArtifactKey {
 export interface ExecutionResult {
     conclusion:any;
     requiredFactTypes:any[];
+    error:any;
     trace: {
         root: {
             factTypeDetails: any;

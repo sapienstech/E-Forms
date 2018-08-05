@@ -3,8 +3,9 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ArtifactInfo } from '../../types/types';
 import { IManagementService } from './IManagementService';
-import { EXECUTE_URL, GET_FLOWS_URL, MANIFEST_URL } from '../consts';
+import {EXECUTE_DI_URL, EXECUTE_URL, GET_FLOWS_URL, MANIFEST_URL} from '../consts';
 import { UtilsService } from '../../services/utils.service';
+import {DiExecutionInput} from "../../model";
 
 @Injectable()
 export class LocalManagementService implements IManagementService {
@@ -45,6 +46,10 @@ export class LocalManagementService implements IManagementService {
         let requestOptionArgs =key;
         return this.http.post(this.localDEUrl + EXECUTE_URL, requestOptionArgs).map(r => r.json());
 
+    }
+
+    executeDi(inputs: DiExecutionInput): Observable<any> {
+        return this.http.post(this.localDEUrl + EXECUTE_DI_URL, inputs).map(response => response.json());
     }
 
 

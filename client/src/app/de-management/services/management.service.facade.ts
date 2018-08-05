@@ -7,8 +7,16 @@ import { ArtifactInfo } from '../../types/types';
 import { Injectable } from '@angular/core';
 import { HEARTBEAT_URL } from '../consts';
 import { TransformationService } from './transformation.service';
-import { ArtifactKey, ExecutionInput, ExecutionResult, FactTypeDetails, Messages } from '../../model/execution';
+import {
+    ArtifactKey,
+    DiExecutionInput,
+    ExecutionInput,
+    ExecutionResult,
+    FactTypeDetails,
+    Messages
+} from '../../model/execution';
 import { UtilsService } from '../../services/utils.service';
+import {DeDetails, FlowDetails} from "../di-integration/di-integration.component";
 
 
 export interface ExecutionResponse {
@@ -27,7 +35,6 @@ export class ManagementServiceFacade {
     private managementServiceImp: IManagementService;
     public isLocal$: BehaviorSubject<boolean>;
     private flow: any;
-
 
     constructor(private http: Http, managementService: ManagementService, localManagementService: LocalManagementService, private transformationService: TransformationService, private utilsService: UtilsService) {
         this.isLocal$ = new BehaviorSubject(null);
@@ -75,7 +82,7 @@ export class ManagementServiceFacade {
 
     public execute(data: any, de?: any): Observable<any> {
 
-        let executionInputs = this.transformExecutionInput(this.flow, data);
+        let executionInputs = this.transformExecutionInput(this.flow, data, false);
 
         return this.managementServiceImp.execute(executionInputs, de)
             .map((result: any) => {
@@ -84,6 +91,21 @@ export class ManagementServiceFacade {
                 }
                 else {
 
+                    return this.transformExecutionResult(result);
+                }
+            });
+    }
+
+    public executeDi(clientId: string, deDetails: DeDetails, flowDetails: FlowDetails): Observable<any>{
+        this.flow = flowDetails;
+        let executionInputs: DiExecutionInput = this.transformExecutionInput(this.flow, clientId, true) as any;
+        return this.managementServiceImp.executeDi(executionInputs, deDetails)
+            .map((result: any) => {
+                if (result.error) {
+                    return this.extractErrorMessage(result.error);
+                }
+                else {
+                    this.saveFlowInputs(result.trace.root);
                     return this.transformExecutionResult(result);
                 }
             });
@@ -121,12 +143,14 @@ export class ManagementServiceFacade {
 
     public getFlowInputs() {
         Object.keys(this.flowInputs).forEach(key=>{
-            if(this.flowInputs[key] == '') this.flowInputs[key] = null;
+            if(this.flowInputs[key] == '') {
+                this.flowInputs[key] = null;
+            }
         });
         return this.flowInputs;
     }
 
-    transformExecutionInput(flow: any, data: any) {
+    transformExecutionInput(flow: any, data: any, di: boolean) {
         let artifactKey: ArtifactKey = {
             name: flow.name,
             releaseName: flow.releaseName,
@@ -134,16 +158,28 @@ export class ManagementServiceFacade {
             artifactType: 'FLOW'
         };
 
-        let result: ExecutionInput = {
-            executableKey: {
-                artifactKey,
-                effectiveDate: '2019-01-01'
-            },
-            executionInput: {
-                root: data
-            },
-            executionConfiguration: null
-        };
+        let result: ExecutionInput | DiExecutionInput;
+        if (!di){
+            result = {
+                executableKey: {
+                    artifactKey,
+                    effectiveDate: '2019-01-01'
+                },
+                executionInput: {
+                    root: data
+                },
+                executionConfiguration: null
+            };
+        }  else {
+            result = {
+                executableKey: {
+                    artifactKey,
+                    effectiveDate: '2019-01-01'
+                },
+               instanceId: data,
+                executionConfiguration: {}
+            }
+        }
 
         return result;
     }

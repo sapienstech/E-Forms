@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ManagementServiceFacade } from '../services/management.service.facade';
 import { Observable } from 'rxjs/Observable';
+import {DeDetails, FlowDetails} from "../di-integration/di-integration.component";
 
 @Component({
     selector: 'questionnaire',
@@ -21,9 +22,9 @@ import { Observable } from 'rxjs/Observable';
 export class QuestionnaireComponent implements OnInit {
 
     originalManifest: any;
-    flow: any;
+    flow: FlowDetails;
     schema: any;
-    de: any;
+    de: DeDetails;
     output: any;
     executionResult: any[] = [];
     @ViewChild('form') form: any;
@@ -47,11 +48,11 @@ export class QuestionnaireComponent implements OnInit {
                     tagName: params['tag-name'],
                     version: params['version'],
                     releaseName: params['release-name']
-                }
+                };
                 this.de = {
                     name: params['de-name'],
                     url: params['de-url']
-                }
+                } ;
                 this.getFlowManifest().subscribe(()=>{
                     this.first();
                 });
@@ -83,10 +84,9 @@ export class QuestionnaireComponent implements OnInit {
     next(firstTime: boolean = false) {
         this.executing = true;
         this.errorMessage = null;
-        let data = {};
+        let data = this.service.getFlowInputs() || {};
         if (!firstTime) {
             this.service.saveFlowInputs(this.service.saveFlowInputs(this.output));
-            data = this.service.getFlowInputs();
         }
         this.service.execute(data, this.de).subscribe(executionResult => {
             this.executing = false;

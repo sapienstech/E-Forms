@@ -1,0 +1,154 @@
+@import '../../../styles';
+
+.main {
+    h1, h2, h3, h4, h5, span {
+        color: @h-color;
+    }
+    height: 100%;
+    .header {
+        background: @main-color;
+        display: table;
+        width: 100%;
+        border-bottom: 1px solid @border-color;
+        height: 40px;
+        h2 {
+            font-size: 22px;
+            display: table-cell;
+            padding: 0 10px;
+            vertical-align: middle;
+            background: @secondary-color;
+        }
+        .flah {
+            background: @selected-color;
+            color: @main-color;
+            width: 158px;
+            padding-left: 38px;
+        }
+
+    }
+    .main-header {
+        height: auto;
+        background: @main-color;
+        padding: 14px;
+        width: 100%;
+        border-bottom: 3px solid #E6E6E6;
+        img {
+            height: 50px;
+            display: inline;
+        }
+        h2 {
+            color: @h-color;
+            margin: 0px;
+            vertical-align: middle;
+            display: inline;
+            margin-left: 46px;
+        }
+    }
+    .main-content {
+        height: ~"calc(100% - 134px)";
+        .inputs-container {
+            display: inline-block;
+            width: 45%;
+            height: 100%;
+            float: left;
+            padding-left: 21px;
+            padding-bottom: 10px;
+            > div:first-child {
+                margin: 10px 21px 0 0;
+                border-bottom: 1px solid lightgray;
+                > h3 {
+                    margin: 0px;
+                    font-size: 19px;
+                }
+            }
+        }
+        .separator {
+            width: 7%;
+            display: inline-block;
+            background: @secondary-color;
+            height: 100%;
+        }
+
+        .results-container {
+            position: relative;
+            border-left: 1px solid lightgray;
+            display: inline-block;
+            width: 45%;
+            height: 100%;
+            .actual-results {
+                height: 100%;
+                overflow: auto;
+                padding: 0px 21px;
+                > div:first-child {
+                    margin: 10px 0px;
+                    > div:first-child {
+                        border-bottom: 1px solid lightgray;
+                    }
+                    h3 {
+                        font-size: 19px;
+                        margin: 0px;
+                    }
+
+                }
+
+            }
+        }
+    }
+
+    .form-container {
+        overflow: auto;
+        padding-right: 21px;
+        margin-top: 20px;
+        height: ~"calc(100% - 110px)";
+    }
+    .executer-buttons {
+        margin-top: 20px;
+    }
+    .result-container {
+        padding: 10px 0px;
+        border-bottom: 0.1px solid lightgray;
+        &:hover {
+            box-shadow: 0px 0px 14px 0px grey;
+        }
+    }
+    .result-item {
+
+        > span {
+            &:first-child {
+                font-weight: bold;
+                margin-right: 10px;
+                display: inline-block;
+            }
+        }
+    }
+
+    .results {
+        margin: 20px 10px 10px 0px;
+        padding: 3px;
+        height: ~"calc(100% - 70px)";
+        overflow: auto;
+    }
+
+    .busy {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: white;
+    }
+    .stop-exec {
+        margin: 5% 45%;
+    }
+
+    .messages {
+        span {
+            margin-left: 33px;
+            margin-top: 10px;
+            display: list-item;
+            list-style-position: inside;
+            font-style: italic;
+        }
+
+    }
+}
+
+

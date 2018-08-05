@@ -83,6 +83,7 @@ class Api {
                     return;
                 }
                 if(_res && _res.statusCode >= 200 && _res.statusCode < 400) {
+                    res.header('Access-Control-Allow-Origin', "*");
                     res.send({status:_res.body});
                 }
                 else{
@@ -125,6 +126,27 @@ class Api {
         app.post('/execute', (req, res) => {
 
             request.send(req.query.url + '/flow', {
+                method: 'POST',
+                params: req.body.body
+            }, (body, _res) => {
+                if(body == 'ECONNREFUSED'){
+                    res.send({error:{message:'DE server is down'}})
+                    return;
+                }
+                else if(_res && _res.statusCode >= 200 && _res.statusCode < 400) {
+                    res.send(JSON.parse(_res.body));
+                }
+                else{
+                    res.send({error:body});
+
+                }
+            });
+
+        });
+
+        app.post('/executeDi', (req, res) => {
+
+            request.send(req.query.url + '/di/flow', {
                 method: 'POST',
                 params: req.body.body
             }, (body, _res) => {
