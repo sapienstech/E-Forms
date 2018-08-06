@@ -105,7 +105,13 @@ export class ManagementServiceFacade {
                     return this.extractErrorMessage(result.error);
                 }
                 else {
-                    this.saveFlowInputs(result.trace.root);
+                    let notNullFts = {};
+                    Object.keys(result.trace.root).forEach(key => {
+                        if (result.trace.root[key] != null){
+                            notNullFts[key] =  result.trace.root[key];
+                        }
+                    });
+                    this.saveFlowInputs(notNullFts);
                     return this.transformExecutionResult(result);
                 }
             });

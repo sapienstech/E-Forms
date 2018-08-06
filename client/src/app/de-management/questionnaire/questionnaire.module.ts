@@ -9,15 +9,16 @@ import { AccordionModule } from 'ngx-accordion';
 import { ArrayWidget } from '../../widgets/array/array.widget';
 import { QuestionnaireComponent } from './questionnaire.component';
 import { QuestionnaireRouterModule } from './questionnaire.router.module';
+import {AlisIntegrationModule} from "../alis-integration/alis-integration.module";
 
 @NgModule({
-    imports: [BrowserModule,QuestionnaireRouterModule,SchemaFormModule.forRoot(),PipesModule,AccordionModule],
+    imports: [BrowserModule,QuestionnaireRouterModule,SchemaFormModule.forRoot(),PipesModule,AccordionModule,AlisIntegrationModule],
     declarations: [QuestionnaireComponent, CollapsibleWidget,HiddenWidget,ArrayWidget],
     providers: [ManagementService, { provide: WidgetRegistry, useClass: DefaultWidgetRegistry }],
     entryComponents: [
         CollapsibleWidget,
         HiddenWidget,
-        ArrayWidget
+        ArrayWidget,
     ]
 })
 export class QuestionnaireModule {

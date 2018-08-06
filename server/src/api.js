@@ -39,10 +39,7 @@ class Api {
         });
     }
 
-
     exposeDEEndpoints(port) {
-
-
 
         app.post('/manifest', (req, res) => {
 
@@ -67,19 +64,17 @@ class Api {
             });
         });
 
-
         app.get('/de-servers', (req, res) => {
             this.getFile('distributed-de-servers.json', req.body).then((data) => res.send(data));
         });
-
 
         app.get('/heartbeat', (req, res) => {
             request.send(req.query.url + '/heartbeat', {
                 method: 'GET',
                 params: null,
             }, (body, _res) => {
-                if (body == 'ECONNREFUSED') {
-                    res.send(SERVER_ERROR)
+                if (body === 'ECONNREFUSED') {
+                    res.send(SERVER_ERROR);
                     return;
                 }
                 if(_res && _res.statusCode >= 200 && _res.statusCode < 400) {
@@ -97,7 +92,7 @@ class Api {
                 method: 'GET',
                 params: null,
             }, (body, _res) => {
-                res.send(body != 'ECONNREFUSED');
+                res.send(body !== 'ECONNREFUSED');
             });
         });
 
@@ -107,21 +102,20 @@ class Api {
                 method: 'GET',
                 params: null,
             }, (body, _res) => {
-                if (body == 'ECONNREFUSED') {
-                    res.send(SERVER_ERROR)
+                if (body === 'ECONNREFUSED') {
+                    res.send(SERVER_ERROR);
                     return;
                 }
                 if(_res && _res.statusCode >= 200 && _res.statusCode < 400) {
                     let result = JSON.parse(_res.body);
-                    let filtered = result.filter(r => r.artifactType == 'FLOW');
+                    let filtered = result.filter(r => r.artifactType === 'FLOW');
                     res.send(filtered);
                 }
                 else{
                     res.send({error:'error'});
                 }
             });
-
-        })
+        });
 
         app.post('/execute', (req, res) => {
 
@@ -129,8 +123,8 @@ class Api {
                 method: 'POST',
                 params: req.body.body
             }, (body, _res) => {
-                if(body == 'ECONNREFUSED'){
-                    res.send({error:{message:'DE server is down'}})
+                if(body === 'ECONNREFUSED'){
+                    res.send({error:{message:'DE server is down'}});
                     return;
                 }
                 else if(_res && _res.statusCode >= 200 && _res.statusCode < 400) {
@@ -138,10 +132,8 @@ class Api {
                 }
                 else{
                     res.send({error:body});
-
                 }
             });
-
         });
 
         app.post('/executeDi', (req, res) => {
@@ -150,8 +142,8 @@ class Api {
                 method: 'POST',
                 params: req.body.body
             }, (body, _res) => {
-                if(body == 'ECONNREFUSED'){
-                    res.send({error:{message:'DE server is down'}})
+                if(body === 'ECONNREFUSED'){
+                    res.send({error:{message:'DE server is down'}});
                     return;
                 }
                 else if(_res && _res.statusCode >= 200 && _res.statusCode < 400) {
@@ -159,26 +151,19 @@ class Api {
                 }
                 else{
                     res.send({error:body});
-
                 }
             });
-
         });
-
 
         app.get('/ok', (req, res) => {
             res.send('OK');
-        })
+        });
 
         let selectedPort = port || 3000;
         app.listen(selectedPort, function () {
             console.log('Example app listening on port '+ selectedPort +'!')
-
         })
-
-
     }
-
 
     getFlowFile(type, data) {
         return new Promise((res, rej) => {
@@ -192,9 +177,7 @@ class Api {
                     if (rej) rej(err);
                 }
             });
-
         });
-
     }
 
     getFile(file) {
@@ -227,10 +210,7 @@ class Api {
                     if (rej) rej(err);
                 }
             });
-
         });
-
-
     }
 }
 

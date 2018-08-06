@@ -84,10 +84,10 @@ export class QuestionnaireComponent implements OnInit {
     next(firstTime: boolean = false) {
         this.executing = true;
         this.errorMessage = null;
-        let data = this.service.getFlowInputs() || {};
         if (!firstTime) {
-            this.service.saveFlowInputs(this.service.saveFlowInputs(this.output));
+            this.service.saveFlowInputs(this.output);
         }
+        let data = this.service.getFlowInputs() || {};
         this.service.execute(data, this.de).subscribe(executionResult => {
             this.executing = false;
             if (executionResult.error) {
@@ -123,7 +123,11 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     private extractResult(data: any): any {
-        return [{field: data.result.factTypeName, value: data.result.values, messages: data.messages ? data.messages[data.result.factTypeName] : data.messages}];
+        return [{
+            field: data.result.factTypeName,
+            value: data.result.values,
+            messages: data.messages ? data.messages[data.result.factTypeName] : data.messages
+        }];
     }
 
 
