@@ -68,7 +68,8 @@ export class DiIntegrationComponent {
                     '&flow-real-name=' + this.flowDetails.realName +
                     '&tag-name=' + this.flowDetails.tagName +
                     '&version=' + this.flowDetails.version +
-                    '&release-name=' + this.flowDetails.releaseName;
+                    '&release-name=' + this.flowDetails.releaseName +
+                    '&di-integration=true';
 
                 if (this.deDetails) {
                     url = url +

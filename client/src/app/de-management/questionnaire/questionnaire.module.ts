@@ -10,9 +10,10 @@ import { ArrayWidget } from '../../widgets/array/array.widget';
 import { QuestionnaireComponent } from './questionnaire.component';
 import { QuestionnaireRouterModule } from './questionnaire.router.module';
 import {AlisIntegrationModule} from "../alis-integration/alis-integration.module";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
-    imports: [BrowserModule,QuestionnaireRouterModule,SchemaFormModule.forRoot(),PipesModule,AccordionModule,AlisIntegrationModule],
+    imports: [BrowserModule,QuestionnaireRouterModule,SchemaFormModule.forRoot(),PipesModule,AccordionModule, RouterModule, AlisIntegrationModule],
     declarations: [QuestionnaireComponent, CollapsibleWidget,HiddenWidget,ArrayWidget],
     providers: [ManagementService, { provide: WidgetRegistry, useClass: DefaultWidgetRegistry }],
     entryComponents: [

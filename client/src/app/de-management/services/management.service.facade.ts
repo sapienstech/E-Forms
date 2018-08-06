@@ -147,6 +147,10 @@ export class ManagementServiceFacade {
         Object.assign(this.flowInputs, inputs);
     }
 
+    public clearFlowInputs(){
+        this.flowInputs = {};
+    }
+
     public getFlowInputs() {
         Object.keys(this.flowInputs).forEach(key=>{
             if(this.flowInputs[key] == '') {

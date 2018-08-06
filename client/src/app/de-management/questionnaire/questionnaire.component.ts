@@ -1,9 +1,10 @@
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import { ManagementServiceFacade } from '../services/management.service.facade';
 import { Observable } from 'rxjs/Observable';
 import {DeDetails, FlowDetails} from "../di-integration/di-integration.component";
+import {CONCLUSION_PARAM} from "../alis-integration/alis-integration.component";
 
 @Component({
     selector: 'questionnaire',
@@ -31,8 +32,9 @@ export class QuestionnaireComponent implements OnInit {
     private errorMessage: string;
     private executing: boolean = false;
     private errorTitle: string;
+    private withDiIntegration: boolean;
 
-    constructor(private route: ActivatedRoute, private service: ManagementServiceFacade) {
+    constructor(private route: ActivatedRoute, private service: ManagementServiceFacade, private router: Router) {
 
     }
 
@@ -52,17 +54,14 @@ export class QuestionnaireComponent implements OnInit {
                 this.de = {
                     name: params['de-name'],
                     url: params['de-url']
-                } ;
+                };
+                this.withDiIntegration = params['di-integration'];
                 this.getFlowManifest().subscribe(()=>{
                     this.first();
                 });
-
             });
-
         });
-
     }
-
 
     private getFlowManifest() {
         return Observable.create(obs=>{
@@ -71,15 +70,14 @@ export class QuestionnaireComponent implements OnInit {
                 obs.next();
             });
         })
-
     }
 
     clear() {
         this.form.reset();
+        this.service.clearFlowInputs();
         this.errorMessage = null;
         this.executionResult = null;
     }
-
 
     next(firstTime: boolean = false) {
         this.executing = true;
@@ -100,7 +98,11 @@ export class QuestionnaireComponent implements OnInit {
                     this.schema = this.service.getFlowSchemaFromRequiredFTs(executionResult.requiredFTs, this.originalManifest);
                 }else {
                     if (this.isFinalResult(executionResult)) {
-                        this.executionResult = this.extractResult(executionResult);
+                        if (!this.withDiIntegration) {
+                            this.executionResult = this.extractResult(executionResult);
+                        } else {
+                            this.handleConclusion(executionResult);
+                        }
                     }else {
                         this.errorTitle = 'No Result';
                         this.errorMessage = 'The flow ended without result';
@@ -117,7 +119,6 @@ export class QuestionnaireComponent implements OnInit {
         this.next(true);
     }
 
-
     private isFinalResult(data: any): boolean {
         return data.result.isConclusionValues == true;
     }
@@ -130,5 +131,9 @@ export class QuestionnaireComponent implements OnInit {
         }];
     }
 
-
+    private handleConclusion(executionResult: any) {
+        let value = executionResult.result.values;
+        let url = '/alis-integration?' + CONCLUSION_PARAM + "=" + value;
+        this.router.navigateByUrl(url);
+    }
 }

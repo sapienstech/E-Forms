@@ -24,5 +24,6 @@ if (process.env.port && process.env.port.indexOf(portParam) >= 0) {
     portNumber = parseInt(parameterVal);
 }
 _api.exposeDEEndpoints(portNumber);
+_api.exposeAlisEndpoints(portNumber);
 
 

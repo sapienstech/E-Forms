@@ -165,6 +165,25 @@ class Api {
         })
     }
 
+    exposeAlisEndpoints(port){
+
+        app.post('/initial-claim', (req, res) => {
+
+            request.send("http://alis-poc01:8107/poc_sl_env14/policies/claims?effectDate=2018-12-11", {
+                method: 'POST',
+                params: req.body.body
+            }, (body, _res) => {
+                if (body === 'ECONNREFUSED'){
+                    res.send({error:{message:'ALIS server is down'}});
+                } else if (_res && _res.statusCode >= 200 && _res.statusCode < 400) {
+                    res.send(JSON.parse(_res.body));
+                } else {
+                    res.send({error:body});
+                }
+            });
+        });
+    }
+
     getFlowFile(type, data) {
         return new Promise((res, rej) => {
             let key = data.name;
