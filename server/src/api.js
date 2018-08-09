@@ -167,11 +167,12 @@ class Api {
 
     exposeAlisEndpoints(port){
 
-        app.post('/initial-claim', (req, res) => {
+        app.post('/alis-claims', (req, res) => {
 
             request.send("http://alis-poc01:8107/poc_sl_env14/policies/claims?effectDate=2018-12-11", {
-                method: 'POST',
-                params: req.body.body
+                method: 'PUT',
+                params: req.body.body,
+                headers: {"alis-datasource-key": 14}
             }, (body, _res) => {
                 if (body === 'ECONNREFUSED'){
                     res.send({error:{message:'ALIS server is down'}});

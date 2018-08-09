@@ -16,4 +16,6 @@ export interface IManagementService {
     executeDi(inputs: DiExecutionInput, deDetails: DeDetails): Observable<any>;
 
     getFlowSchema(flow: any, de?: any): Observable<any> ;
+
+    callAlis(json: string): Observable<string>;
 }

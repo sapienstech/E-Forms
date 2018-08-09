@@ -4,7 +4,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import { ManagementServiceFacade } from '../services/management.service.facade';
 import { Observable } from 'rxjs/Observable';
 import {DeDetails, FlowDetails} from "../di-integration/di-integration.component";
-import {CONCLUSION_PARAM} from "../alis-integration/alis-integration.component";
+import {CONCLUSION_PARAM, MESSAGES_PARAM} from "../alis-integration/alis-integration.component";
 
 @Component({
     selector: 'questionnaire',
@@ -133,7 +133,11 @@ export class QuestionnaireComponent implements OnInit {
 
     private handleConclusion(executionResult: any) {
         let value = executionResult.result.values;
-        let url = '/alis-integration?' + CONCLUSION_PARAM + "=" + value;
+        let messages = executionResult.messages.CriticalIllnessClaimProcessingAction[0];
+        let url = `/alis-integration?${CONCLUSION_PARAM}=${value}`;
+        if (messages){
+            url += `&${MESSAGES_PARAM}=${messages.text}`;
+        }
         this.router.navigateByUrl(url);
     }
 }

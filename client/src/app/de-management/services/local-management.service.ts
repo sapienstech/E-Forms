@@ -52,5 +52,10 @@ export class LocalManagementService implements IManagementService {
         return this.http.post(this.localDEUrl + EXECUTE_DI_URL, inputs).map(response => response.json());
     }
 
+    callAlis(json): Observable<string> {
+        console.log(json);
+        return null;
+    }
+
 
 }

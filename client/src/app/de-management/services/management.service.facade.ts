@@ -117,6 +117,12 @@ export class ManagementServiceFacade {
             });
     }
 
+    callAlis(json: string){
+        this.managementServiceImp.callAlis(json).subscribe(response => {
+            console.log(response);
+        })
+    }
+
     getFlowSchema(flow: any, de?: any): Observable<any> {
         this.flow = flow;
         return this.managementServiceImp.getFlowSchema(flow, de).map(result => {

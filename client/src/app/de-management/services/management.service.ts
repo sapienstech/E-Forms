@@ -58,4 +58,13 @@ export class ManagementService implements IManagementService {
 
         return this.http.post(this.utilsService.getLocalUrl() + "/executeDi?url=" + deDetails.url, requestOptionArgs).map(response => response.json());
     }
+
+    callAlis(json: string) {
+
+        let requestOptionArgs = {
+            body: json
+        };
+
+        return this.http.post(this.utilsService.getLocalUrl() + "/alis-claims", requestOptionArgs).map(response => response.json());
+    }
 }

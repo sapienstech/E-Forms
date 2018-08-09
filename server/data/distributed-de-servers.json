@@ -2,6 +2,10 @@
     {
         "name": "Local DE",
         "url": "http://localhost:9080/bdes/ws/rs/api/2_0/execute"
+    },
+    {
+        "name": "SW DE",
+        "url": "http://bdmsaf:9985/bdes/ws/rs/api/2_0/execute"
     }
 
 ]
