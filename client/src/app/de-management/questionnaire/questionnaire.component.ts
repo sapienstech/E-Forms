@@ -55,7 +55,7 @@ export class QuestionnaireComponent implements OnInit {
                     name: params['de-name'],
                     url: params['de-url']
                 };
-                this.withAlisIntegration = params['alis-integration'];
+                this.withAlisIntegration = params['alis-integration'] == true;
                 this.getFlowManifest().subscribe(()=>{
                     this.first();
                 });
