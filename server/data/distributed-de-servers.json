@@ -1,7 +1,7 @@
 [
     {
         "name": "Local DE",
-        "url": "http://localhost:9080/bdes/ws/rs/api/2_0/execute"
+        "url": "http://localhost:9090/bdes/ws/rs/api/2_0/execute"
     },
     {
         "name": "SW DE",

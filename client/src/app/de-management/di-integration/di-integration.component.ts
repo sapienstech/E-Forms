@@ -22,8 +22,10 @@ import {ExecutionResult} from "../../model";
                 <div *ngIf="!errorMessage">
                     <h4>Please enter your client id:</h4>
                     <input #clientId/>
-                    <button (click)="callDi(clientId.value)">Submit</button>
+                    <button (click)="callDi(clientId.value, alisIntegration.checked)">Submit</button>
                 </div>
+                <br><br>
+                <div><label><h4>External Integration</h4><input #alisIntegration type="checkbox"/></label></div>
                 <div *ngIf="errorMessage"><h1>{{errorMessage}}</h1></div>
             </div>
         </div>
@@ -59,7 +61,7 @@ export class DiIntegrationComponent {
         });
     }
 
-    callDi(clientId: string) {
+    callDi(clientId: string, alisIntegration: boolean) {
         this.service.executeDi(clientId, this.deDetails, this.flowDetails).subscribe((executionResult: ExecutionResult) => {
             if (executionResult.error) {
                 this.errorMessage = executionResult.error;
@@ -69,7 +71,7 @@ export class DiIntegrationComponent {
                     '&tag-name=' + this.flowDetails.tagName +
                     '&version=' + this.flowDetails.version +
                     '&release-name=' + this.flowDetails.releaseName +
-                    '&di-integration=true';
+                    '&alis-integration=' + alisIntegration;
 
                 if (this.deDetails) {
                     url = url +

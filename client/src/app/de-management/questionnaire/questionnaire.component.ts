@@ -32,7 +32,7 @@ export class QuestionnaireComponent implements OnInit {
     private errorMessage: string;
     private executing: boolean = false;
     private errorTitle: string;
-    private withDiIntegration: boolean;
+    private withAlisIntegration: boolean;
 
     constructor(private route: ActivatedRoute, private service: ManagementServiceFacade, private router: Router) {
 
@@ -55,7 +55,7 @@ export class QuestionnaireComponent implements OnInit {
                     name: params['de-name'],
                     url: params['de-url']
                 };
-                this.withDiIntegration = params['di-integration'];
+                this.withAlisIntegration = params['alis-integration'];
                 this.getFlowManifest().subscribe(()=>{
                     this.first();
                 });
@@ -98,7 +98,7 @@ export class QuestionnaireComponent implements OnInit {
                     this.schema = this.service.getFlowSchemaFromRequiredFTs(executionResult.requiredFTs, this.originalManifest);
                 }else {
                     if (this.isFinalResult(executionResult)) {
-                        if (!this.withDiIntegration) {
+                        if (!this.withAlisIntegration) {
                             this.executionResult = this.extractResult(executionResult);
                         } else {
                             this.handleConclusion(executionResult);
