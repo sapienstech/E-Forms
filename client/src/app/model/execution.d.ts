@@ -32,7 +32,12 @@ export interface ExecutionResult {
     requiredFactTypes:any[];
     error:any;
     trace: {
-        root: {
+        root?: {
+            factTypeDetails: any;
+
+            [factTypeName: string]: string;
+        },
+        Root?: {
             factTypeDetails: any;
 
             [factTypeName: string]: string;

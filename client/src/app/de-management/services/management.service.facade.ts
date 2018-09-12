@@ -106,9 +106,9 @@ export class ManagementServiceFacade {
                 }
                 else {
                     let notNullFts = {};
-                    Object.keys(result.trace.root).forEach(key => {
-                        if (result.trace.root[key] != null){
-                            notNullFts[key] =  result.trace.root[key];
+                    Object.keys(result.trace.Root).forEach(key => {
+                        if (result.trace.Root[key] != null){
+                            notNullFts[key] =  result.trace.Root[key];
                         }
                     });
                     this.saveFlowInputs(notNullFts);
@@ -202,11 +202,11 @@ export class ManagementServiceFacade {
 
     transformExecutionResult(executionResult: ExecutionResult) {
         // TODO: Handle list value better
-
+        let root = executionResult.trace.root || executionResult.trace.Root;
         return {
             result: executionResult.conclusion,
             requiredFTs: executionResult.requiredFactTypes,
-            messages: this.mapFactTypeDetails(executionResult.trace.root.factTypeDetails)
+            messages: this.mapFactTypeDetails(root.factTypeDetails)
         };
     }
 
