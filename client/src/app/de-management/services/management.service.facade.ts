@@ -91,6 +91,7 @@ export class ManagementServiceFacade {
 
     getFlowSchema(flow: any, de?: any): Observable<any> {
         this.flow = flow;
+        this.resetFlowInputs();
         return this.managementServiceImp.getFlowSchema(flow, de).map(result => {
             if (result.error) {
                 return this.extractErrorMessage(result.error);
@@ -103,6 +104,7 @@ export class ManagementServiceFacade {
 
     getFlowManifest(flow: any, de?: any): Observable<any> {
         this.flow = flow;
+        this.resetFlowInputs();
         return this.managementServiceImp.getFlowSchema(flow, de).map(result => {
             if (result.error) {
                 return this.extractErrorMessage(result.error);
@@ -121,7 +123,7 @@ export class ManagementServiceFacade {
 
     public getFlowInputs() {
         Object.keys(this.flowInputs).forEach(key=>{
-            if(this.flowInputs[key] == '') this.flowInputs[key] = null;
+            if(this.flowInputs[key] === '') this.flowInputs[key] = null;
         });
         return this.flowInputs;
     }
@@ -221,5 +223,9 @@ export class ManagementServiceFacade {
     getFlowSchemaFromRequiredFTs(requiredFTs: any[], manifest: any) {
 
         return this.transformationService.transformFTsToFormSchema(requiredFTs, manifest);
+    }
+
+    private resetFlowInputs() {
+        this.flowInputs = {};
     }
 }
