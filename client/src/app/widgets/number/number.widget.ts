@@ -11,7 +11,8 @@ import {ControlWidget} from 'angular2-schema-form';
             <div class="widget form-group">
                 <span *ngIf="schema.description" class="formHelp">{{schema.description}}</span>
                 <input #input [attr.readonly]="schema.readOnly?true:null" [name]="name"
-                       class="text-widget integer-widget form-control" [attr.type]="'number'"
+                       class="text-widget integer-widget form-control" [formControl]="control"
+                       [attr.type]="'number'"
                        [attr.min]="schema.minimum" [attr.max]="schema.maximum"
                        [attr.placeholder]="schema.placeholder">
             </div>
@@ -23,7 +24,7 @@ export class NumberWidget extends ControlWidget {
     @ViewChild('input') element: ElementRef;
 
     ngAfterViewInit() {
-        const control = this.control;
+        let control = this.control;
         this.formProperty.valueChanges.subscribe((newValue) => {
             if (typeof this._displayValue !== 'undefined') {
                 // Ignore the model value, use the display value instead
