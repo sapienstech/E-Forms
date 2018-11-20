@@ -12,7 +12,7 @@ import { ArrayWidget } from '../../widgets/array/array.widget';
 import {NumberWidget} from "../../widgets/number/number.widget";
 
 @NgModule({
-    imports: [BrowserModule,FlowExecuterRouterModule,SchemaFormModule,PipesModule,AccordionModule],
+    imports: [BrowserModule,FlowExecuterRouterModule,SchemaFormModule.forRoot(),PipesModule,AccordionModule],
     declarations: [FlowExecuterComponent, CollapsibleWidget,HiddenWidget,ArrayWidget, NumberWidget],
     providers: [ManagementService, { provide: WidgetRegistry, useClass: DefaultWidgetRegistry }],
     entryComponents: [
