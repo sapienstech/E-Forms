@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {ControlWidget} from 'angular2-schema-form';
 
 @Component({
@@ -10,7 +10,7 @@ import {ControlWidget} from 'angular2-schema-form';
             </label>
             <div class="widget form-group">
                 <span *ngIf="schema.description" class="formHelp">{{schema.description}}</span>
-                <input #input [attr.readonly]="schema.readOnly?true:null" [name]="name"
+                <input [attr.readonly]="schema.readOnly?true:null" [name]="name"
                        class="text-widget integer-widget form-control" [formControl]="control"
                        [attr.type]="'number'"
                        [attr.min]="schema.minimum" [attr.max]="schema.maximum"
@@ -20,8 +20,6 @@ import {ControlWidget} from 'angular2-schema-form';
 })
 export class NumberWidget extends ControlWidget {
     private _displayValue: string;
-
-    @ViewChild('input') element: ElementRef;
 
     ngAfterViewInit() {
         let control = this.control;
@@ -43,13 +41,6 @@ export class NumberWidget extends ControlWidget {
             this._displayValue = newValue;
             this.formProperty.setValue(newValue, false);
             delete this._displayValue;
-            // if (newValue === '' && (<HTMLInputElement>this.element.nativeElement).validity.badInput) {
-            //     // Show a custom error if the number is invalid
-            //     this.formProperty.extendErrors([{
-            //         path: '#'+this.formProperty.path,
-            //         message: 'Invalid number',
-            //     }]);
-            // }
         });
     }
 }
